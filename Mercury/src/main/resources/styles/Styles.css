@@ -44,14 +44,16 @@
 } 
 
 .button#newFormBTN > *.content{
-    -fx-background-color: #54b255; 
+    -fx-background-color: #3e8c3f; 
     -fx-text-alignment: left; 
-    -fx-padding: 0.167em;
+    -fx-padding: -5px; 
 }
-#list{
-    -fx-color: #54b255;
-    -fx-background-color: #54b255;
-} 
+.button#newFormITEM{
+    -fx-background-color: #3e8c3f;  
+}
+.button#newFormITEM:hover{
+    -fx-background-color: #54b255;  
+}
 .button#dashboardBTN{
     -fx-background-color: #d81e05;
     -fx-text-alignment: left;

@@ -140,12 +140,19 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Accordion />
                   <Accordion>
                     <panes>
                       <TitledPane id="newFormBTN" animated="false" styleClass="button" text="Nieuw formulier">
                            <content>
-                              <VBox prefHeight="64.0" prefWidth="252.0" />
+                              <VBox prefHeight="64.0" prefWidth="252.0">
+                                 <padding>
+                                    <Insets right="6.0" top="6.0" />
+                                 </padding>
+                                 <children>
+                                    <Button id="newFormITEM" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="309.0" text="Gevonden bagage" />
+                                    <Button id="foundFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="309.0" text="Vermiste bagage" />
+                                 </children>
+                              </VBox>
                            </content>
                       </TitledPane>
                     </panes>
