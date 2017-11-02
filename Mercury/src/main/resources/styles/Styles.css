@@ -1,4 +1,4 @@
-@import url("sidebar.css");
+@import "sidebar.css";
 .header{
     -fx-background-color: #d81e05; 
     -fx-font-family: "Open Sans";
@@ -7,87 +7,15 @@
     -fx-font-weight: BOLD ;
     -fx-font-style: normal; 
 }  
-
-.content#base{
+.navigationBar{
     -fx-background-color: #dddddd; 
-}
-.content#imageBox{
-    -fx-background-color: white;
-}
-.-sidebar{
-    -fx-background-color: white;
-}
-.-sidebar#Menu{
     -fx-font-family: "Open Sans";
-    -fx-font-size: 24px;
+    -fx-font-size: 12px;
     -fx-font: "Roboto";
     -fx-font-weight: BOLD ;
     -fx-font-style: normal; 
-
-}
-.button{
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 20px;
-    -fx-font: "Roboto";
-    -fx-font-weight: BOLD ;
-    -fx-text-fill: white;
-}
-.button#newFormBTN{
-    -fx-color: #54b255; 
-    -fx-background-color: #54b255; 
-    -fx-text-alignment: left; 
-    -fx-padding: 0.187em;
-}
-.button#newFormBTN > .title 
-{
--fx-color: #54b255;
-} 
-
-.button#newFormBTN > *.content{
-    -fx-background-color: #3e8c3f; 
-    -fx-text-alignment: left; 
-    -fx-padding: -5px; 
-}
-.button#newFormITEM{
-    -fx-background-color: #3e8c3f;  
-}
-.button#newFormITEM:hover{
-    -fx-background-color: #54b255;  
-}
-.button#dashboardBTN{
-    -fx-background-color: #d81e05;
-    -fx-text-alignment: left;
-}
-.button#dashboardBTN:hover{
-    -fx-background-color: #ffc61f;
-    -fx-text-alignment: left;
 }
 
-.button#searchBTN{
-    -fx-background-color: #d81e05;
-    -fx-text-alignment: left;
-}
-.button#searchBTN:hover{
-    -fx-background-color: #ffc61f;
-    -fx-text-alignment: left;
-}
-.button#ManagerBTN{
-    -fx-background-color: #d81e05;
-    -fx-text-alignment: left;
-}
-.button#ManagerBTN:hover{
-    -fx-background-color: #ffc61f;
-    -fx-text-alignment: left;
-}
-
-.button#logout{
-    -fx-background-color: #00bce2;
-    -fx-text-alignment: left;
-}
-.button#logout:hover{
-    -fx-background-color: #0590e3;
-    -fx-text-alignment: left;
-}
 .footer{
     -fx-background-color: #d81e05; 
     -fx-font-family: "Open Sans";
