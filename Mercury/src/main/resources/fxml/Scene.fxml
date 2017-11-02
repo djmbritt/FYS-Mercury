@@ -123,7 +123,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="-sidebar" GridPane.rowIndex="2">
                <children>
-                  <Button id="logout" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="12.0" prefWidth="268.0" text="Logout" wrapText="true">
+                  <Button id="logout" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#logout" prefHeight="12.0" prefWidth="268.0" text="Logout" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -148,15 +148,15 @@
                                     <Insets right="6.0" top="6.0" />
                                  </padding>
                                  <children>
-                                    <Button id="newFormITEM" fx:id="FoundFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#RegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden bagage" />
-                                    <Button id="newFormITEM" fx:id="LostFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="309.0" text="Vermiste bagage" />
+                                    <Button id="newFormITEM" fx:id="FoundFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden bagage" />
+                                    <Button id="newFormITEM" fx:id="LostFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste bagage" />
                                  </children>
                               </VBox>
                            </content>
                       </TitledPane>
                     </panes>
                   </Accordion>
-                  <Button id="dashboardBTN" fx:id="DashboardBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="12.0" prefWidth="268.0" text="Dashboard" wrapText="true">
+                  <Button id="dashboardBTN" fx:id="DashboardBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openDashboard" prefHeight="12.0" prefWidth="268.0" text="Dashboard" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -168,7 +168,7 @@
                         <Glow />
                      </effect>
                   </Button>
-                  <Button id="searchBTN" fx:id="searchBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="12.0" prefWidth="268.0" text="Bagage zoeken" wrapText="true">
+                  <Button id="searchBTN" fx:id="searchBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="12.0" prefWidth="268.0" text="Bagage zoeken" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -180,7 +180,7 @@
                         <Glow />
                      </effect>
                   </Button>
-                  <Button id="ManagerBTN" fx:id="ManagerBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="12.0" prefWidth="268.0" text="Manager overzicht" wrapText="true">
+                  <Button id="ManagerBTN" fx:id="ManagerBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openManagerOverzicht" prefHeight="12.0" prefWidth="268.0" text="Manager overzicht" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
