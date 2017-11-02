@@ -148,7 +148,7 @@
                                     <Insets right="6.0" top="6.0" />
                                  </padding>
                                  <children>
-                                    <Button id="newFormITEM" fx:id="FoundFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#RegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden bagage" />
+                                    <Button id="newFormITEM" fx:id="FoundFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="309.0" text="Gevonden bagage" />
                                     <Button id="newFormITEM" fx:id="LostFormBTN" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="309.0" text="Vermiste bagage" />
                                  </children>
                               </VBox>
