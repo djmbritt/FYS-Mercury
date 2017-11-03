@@ -20,6 +20,7 @@ public class MainApp extends Application {
         
         stage.setTitle("Mercury");
        // stage.setFullScreen(Boolean.TRUE);
+       stage.setResizable(false);
         stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.setScene(scene);
         stage.show();

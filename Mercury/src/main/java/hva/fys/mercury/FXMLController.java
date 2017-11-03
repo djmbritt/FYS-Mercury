@@ -10,18 +10,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable; 
-import javafx.scene.control.Label; 
+//import javafx.scene.control.Label; 
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+//import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 //import javafx.scene.layout.BorderPane; 
 
 public class FXMLController implements Initializable {
     
     @FXML
     private StackPane workspace;
+    
+    @FXML
+    private BorderPane parentNode;
+
 
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
@@ -59,20 +62,52 @@ public class FXMLController implements Initializable {
     
     }
     
+       
 
     @FXML
     private void openBagageZoeken(ActionEvent event) {
         System.out.println("bagage zoeken geopend ");
+        Parent pane = loadFXMLFile("/fxml/bagageFormulier.fxml");
+        
+        System.out.println(pane);
+        System.out.println(workspace);
+        workspace.getChildren().clear();
+        workspace.getChildren().setAll(pane);        
     }
 
     @FXML
     private void openManagerOverzicht(ActionEvent event) {
         System.out.println("manager  geopend ");
+        Parent pane = loadFXMLFile("/fxml/managerOverzicht.fxml");
+        
+        System.out.println(pane);
+        System.out.println(workspace);
+        workspace.getChildren().clear();
+        workspace.getChildren().setAll(pane);        
     }
  
     @FXML
-    private void logout(ActionEvent event) {
-        System.out.println("iutloggen ");
+    private void logOut(ActionEvent event){
+        System.out.println("Logging Out");
+        Parent pane = loadFXMLFile("/fxml/Login.fxml");
+        
+        System.out.println(pane);
+        System.out.println(parentNode);
+        
+        parentNode.getChildren().clear();
+        parentNode.getChildren().setAll(pane);
+    }
+    
+    @FXML
+    private void loginAction(ActionEvent event){
+        System.out.println("Logging In");
+        Parent pane = loadFXMLFile("/fxml/Scene.fxml");
+        
+        System.out.println(pane);
+        System.out.println(parentNode);
+              
+        parentNode.getChildren().clear();
+        parentNode.getChildren().setAll(pane);
     }
     
     @Override

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="base" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.FXMLController">
+<BorderPane fx:id="parentNode" minHeight="600.0" minWidth="900.0" styleClass="base" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.FXMLController">
    <top>
       <GridPane id="mainHeader" alignment="TOP_CENTER" styleClass="header" stylesheets="@../styles/Styles.css">
         <columnConstraints>
@@ -124,7 +124,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="-sidebar" GridPane.rowIndex="2">
                <children>
-                  <Button id="logout" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#logout" prefHeight="12.0" prefWidth="268.0" text="Logout" wrapText="true">
+                  <Button id="logout" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#logOut" prefHeight="12.0" prefWidth="268.0" text="Logout" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -199,7 +199,7 @@
       </GridPane>
    </left>
    <center>
-      <BorderPane fx:id="innerBorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
             <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="532.0" styleClass="navigationBar" BorderPane.alignment="CENTER">
                <children>
