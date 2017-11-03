@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="base" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.FXMLController">
@@ -198,7 +199,7 @@
       </GridPane>
    </left>
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="innerBorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
             <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="532.0" styleClass="navigationBar" BorderPane.alignment="CENTER">
                <children>
@@ -211,6 +212,9 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
-         </top></BorderPane>
+         </top>
+         <center>
+            <StackPane fx:id="workspace" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center></BorderPane>
    </center>
 </BorderPane>
