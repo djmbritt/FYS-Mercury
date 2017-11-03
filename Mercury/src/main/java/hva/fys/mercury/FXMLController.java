@@ -9,23 +9,14 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import javafx.scene.control.Label;
-=======
-=======
->>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
+import javafx.fxml.Initializable; 
+import javafx.scene.control.Label; 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-//import javafx.scene.layout.BorderPane;
-<<<<<<< HEAD
->>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
-=======
->>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
+//import javafx.scene.layout.BorderPane; 
 
 public class FXMLController implements Initializable {
     
@@ -59,8 +50,7 @@ public class FXMLController implements Initializable {
     private void openDashboard(ActionEvent event) {
         System.out.println("dashboard geopend ");
         Parent pane;
-        pane = loadFXMLFile("/fxml/Dashboard.fxml");
-        ///Users/davidbritt/Desktop/FYS-Mercury/Mercury/src/main/resources/fxml/Dashboard.fxml
+        pane = loadFXMLFile("/fxml/Dashboard.fxml"); 
         
         System.out.println(pane);
         System.out.println(workspace);
@@ -79,15 +69,7 @@ public class FXMLController implements Initializable {
     private void openManagerOverzicht(ActionEvent event) {
         System.out.println("manager  geopend ");
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
-=======
-    
->>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
+ 
     @FXML
     private void logout(ActionEvent event) {
         System.out.println("iutloggen ");
