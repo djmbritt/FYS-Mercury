@@ -11,14 +11,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.scene.control.Label;
 =======
+=======
+>>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 //import javafx.scene.layout.BorderPane;
+<<<<<<< HEAD
+>>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
+=======
 >>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
 
 public class FXMLController implements Initializable {
@@ -74,7 +80,11 @@ public class FXMLController implements Initializable {
         System.out.println("manager  geopend ");
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
 =======
     
 >>>>>>> 24f157a74f324290b5a91d3219dad0d67978059e
