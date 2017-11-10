@@ -25,6 +25,8 @@ public class FXMLController implements Initializable {
     @FXML
     private BorderPane parentNode;
 
+    @FXML
+    private StackPane rootWorkSpace;
 
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
@@ -101,13 +103,13 @@ public class FXMLController implements Initializable {
     @FXML
     private void loginAction(ActionEvent event){
         System.out.println("Logging In");
-        Parent pane = loadFXMLFile("/fxml/Scene.fxml");
+        Parent pane = loadFXMLFile("/fxml/MenuBar.fxml");
         
         System.out.println(pane);
-        System.out.println(parentNode);
+        System.out.println(rootWorkSpace);
               
-        parentNode.getChildren().clear();
-        parentNode.getChildren().setAll(pane);
+        rootWorkSpace.getChildren().clear();
+        rootWorkSpace.getChildren().add(pane);
     }
     
     @Override
