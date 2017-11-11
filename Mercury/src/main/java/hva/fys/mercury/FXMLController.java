@@ -93,11 +93,11 @@ public class FXMLController implements Initializable {
         System.out.println("Logging Out");
         Parent pane = loadFXMLFile("/fxml/Login.fxml");
         
-        System.out.println(pane);
-        System.out.println(parentNode);
+        System.out.println("pane: " + pane);
+        System.out.println("rootWorkspace: " + rootWorkSpace);
         
-        parentNode.getChildren().clear();
-        parentNode.getChildren().setAll(pane);
+        rootWorkSpace.getChildren().clear();
+        rootWorkSpace.getChildren().setAll(pane);
     }
     
     @FXML
