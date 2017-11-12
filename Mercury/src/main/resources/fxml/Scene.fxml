@@ -215,6 +215,9 @@
          </top>
          <center>
             <StackPane fx:id="workspace" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
+         </center>
+         <left>
+            <VBox id="gap" prefHeight="514.0" prefWidth="6.0" BorderPane.alignment="CENTER" />
+         </left></BorderPane>
    </center>
 </BorderPane>
