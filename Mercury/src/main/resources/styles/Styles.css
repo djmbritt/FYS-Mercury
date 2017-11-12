@@ -1,0 +1,28 @@
+@import "sidebar.css";
+.header{
+    -fx-background-color: #d81e05; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px;
+    -fx-font: "Roboto";
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal; 
+}  
+.navigationBar{
+    -fx-background-color: #dddddd; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px;
+    -fx-font: "Roboto";
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal; 
+}
+
+.footer{
+    -fx-background-color: #d81e05; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px;
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal;   
+    -fx-text-fill: white;
+}
+
+
