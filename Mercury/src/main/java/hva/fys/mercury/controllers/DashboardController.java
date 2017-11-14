@@ -1,4 +1,4 @@
-package hva.fys.mercury;
+package hva.fys.mercury.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

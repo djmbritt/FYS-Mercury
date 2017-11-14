@@ -1,4 +1,4 @@
-package hva.fys.mercury;
+package hva.fys.mercury.controllers;
 
 import java.io.IOException;
 import java.net.URL; 
@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;  
 
-public class FXMLController implements Initializable {
+public class RootController implements Initializable {
 
     @FXML
     private StackPane workspace;
