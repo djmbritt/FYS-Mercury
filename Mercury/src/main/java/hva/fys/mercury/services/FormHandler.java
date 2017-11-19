@@ -1,14 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hva.fys.mercury.services;
 
-/**
- *
- * @author GG
- */
+import hva.fys.mercury.models.Bagage;
+import java.util.ArrayList;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+
 public class FormHandler {
-    
+
+    public boolean verlorenBagageOpslaan(Parent parent) {
+        return true;
+    }
+
+    public boolean verlorenBagageBewerken(Parent parent) {
+        return true;
+    }
+
+    public boolean verlorenBagageVerwijderen(Parent parent) {
+        return true;
+    }
+
+    public Parent foutCheck(Parent parent) {
+        return parent;
+    }
 }
