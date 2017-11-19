@@ -60,7 +60,7 @@ public class RootController implements Initializable {
     @FXML
     private void openBagageZoeken(ActionEvent event) {
         System.out.println("bagage zoeken geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageFormulier.fxml");
+        Parent pane = loadFXMLFile("/fxml/bagageZoeken.fxml");
 
         System.out.println(pane);
         System.out.println(workspace);
