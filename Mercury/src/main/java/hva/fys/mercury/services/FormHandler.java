@@ -2,25 +2,23 @@ package hva.fys.mercury.services;
 
 import hva.fys.mercury.models.Bagage;
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 
 public class FormHandler {
 
-    public boolean verlorenBagageOpslaan(Parent parent) {
-        return true;
-    }
-
-    public boolean verlorenBagageBewerken(Parent parent) {
-        return true;
-    }
-
-    public boolean verlorenBagageVerwijderen(Parent parent) {
-        return true;
-    }
-
-    public Parent foutCheck(Parent parent) {
-        return parent;
+   public Bagage bindToObject(Parent parent , Bagage bagage) {
+        List<TextField> gild = new ArrayList();
+        for (Node node : parent.getChildrenUnmodifiable()) {
+            if (node instanceof TextField) {
+                System.out.println(node.getId());
+                gild.add((TextField) node);
+            }
+        } 
+        bagage.setAllProperties(gild);
+        
+        return bagage;
     }
 }

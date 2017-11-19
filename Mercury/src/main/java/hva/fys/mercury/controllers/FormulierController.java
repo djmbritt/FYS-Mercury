@@ -7,39 +7,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import hva.fys.mercury.models.Bagage;
+import javafx.scene.control.Label;
 
 public class FormulierController implements Initializable {
- 
-    private FormHandler handler = new FormHandler();
+
+    private FormHandler handler;
+    private Bagage bagage;
     
     @FXML
     private AnchorPane form;
+ 
+    @FXML
+    Label label;
     
-    public void nieuwformulier(ActionEvent event) {
-        
-    }
-
-    public void opslaan(ActionEvent event) {
-        
-       if(handler.verlorenBagageOpslaan(form)){
-           
-       }
-    }
-
-    public void annuleer(ActionEvent event) {
-
-    }
-
-    public void bewerken(ActionEvent event) {
-
-    }
-    
-    public void verwijder(ActionEvent event){
-        
+    public void opslaan(ActionEvent event){
+        label.setText(bagage.getRegistratieID() + "\n" + bagage.getRegistratieID()); 
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) { 
+        handler = new FormHandler();
+        bagage = new Bagage();
+        bagage = handler.bindToObject(form, bagage);
     }
 }
