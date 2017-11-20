@@ -1,8 +1,10 @@
 package hva.fys.mercury.models;
 
+import java.util.List;
+import javafx.scene.control.TextField;
 
 public class Reiziger {
-    
+
     private String voornaam;
     private String achternaam;
     private String adres;
@@ -122,5 +124,9 @@ public class Reiziger {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setAllProperties(List<TextField> list) {
+
     }
 }

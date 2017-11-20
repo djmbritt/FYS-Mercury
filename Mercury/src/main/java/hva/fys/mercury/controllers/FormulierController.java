@@ -22,13 +22,13 @@ public class FormulierController implements Initializable {
     Label label;
     
     public void opslaan(ActionEvent event){
-        label.setText(bagage.getRegistratieID() + "\n" + bagage.getRegistratieID()); 
+        label.setText(bagage.getRegistratieID() + "\n" + bagage.getDatumGevonden()); 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
         handler = new FormHandler();
         bagage = new Bagage();
-        bagage = handler.bindToObject(form, bagage);
+        bagage = handler.bindToBagageObject(form, bagage);
     }
 }
