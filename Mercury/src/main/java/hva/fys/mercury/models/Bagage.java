@@ -2,6 +2,7 @@ package hva.fys.mercury.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
@@ -22,6 +23,7 @@ public class Bagage {
     private final StringProperty formaat;
     private final StringProperty gewichtInKG;
     private final StringProperty overigeEigenschappen;
+    private BooleanProperty status;
 
     public Bagage() {
         registratieID = new SimpleStringProperty(this, "registratieID");
@@ -179,4 +181,19 @@ public class Bagage {
         properties.add(gewichtInKG);
         properties.add(overigeEigenschappen);
     }
+
+    /**
+     * @return the status
+     */
+    public BooleanProperty getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(BooleanProperty status) {
+        this.status = status;
+    }
+    
 }

@@ -1,4 +1,4 @@
-package hva.fys.mercury;
+package hva.fys.mercury.controllers;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,7 +30,7 @@ public class BagageZoekenController implements Initializable {
         BorderPane pane = (BorderPane) loadFXMLFile("/fxml/bagageResultaten.fxml");
         rootBorderPane.getChildren().clear();
         rootBorderPane.setCenter(pane);
-        pane.setPrefSize(rootBorderPane.getWidth(), rootBorderPane.getPrefHeight());
+//        pane.setPrefSize(rootBorderPane.getWidth(), rootBorderPane.getPrefHeight());
         
     }
 
