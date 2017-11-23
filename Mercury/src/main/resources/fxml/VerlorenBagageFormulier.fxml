@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="form" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.FormulierController">
+    <stylesheets>
+        <URL value="@/styles/formulieren.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="registratieID" layoutX="82.0" layoutY="55.0" />
+      <TextField fx:id="tijdGevonden" layoutX="418.0" layoutY="55.0" />
+      <TextField fx:id="datumGevonden" layoutX="82.0" layoutY="115.0" />
+      <TextField fx:id="bagageType" layoutX="418.0" layoutY="115.0" />
+      <Button fx:id="saveBTN" layoutX="502.0" layoutY="169.0" mnemonicParsing="false" onAction="#opslaan" prefHeight="25.0" prefWidth="65.0" text="Opslaan" />
+      <Label fx:id="label" layoutX="217.0" layoutY="233.0" prefHeight="112.0" prefWidth="209.0" text="Label" />
+   </children>
+</AnchorPane>

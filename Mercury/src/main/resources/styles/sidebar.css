@@ -1,7 +1,7 @@
 .-sidebar{
     -fx-background-color: white;
 }
- 
+
 .button{
     -fx-font-family: "Open Sans";
     -fx-font-size: 20px;
@@ -17,7 +17,7 @@
 }
 .button#newFormBTN > .title 
 {
--fx-color: #54b255;
+    -fx-color: #54b255;
 } 
 
 .button#newFormBTN > *.content{
@@ -31,6 +31,32 @@
 .button#newFormITEM:hover{
     -fx-background-color: #54b255;  
 }
+
+.button#taalBtn {
+    -fx-color: #ffb01f;
+    -fx-background-color: #ffb01f;
+    -fx-text-alignment: left; 
+    -fx-padding: 0.187em;
+}
+.button#taalBtn > .title{
+    -fx-color: #ffb01f;
+}
+
+.button#taalBtn > *.content{
+    -fx-background-color: #ffc61f;
+    fx-padding: -5px;
+    -fx-text-alignment: left; 
+    -fx-padding: -5px; 
+}
+
+.button#taalItem {
+    -fx-background-color: #ffc61f;
+}
+
+.button#taalItem:hover {
+    -fx-background-color: #ffec1f;
+}
+
 .button#dashboardBTN{
     -fx-background-color: #d81e05;
     -fx-text-alignment: left;
@@ -60,4 +86,16 @@
 }
 .button#logout:hover{
     -fx-background-color: #0590e3; 
+}
+
+#btnBox{
+    -fx-background-color: #d81e05;
+}
+
+.button#taalBtn {
+    -fx-background-color: #ffc61f;
+}
+
+.button#taalItem {
+    -fx-background-color: #ffc61f;
 }

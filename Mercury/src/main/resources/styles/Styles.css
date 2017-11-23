@@ -24,5 +24,11 @@
     -fx-font-style: normal;   
     -fx-text-fill: white;
 }
+#gap{
+    
+    -fx-background-color: #dddddd; 
+    
+}
+
 
 
