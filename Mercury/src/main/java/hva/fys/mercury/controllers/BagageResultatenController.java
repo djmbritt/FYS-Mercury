@@ -23,14 +23,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class BagageResultatenController implements Initializable {
     
-    TableHandler handler = new TableHandler();
+    
     private TableView table;
        
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        handler.fillTable(table);
-     
-        
+    public void initialize(URL url, ResourceBundle rb) {  
         
     }
 }

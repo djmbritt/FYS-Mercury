@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hva.fys.mercury.dataAccess;
+package hva.fys.mercury.services;
 
 /**
  *
  * @author GG
  */
-public class connectDataBase {
+public class PDFExport {
     
+   // PDD DOcument 
+    //met logo is draw image
 }

@@ -1,5 +1,6 @@
 package hva.fys.mercury.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
@@ -9,20 +10,20 @@ import javafx.scene.control.TextField;
 
 public class Bagage {
 
-    private final List<StringProperty> properties;
-    private final StringProperty registratieID;
-    private final StringProperty datumGevonden;
-    private final StringProperty tijdGevonden;
-    private final StringProperty bagageType;
-    private final StringProperty merk;
-    private final StringProperty vluchtNummer;
-    private final StringProperty bagagelabel;
-    private final StringProperty gevondenLocatie;
-    private final StringProperty primaireKleur;
-    private final StringProperty secundaireKleur;
-    private final StringProperty formaat;
-    private final StringProperty gewichtInKG;
-    private final StringProperty overigeEigenschappen;
+    private List<StringProperty> properties;
+    private StringProperty registratieID;
+    private StringProperty datumGevonden;
+    private StringProperty tijdGevonden;
+    private StringProperty bagageType;
+    private StringProperty merk;
+    private StringProperty vluchtNummer;
+    private StringProperty bagagelabel;
+    private StringProperty gevondenLocatie;
+    private StringProperty primaireKleur;
+    private StringProperty secundaireKleur;
+    private StringProperty formaat;
+    private StringProperty gewichtInKG;
+    private StringProperty overigeEigenschappen;
     private BooleanProperty status;
 
     public Bagage() {
@@ -195,5 +196,5 @@ public class Bagage {
     public void setStatus(BooleanProperty status) {
         this.status = status;
     }
-    
+
 }

@@ -23,7 +23,7 @@ public class FormHandler {
         return bagage;
     }
 
-    public Reiziger bindToBagageObject(Parent parent, Reiziger reiziger) {
+    public Reiziger bindToReizigerObject(Parent parent, Reiziger reiziger) {
         List<TextField> textFieldList = new ArrayList();
         for (Node node : parent.getChildrenUnmodifiable()) {
             if (node instanceof TextField) {
