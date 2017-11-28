@@ -12,13 +12,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;  
 
-public class RootController implements Initializable {
+public class ContentController implements Initializable {
 
     @FXML
     private StackPane workspace;
 
     @FXML
-    private BorderPane parentNode;
+    private BorderPane content;
 
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
@@ -57,8 +57,8 @@ public class RootController implements Initializable {
         System.out.println(workspace.getHeight());
         System.out.println(workspace.getWidth());
         System.out.println("parent size");
-        System.out.println( parentNode.getPrefHeight()); 
-        System.out.println(parentNode.getPrefWidth());
+        System.out.println(content.getPrefHeight()); 
+        System.out.println(content.getPrefWidth());
 
     }
 
@@ -90,10 +90,10 @@ public class RootController implements Initializable {
         Parent pane = loadFXMLFile("/fxml/Login.fxml");
 
         System.out.println(pane);
-        System.out.println(parentNode);
+        System.out.println(content);
 
-        parentNode.getChildren().clear();
-        parentNode.getChildren().setAll(pane);
+        content.getChildren().clear();
+        content.getChildren().setAll(pane);
     }
 
     @FXML
@@ -102,10 +102,10 @@ public class RootController implements Initializable {
         Parent pane = loadFXMLFile("/fxml/Scene.fxml");
 
         System.out.println(pane);
-        System.out.println(parentNode);
+        System.out.println(content);
 
-        parentNode.getChildren().clear();
-        parentNode.getChildren().setAll(pane);
+        content.getChildren().clear();
+        content.getChildren().setAll(pane);
     }
 
     

@@ -1,14 +1,46 @@
-/*
- * Empty Stylesheet file.
- */
+
+.header{
+    -fx-background-color: #d81e05; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px; 
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal; 
+}  
+
+.background{
+    -fx-background-color: linear-gradient(#ffffff 0%, #ffffff 25%, #f7f7f7 75%, #f7f7f7 100%);
+}
+
+.loginBox{
+    -fx-background-color: #ffffff; 
+    -fx-border-color: #f7f8f7;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 20px; 
+    -fx-font-weight: BOLD ;
+    -fx-text-fill: #d81e05; 
+}
+.loginTitle{  
+    -fx-font-size: 46px;  
+    -fx-text-fill: #d81e05; 
+}
+
+.Logintextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}
+
+.LoginLabel{ 
+    -fx-text-fill: #d81e05; 
+}
 
 .button#loginBtn{
-    -fx-background-color: #6db93f;
-    /*-fx-text-alignment: center;*/
-    -fx-border-color: #000000;
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
 }
 
-.button#opslaanBTN:hover{
-    -fx-background-color: #2eb82e;
+.button#loginBtn:hover{
+    -fx-background-color: #76cc42;
 }
+

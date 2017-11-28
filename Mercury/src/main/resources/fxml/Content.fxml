@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.RootController">
+<BorderPane fx:id="content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" stylesheets="@../styles/content.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
    <left>
       <GridPane alignment="CENTER" prefHeight="990.0" prefWidth="262.0" styleClass="-sidebar" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -35,7 +35,7 @@
             </ImageView>
             <VBox prefHeight="724.0" prefWidth="335.0" spacing="5.0" GridPane.rowIndex="2">
                <children>
-                  <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="262.0" text="Dashboard">
+                  <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openDashboard" prefHeight="136.0" prefWidth="262.0" text="Dashboard">
                      <graphic>
                         <ImageView fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,7 +44,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="277.0" text="Zoeken">
+                  <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="136.0" prefWidth="277.0" text="Zoeken">
                      <graphic>
                         <ImageView id="searchBTN" fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                            <image>
@@ -53,7 +53,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="managerBTN" fx:id="managerBTN" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="277.0" styleClass="-sidebar" text="Manager">
+                  <Button id="managerBTN" fx:id="managerBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openManagerOverzicht" prefHeight="136.0" prefWidth="277.0" styleClass="-sidebar" text="Manager">
                      <graphic>
                         <ImageView id="searchBTN" fitHeight="116.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                            <image>
@@ -69,8 +69,8 @@
                               <Insets right="6.0" top="6.0" />
                            </padding>
                            <children>
-                              <Button id="newFormITEM" fx:id="FoundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
-                              <Button id="newFormITEM" fx:id="LostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
+                              <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
+                              <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
                            </children>
                         </VBox>
                      </content>
