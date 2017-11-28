@@ -57,9 +57,9 @@
 
 .button#logoutBTN{ 
     -fx-text-fill: #d81e05;
-    -fx-background-color:  linear-gradient(#ececec 0%, #ececec 25%, #8b8b8b 75%, #8b8b8b 100%);
+    -fx-background-color:  #cccccc;
     -fx-text-alignment: left;
 }
 .button#logoutBTN:hover{  
-    -fx-background-color: linear-gradient(#e6e1e1 0%, #e6e1e1 25%, #cfcece 75%, #cfcece 100%); 
+    -fx-background-color: #999999;
 }
