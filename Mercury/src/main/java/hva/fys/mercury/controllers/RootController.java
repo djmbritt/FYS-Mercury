@@ -52,8 +52,13 @@ public class RootController implements Initializable {
         pane.setPrefHeight(workspace.getHeight());
         pane.setPrefWidth(workspace.getWidth());
 
+        
+        System.out.println("worksspace size");
         System.out.println(workspace.getHeight());
         System.out.println(workspace.getWidth());
+        System.out.println("parent size");
+        System.out.println( parentNode.getPrefHeight()); 
+        System.out.println(parentNode.getPrefWidth());
 
     }
 
