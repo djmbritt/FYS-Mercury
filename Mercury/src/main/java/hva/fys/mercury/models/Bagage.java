@@ -10,190 +10,199 @@ import javafx.scene.control.TextField;
 
 public class Bagage {
 
-    private List<StringProperty> properties;
-    private StringProperty registratieID;
-    private StringProperty datumGevonden;
-    private StringProperty tijdGevonden;
-    private StringProperty bagageType;
-    private StringProperty merk;
-    private StringProperty vluchtNummer;
-    private StringProperty bagagelabel;
-    private StringProperty gevondenLocatie;
-    private StringProperty primaireKleur;
-    private StringProperty secundaireKleur;
-    private StringProperty formaat;
-    private StringProperty gewichtInKG;
-    private StringProperty overigeEigenschappen;
-    private BooleanProperty status;
+    private int registratieID;
+    private String datumGevonden;
+    private String tijdGevonden;
+    private String bagageType;
+    private String merk;
+    private String vluchtNummer;
+    private String bagagelabel;
+    private String gevondenLocatie;
+    private String primaireKleur;
+    private String secundaireKleur;
+    private String formaat;
+    private String gewichtInKG;
+    private boolean status;
 
-    public Bagage() {
-        registratieID = new SimpleStringProperty(this, "registratieID");
-        datumGevonden = new SimpleStringProperty(this, "datumGevonden");
-        tijdGevonden = new SimpleStringProperty(this, "tijdGevonden");
-        bagageType = new SimpleStringProperty(this, "bagageType");
-
-        merk = new SimpleStringProperty(this, "merk");
-        vluchtNummer = new SimpleStringProperty(this, "vluchtNummer");
-        bagagelabel = new SimpleStringProperty(this, "bagagelabel");
-        gevondenLocatie = new SimpleStringProperty(this, "gevondenLocatie");
-
-        primaireKleur = new SimpleStringProperty(this, "primaireKleur");
-        secundaireKleur = new SimpleStringProperty(this, "secundaireKleur");
-        formaat = new SimpleStringProperty(this, "formaat");
-        gewichtInKG = new SimpleStringProperty(this, "gewichtInKG");
-        overigeEigenschappen = new SimpleStringProperty(this, "overigeEigenschappen");
-        properties = new ArrayList<>();
-        addAllToProperties();
+    /**
+     * @return the registratieID
+     */
+    public int getRegistratieID() {
+        return registratieID;
     }
 
-    public String getRegistratieID() {
-        return registratieID.get();
+    /**
+     * @param registratieID the registratieID to set
+     */
+    public void setRegistratieID(int registratieID) {
+        this.registratieID = registratieID;
     }
 
-    public void setRegistratieID(String registratieID) {
-        this.registratieID.setValue(registratieID);
-    }
-
+    /**
+     * @return the datumGevonden
+     */
     public String getDatumGevonden() {
-        return datumGevonden.get();
+        return datumGevonden;
     }
 
+    /**
+     * @param datumGevonden the datumGevonden to set
+     */
     public void setDatumGevonden(String datumGevonden) {
-        this.datumGevonden.setValue(datumGevonden);
+        this.datumGevonden = datumGevonden;
     }
 
+    /**
+     * @return the tijdGevonden
+     */
     public String getTijdGevonden() {
-        return tijdGevonden.get();
+        return tijdGevonden;
     }
 
+    /**
+     * @param tijdGevonden the tijdGevonden to set
+     */
     public void setTijdGevonden(String tijdGevonden) {
-        this.tijdGevonden.setValue(tijdGevonden);
+        this.tijdGevonden = tijdGevonden;
     }
 
+    /**
+     * @return the bagageType
+     */
     public String getBagageType() {
-        return bagageType.get();
+        return bagageType;
     }
 
+    /**
+     * @param bagageType the bagageType to set
+     */
     public void setBagageType(String bagageType) {
-        this.bagageType.setValue(bagageType);
+        this.bagageType = bagageType;
     }
 
+    /**
+     * @return the merk
+     */
     public String getMerk() {
-        return merk.get();
+        return merk;
     }
 
+    /**
+     * @param merk the merk to set
+     */
     public void setMerk(String merk) {
-        this.merk.setValue(merk);
+        this.merk = merk;
     }
 
+    /**
+     * @return the vluchtNummer
+     */
     public String getVluchtNummer() {
-        return vluchtNummer.get();
+        return vluchtNummer;
     }
 
+    /**
+     * @param vluchtNummer the vluchtNummer to set
+     */
     public void setVluchtNummer(String vluchtNummer) {
-        this.vluchtNummer.setValue(vluchtNummer);
+        this.vluchtNummer = vluchtNummer;
     }
 
+    /**
+     * @return the bagagelabel
+     */
     public String getBagagelabel() {
-        return bagagelabel.get();
+        return bagagelabel;
     }
 
+    /**
+     * @param bagagelabel the bagagelabel to set
+     */
     public void setBagagelabel(String bagagelabel) {
-        this.bagagelabel.setValue(bagagelabel);
+        this.bagagelabel = bagagelabel;
     }
 
+    /**
+     * @return the gevondenLocatie
+     */
     public String getGevondenLocatie() {
-        return gevondenLocatie.get();
+        return gevondenLocatie;
     }
 
+    /**
+     * @param gevondenLocatie the gevondenLocatie to set
+     */
     public void setGevondenLocatie(String gevondenLocatie) {
-        this.gevondenLocatie.setValue(gevondenLocatie);
+        this.gevondenLocatie = gevondenLocatie;
     }
 
+    /**
+     * @return the primaireKleur
+     */
     public String getPrimaireKleur() {
-        return primaireKleur.get();
+        return primaireKleur;
     }
 
+    /**
+     * @param primaireKleur the primaireKleur to set
+     */
     public void setPrimaireKleur(String primaireKleur) {
-        this.primaireKleur.setValue(primaireKleur);
+        this.primaireKleur = primaireKleur;
     }
 
+    /**
+     * @return the secundaireKleur
+     */
     public String getSecundaireKleur() {
-        return secundaireKleur.get();
+        return secundaireKleur;
     }
 
+    /**
+     * @param secundaireKleur the secundaireKleur to set
+     */
     public void setSecundaireKleur(String secundaireKleur) {
-        this.secundaireKleur.setValue(secundaireKleur);
+        this.secundaireKleur = secundaireKleur;
     }
 
+    /**
+     * @return the formaat
+     */
     public String getFormaat() {
-        return formaat.get();
+        return formaat;
     }
 
+    /**
+     * @param formaat the formaat to set
+     */
     public void setFormaat(String formaat) {
-        this.formaat.setValue(formaat);
+        this.formaat = formaat;
     }
 
+    /**
+     * @return the gewichtInKG
+     */
     public String getGewichtInKG() {
-        return gewichtInKG.get();
+        return gewichtInKG;
     }
 
+    /**
+     * @param gewichtInKG the gewichtInKG to set
+     */
     public void setGewichtInKG(String gewichtInKG) {
-        this.gewichtInKG.setValue(gewichtInKG);
-    }
-
-    public String getOverigeEigenschappen() {
-        return overigeEigenschappen.get();
-    }
-
-    public void setOverigeEigenschappen(String overigeEigenschappen) {
-        this.overigeEigenschappen.setValue(overigeEigenschappen);
-    }
-
-    public void setAllProperties(List<TextField> list) {
-        for (int x = 0; x < list.size(); x++) {
-            for (int y = 0; y < properties.size(); y++) {
-                String tempListID = list.get(x).getId();
-                String tempPropertiesName = properties.get(y).getName();
-
-                System.out.println(tempListID);
-                System.out.println(tempPropertiesName);
-
-                if (tempListID.equalsIgnoreCase(tempPropertiesName)) {
-                    properties.get(y).bind(list.get(x).textProperty());
-                }
-            }
-        }
-
-    }
-
-    private void addAllToProperties() {
-        properties.add(registratieID);
-        properties.add(datumGevonden);
-        properties.add(tijdGevonden);
-        properties.add(bagageType);
-        properties.add(merk);
-        properties.add(vluchtNummer);
-        properties.add(bagagelabel);
-        properties.add(gevondenLocatie);
-        properties.add(primaireKleur);
-        properties.add(secundaireKleur);
-        properties.add(formaat);
-        properties.add(gewichtInKG);
-        properties.add(overigeEigenschappen);
+        this.gewichtInKG = gewichtInKG;
     }
 
     /**
      * @return the status
      */
-    public BooleanProperty getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(BooleanProperty status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

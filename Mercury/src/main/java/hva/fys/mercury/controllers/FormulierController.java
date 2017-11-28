@@ -1,6 +1,5 @@
 package hva.fys.mercury.controllers;
 
-import hva.fys.mercury.services.FormHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,7 +11,6 @@ import javafx.scene.control.Label;
 
 public class FormulierController implements Initializable {
 
-    private FormHandler handler;
     private Bagage bagage;
     
     @FXML
@@ -27,8 +25,5 @@ public class FormulierController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        handler = new FormHandler();
-        bagage = new Bagage();
-        bagage = handler.bindToBagageObject(form, bagage);
     }
 }

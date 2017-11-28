@@ -38,9 +38,9 @@ public class RootController implements Initializable {
 
         System.out.println(pane);
         System.out.println(workspace);
-
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
+        
     }
 
     @FXML
@@ -103,6 +103,8 @@ public class RootController implements Initializable {
         parentNode.getChildren().setAll(pane);
     }
 
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

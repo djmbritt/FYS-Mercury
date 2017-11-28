@@ -5,7 +5,6 @@
  */
 package hva.fys.mercury.controllers;
  
-import hva.fys.mercury.services.TableHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;

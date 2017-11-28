@@ -2,10 +2,6 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
-}
-
 .button#annuleerBTN{
     -fx-background-color: #f2f2f2;
     -fx-text-alignment: left;

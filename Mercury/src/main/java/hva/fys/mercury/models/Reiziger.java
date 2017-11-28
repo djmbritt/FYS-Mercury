@@ -8,165 +8,122 @@ import javafx.scene.control.TextField;
 
 public class Reiziger {
 
-    private final List<StringProperty> properties;
-    private StringProperty voornaam;
-    private StringProperty achternaam;
-    private StringProperty adres;
-    private StringProperty woonplaats;
-    private StringProperty postcode;
-    private StringProperty land;
-    private StringProperty telefoonnummer;
-    private StringProperty email;
+    private String voornaam;
+    private String achternaam;
+    private String adres;
+    private String woonplaats;
+    private String postcode;
+    private String land;
+    private String telefoonnummer;
+    private String email;
 
-    public Reiziger() {
-        voornaam = new SimpleStringProperty(this, "voornaam");
-        achternaam = new SimpleStringProperty(this, "achternaam");
-        adres = new SimpleStringProperty(this, "adres");
-        woonplaats = new SimpleStringProperty(this, "woonplaats");
-
-        postcode = new SimpleStringProperty(this, "postcode");
-        land = new SimpleStringProperty(this, "land");
-        telefoonnummer = new SimpleStringProperty(this, "telefoonnummer");
-        email = new SimpleStringProperty(this, "email");
-
-        properties = new ArrayList<>();
-        addAllToProperties();
-    }
 
     public String getVoornaam() {
-        return voornaam.get();
+        return voornaam;
     }
 
     /**
      * @param voornaam the voornaam to set
      */
     public void setVoornaam(String voornaam) {
-        this.voornaam.setValue(voornaam);
+        this.voornaam = voornaam;
     }
 
     /**
      * @return the achternaam
      */
     public String getAchternaam() {
-        return achternaam.get();
+        return achternaam;
     }
 
     /**
      * @param achternaam the achternaam to set
      */
     public void setAchternaam(String achternaam) {
-        this.achternaam.setValue(achternaam);
+        this.achternaam = achternaam;
     }
 
     /**
      * @return the adres
      */
     public String getAdres() {
-        return adres.get();
+        return adres;
     }
 
     /**
      * @param adres the adres to set
      */
     public void setAdres(String adres) {
-        this.adres.setValue(adres);
+        this.adres = adres;
     }
 
     /**
      * @return the woonplaats
      */
     public String getWoonplaats() {
-        return woonplaats.get();
+        return woonplaats;
     }
 
     /**
      * @param woonplaats the woonplaats to set
      */
     public void setWoonplaats(String woonplaats) {
-        this.woonplaats.setValue(woonplaats);
+        this.woonplaats = woonplaats;
     }
 
     /**
      * @return the postcode
      */
     public String getPostcode() {
-        return postcode.get();
+        return postcode;
     }
 
     /**
      * @param postcode the postcode to set
      */
     public void setPostcode(String postcode) {
-        this.postcode.setValue(postcode);
+        this.postcode = postcode;
     }
 
     /**
      * @return the land
      */
     public String getLand() {
-        return land.get();
+        return land;
     }
 
     /**
      * @param land the land to set
      */
     public void setLand(String land) {
-        this.land.setValue(land);
+        this.land = land;
     }
 
     /**
      * @return the telefoonnummer
      */
     public String getTelefoonnummer() {
-        return telefoonnummer.get();
+        return telefoonnummer;
     }
 
     /**
      * @param telefoonnummer the telefoonnummer to set
      */
     public void setTelefoonnummer(String telefoonnummer) {
-        this.telefoonnummer.setValue(telefoonnummer);
+        this.telefoonnummer = telefoonnummer;
     }
 
     /**
      * @return the email
      */
     public String getEmail() {
-        return email.get();
+        return email;
     }
 
     /**
      * @param email the email to set
      */
     public void setEmail(String email) {
-        this.email.setValue(email);
-    }
-
-    public void setAllProperties(List<TextField> list) {
-        for (int x = 0; x < list.size(); x++) {
-            for (int y = 0; y < properties.size(); y++) {
-                String tempListID = list.get(x).getId();
-                String tempPropertiesName = properties.get(y).getName();
-
-                System.out.println(tempListID);
-                System.out.println(tempPropertiesName);
-
-                if (tempListID.equalsIgnoreCase(tempPropertiesName)) {
-                    properties.get(y).bind(list.get(x).textProperty());
-                }
-            }
-        }
-
-    }
-
-    private void addAllToProperties() {
-        properties.add(voornaam);
-        properties.add(achternaam);
-        properties.add(adres);
-        properties.add(woonplaats);
-        properties.add(postcode);
-        properties.add(land);
-        properties.add(telefoonnummer);
-        properties.add(email);
+        this.email = email;
     }
 }
