@@ -115,13 +115,15 @@ public class GevondenBagageFormulierController implements Initializable {
     private Button opslaanBTNG;
     @FXML
     private Label opgeslagenLabelG;
-    
+    @FXML
+    private Label denyLabelG;
     @FXML
     private void opslaanBagageG(ActionEvent event) { 
        if (checkText() == false) {
-           System.out.println("You didn't fill in all textfields!");
+           denyLabelG.setText("You did not fill in all textfields!");
        } else {
         disableFields();
+        datumGevondenG.getEditor().setDisable(true);
         bagage.setBagagelabel(bagageLabelG.getText());
         bagage.setVluchtNummer(vluchtNummerG.getText());
         bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
@@ -133,6 +135,7 @@ public class GevondenBagageFormulierController implements Initializable {
         bagage.setSecundaireKleur(secundaireKleurG.getText());
         bagage.setFormaat(formaatG.getText());
         bagage.setGewicht(gewichtG.getText());
+        denyLabelG.setText("");
         opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
         System.out.println("Gegevens zijn opgeslagen!");
        }
@@ -152,30 +155,26 @@ public class GevondenBagageFormulierController implements Initializable {
         };
         
         for (int i = 0; i < annuleer.length; i++) {
-            annuleer[i].setText(null);
+            annuleer[i].setText("");
         }
     }
     
     @FXML
     private void annuleerBagageG(ActionEvent event) {
+       denyLabelG.setText("");
+       opgeslagenLabelG.setText("");
+       datumGevondenG.getEditor().setDisable(false);
+       datumGevondenG.getEditor().setText("");
         annuleerText();
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-        pane.setPrefHeight(workspace.getHeight());
-        pane.setPrefWidth(workspace.getWidth());
-
-        System.out.println("worksspace size");
-        System.out.println("height=" + workspace.getHeight());
-        System.out.println("width =" + workspace.getWidth());
-        System.out.println("parent size");
-        System.out.println("height=" + content.getPrefHeight());
-        System.out.println("width =" + content.getPrefWidth());
 
     }
     
     @FXML
     private void nieuwFormulierG(ActionEvent event) {
+        denyLabelG.setText("");
+        opgeslagenLabelG.setText("");
+        datumGevondenG.getEditor().setDisable(false);
+        datumGevondenG.getEditor().setText("");
         annuleerText();
         enableFields();
     }

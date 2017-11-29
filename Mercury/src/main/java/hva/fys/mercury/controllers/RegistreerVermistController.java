@@ -20,7 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
@@ -89,6 +88,7 @@ public class RegistreerVermistController implements Initializable {
             if (text[i].getText().trim().length() == 0) {
                 return false;
             }
+            
         }
         return true;
     }
@@ -117,6 +117,7 @@ public class RegistreerVermistController implements Initializable {
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(true); 
         }
+    datumGevonden.getEditor().setDisable(true);
     }
     
         public void enableFields() {
@@ -143,6 +144,8 @@ public class RegistreerVermistController implements Initializable {
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(false); 
         }
+       datumGevonden.getEditor().setDisable(false);
+       datumGevonden.getEditor().setText("");
     }
     @FXML
     private Button opslaanBTN;
@@ -151,9 +154,12 @@ public class RegistreerVermistController implements Initializable {
     private Label opgeslagenLabel;
     
     @FXML
+    private Label denyLabel;
+    
+    @FXML
     private void opslaanBagage(ActionEvent event) { 
        if (checkText() == false) {
-           System.out.println("You didn't fill in all textfields!");
+           denyLabel.setText("You did not fill in all textfields!");
        } else {
         disableFields();
         reiziger.setVoornaam(voornaam.getText());
@@ -175,7 +181,8 @@ public class RegistreerVermistController implements Initializable {
         bagage.setSecundaireKleur(secundaireKleur.getText());
         bagage.setFormaat(formaat.getText());
         bagage.setGewicht(gewicht.getText());
-        opgeslagenLabel.setText("Gegevens succesvol opgeslagen!");
+        denyLabel.setText("");
+        opgeslagenLabel.setText("Information succesfully saved!");
         System.out.println("Gegevens zijn opgeslagen!");
        }
     }
@@ -203,32 +210,26 @@ public class RegistreerVermistController implements Initializable {
         };
         
         for (int i = 0; i < annuleer.length; i++) {
-            annuleer[i].setText(null);
+            annuleer[i].setText("");
         }
     }
     
     @FXML
     private void annuleerBagage(ActionEvent event) {
+        denyLabel.setText("");
+        opgeslagenLabel.setText("");
+       datumGevonden.getEditor().setDisable(false);
+       datumGevonden.getEditor().setText("");
         annuleerText();
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-        pane.setPrefHeight(workspace.getHeight());
-        pane.setPrefWidth(workspace.getWidth());
-
-        System.out.println("worksspace size");
-        System.out.println("height=" + workspace.getHeight());
-        System.out.println("width =" + workspace.getWidth());
-        System.out.println("parent size");
-        System.out.println("height=" + content.getPrefHeight());
-        System.out.println("width =" + content.getPrefWidth());
-
     }
     
     @FXML
     private void nieuwFormulier(ActionEvent event) {
+        opgeslagenLabel.setText("");
         annuleerText();
         enableFields();
+        denyLabel.setText("");
+        opgeslagenLabel.setText("");
     }
     
         private Parent loadFXMLFile(String fxmlFileName) {

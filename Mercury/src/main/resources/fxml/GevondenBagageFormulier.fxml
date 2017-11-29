@@ -97,7 +97,8 @@
                                   <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label id="opgeslagenLabelG" fx:id="opgeslagenLabelG" prefHeight="17.0" prefWidth="391.0" textFill="#30975c" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label id="opgeslagenLabelG" fx:id="opgeslagenLabelG" alignment="CENTER" prefHeight="17.0" prefWidth="391.0" textFill="#30975c" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label id="denyLabelG" fx:id="denyLabelG" alignment="CENTER" prefHeight="17.0" prefWidth="391.0" textFill="#d32222" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>

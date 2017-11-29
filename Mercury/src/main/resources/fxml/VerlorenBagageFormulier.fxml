@@ -95,6 +95,7 @@
                                 </rowConstraints>
                                  <children>
                                     <Label id="opgeslagenLabel" fx:id="opgeslagenLabel" alignment="CENTER" prefHeight="17.0" prefWidth="504.0" textFill="#30975c" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label id="denyLabel" fx:id="denyLabel" alignment="CENTER" prefHeight="17.0" prefWidth="504.0" textFill="#d32222" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
