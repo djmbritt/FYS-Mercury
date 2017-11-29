@@ -1,12 +1,5 @@
 package hva.fys.mercury.models;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.scene.control.TextField;
 
 public class Bagage {
 
@@ -21,7 +14,7 @@ public class Bagage {
     private String primaireKleur;
     private String secundaireKleur;
     private String formaat;
-    private String gewichtInKG;
+    private String gewicht;
     private boolean status;
 
     /**
@@ -181,15 +174,15 @@ public class Bagage {
     /**
      * @return the gewichtInKG
      */
-    public String getGewichtInKG() {
-        return gewichtInKG;
+    public String getGewicht() {
+        return gewicht;
     }
 
     /**
-     * @param gewichtInKG the gewichtInKG to set
+     * @param gewicht the gewichtInKG to set
      */
-    public void setGewichtInKG(String gewichtInKG) {
-        this.gewichtInKG = gewichtInKG;
+    public void setGewicht(String gewicht) {
+        this.gewicht = gewicht;
     }
 
     /**

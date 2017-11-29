@@ -23,7 +23,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
         System.out.println("registreer bagage geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageFormulier.fxml");
+        Parent pane = loadFXMLFile("/fxml/GevondenBagageFormulier.fxml");
 
         System.out.println(pane);
         System.out.println(workspace);

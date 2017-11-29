@@ -8,15 +8,22 @@ package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -25,6 +32,11 @@ import javafx.scene.control.TextField;
  */
 public class GevondenBagageFormulierController implements Initializable {
     Bagage bagage = new Bagage();
+    @FXML
+    private StackPane workspace;
+
+    @FXML
+    private BorderPane content;
     
     @FXML
     public TextField bagageLabelG;
@@ -37,6 +49,7 @@ public class GevondenBagageFormulierController implements Initializable {
     public TextField primaireKleurG;
     public TextField secundaireKleurG;
     public TextField formaatG;
+    public TextField gewichtG;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
@@ -51,9 +64,9 @@ public class GevondenBagageFormulierController implements Initializable {
         merkG,
         primaireKleurG,
         secundaireKleurG,
-        formaatG
+        formaatG,
+        gewichtG            
         };
-        
         for (int i = 0; i < text.length; i++) {
             if (text[i].getText().trim().length() == 0) {
                 return false;
@@ -61,14 +74,54 @@ public class GevondenBagageFormulierController implements Initializable {
         }
         return true;
     }
+    
+    public void disableFields() {
+         TextField[] text = {
+        bagageLabelG,
+        vluchtNummerG,
+        tijdGevondenG,
+        locatieGevondenG,
+        bagageTypeG,
+        merkG,
+        primaireKleurG,
+        secundaireKleurG,
+        formaatG,
+        gewichtG            
+        };
+        for (int i = 0; i < text.length; i++) {
+            text[i].setDisable(true);
+            
+        }
+    }
+    
+        public void enableFields() {
+        TextField[] text = {
+        bagageLabelG,
+        vluchtNummerG,
+        tijdGevondenG,
+        locatieGevondenG,
+        bagageTypeG,
+        merkG,
+        primaireKleurG,
+        secundaireKleurG,
+        formaatG,
+        gewichtG          
+        };
+        for (int i = 0; i < text.length; i++) {
+            text[i].setDisable(false); 
+        }
+    }
     @FXML
     private Button opslaanBTNG;
+    @FXML
+    private Label opgeslagenLabelG;
     
     @FXML
     private void opslaanBagageG(ActionEvent event) { 
        if (checkText() == false) {
            System.out.println("You didn't fill in all textfields!");
        } else {
+        disableFields();
         bagage.setBagagelabel(bagageLabelG.getText());
         bagage.setVluchtNummer(vluchtNummerG.getText());
         bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
@@ -79,8 +132,60 @@ public class GevondenBagageFormulierController implements Initializable {
         bagage.setPrimaireKleur(primaireKleurG.getText());
         bagage.setSecundaireKleur(secundaireKleurG.getText());
         bagage.setFormaat(formaatG.getText());
+        bagage.setGewicht(gewichtG.getText());
+        opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
         System.out.println("Gegevens zijn opgeslagen!");
        }
+    }
+        public void annuleerText() {
+        TextField[] annuleer = {
+        bagageLabelG,
+        vluchtNummerG,
+        tijdGevondenG,
+        locatieGevondenG,
+        bagageTypeG,
+        merkG,
+        primaireKleurG,
+        secundaireKleurG,
+        formaatG,
+        gewichtG     
+        };
+        
+        for (int i = 0; i < annuleer.length; i++) {
+            annuleer[i].setText(null);
+        }
+    }
+    
+    @FXML
+    private void annuleerBagageG(ActionEvent event) {
+        annuleerText();
+        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
+        workspace.getChildren().clear();
+        workspace.getChildren().setAll(pane);
+        pane.setPrefHeight(workspace.getHeight());
+        pane.setPrefWidth(workspace.getWidth());
+
+        System.out.println("worksspace size");
+        System.out.println("height=" + workspace.getHeight());
+        System.out.println("width =" + workspace.getWidth());
+        System.out.println("parent size");
+        System.out.println("height=" + content.getPrefHeight());
+        System.out.println("width =" + content.getPrefWidth());
+
+    }
+    
+    @FXML
+    private void nieuwFormulierG(ActionEvent event) {
+        annuleerText();
+        enableFields();
+    }
+        private Parent loadFXMLFile(String fxmlFileName) {
+        try {
+            return FXMLLoader.load(getClass().getResource(fxmlFileName));
+        } catch (IOException ex) {
+            System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
+            return null;
+        }
     }
 }
 

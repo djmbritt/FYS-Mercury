@@ -2,6 +2,69 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+/*
+ * Empty Stylesheet file.
+ */
 
+
+.header{
+    -fx-background-color: #d81e05; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px; 
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal; 
+}  
+
+.background{
+    -fx-background-color: linear-gradient(#ffffff 0%, #ffffff 25%, #f7f7f7 75%, #f7f7f7 100%);
+}
+
+.opslaanBox{
+    -fx-background-color: #ffffff; 
+    -fx-border-color: #f7f8f7;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: BOLD ;
+    -fx-text-fill: #d81e05; 
+}
+.opslaanTitle{  
+    -fx-font-size: 46px;  
+    -fx-text-fill: #d81e05; 
+}
+
+.Opslaantextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}
+
+.button#opslaanBTNG{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#opslaanBTNG:hover{
+    -fx-background-color: #76cc42;
+}
+
+.button#annuleerBTNG{
+    -fx-background-color: #d81e05; 
+    -fx-border-color: #d81e05;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#annuleerBTNG:hover{
+    -fx-background-color: #f92306;
+}
+
+.button#newFormBTNG{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#newFormBTN:hover{
+    -fx-background-color: #76cc42;
 }
