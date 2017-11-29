@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1051.0" prefWidth="1700.0" styleClass="Content" stylesheets="@../styles/bagagezoeken.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="hva.fys.mercury.controllers.BagageZoekenController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1051.0" prefWidth="1640.0" styleClass="Content" stylesheets="@../styles/bagagezoeken.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageZoekenController">
    <content>
-      <VBox spacing="10.0" styleClass="Content">
+      <VBox prefHeight="1029.0" prefWidth="1608.0" spacing="10.0" styleClass="Content">
          <children>
             <Label prefHeight="95.0" prefWidth="255.0" styleClass="Title" text="Zoeken">
                <padding>
@@ -25,7 +25,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <VBox prefHeight="877.0" prefWidth="1694.0">
+            <VBox prefHeight="807.0" prefWidth="1616.0">
                <children>
                   <GridPane prefHeight="370.0" prefWidth="1476.0" styleClass="searchBox">
                     <columnConstraints>
