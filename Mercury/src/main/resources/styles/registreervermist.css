@@ -2,22 +2,65 @@
  * Empty Stylesheet file.
  */
 
-.button#annuleerBTN{
-    -fx-background-color: #f2f2f2;
-    -fx-text-alignment: left;
-    -fx-border-color: #000000;
-    -fx-border-radius: 5px;
+
+.header{
+    -fx-background-color: #d81e05; 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12px; 
+    -fx-font-weight: BOLD ;
+    -fx-font-style: normal; 
+}  
+
+.background{
+    -fx-background-color: linear-gradient(#ffffff 0%, #ffffff 25%, #f7f7f7 75%, #f7f7f7 100%);
 }
-.button#annuleerBTN:hover{
-    -fx-background-color: #bfbfbf;
+
+.opslaanBox{
+    -fx-background-color: #ffffff; 
+    -fx-border-color: #f7f8f7;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: BOLD ;
+    -fx-text-fill: #d81e05; 
+}
+.opslaanTitle{  
+    -fx-font-size: 46px;  
+    -fx-text-fill: #d81e05; 
+}
+
+.Opslaantextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
 }
 
 .button#opslaanBTN{
-    -fx-background-color: #6db93f;
-    -fx-text-alignment: left;
-    -fx-border-color: #000000;
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
 }
+
 .button#opslaanBTN:hover{
-    -fx-background-color: #2eb82e;
+    -fx-background-color: #76cc42;
+}
+
+.button#annuleerBTN{
+    -fx-background-color: #d81e05; 
+    -fx-border-color: #d81e05;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#annuleerBTN:hover{
+    -fx-background-color: #f92306;
+}
+
+.button#newFormBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#newFormBTN:hover{
+    -fx-background-color: #76cc42;
 }
