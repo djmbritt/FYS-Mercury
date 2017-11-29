@@ -1,7 +1,21 @@
-/*
- * Empty Stylesheet file.
- */
+.Content{ 
+    -fx-background-color: #ffffff;
+}
 
-.mainFxmlClass {
+.Banner{ 
+    -fx-background-color: #ececec;
+}
 
+.searchBox{ 
+    -fx-background-color: #fdfdfd;
+    -fx-border-color:#db1f0a;
+    -fx-border-radius: 10px;
+}
+
+.Title{ 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 60px; 
+    -fx-font-weight: BOLDER ;
+    -fx-font-style: normal; 
+    -fx-text-fill: #db1f0a;
 }

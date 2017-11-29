@@ -54,11 +54,11 @@ public class ContentController implements Initializable {
 
         
         System.out.println("worksspace size");
-        System.out.println(workspace.getHeight());
-        System.out.println(workspace.getWidth());
+        System.out.println("height=" + workspace.getHeight());
+        System.out.println("width =" + workspace.getWidth());
         System.out.println("parent size");
-        System.out.println(content.getPrefHeight()); 
-        System.out.println(content.getPrefWidth());
+        System.out.println("height=" + content.getPrefHeight()); 
+        System.out.println("width =" + content.getPrefWidth());
 
     }
 
@@ -84,19 +84,7 @@ public class ContentController implements Initializable {
         workspace.getChildren().setAll(pane);
     }
 
-    @FXML
-    private void logOut(ActionEvent event) {
-        System.out.println("Logging Out");
-        Parent pane = loadFXMLFile("/fxml/Login.fxml");
-
-        System.out.println(pane);
-        System.out.println(content);
-
-        content.getChildren().clear();
-        content.getChildren().setAll(pane);
-    }
-
-    @FXML
+   @FXML
     private void loginAction(ActionEvent event) {
         System.out.println("Logging In");
         Parent pane = loadFXMLFile("/fxml/Scene.fxml");
@@ -107,6 +95,8 @@ public class ContentController implements Initializable {
         content.getChildren().clear();
         content.getChildren().setAll(pane);
     }
+
+
 
     
     

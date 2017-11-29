@@ -1,10 +1,6 @@
 package hva.fys.mercury.controllers;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,17 +16,10 @@ public class BagageZoekenController implements Initializable {
 
     @FXML
     private Button zoekenBTN;
-    
-    @FXML
-    private BorderPane rootBorderPane;
+  
     
     @FXML
     private void zoekAction(ActionEvent event) {
-        System.out.println("Opening search results");
-        BorderPane pane = (BorderPane) loadFXMLFile("/fxml/bagageResultaten.fxml");
-        rootBorderPane.getChildren().clear();
-        rootBorderPane.setCenter(pane);
-//        pane.setPrefSize(rootBorderPane.getWidth(), rootBorderPane.getPrefHeight());
         
     }
 
