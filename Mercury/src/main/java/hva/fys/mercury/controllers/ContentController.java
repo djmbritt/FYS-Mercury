@@ -68,8 +68,10 @@ public class ContentController implements Initializable {
         ScrollPane pane = (ScrollPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
         pane.setPrefHeight(workspace.getHeight());
         pane.setPrefWidth(workspace.getWidth());
-        content.setCenter(pane); 
-     
+
+        workspace.getChildren().clear();
+        workspace.getChildren().setAll(pane);
+
         System.out.println("worksspace size");
         System.out.println("height=" + workspace.getHeight());
         System.out.println("width =" + workspace.getWidth());

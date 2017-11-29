@@ -131,6 +131,7 @@
                               <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="120.0" text="Formaat(cm):" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                               <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="120.0" text="Gewicht(kg):" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                               <DatePicker id="datumGevonden" fx:id="datumGevonden" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
                      </children>

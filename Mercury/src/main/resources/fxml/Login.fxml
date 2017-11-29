@@ -35,7 +35,7 @@
       </GridPane>
    </top>
    <center>
-      <GridPane fx:id="workspace" alignment="CENTER" styleClass="background" BorderPane.alignment="BOTTOM_CENTER">
+      <GridPane fx:id="workspace" alignment="CENTER" styleClass="background">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,7 +47,7 @@
           <RowConstraints maxHeight="305.0" minHeight="1.0" prefHeight="122.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="185.0" fitWidth="1987.0" pickOnBounds="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <ImageView fitHeight="185.0" fitWidth="1987.0" nodeOrientation="INHERIT" pickOnBounds="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/footer.png" />
                </image>
@@ -79,7 +79,7 @@
                   <Button id="loginBtn" mnemonicParsing="false" onAction="#loginAction" prefHeight="58.0" prefWidth="142.0" text="Inloggen" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
                </children>
             </GridPane>
-            <ImageView fitHeight="234.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <ImageView fitHeight="234.0" fitWidth="244.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <image>
                   <Image url="@../images/corendon_icon.png" />
                </image>
