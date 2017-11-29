@@ -17,7 +17,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/styles/Styles.css"); 
         stage.setTitle("Mercury");
           stage.getIcons().add(new Image("/images/corendon_icon.png"));
-        stage.setMaximized(true);
+        stage.setMaximized(false);
       //  stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

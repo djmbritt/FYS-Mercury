@@ -66,11 +66,10 @@ public class ContentController implements Initializable {
     private void openBagageZoeken(ActionEvent event) {
         System.out.println("bagage zoeken geopend ");
         ScrollPane pane = (ScrollPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());
         pane.setPrefWidth(workspace.getWidth());
-
+        content.setCenter(pane); 
+     
         System.out.println("worksspace size");
         System.out.println("height=" + workspace.getHeight());
         System.out.println("width =" + workspace.getWidth());
