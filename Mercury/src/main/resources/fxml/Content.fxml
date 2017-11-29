@@ -87,7 +87,7 @@
                   <Insets bottom="5.0" />
                </padding>
             </VBox>
-            <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="136.0" prefWidth="277.0" text="Uitloggen" GridPane.rowIndex="3">
+            <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logoutAction" prefHeight="136.0" prefWidth="277.0" text="Uitloggen" GridPane.rowIndex="3">
                <graphic>
                   <ImageView id="logoutBTN" fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                      <image>

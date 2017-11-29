@@ -1,16 +1,17 @@
 package hva.fys.mercury.controllers;
 
 import java.io.IOException;
-import java.net.URL; 
+import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable; 
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane; 
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;  
+import javafx.scene.layout.StackPane;
 
 public class ContentController implements Initializable {
 
@@ -40,7 +41,7 @@ public class ContentController implements Initializable {
         System.out.println(workspace);
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
-        
+
     }
 
     @FXML
@@ -52,12 +53,11 @@ public class ContentController implements Initializable {
         pane.setPrefHeight(workspace.getHeight());
         pane.setPrefWidth(workspace.getWidth());
 
-        
         System.out.println("worksspace size");
         System.out.println("height=" + workspace.getHeight());
         System.out.println("width =" + workspace.getWidth());
         System.out.println("parent size");
-        System.out.println("height=" + content.getPrefHeight()); 
+        System.out.println("height=" + content.getPrefHeight());
         System.out.println("width =" + content.getPrefWidth());
 
     }
@@ -65,12 +65,18 @@ public class ContentController implements Initializable {
     @FXML
     private void openBagageZoeken(ActionEvent event) {
         System.out.println("bagage zoeken geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageZoeken.fxml");
-
-        System.out.println(pane);
-        System.out.println(workspace);
+        ScrollPane pane = (ScrollPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
+        pane.setPrefHeight(workspace.getHeight());
+        pane.setPrefWidth(workspace.getWidth());
+
+        System.out.println("worksspace size");
+        System.out.println("height=" + workspace.getHeight());
+        System.out.println("width =" + workspace.getWidth());
+        System.out.println("parent size");
+        System.out.println("height=" + content.getPrefHeight());
+        System.out.println("width =" + content.getPrefWidth());
     }
 
     @FXML
@@ -84,22 +90,23 @@ public class ContentController implements Initializable {
         workspace.getChildren().setAll(pane);
     }
 
-   @FXML
-    private void loginAction(ActionEvent event) {
-        System.out.println("Logging In");
-        Parent pane = loadFXMLFile("/fxml/Scene.fxml");
+    @FXML
+    private void logoutAction(ActionEvent event) {
+        System.out.println("Logging out");
+
+        /*
+        BorderPane pane = (BorderPane) loadFXMLFile("/fxml/Login.fxml");
+        pane.setPrefHeight(content.getHeight());
+        pane.setPrefWidth(content.getWidth());
 
         System.out.println(pane);
         System.out.println(content);
 
         content.getChildren().clear();
         content.getChildren().setAll(pane);
+         */
     }
 
-
-
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
