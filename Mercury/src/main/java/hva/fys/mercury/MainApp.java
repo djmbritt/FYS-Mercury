@@ -5,6 +5,7 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene; 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
@@ -15,6 +16,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css"); 
         stage.setTitle("Mercury");
+          stage.getIcons().add(new Image("/images/corendon_icon.png"));
         stage.setMaximized(true);
         stage.setResizable(false);
         stage.setScene(scene);
