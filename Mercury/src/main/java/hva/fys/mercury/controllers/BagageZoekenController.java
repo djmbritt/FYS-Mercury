@@ -1,6 +1,5 @@
 package hva.fys.mercury.controllers;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,17 +9,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 public class BagageZoekenController implements Initializable {
 
     @FXML
-    private Button zoekenBTN;
-  
+    private TextField vluchtnummer;
+    private TextField merk;
+    private TextField locatie_gevonden;
+    private TextField formaat;
+    private TextField labelNummer;
     
+    @FXML 
+    private ComboBox bagageType;
+    private ComboBox primaireKleur;
+    private ComboBox secundaireKleur;
+
     @FXML
     private void zoekAction(ActionEvent event) {
-        
+
     }
 
     /**
@@ -31,8 +39,8 @@ public class BagageZoekenController implements Initializable {
         // TODO
 
     }
-    
-        private Parent loadFXMLFile(String fxmlFileName) {
+
+    private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
         } catch (IOException ex) {
@@ -41,4 +49,3 @@ public class BagageZoekenController implements Initializable {
         }
     }
 }
-

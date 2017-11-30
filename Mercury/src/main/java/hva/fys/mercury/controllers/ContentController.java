@@ -80,10 +80,7 @@ public class ContentController implements Initializable {
 
         System.out.println("worksspace size");
         System.out.println("height=" + workspace.getHeight());
-        System.out.println("width =" + workspace.getWidth());
-        System.out.println("parent size");
-        System.out.println("height=" + content.getPrefHeight());
-        System.out.println("width =" + content.getPrefWidth());
+        System.out.println("width =" + workspace.getWidth()); 
 
     }
 
