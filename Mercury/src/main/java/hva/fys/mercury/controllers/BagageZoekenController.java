@@ -16,24 +16,27 @@ public class BagageZoekenController implements Initializable {
 
     @FXML
     private TextField vluchtnummer;
+    @FXML
     private TextField merk;
+    @FXML
     private TextField locatie_gevonden;
+    @FXML
     private TextField formaat;
+    @FXML
     private TextField labelNummer;
-    
-    @FXML 
+
+    @FXML
     private ComboBox bagageType;
+    @FXML
     private ComboBox primaireKleur;
+    @FXML
     private ComboBox secundaireKleur;
 
     @FXML
     private void zoekAction(ActionEvent event) {
-
+       
     }
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
