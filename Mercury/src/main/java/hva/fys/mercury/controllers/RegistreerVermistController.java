@@ -28,14 +28,18 @@ import javafx.scene.layout.StackPane;
 public class RegistreerVermistController implements Initializable {
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
+
+//    TextField voornaam = new TextField();
+
     @FXML
     private StackPane workspace;
 
     @FXML
     private BorderPane content;
     
+
     @FXML
-    public TextField voornaam;
+    TextField voornaam;
     public TextField achternaam;
     public TextField adres;
     public TextField woonplaats;
@@ -54,6 +58,7 @@ public class RegistreerVermistController implements Initializable {
     public TextField secundaireKleur;
     public TextField formaat;
     public TextField gewicht;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
@@ -176,6 +181,7 @@ public class RegistreerVermistController implements Initializable {
         bagage.setPrimaireKleur(primaireKleur.getText());
         bagage.setSecundaireKleur(secundaireKleur.getText());
         bagage.setFormaat(formaat.getText());
+//           System.out.println(reiziger.getVoornaam());
         bagage.setGewicht(gewicht.getText());
         denyLabel.setText("");
         opgeslagenLabel.setText("Information succesfully saved!");
