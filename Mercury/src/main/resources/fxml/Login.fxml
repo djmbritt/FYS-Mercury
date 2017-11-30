@@ -90,10 +90,7 @@
                   </ImageView>
                </children>
             </GridPane>
-         </center>
-         <rotationAxis>
-            <Point3D />
-         </rotationAxis>
+         </center> 
       </BorderPane>
    </children>
 </AnchorPane>

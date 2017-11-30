@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 
 public class ContentController implements Initializable {
 
-    
-    
-
+     
     @FXML
     private StackPane workspace;
 
@@ -100,16 +98,7 @@ public class ContentController implements Initializable {
         workspace.getChildren().setAll(pane);
     }
     
-    @FXML
-    private void openBagageDetails(ActionEvent event) {
-        System.out.println("Bagage details geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageDetails.fxml");
-//https://stackoverflow.com/questions/21966441/gettext-method-returning-null-even-though-a-value-is-entered-by-user
-        System.out.println(pane);
-        System.out.println(workspace);
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-    }
+ 
 
     @FXML
     private void logoutAction(ActionEvent event) {
