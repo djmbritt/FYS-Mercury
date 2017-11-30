@@ -13,31 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< HEAD
-<BorderPane fx:id="content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" stylesheets="@../styles/content.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
-   <left>
-      <GridPane alignment="CENTER" prefHeight="990.0" prefWidth="262.0" styleClass="-sidebar" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.99998474121094" minWidth="10.0" prefWidth="306.99998474121094" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="359.3333435058594" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="718.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="895.0" minHeight="10.0" prefHeight="719.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="758.0000152587891" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ImageView fitHeight="163.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@../images/corendon_icon.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets top="10.0" />
-               </GridPane.margin>
-            </ImageView>
-            <VBox prefHeight="724.0" prefWidth="335.0" spacing="5.0" GridPane.rowIndex="2">
-=======
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
    <children>
       <BorderPane stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -51,7 +27,6 @@
                 <RowConstraints maxHeight="895.0" minHeight="10.0" prefHeight="719.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="758.0000152587891" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
               </rowConstraints>
->>>>>>> ae2317b2bc7d91462bce6ed099b4386408613987
                <children>
                   <ImageView fitHeight="163.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                      <image>
@@ -110,6 +85,7 @@
                               </ImageView>
                            </graphic>
                         </TitledPane>
+                        <Button fx:id="testKnop" mnemonicParsing="false" onAction="#openBagageDetails" prefHeight="44.0" prefWidth="278.0" text="TestKnop BagageDetails" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
@@ -124,30 +100,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-<<<<<<< HEAD
-                  <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="Bagage" textAlignment="CENTER">
-                     <content>
-                        <VBox prefHeight="64.0" prefWidth="252.0">
-                           <padding>
-                              <Insets right="6.0" top="6.0" />
-                           </padding>
-                           <children>
-                              <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
-                              <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
-                           </children>
-                        </VBox>
-                     </content>
-                     <graphic>
-                        <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/formIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </TitledPane>
-                  <Button fx:id="testKnop" mnemonicParsing="false" onAction="#openBagageDetails" prefHeight="44.0" prefWidth="278.0" text="TestKnop" />
-=======
->>>>>>> ae2317b2bc7d91462bce6ed099b4386408613987
                </children>
             </GridPane>
          </left>
