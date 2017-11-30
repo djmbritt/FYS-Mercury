@@ -1,0 +1,105 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hva.fys.mercury.controllers;
+ 
+import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.Reiziger;
+import java.io.IOException;
+import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+/**
+ * FXML Controller class
+ *
+ * @author Eigenaar
+ */
+public class BagageDetailsController implements Initializable {
+    
+    
+    Bagage bagage = new Bagage();
+    Reiziger reiziger = new Reiziger();
+    
+    @FXML
+    public TextField voornaam;
+    public TextField achternaam;
+    public TextField adres;
+    public TextField woonplaats;
+    public TextField postcode;
+    public TextField land;
+    public TextField telefoonnummer;
+    public TextField email;
+    public TextField bagageLabel;
+    public TextField vluchtNummer;
+    public TextField datumGevonden;
+    public TextField tijdGevonden;
+    public TextField locatieGevonden;
+    public TextField bagageType;
+    public TextField merk;
+    public TextField primaireKleur;
+    public TextField secundaireKleur;
+    public TextField formaat;
+       
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {  
+        System.out.println(reiziger.getVoornaam());
+    }
+    
+    @FXML
+    private static Button bewerkBTN;
+    public static Button veranderLocatieBTN;
+    public static Button annuleerBTN;
+    
+    @FXML
+    private void bewerkDetails(ActionEvent event){
+    }
+    
+    @FXML
+    void veranderLocatie(ActionEvent event) {
+        veranderLocatieController.veranderLocatiePopup();
+}
+    }
+    
+//    @FXML
+//    private void laadDetails(ActionEvent event) {
+//        voornaam.setText(reiziger.getVoornaam());
+//        achternaam.setText(reiziger.getAchternaam());
+//        adres.setText(reiziger.getAdres());
+//        woonplaats.setText(reiziger.getWoonplaats());
+//        postcode.setText(reiziger.getPostcode());
+//        land.setText(reiziger.getLand());
+//        telefoonnummer.setText(reiziger.getTelefoonnummer());
+//        email.setText(reiziger.getEmail());
+//        bagageLabel.setText(bagage.getBagagelabel());
+//        vluchtNummer.setText(bagage.getVluchtNummer());
+////        datumGevonden.setText(bagage.getDatumGevonden());
+//        tijdGevonden.setText(bagage.getTijdGevonden());
+//        locatieGevonden.setText(bagage.getGevondenLocatie());
+//        bagageType.setText(bagage.getBagageType());
+//        merk.setText(bagage.getMerk());
+//        primaireKleur.setText(bagage.getPrimaireKleur());
+//        secundaireKleur.setText(bagage.getSecundaireKleur());
+//        formaat.setText(bagage.getFormaat());
+//        System.out.println("Gegevens zijn geladen");
+//    }
+//}

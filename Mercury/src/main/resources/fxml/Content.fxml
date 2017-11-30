@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" stylesheets="@../styles/content.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
+<BorderPane fx:id="content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" stylesheets="@../styles/content.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
    <left>
       <GridPane alignment="CENTER" prefHeight="990.0" prefWidth="262.0" styleClass="-sidebar" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -82,6 +82,7 @@
                         </ImageView>
                      </graphic>
                   </TitledPane>
+                  <Button fx:id="testKnop" mnemonicParsing="false" onAction="#openBagageDetails" prefHeight="44.0" prefWidth="278.0" text="TestKnop" />
                </children>
                <padding>
                   <Insets bottom="5.0" />

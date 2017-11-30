@@ -26,9 +26,9 @@ import javafx.scene.control.TextField;
 public class RegistreerVermistController implements Initializable {
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
-    
+//    TextField voornaam = new TextField();
     @FXML
-    public TextField voornaam;
+    TextField voornaam;
     public TextField achternaam;
     public TextField adres;
     public TextField woonplaats;
@@ -46,6 +46,7 @@ public class RegistreerVermistController implements Initializable {
     public TextField primaireKleur;
     public TextField secundaireKleur;
     public TextField formaat;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
@@ -104,6 +105,7 @@ public class RegistreerVermistController implements Initializable {
         bagage.setPrimaireKleur(primaireKleur.getText());
         bagage.setSecundaireKleur(secundaireKleur.getText());
         bagage.setFormaat(formaat.getText());
+//           System.out.println(reiziger.getVoornaam());
         System.out.println("Gegevens zijn opgeslagen!");
        }
     }
