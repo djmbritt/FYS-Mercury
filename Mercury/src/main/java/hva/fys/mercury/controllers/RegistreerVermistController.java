@@ -1,7 +1,10 @@
 
 package hva.fys.mercury.controllers;
 
+import com.mysql.jdbc.JDBC42CallableStatement;
 import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.JDBCMethods;
+import hva.fys.mercury.models.MyJDBC;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
@@ -157,6 +160,8 @@ public class RegistreerVermistController implements Initializable {
     @FXML
     private Label denyLabel;
     
+    JDBCMethods methodsdb = new JDBCMethods();
+    
     @FXML
     private void opslaanBagage(ActionEvent event) { 
        if (checkText() == false) {
@@ -186,6 +191,7 @@ public class RegistreerVermistController implements Initializable {
         denyLabel.setText("");
         opgeslagenLabel.setText("Information succesfully saved!");
         System.out.println("Gegevens zijn opgeslagen!");
+        JDBCMethods.setBagageDatabase(bagage);
        }
     }
     

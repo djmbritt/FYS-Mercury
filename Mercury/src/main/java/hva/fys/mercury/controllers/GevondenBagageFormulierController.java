@@ -7,6 +7,7 @@ package hva.fys.mercury.controllers;
  */
 
 import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.JDBCMethods;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -109,6 +110,9 @@ public class GevondenBagageFormulierController implements Initializable {
             text[i].setDisable(false); 
         }
     }
+        
+    JDBCMethods methodsDB = new JDBCMethods();
+        
     @FXML
     private Button opslaanBTNG;
     @FXML
@@ -136,6 +140,7 @@ public class GevondenBagageFormulierController implements Initializable {
         denyLabelG.setText("");
         opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
         System.out.println("Gegevens zijn opgeslagen!");
+       JDBCMethods.setBagageDatabase(bagage);
        }
     }
         public void annuleerText() {
