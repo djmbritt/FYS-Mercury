@@ -7,9 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+=======
+import javafx.scene.Parent; 
+>>>>>>> ae2317b2bc7d91462bce6ed099b4386408613987
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -32,7 +36,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
         System.out.println("registreer bagage geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageFormulier.fxml");
+        Parent pane = loadFXMLFile("/fxml/GevondenBagageFormulier.fxml");
 
         System.out.println(pane);
         System.out.println(workspace);
@@ -72,8 +76,8 @@ public class ContentController implements Initializable {
 
     @FXML
     private void openBagageZoeken(ActionEvent event) {
-        System.out.println("bagage zoeken geopend ");
-        ScrollPane pane = (ScrollPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
+           System.out.println("bagage geopend ");
+        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());
@@ -85,6 +89,7 @@ public class ContentController implements Initializable {
         System.out.println("parent size");
         System.out.println("height=" + content.getPrefHeight());
         System.out.println("width =" + content.getPrefWidth());
+
     }
 
     @FXML
