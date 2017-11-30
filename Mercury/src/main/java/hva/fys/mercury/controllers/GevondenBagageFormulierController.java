@@ -7,7 +7,6 @@ package hva.fys.mercury.controllers;
  */
 
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
@@ -130,11 +128,11 @@ public class GevondenBagageFormulierController implements Initializable {
         bagage.setTijdGevonden(tijdGevondenG.getText());
         bagage.setGevondenLocatie(locatieGevondenG.getText());
         bagage.setBagageType(bagageTypeG.getText());
-        bagage.setMerk(merkG.getText());
+        bagage.setBagagemerk(merkG.getText());
         bagage.setPrimaireKleur(primaireKleurG.getText());
         bagage.setSecundaireKleur(secundaireKleurG.getText());
         bagage.setFormaat(formaatG.getText());
-        bagage.setGewicht(gewichtG.getText());
+        bagage.setGewichtInKG(gewichtG.getText());
         denyLabelG.setText("");
         opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
         System.out.println("Gegevens zijn opgeslagen!");

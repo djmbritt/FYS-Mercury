@@ -177,12 +177,12 @@ public class RegistreerVermistController implements Initializable {
         bagage.setTijdGevonden(tijdGevonden.getText());
         bagage.setGevondenLocatie(locatieGevonden.getText());
         bagage.setBagageType(bagageType.getText());
-        bagage.setMerk(merk.getText());
+        bagage.setBagagemerk(merk.getText());
         bagage.setPrimaireKleur(primaireKleur.getText());
         bagage.setSecundaireKleur(secundaireKleur.getText());
         bagage.setFormaat(formaat.getText());
 //           System.out.println(reiziger.getVoornaam());
-        bagage.setGewicht(gewicht.getText());
+        bagage.setGewichtInKG(gewicht.getText());
         denyLabel.setText("");
         opgeslagenLabel.setText("Information succesfully saved!");
         System.out.println("Gegevens zijn opgeslagen!");

@@ -1,13 +1,8 @@
 package hva.fys.mercury.models;
 
-import java.util.ArrayList;
-import java.util.List;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.scene.control.TextField;
-
 public class Reiziger {
 
+    private int reizigerID;
     private String voornaam;
     private String achternaam;
     private String adres;
@@ -16,7 +11,25 @@ public class Reiziger {
     private String land;
     private String telefoonnummer;
     private String email;
+    private String IATA_Code;
+    private String BagageRegistratieNummer;
 
+    public Reiziger() {
+    }
+
+    public Reiziger(int reizigerID, String voornaam, String achternaam, String adres, String woonplaats, String postcode, String land, String telefoonnummer, String email, String IATA_Code, String BagageRegistratieNummer) {
+        this.reizigerID = reizigerID;
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.adres = adres;
+        this.woonplaats = woonplaats;
+        this.postcode = postcode;
+        this.land = land;
+        this.telefoonnummer = telefoonnummer;
+        this.email = email;
+        this.IATA_Code = IATA_Code;
+        this.BagageRegistratieNummer = BagageRegistratieNummer;
+    }
 
     public String getVoornaam() {
         return voornaam;
@@ -125,5 +138,29 @@ public class Reiziger {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getReizigerID() {
+        return reizigerID;
+    }
+
+    public void setReizigerID(int reizigerID) {
+        this.reizigerID = reizigerID;
+    }
+
+    public String getIATA_Code() {
+        return IATA_Code;
+    }
+
+    public void setIATA_Code(String IATA_Code) {
+        this.IATA_Code = IATA_Code;
+    }
+
+    public String getBagageRegistratieNummer() {
+        return BagageRegistratieNummer;
+    }
+
+    public void setBagageRegistratieNummer(String BagageRegistratieNummer) {
+        this.BagageRegistratieNummer = BagageRegistratieNummer;
     }
 }

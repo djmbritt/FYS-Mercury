@@ -1,201 +1,171 @@
 package hva.fys.mercury.models;
 
-
 public class Bagage {
 
     private int registratieID;
     private String datumGevonden;
     private String tijdGevonden;
     private String bagageType;
-    private String merk;
+    private String bagagemerk;
     private String vluchtNummer;
     private String bagagelabel;
     private String gevondenLocatie;
     private String primaireKleur;
     private String secundaireKleur;
     private String formaat;
-    private String gewicht;
-    private boolean status;
+    private String gewichtInKG;
+    private String reizigerID;
+    private String IATA_Code;
+    private String overigeEigenschappen;
+    private String status;
 
-    /**
-     * @return the registratieID
-     */
+    public Bagage() {
+    }
+
+    public Bagage(int registratieID, String datumGevonden, String tijdGevonden, String bagageType, String bagagemerk, String vluchtNummer, String bagagelabel, String gevondenLocatie, String primaireKleur, String secundaireKleur, String formaat, String gewichtInKG, String reizigerID, String IATA_Code, String overigeEigenschappen, String status) {
+        this.registratieID = registratieID;
+        this.datumGevonden = datumGevonden;
+        this.tijdGevonden = tijdGevonden;
+        this.bagageType = bagageType;
+        this.bagagemerk = bagagemerk;
+        this.vluchtNummer = vluchtNummer;
+        this.bagagelabel = bagagelabel;
+        this.gevondenLocatie = gevondenLocatie;
+        this.primaireKleur = primaireKleur;
+        this.secundaireKleur = secundaireKleur;
+        this.formaat = formaat;
+        this.gewichtInKG = gewichtInKG;
+        this.reizigerID = reizigerID;
+        this.IATA_Code = IATA_Code;
+        this.overigeEigenschappen = overigeEigenschappen;
+        this.status = status;
+    }
+
     public int getRegistratieID() {
         return registratieID;
     }
 
-    /**
-     * @param registratieID the registratieID to set
-     */
     public void setRegistratieID(int registratieID) {
         this.registratieID = registratieID;
     }
 
-    /**
-     * @return the datumGevonden
-     */
     public String getDatumGevonden() {
         return datumGevonden;
     }
 
-    /**
-     * @param datumGevonden the datumGevonden to set
-     */
     public void setDatumGevonden(String datumGevonden) {
         this.datumGevonden = datumGevonden;
     }
 
-    /**
-     * @return the tijdGevonden
-     */
     public String getTijdGevonden() {
         return tijdGevonden;
     }
 
-    /**
-     * @param tijdGevonden the tijdGevonden to set
-     */
     public void setTijdGevonden(String tijdGevonden) {
         this.tijdGevonden = tijdGevonden;
     }
 
-    /**
-     * @return the bagageType
-     */
     public String getBagageType() {
         return bagageType;
     }
 
-    /**
-     * @param bagageType the bagageType to set
-     */
     public void setBagageType(String bagageType) {
         this.bagageType = bagageType;
     }
 
-    /**
-     * @return the merk
-     */
-    public String getMerk() {
-        return merk;
+    public String getBagagemerk() {
+        return bagagemerk;
     }
 
-    /**
-     * @param merk the merk to set
-     */
-    public void setMerk(String merk) {
-        this.merk = merk;
+    public void setBagagemerk(String bagagemerk) {
+        this.bagagemerk = bagagemerk;
     }
 
-    /**
-     * @return the vluchtNummer
-     */
     public String getVluchtNummer() {
         return vluchtNummer;
     }
 
-    /**
-     * @param vluchtNummer the vluchtNummer to set
-     */
     public void setVluchtNummer(String vluchtNummer) {
         this.vluchtNummer = vluchtNummer;
     }
 
-    /**
-     * @return the bagagelabel
-     */
     public String getBagagelabel() {
         return bagagelabel;
     }
 
-    /**
-     * @param bagagelabel the bagagelabel to set
-     */
     public void setBagagelabel(String bagagelabel) {
         this.bagagelabel = bagagelabel;
     }
 
-    /**
-     * @return the gevondenLocatie
-     */
     public String getGevondenLocatie() {
         return gevondenLocatie;
     }
 
-    /**
-     * @param gevondenLocatie the gevondenLocatie to set
-     */
     public void setGevondenLocatie(String gevondenLocatie) {
         this.gevondenLocatie = gevondenLocatie;
     }
 
-    /**
-     * @return the primaireKleur
-     */
     public String getPrimaireKleur() {
         return primaireKleur;
     }
 
-    /**
-     * @param primaireKleur the primaireKleur to set
-     */
     public void setPrimaireKleur(String primaireKleur) {
         this.primaireKleur = primaireKleur;
     }
 
-    /**
-     * @return the secundaireKleur
-     */
     public String getSecundaireKleur() {
         return secundaireKleur;
     }
 
-    /**
-     * @param secundaireKleur the secundaireKleur to set
-     */
     public void setSecundaireKleur(String secundaireKleur) {
         this.secundaireKleur = secundaireKleur;
     }
 
-    /**
-     * @return the formaat
-     */
     public String getFormaat() {
         return formaat;
     }
 
-    /**
-     * @param formaat the formaat to set
-     */
     public void setFormaat(String formaat) {
         this.formaat = formaat;
     }
 
-    /**
-     * @return the gewichtInKG
-     */
-    public String getGewicht() {
-        return gewicht;
+    public String getGewichtInKG() {
+        return gewichtInKG;
     }
 
-    /**
-     * @param gewicht the gewichtInKG to set
-     */
-    public void setGewicht(String gewicht) {
-        this.gewicht = gewicht;
+    public void setGewichtInKG(String gewichtInKG) {
+        this.gewichtInKG = gewichtInKG;
     }
 
-    /**
-     * @return the status
-     */
-    public boolean isStatus() {
+    public String getReizigerID() {
+        return reizigerID;
+    }
+
+    public void setReizigerID(String reizigerID) {
+        this.reizigerID = reizigerID;
+    }
+
+    public String getIATA_Code() {
+        return IATA_Code;
+    }
+
+    public void setIATA_Code(String IATA_Code) {
+        this.IATA_Code = IATA_Code;
+    }
+
+    public String getOverigeEigenschappen() {
+        return overigeEigenschappen;
+    }
+
+    public void setOverigeEigenschappen(String overigeEigenschappen) {
+        this.overigeEigenschappen = overigeEigenschappen;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
