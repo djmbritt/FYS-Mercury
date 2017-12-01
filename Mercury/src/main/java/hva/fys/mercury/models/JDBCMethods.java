@@ -8,15 +8,15 @@ public class JDBCMethods {
 
     public static void setBagageDatabase(Bagage bagage) {
 
-        MyJDBC db = new MyJDBC("Corendon");
+        MyJDBC db = new MyJDBC("CorendonTest");
 
         String query = String.format(
                 "INSERT INTO Bagage( "
                 + "`BagageRegistratieNummer`, `DateFound`, `TimeFound`, `BrandMerk`, `BagageType`, "
                 + "`BagageLabel`, `LocatieGevonden`, `MainColor`, `SecondColor`, `Formaat`, `Gewicht`, `OverigeEigenschappen`, "
-                + "`Status`, `ReizigerID`, `IATA_Code`"
+                + "`Status`"
                 + ") "
-                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s')",
+                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                 bagage.getRegistratieID(),
                 bagage.getDatumGevonden(),
                 bagage.getTijdGevonden(),
@@ -29,9 +29,9 @@ public class JDBCMethods {
                 bagage.getFormaat(),
                 bagage.getGewichtInKG(),
                 bagage.getOverigeEigenschappen(),
-                bagage.getStatus(),
-                bagage.getReizigerID(),
-                bagage.getIATA_Code()
+                bagage.getStatus()
+//                bagage.getReizigerID(), , `ReizigerID`, `IATA_Code`  , '%d', '%s'
+//                bagage.getIATA_Code()
         );
 
         int numberAffected = db.executeUpdateQuery(query);

@@ -1,6 +1,5 @@
 package hva.fys.mercury.models;
 
-
 import java.sql.*;
 import java.util.Enumeration;
 
@@ -244,8 +243,23 @@ public class MyJDBC {
         sysJDBC.close();
 
         // create or truncate Airport table in the Airline database
-        System.out.println("Creating the Corendon Table...");
+        System.out.println("Creating the " + dbName + " Table...");
         MyJDBC myJDBC = new MyJDBC(dbName);
+        
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `LuchtHaven`;");
+
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE IF NOT EXISTS `LuchtHaven` ("
+                + "`IATA_Code` varchar(3) NOT NULL,"
+                + "`Naam` varchar(45)  DEFAULT NULL,"
+                + "`Land` varchar(45)  DEFAULT NULL,"
+                + "`TimeZone` varchar(45)  DEFAULT NULL,"
+                + "PRIMARY KEY (`IATA_Code`)"
+                + ");"
+        );
+
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
+
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `Bagage` ("
                 + "`BagageRegistratieNummer` int(11) NOT NULL,"
@@ -261,16 +275,38 @@ public class MyJDBC {
                 + "`Gewicht` varchar(45)  DEFAULT NULL,"
                 + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
                 + "`Status` varchar(45)  DEFAULT NULL,"
-                + "`ReizigerID` int(11)  NOT NULL,"
-                + "`IATA_Code` varchar(3)  NOT NULL,"
-                + "PRIMARY KEY (`BagageRegistratieNummer`),"
-                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reigizer(`ReizigerID`)"
+                + "`ReizigerID` int(11)  DEFAULT NULL,"
+                + "`IATA_Code` varchar(3)  DEFAULT NULL,"
+                + "PRIMARY KEY (`BagageRegistratieNummer`)"
+                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
+                //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reigizer(`ReizigerID`)"
                 + ");"
         );
 
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
+
         myJDBC.executeUpdateQuery(
-                "CREATE TABLE IF NOT EXISTS `Gebruikers` ("
+                "CREATE TABLE `Reizigers` ("
+                + "`ReizigerID` int(11) NOT NULL,"
+                + "`VoorNaam` varchar(45)  DEFAULT NULL,"
+                + "`AchterNaam` varchar(45)  DEFAULT NULL,"
+                + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
+                + "`Adres` varchar(45)  DEFAULT NULL,"
+                + "`Land` varchar(45)  DEFAULT NULL,"
+                + "`Telefoon` varchar(45)  DEFAULT NULL,"
+                + "`Email` varchar(45)  DEFAULT NULL,"
+                + "`IATA_Code` varchar(3) DEFAULT NULL,"
+                + "`BagageRegistratieNummer` int(11) DEFAULT NULL,"
+                + "PRIMARY KEY (`ReizigerID`)"
+                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
+                //                + "FOREIGN KEY (`BagageRegistratieNummer`) REFERENCES Bagage(`BagageRegistratieNummer`)"
+                + ");"
+        );
+
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Gebruikers`;");
+
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Gebruikers` ("
                 + "`EmployeeID` int(11) NOT NULL,"
                 + "`Initials` varchar(45)  DEFAULT NULL,"
                 + "`FirstName` varchar(45)  DEFAULT NULL,"
@@ -288,34 +324,6 @@ public class MyJDBC {
                 + "`DepartmentEmployment` varchar(45)  DEFAULT NULL,"
                 + "`HomeAdress` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`EmployeeID`)"
-                + ");"
-        );
-
-        myJDBC.executeUpdateQuery(
-                "CREATE TABLE IF NOT EXISTS `Reizigers` ("
-                + "`ReizigerID` int(11) NOT NULL,"
-                + "`VoorNaam` varchar(45)  DEFAULT NULL,"
-                + "`AchterNaam` varchar(45)  DEFAULT NULL,"
-                + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
-                + "`Adres` varchar(45)  DEFAULT NULL,"
-                + "`Land` varchar(45)  DEFAULT NULL,"
-                + "`Telefoon` varchar(45)  DEFAULT NULL,"
-                + "`Email` varchar(45)  DEFAULT NULL,"
-                + "`IATA_Code` varchar(3) NOT NULL,"
-                + "`BagageRegistratieNummer` int(11) NOT NULL,"
-                + "PRIMARY KEY (`ReizigerID`),"
-                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                + "FOREIGN KEY (`BagageRegistratieNummer`) REFERENCES Bagage(`BagageRegistratieNummer`)"
-                + ");"
-        );
-
-        myJDBC.executeUpdateQuery(
-                "CREATE TABLE IF NOT EXISTS `LuchtHaven` ("
-                + "`IATA_Code` varchar(3) NOT NULL,"
-                + "`Naam` varchar(45)  DEFAULT NULL,"
-                + "`Land` varchar(45)  DEFAULT NULL,"
-                + "`TimeZone` varchar(45)  DEFAULT NULL,"
-                + "PRIMARY KEY (`IATA_Code`)"
                 + ");"
         );
 
