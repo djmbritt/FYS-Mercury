@@ -141,6 +141,7 @@
                <children>
                   <Button id="bewerkBTN" fx:id="bewerkBTN" mnemonicParsing="false" onAction="#bewerkDetails" text="Bewerken" />
                   <Button fx:id="veranderLocatieBTN" mnemonicParsing="false" onAction="#veranderLocatie" text="Verander locatie" />
+                  <Button fx:id="opslaanBTN" mnemonicParsing="false" onAction="#bagageDetailsOpslaan" text="Opslaan" />
                </children></HBox>
          </bottom>
       </BorderPane>
