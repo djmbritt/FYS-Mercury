@@ -6,7 +6,7 @@ package hva.fys.mercury.controllers;
  * and open the template in the editor.
  */
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.JDBCMethods;
+import hva.fys.mercury.DAO.JDBCMethods;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;

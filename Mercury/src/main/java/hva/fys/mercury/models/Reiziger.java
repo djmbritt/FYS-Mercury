@@ -9,15 +9,14 @@ public class Reiziger {
     private String woonplaats;
     private String postcode;
     private String land;
-    private String telefoonnummer;
+    private int telefoonnummer;
     private String email;
     private String IATA_Code;
-    private String BagageRegistratieNummer;
 
     public Reiziger() {
     }
 
-    public Reiziger(int reizigerID, String voornaam, String achternaam, String adres, String woonplaats, String postcode, String land, String telefoonnummer, String email, String IATA_Code, String BagageRegistratieNummer) {
+    public Reiziger(int reizigerID, String voornaam, String achternaam, String adres, String woonplaats, String postcode, String land, int telefoonnummer, String email, String IATA_Code) {
         this.reizigerID = reizigerID;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -28,7 +27,6 @@ public class Reiziger {
         this.telefoonnummer = telefoonnummer;
         this.email = email;
         this.IATA_Code = IATA_Code;
-        this.BagageRegistratieNummer = BagageRegistratieNummer;
     }
 
     public String getVoornaam() {
@@ -115,14 +113,14 @@ public class Reiziger {
     /**
      * @return the telefoonnummer
      */
-    public String getTelefoonnummer() {
+    public int getTelefoonnummer() {
         return telefoonnummer;
     }
 
     /**
      * @param telefoonnummer the telefoonnummer to set
      */
-    public void setTelefoonnummer(String telefoonnummer) {
+    public void setTelefoonnummer(int telefoonnummer) {
         this.telefoonnummer = telefoonnummer;
     }
 
@@ -154,13 +152,5 @@ public class Reiziger {
 
     public void setIATA_Code(String IATA_Code) {
         this.IATA_Code = IATA_Code;
-    }
-
-    public String getBagageRegistratieNummer() {
-        return BagageRegistratieNummer;
-    }
-
-    public void setBagageRegistratieNummer(String BagageRegistratieNummer) {
-        this.BagageRegistratieNummer = BagageRegistratieNummer;
     }
 }

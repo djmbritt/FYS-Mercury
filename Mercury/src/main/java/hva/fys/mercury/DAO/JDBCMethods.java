@@ -1,5 +1,9 @@
-package hva.fys.mercury.models;
+package hva.fys.mercury.DAO;
 
+import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.Gebruiker;
+import hva.fys.mercury.models.LuchtHaven;
+import hva.fys.mercury.models.Reiziger;
 import java.sql.ResultSet;
 
 import javafx.collections.ObservableList;
@@ -8,7 +12,7 @@ public class JDBCMethods {
 
     public static void setBagageDatabase(Bagage bagage) {
 
-        MyJDBC db = new MyJDBC("CorendonTest");
+        DatabaseManager db = new DatabaseManager("CorendonTest");
 
         String query = String.format(
                 "INSERT INTO Bagage( "
@@ -41,7 +45,7 @@ public class JDBCMethods {
 
     public static void getBagageDatabase(ObservableList<Bagage> bagageList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
+            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Bagage";
             ResultSet results = database.executeResultSetQuery(query);
@@ -75,7 +79,7 @@ public class JDBCMethods {
 
     public static void setGebruikersDatabase(Gebruiker gebruiker) {
 
-        MyJDBC db = new MyJDBC("Corendon");
+        DatabaseManager db = new DatabaseManager("Corendon");
 
         String query = String.format(
                 "INSERT INTO Gebruiker( "
@@ -110,7 +114,7 @@ public class JDBCMethods {
 
     public static void getGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
+            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Gebruiker";
             ResultSet results = database.executeResultSetQuery(query);
@@ -145,15 +149,15 @@ public class JDBCMethods {
 
     public static void setReizigerDatabase(Reiziger reiziger) {
 
-        MyJDBC db = new MyJDBC("Corendon");
+        DatabaseManager db = new DatabaseManager("Corendon");
 
         String query = String.format(
                 "INSERT INTO Reiziger( "
                 + "`ReizigerID`, `VoorNaam`, `AchterNaam`, `WoonPlaats`,"
                 + " `Adres`, `Land`, `Telefoon`, `Email`, "
-                + "`IATA_Code`, `BagageRegistratieNummer`"
+                + "`IATA_Code`"
                 + ") "
-                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )",
                 reiziger.getReizigerID(),
                 reiziger.getVoornaam(),
                 reiziger.getAchternaam(),
@@ -162,8 +166,7 @@ public class JDBCMethods {
                 reiziger.getLand(),
                 reiziger.getTelefoonnummer(),
                 reiziger.getEmail(),
-                reiziger.getIATA_Code(),
-                reiziger.getBagageRegistratieNummer()
+                reiziger.getIATA_Code()  
         );
 
         int numberAffected = db.executeUpdateQuery(query);
@@ -173,7 +176,7 @@ public class JDBCMethods {
 
     public static void getReizigerDatabase(ObservableList<Reiziger> reizigerList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
+            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Reiziger";
             ResultSet results = database.executeResultSetQuery(query);
