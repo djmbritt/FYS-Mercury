@@ -239,13 +239,18 @@ public class MyJDBC {
 
         // use the sys schema for creating another db
         MyJDBC sysJDBC = new MyJDBC("sys");
-        sysJDBC.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
+        //original:
+//        sysJDBC.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
+
+        sysJDBC.executeUpdateQuery("DROP DATABASE IF EXISTS " + dbName);
+        sysJDBC.executeUpdateQuery("CREATE DATABASE " + dbName);
+
         sysJDBC.close();
 
         // create or truncate Airport table in the Airline database
         System.out.println("Creating the " + dbName + " Table...");
         MyJDBC myJDBC = new MyJDBC(dbName);
-        
+
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `LuchtHaven`;");
 
         myJDBC.executeUpdateQuery(
@@ -255,6 +260,25 @@ public class MyJDBC {
                 + "`Land` varchar(45)  DEFAULT NULL,"
                 + "`TimeZone` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`IATA_Code`)"
+                + ");"
+        );
+
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
+
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Reizigers` ("
+                + "`ReizigerID` int(11) NOT NULL,"
+                + "`VoorNaam` varchar(45)  DEFAULT NULL,"
+                + "`AchterNaam` varchar(45)  DEFAULT NULL,"
+                + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
+                + "`Adres` varchar(45)  DEFAULT NULL,"
+                + "`Land` varchar(45)  DEFAULT NULL,"
+                + "`Telefoon` varchar(45)  DEFAULT NULL,"
+                + "`Email` varchar(45)  DEFAULT NULL,"
+                + "`IATA_Code` varchar(3) DEFAULT NULL,"
+                + "`BagageRegistratieNummer` int(11) DEFAULT NULL,"
+                + "PRIMARY KEY (`ReizigerID`),"
+                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven (`IATA_Code`)"
                 + ");"
         );
 
@@ -276,30 +300,10 @@ public class MyJDBC {
                 + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
                 + "`Status` varchar(45)  DEFAULT NULL,"
                 + "`ReizigerID` int(11)  DEFAULT NULL,"
-                + "`IATA_Code` varchar(3)  DEFAULT NULL,"
-                + "PRIMARY KEY (`BagageRegistratieNummer`)"
-                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reigizer(`ReizigerID`)"
-                + ");"
-        );
-
-        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
-
-        myJDBC.executeUpdateQuery(
-                "CREATE TABLE `Reizigers` ("
-                + "`ReizigerID` int(11) NOT NULL,"
-                + "`VoorNaam` varchar(45)  DEFAULT NULL,"
-                + "`AchterNaam` varchar(45)  DEFAULT NULL,"
-                + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
-                + "`Adres` varchar(45)  DEFAULT NULL,"
-                + "`Land` varchar(45)  DEFAULT NULL,"
-                + "`Telefoon` varchar(45)  DEFAULT NULL,"
-                + "`Email` varchar(45)  DEFAULT NULL,"
                 + "`IATA_Code` varchar(3) DEFAULT NULL,"
-                + "`BagageRegistratieNummer` int(11) DEFAULT NULL,"
-                + "PRIMARY KEY (`ReizigerID`)"
-                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                //                + "FOREIGN KEY (`BagageRegistratieNummer`) REFERENCES Bagage(`BagageRegistratieNummer`)"
+                + "PRIMARY KEY (`BagageRegistratieNummer`),"
+                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
+                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reizigers(`ReizigerID`)"
                 + ");"
         );
 
@@ -327,9 +331,12 @@ public class MyJDBC {
                 + ");"
         );
 
+        System.out.println("Will I make it????");
+
+
         myJDBC.executeUpdateQuery("SHOW ENGINE INNODB STATUS;");
 
-        // close the connection with the database
+        //close the connection with the database 
         myJDBC.close();
     }
 
