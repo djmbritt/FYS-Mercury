@@ -331,15 +331,51 @@ public class MyJDBC {
                 + ");"
         );
 
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Vluchten`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Vluchten` ("
+                + "`VluchtenID` int(4) NOT NULL,"
+                + "`Engels` varchar(45) NOT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`VluchtenID`)"
+                + ");"
+        );
+
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Locaties`;");
         myJDBC.executeUpdateQuery(
-                "CREATE TABLE `Locaties` "
-                + "`LocatieID` int(3) NOT NULL,"
+                "CREATE TABLE `Locaties` ("
+                + "`LocatieID` int(4) NOT NULL,"
                 + "`Engels` varchar(45) NOT NULL,"
                 + "`Nederlands` varchar(45) DEFAULT NULL,"
                 + "`Spaans` varchar(45) DEFAULT NULL,"
                 + "`Turks` varchar(45) DEFAULT NULL,"
                 + "PRIMARY KEY (`LocatieID`)"
+                + ");"
+        );
+
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `BagageType`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `BagageType` ("
+                + "`BagageTypeID` int(4) NOT NULL,"
+                + "`Engels` varchar(45) NOT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`BagageTypeID`)"
+                + ");"
+        );
+
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Kleuren`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Kleuren` ("
+                + "`RalCode` int(4) NOT NULL,"
+                + "`Engels` varchar(45) NOT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`RalCode`)"
                 + ");"
         );
 
