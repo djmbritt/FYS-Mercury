@@ -251,8 +251,8 @@ public class MyJDBC {
         System.out.println("Creating the " + dbName + " Table...");
         MyJDBC myJDBC = new MyJDBC(dbName);
 
+        //Luchthaven table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `LuchtHaven`;");
-
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `LuchtHaven` ("
                 + "`IATA_Code` varchar(3) NOT NULL,"
@@ -263,8 +263,8 @@ public class MyJDBC {
                 + ");"
         );
 
+        //Reizigers Table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
-
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Reizigers` ("
                 + "`ReizigerID` int(11) NOT NULL,"
@@ -282,8 +282,8 @@ public class MyJDBC {
                 + ");"
         );
 
+        //Bagage Table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
-
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `Bagage` ("
                 + "`BagageRegistratieNummer` int(11) NOT NULL,"
@@ -307,8 +307,8 @@ public class MyJDBC {
                 + ");"
         );
 
+        //Gebruiker Table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Gebruikers`;");
-
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Gebruikers` ("
                 + "`EmployeeID` int(11) NOT NULL,"
@@ -331,8 +331,19 @@ public class MyJDBC {
                 + ");"
         );
 
-        System.out.println("Will I make it????");
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Locaties`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Locaties` "
+                + "`LocatieID` int(3) NOT NULL,"
+                + "`Engels` varchar(45) NOT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`LocatieID`)"
+                + ");"
+        );
 
+        System.out.println("Will I make it????");
 
         myJDBC.executeUpdateQuery("SHOW ENGINE INNODB STATUS;");
 
