@@ -15,7 +15,7 @@ public class GebruikerDAO {
     private static final int MINIMUM_EDITED_COLUMN = 1;
     private static int columnsBewerkt;
 
-    public static boolean registreerBagage(Gebruiker gebruiker) {
+    public static boolean registreerGebruiker(Gebruiker gebruiker) {
 
         final String INSERT_QUERY
                 = "INSERT INTO Gebruikers (`EmployeeID`, `Initials`, `FirstName`, `MiddleName`, `SurName`, "
@@ -52,11 +52,11 @@ public class GebruikerDAO {
         //Waarom columsBewerkt gedefinieerd helemaal boven in en niet de methode zelf?
     }
 
-    public static boolean updateBagage(Gebruiker gebruiker) {
+    public static boolean updateGebruiker(Gebruiker gebruiker) {
 
         final String UPDATE_QUERY
                 = "UPDATE Gebruikers SET "
-                + "Initials='%s', FirstName='%s'MiddleName='%s', SurName='%s', BirthDate='%s', "
+                + "Initials='%s', FirstName='%s', MiddleName='%s', SurName='%s', BirthDate='%s', "
                 + "StartEmploymentDate='%s', WorkEmail='%s', WorkingLocation='%s', StatusEmployment='%s', "
                 + "EndDateEmployment='%s', PersonalEmail='%s', MobilePhoneNumber='%s', HomePhoneNumber='%s', "
                 + "DepartmentEmployment='%s', HomeAdress='%s', PostalCode='%s' "
@@ -124,7 +124,7 @@ public class GebruikerDAO {
         }
     }
 
-    public static void readGebruikerDB(ObservableList<Gebruiker> gebruikerList, List<String> sqlStatementsList) {
+    public static void readQueryGebruikerDB(ObservableList<Gebruiker> gebruikerList, List<String> sqlStatementsList) {
         String sqlStatement;
         if (sqlStatementsList.isEmpty()) {
             sqlStatement = sqlStatementsList.toString();

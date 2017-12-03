@@ -2,6 +2,8 @@ package hva.fys.mercury;
 
 import hva.fys.mercury.DAO.PopulateDB;
 import hva.fys.mercury.DAO.DataBaseCreator;
+import hva.fys.mercury.DAO.BagageDAO;
+import hva.fys.mercury.models.Bagage;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -30,6 +32,23 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         DataBaseCreator.createDatabase(DATABASE_NAME);
         PopulateDB.insertExamplesIntoDB();
+       /*
+        Bagage bagage = new Bagage();
+        bagage.setRegistratieID(1325648);
+        
+        BagageDAO.registreerBagage(bagage);
+        
+        bagage.setStatus("Gevonden");
+        BagageDAO.updateBagage(bagage);
+        */
+        /*
+        Gebruiker gebruiker = new Gebruiker();
+        gebruiker.setEmployeeID(649780213);
+        GebruikerDAO.registreerGebruiker(gebruiker);
+        gebruiker.setFirstName("David Britt");
+        GebruikerDAO.updateGebruiker(gebruiker);
+        */
+        
         launch(args);
     }
 
