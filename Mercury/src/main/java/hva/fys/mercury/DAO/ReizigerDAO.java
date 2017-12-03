@@ -45,7 +45,7 @@ public class ReizigerDAO {
     public static Reiziger getReiziger(int id) {
         final String SELECT_QUERY = "SELECT * FROM Reizigers where ReizigerID =%d ";
         String selectString = String.format(SELECT_QUERY, id); 
-        Reiziger reiziger = new Reiziger();;
+        Reiziger reiziger = new Reiziger();
         try {
             ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString);
             while(rsReiziger.next()){
@@ -55,7 +55,7 @@ public class ReizigerDAO {
                 reiziger.setWoonplaats(rsReiziger.getString("woonplaats"));
                 reiziger.setAdres(rsReiziger.getString("adres"));
                 reiziger.setLand(rsReiziger.getString("land"));
-                reiziger.setTelefoonnummer(rsReiziger.getInt("telefoon"));
+                reiziger.setTelefoonnummer(rsReiziger.getString("telefoon"));
                 reiziger.setEmail(rsReiziger.getString("email"));
                 reiziger.setIATA_Code(rsReiziger.getString("IATA_CODE"));
                 

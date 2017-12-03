@@ -96,7 +96,7 @@ public class BagageDAO {
                 bagage.setFormaat(results.getString("Grootte"));
                 bagage.setGewichtInKG(results.getString("Gewicht"));
                 bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
-//                bagage.setStatus(results.getString("Status"));
+                bagage.setStatus(results.getString("Status"));
                 bagage.setReizigerID(results.getString("Reiziger"));
                 bagage.setIATA_Code(results.getString("IATA_Code"));
 
