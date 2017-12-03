@@ -149,6 +149,38 @@ public class RegistreerVermistController implements Initializable {
     JDBCMethods methodsdb = new JDBCMethods();
 
     @FXML
+<<<<<<< HEAD
+    private void opslaanBagage(ActionEvent event) { 
+       if (checkText() == false) {
+           denyLabel.setText("You did not fill in all textfields!");
+       } else {
+        reiziger.setVoornaam(voornaam.getText());
+        reiziger.setAchternaam(achternaam.getText());
+        reiziger.setAdres(adres.getText());
+        reiziger.setWoonplaats(woonplaats.getText());
+        reiziger.setPostcode(postcode.getText());
+        reiziger.setLand(land.getText());
+        reiziger.setTelefoonnummer(telefoonnummer.getText());
+        reiziger.setEmail(email.getText());
+        bagage.setBagagelabel(bagageLabel.getText());
+        bagage.setVluchtNummer(vluchtNummer.getText());
+        bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        bagage.setTijdGevonden(tijdGevonden.getText());
+        bagage.setGevondenLocatie(locatieGevonden.getText());
+        bagage.setBagageType(bagageType.getText());
+        bagage.setBagagemerk(merk.getText());
+        bagage.setPrimaireKleur(primaireKleur.getText());
+        bagage.setSecundaireKleur(secundaireKleur.getText());
+        bagage.setFormaat(formaat.getText());
+//           System.out.println(reiziger.getVoornaam());
+        bagage.setGewichtInKG(gewicht.getText());
+        denyLabel.setText("");
+        opgeslagenLabel.setText("Information succesfully saved!");
+        System.out.println("Gegevens zijn opgeslagen!");
+        JDBCMethods.setBagageDatabase(bagage);
+        disableFields();
+       }
+=======
     private void opslaanBagage(ActionEvent event) {
         if (checkText() == false) {
             denyLabel.setText("You did not fill in all textfields!");
@@ -179,6 +211,7 @@ public class RegistreerVermistController implements Initializable {
             System.out.println("Gegevens zijn opgeslagen!");
             JDBCMethods.createtBagageDatabase(bagage);
         }
+>>>>>>> b73fe3898bac148942b5de3c461c328c4f2a9334
     }
 
     public void annuleerText() {

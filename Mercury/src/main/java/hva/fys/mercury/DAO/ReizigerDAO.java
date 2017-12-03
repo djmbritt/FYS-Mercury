@@ -10,7 +10,8 @@ public class ReizigerDAO {
     private static int columnsBewerkt;
 
     public static boolean registreerReiziger(Reiziger reiziger) {
-        final String INSERT_QUERY = "INSERT INTO Reizigers (ReizigerID, voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
+        final String INSERT_QUERY = "INSERT INTO Reizigers "
+                + "(ReizigerID, voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
                 + "VALUES (%d ,'%s' , '%s' , '%s' , '%s', '%s' ,%s, '%s' , '%s')";
         
         String insertString = String.format(
