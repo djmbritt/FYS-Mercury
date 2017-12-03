@@ -1,10 +1,5 @@
 package hva.fys.mercury.controllers;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.DAO.JDBCMethods;
 import java.io.IOException;
@@ -20,8 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -29,12 +22,6 @@ import javafx.scene.layout.StackPane;
  * @author Eigenaar
  */
 public class GevondenBagageFormulierController implements Initializable {
-
-    @FXML
-    private StackPane workspace;
-
-    @FXML
-    private BorderPane content;
 
     @FXML
     public TextField bagageLabelG;
@@ -149,7 +136,7 @@ public class GevondenBagageFormulierController implements Initializable {
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
 
-            JDBCMethods.setBagageDatabase(bagage);
+            JDBCMethods.createtBagageDatabase(bagage);
         }
     }
 

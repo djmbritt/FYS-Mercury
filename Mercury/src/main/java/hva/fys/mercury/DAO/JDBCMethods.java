@@ -1,5 +1,9 @@
 package hva.fys.mercury.DAO;
 
+/*
+*@author: David Britt
+*/
+
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Gebruiker;
 import hva.fys.mercury.models.LuchtHaven;
@@ -12,7 +16,7 @@ public class JDBCMethods {
 
     static DatabaseManager database = new DatabaseManager("Corendon");
 
-    public static void setBagageDatabase(Bagage bagage) {
+    public static void createtBagageDatabase(Bagage bagage) {
 
         String query = String.format(
                 "INSERT INTO Bagage( "
@@ -43,7 +47,7 @@ public class JDBCMethods {
 
     }
 
-    public static void getBagageDatabase(ObservableList<Bagage> bagageList) {
+    public static void readBagageDatabase(ObservableList<Bagage> bagageList) {
         try {
 
             String query = "SELECT * FROM Bagage";
@@ -75,8 +79,12 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateBagageDatabase(){}
+    
+    public static void deleteBagageDatabase(){}
 
-    public static void setGebruikersDatabase(Gebruiker gebruiker) {
+    public static void createGebruikersDatabase(Gebruiker gebruiker) {
 
         String query = String.format(
                 "INSERT INTO Gebruiker( "
@@ -109,7 +117,7 @@ public class JDBCMethods {
 
     }
 
-    public static void getGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
+    public static void readGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
         try {
 
             String query = "SELECT * FROM Gebruiker";
@@ -142,8 +150,12 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    static public void updateGebruikerDatabase(){}
+    
+    static public void deleteGebruikerDatabase(){}
 
-    public static void setReizigerDatabase(Reiziger reiziger) {
+    public static void createReizigerDatabase(Reiziger reiziger) {
 
         String query = String.format(
                 "INSERT INTO Reiziger( "
@@ -168,7 +180,7 @@ public class JDBCMethods {
 
     }
 
-    public static void getReizigerDatabase(ObservableList<Reiziger> reizigerList) {
+    public static void readReizigerDatabase(ObservableList<Reiziger> reizigerList) {
         try {
 
             String query = "SELECT * FROM Reiziger";
@@ -195,8 +207,11 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateReizigerDatabase(){}
+    public static void deleteReizigerDatabase(){}
 
-    public static void setLuchtHavenDatabase(LuchtHaven luchtHaven) {
+    public static void createLuchtHavenDatabase(LuchtHaven luchtHaven) {
 
         String query = String.format(
                 "INSERT INTO LuchtHaven( "
@@ -214,7 +229,7 @@ public class JDBCMethods {
 
     }
 
-    public static void getLuchtHavenDatabase(ObservableList<LuchtHaven> luchtHavenList) {
+    public static void readLuchtHavenDatabase(ObservableList<LuchtHaven> luchtHavenList) {
         try {
 
             String query = "SELECT * FROM LuchtHaven";
@@ -235,5 +250,8 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateLuchtHavenDatabase(){}
+    public static void deleteLuchtHavenDatabase(){}
 
 }

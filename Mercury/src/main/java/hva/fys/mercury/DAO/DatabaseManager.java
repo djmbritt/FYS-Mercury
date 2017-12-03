@@ -224,6 +224,8 @@ public class DatabaseManager {
      * builds a sample database with sample content
      *
      * @param dbName name of the sample database.
+     * 
+     * @author: David Britt
      */
      public static void createDatabase(String dbName) {
 
@@ -327,7 +329,6 @@ public class DatabaseManager {
                 + ");"
         );
 
-        //        myJDBC.executeUpdateQuery("INSERT INTO Bagage VALUES('Regitraton nr, 'AYT', 'Date Found', 'Time Found', 'Luggage Type', 'Brand', 'Arrived with flight', 'Luggage tag', 'Location Found', 'Main color', 'Second color', 'Size', 'Weight', 'Passenger name, city', 'Other characteristics')");
         //Bagage Table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
         myJDBC.executeUpdateQuery(

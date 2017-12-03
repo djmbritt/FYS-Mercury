@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-    public final static String DATABASE_NAME = "CorendonTest";
+    public final static String DATABASE_NAME = "MercuryTest";
     public final static String DATABASE_PASSWORD = "admin";
 
     @Override
@@ -30,7 +30,8 @@ public class MainApp extends Application {
 
     public static void main(String[] args) {
         DatabaseManager.createDatabase(DATABASE_NAME);
-        PopulateDB.insertExamplesIntoDB();        launch(args);
+        PopulateDB.insertExamplesIntoDB();        
+        launch(args);
     }
 
 }
