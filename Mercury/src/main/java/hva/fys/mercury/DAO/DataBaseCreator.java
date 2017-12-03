@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hva.fys.mercury.DAO;
 
 /**
@@ -177,6 +172,7 @@ public class DataBaseCreator {
                 + "`HomePhoneNumber` varchar(45)  DEFAULT NULL,"
                 + "`DepartmentEmployment` varchar(45)  DEFAULT NULL,"
                 + "`HomeAdress` varchar(45)  DEFAULT NULL,"
+                + "`PostalCode` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`EmployeeID`)"
                 + ");"
         );
