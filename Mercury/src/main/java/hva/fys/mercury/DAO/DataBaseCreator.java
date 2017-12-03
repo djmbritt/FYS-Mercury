@@ -10,8 +10,8 @@ package hva.fys.mercury.DAO;
  * builds a sample database with sample content
  *
  * @author: David Britt
- **/
-
+ *
+ */
 public class DataBaseCreator {
 
     public static void createDatabase(String dbName) {
@@ -121,7 +121,7 @@ public class DataBaseCreator {
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `Bagage` ("
                 + "`BagageRegistratieNummer` int(11) NOT NULL  AUTO_INCREMENT,"
-                + "`IATA_Code` varchar(3) DEFAULT NULL," 
+                + "`IATA_Code` varchar(3) DEFAULT NULL,"
                 + "`DateFound` varchar(45)  DEFAULT NULL,"
                 + "`TimeFound` varchar(45)  DEFAULT NULL,"
                 + "`BagageType` varchar(45)  DEFAULT NULL,"
@@ -131,7 +131,7 @@ public class DataBaseCreator {
                 + "`LocatieGevonden` varchar(45)  DEFAULT NULL,"
                 + "`MainColor` varchar(45)  DEFAULT NULL,"
                 + "`SecondColor` varchar(45)  DEFAULT NULL,"
-                + "`Grootte` varchar(45)  DEFAULT NULL,"
+                + "`Formaat` varchar(45)  DEFAULT NULL,"
                 /*
                  Double check gewicht, mischien beter om int(3) van te maken?       
                  */
@@ -139,7 +139,8 @@ public class DataBaseCreator {
                 + "`Reiziger` varchar(45)  DEFAULT NULL,"
                 + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
                 //                + "`ReizigerID` int(11)  DEFAULT NULL,"
-                //                + "`Status` varchar(45)  DEFAULT NULL,"
+                //{Gevonden, Verloren, Verwerkt}
+                + "`Status` varchar(45)  DEFAULT NULL," 
                 + "PRIMARY KEY (`BagageRegistratieNummer`),"
                 //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reizigers(`ReizigerID`),"
                 + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`)"
