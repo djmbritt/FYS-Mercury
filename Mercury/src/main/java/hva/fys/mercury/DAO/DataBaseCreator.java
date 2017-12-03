@@ -6,19 +6,14 @@
 package hva.fys.mercury.DAO;
 
 /**
+ * *
+ * builds a sample database with sample content
  *
- * @author djmbritt
- */
-public class dataBaseCreator {
+ * @author: David Britt
+ **/
 
-    /**
-     * *
-     * builds a sample database with sample content
-     *
-     * @param dbName name of the sample database.
-     *
-     * @author: David Britt
-     */
+public class DataBaseCreator {
+
     public static void createDatabase(String dbName) {
 
         System.out.println("Creating the " + dbName + " database...");
@@ -106,7 +101,7 @@ public class dataBaseCreator {
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Reizigers` ("
-                + "`ReizigerID` int(11) NOT NULL,"
+                + "`ReizigerID` int(11) NOT NULL AUTO_INCREMENT,"
                 + "`VoorNaam` varchar(45)  DEFAULT NULL,"
                 + "`AchterNaam` varchar(45)  DEFAULT NULL,"
                 + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
@@ -125,8 +120,8 @@ public class dataBaseCreator {
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `Bagage` ("
-                + "`BagageRegistratieNummer` int(11) NOT NULL,"
-                + "`IATA_Code` varchar(3) DEFAULT NULL,"
+                + "`BagageRegistratieNummer` int(11) NOT NULL  AUTO_INCREMENT,"
+                + "`IATA_Code` varchar(3) DEFAULT NULL," 
                 + "`DateFound` varchar(45)  DEFAULT NULL,"
                 + "`TimeFound` varchar(45)  DEFAULT NULL,"
                 + "`BagageType` varchar(45)  DEFAULT NULL,"
@@ -165,7 +160,7 @@ public class dataBaseCreator {
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Gebruikers`;");
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Gebruikers` ("
-                + "`EmployeeID` int(11) NOT NULL,"
+                + "`EmployeeID` int(11) NOT NULL  AUTO_INCREMENT,"
                 + "`Initials` varchar(45)  DEFAULT NULL,"
                 + "`FirstName` varchar(45)  DEFAULT NULL,"
                 + "`MiddleName` varchar(45)  DEFAULT NULL,"

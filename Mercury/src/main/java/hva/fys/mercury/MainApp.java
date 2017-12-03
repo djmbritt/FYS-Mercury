@@ -2,7 +2,7 @@ package hva.fys.mercury;
 
 
 import hva.fys.mercury.DAO.PopulateDB;
-import hva.fys.mercury.DAO.dataBaseCreator;
+import hva.fys.mercury.DAO.DataBaseCreator;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        dataBaseCreator.createDatabase(DATABASE_NAME);
+        DataBaseCreator.createDatabase(DATABASE_NAME);
         PopulateDB.insertExamplesIntoDB();
         launch(args);
     }
