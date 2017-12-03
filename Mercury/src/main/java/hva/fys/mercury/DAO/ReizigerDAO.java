@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ReizigerDAO {
 
-    private static final DatabaseManager dbManager = new DatabaseManager(MainApp.DATABASE_NAME);
+    private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
     private static final int MINIMUM_EDITED_COLUMN = 1;
     private static int columnsBewerkt; 
 
@@ -24,7 +24,7 @@ public class ReizigerDAO {
                 reiziger.getEmail(), reiziger.getIATA_Code()
         );
 
-        int columnsBewerkt = dbManager.executeUpdateQuery(insertString); 
+        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString); 
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
@@ -38,7 +38,7 @@ public class ReizigerDAO {
                 reiziger.getWoonplaats(), reiziger.getAdres(), reiziger.getLand(), reiziger.getTelefoonnummer(),
                 reiziger.getEmail(), reiziger.getIATA_Code(), reiziger.getReizigerID());
 
-        columnsBewerkt = dbManager.executeUpdateQuery(updateString); 
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString); 
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
@@ -47,7 +47,7 @@ public class ReizigerDAO {
         String selectString = String.format(SELECT_QUERY, id); 
         Reiziger reiziger = new Reiziger();;
         try {
-            ResultSet rsReiziger = dbManager.executeResultSetQuery(selectString);
+            ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString);
             while(rsReiziger.next()){
                 reiziger.setReizigerID(rsReiziger.getInt("ReizigerID"));
                 reiziger.setVoornaam(rsReiziger.getString("voornaam"));
@@ -65,7 +65,7 @@ public class ReizigerDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ReizigerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dbManager.close();
+        DB_MANAGER.close();
         return reiziger;
     }
 

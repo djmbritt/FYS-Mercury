@@ -20,8 +20,7 @@ public class Bagage {
     private String status;
     private static int counter = 1000000000;
 
-    public Bagage() {
-        registratieID = counter++;
+    public Bagage() { 
     }
 
     public Bagage(int registratieID, String datumGevonden, String tijdGevonden, String bagageType, String bagagemerk, String vluchtNummer, String bagagelabel, String gevondenLocatie, String primaireKleur, String secundaireKleur, String formaat, String gewichtInKG, String reizigerID, String IATA_Code, String overigeEigenschappen, String status) {

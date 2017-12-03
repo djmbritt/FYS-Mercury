@@ -1,6 +1,5 @@
 package hva.fys.mercury.DAO;
 
-import static hva.fys.mercury.DAO.JDBCMethods.database;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Bagage;
 import java.sql.ResultSet;
@@ -17,7 +16,7 @@ public class BagageDAO {
     private static final int MINIMUM_EDITED_COLUMN = 1;
     private static int columnsBewerkt;
 
-    public static boolean createBagageDB(Bagage bagage) {
+    public static boolean registreerBagage(Bagage bagage) {
 
         final String INSERT_QUERY
                 = "INSERT INTO Bagage( `BagageRegistratieNummer`, `DateFound`, `TimeFound`, `BrandMerk`, `BagageType`, `BagageLabel`, "
@@ -46,7 +45,7 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static boolean updateBagageDB(Bagage bagage) {
+    public static boolean updateBagage(Bagage bagage) {
         final String UPDATE_QUERY
                 = "UPDATE Bagage "
                 + "SET DateFound='%s', TimeFound='%s', BrandMerk='%s', BagageType='%s', BagageLabel='%s', "
