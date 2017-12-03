@@ -209,7 +209,7 @@ public class RegistreerVermistController implements Initializable {
             denyLabel.setText("");
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
-            JDBCMethods.createtBagageDatabase(bagage);
+            JDBCMethods.createBagageDatabase(bagage);
         } 
     }
 

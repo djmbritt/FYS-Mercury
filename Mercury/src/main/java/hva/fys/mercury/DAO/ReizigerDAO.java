@@ -46,7 +46,7 @@ public class ReizigerDAO {
     }
 
     public static boolean deleteReiziger(Reiziger reiziger) {
-        final String DELETE_QUERY = "DELETE"
+        final String DELETE_QUERY = "DELETE";
     }
 
 }

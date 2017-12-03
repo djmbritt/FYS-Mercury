@@ -16,7 +16,7 @@ public class JDBCMethods {
 
     static DatabaseManager database = new DatabaseManager("Corendon");
 
-    public static void createtBagageDatabase(Bagage bagage) {
+    public static void createBagageDatabase(Bagage bagage) {
 
         String query = String.format(
                 "INSERT INTO Bagage( "
