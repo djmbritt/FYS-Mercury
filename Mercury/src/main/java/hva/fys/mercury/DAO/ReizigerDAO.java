@@ -9,8 +9,7 @@ public class ReizigerDAO {
     private int columnsBewerkt;
 
     public boolean registreerReiziger(Reiziger reiziger) {
-        final String INSERT_QUERY = "INSERT INTO Reizigers (ReizigerID, voornaam, "
-                + "achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
+        final String INSERT_QUERY = "INSERT INTO Reizigers (ReizigerID, voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
                 + "VALUES (%d ,'%s' , '%s' , '%s' , '%s', '%s' ,%s, '%s' , '%s')";
         dbManager = new DatabaseManager();
         String insertString = String.format(
@@ -18,7 +17,7 @@ public class ReizigerDAO {
                 reiziger.getWoonplaats(), reiziger.getAdres(), reiziger.getLand(), reiziger.getTelefoonnummer(), 
                 reiziger.getEmail(), reiziger.getIATA_Code()
         );
-        dbManager.executeUpdateQuery(insertString);
+        int columnsBewerkt = dbManager.executeUpdateQuery(insertString);
         dbManager.close();
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
