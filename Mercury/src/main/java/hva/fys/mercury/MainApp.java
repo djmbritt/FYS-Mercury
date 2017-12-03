@@ -1,8 +1,10 @@
 package hva.fys.mercury;
 
-import hva.fys.mercury.DAO.DatabaseManager;
+
 import hva.fys.mercury.DAO.PopulateDB;
+import hva.fys.mercury.DAO.dataBaseCreator;
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,8 +30,9 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        DatabaseManager.createDatabase(DATABASE_NAME);
+        dataBaseCreator.createDatabase(DATABASE_NAME);
         PopulateDB.insertExamplesIntoDB();
+        launch(args);
     }
 
 }
