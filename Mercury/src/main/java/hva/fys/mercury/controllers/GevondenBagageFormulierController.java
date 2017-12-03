@@ -106,30 +106,6 @@ public class GevondenBagageFormulierController implements Initializable {
     private Label denyLabelG;
 
     @FXML
-<<<<<<< HEAD
-    private void opslaanBagageG(ActionEvent event) { 
-       if (checkText() == false) {
-           denyLabelG.setText("You did not fill in all textfields!");
-       } else {
-        datumGevondenG.getEditor().setDisable(true);
-        bagage.setBagagelabel(bagageLabelG.getText());
-        bagage.setVluchtNummer(vluchtNummerG.getText());
-        bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        bagage.setTijdGevonden(tijdGevondenG.getText());
-        bagage.setGevondenLocatie(locatieGevondenG.getText());
-        bagage.setBagageType(bagageTypeG.getText());
-        bagage.setBagagemerk(merkG.getText());
-        bagage.setPrimaireKleur(primaireKleurG.getText());
-        bagage.setSecundaireKleur(secundaireKleurG.getText());
-        bagage.setFormaat(formaatG.getText());
-        bagage.setGewichtInKG(gewichtG.getText());
-        denyLabelG.setText("");
-        opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
-        System.out.println("Gegevens zijn opgeslagen!");
-        JDBCMethods.setBagageDatabase(bagage);
-        disableFields();
-       }
-=======
     private void opslaanBagageG(ActionEvent event) {
         if (checkText() == false) {
             denyLabelG.setText("You did not fill in all textfields!");
@@ -155,14 +131,12 @@ public class GevondenBagageFormulierController implements Initializable {
 //            bagage.setStatus("iets over status");
 //            bagage.setRegistratieID(12345);
 //            bagage.setIATA_Code("aua");
-
             denyLabelG.setText("");
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
 
             JDBCMethods.createtBagageDatabase(bagage);
         }
->>>>>>> b73fe3898bac148942b5de3c461c328c4f2a9334
     }
 
     public void annuleerText() {
