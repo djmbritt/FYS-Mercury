@@ -138,7 +138,6 @@ public class GevondenBagageFormulierController implements Initializable {
         } else {
             disableFields();
             datumGevondenG.getEditor().setDisable(true);
-
             Bagage bagage = new Bagage();
             bagage.setBagagelabel(bagageLabelG.getText());
             bagage.setVluchtNummer(vluchtNummerG.getText());
