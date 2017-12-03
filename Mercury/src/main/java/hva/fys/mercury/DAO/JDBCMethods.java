@@ -107,7 +107,7 @@ public class JDBCMethods {
                 gebruiker.getEndDateEmployment(),
                 gebruiker.getPersonalEmail(),
                 gebruiker.getMobilePhoneNumber(),
-                gebruiker.getHomePhoneNumber(),
+                gebruiker.getPostalCode(),
                 gebruiker.getDepartmentEmployment(),
                 gebruiker.getHomeAdress()
         );
@@ -139,7 +139,7 @@ public class JDBCMethods {
                 gebruiker.setEndDateEmployment(results.getString("EndDateEmployment"));
                 gebruiker.setPersonalEmail(results.getString("PersonalEmail"));
                 gebruiker.setMobilePhoneNumber(results.getString("MobilePhoneNumber"));
-                gebruiker.setHomePhoneNumber(results.getString("HomePhoneNumber"));
+                gebruiker.setPostalCode(results.getString("HomePhoneNumber"));
                 gebruiker.setDepartmentEmployment(results.getString("DepartmentEmployment"));
                 gebruiker.setHomeAdress(results.getString("HomeAdres"));
 

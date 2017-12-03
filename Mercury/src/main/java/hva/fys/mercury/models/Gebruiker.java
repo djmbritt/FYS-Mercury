@@ -158,7 +158,7 @@ public class Gebruiker {
         return PostalCode;
     }
 
-    public void setHomePhoneNumber(String HomePhoneNumber) {
+    public void setPostalCode(String PostalCode) {
         this.PostalCode = PostalCode;
     }
 
