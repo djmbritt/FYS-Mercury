@@ -148,8 +148,8 @@ public class RegistreerVermistController implements Initializable {
 
     JDBCMethods methodsdb = new JDBCMethods();
 
-    @FXML
-<<<<<<< HEAD
+    @FXML 
+    /*
     private void opslaanBagage(ActionEvent event) { 
        if (checkText() == false) {
            denyLabel.setText("You did not fill in all textfields!");
@@ -179,8 +179,8 @@ public class RegistreerVermistController implements Initializable {
         System.out.println("Gegevens zijn opgeslagen!");
         JDBCMethods.setBagageDatabase(bagage);
         disableFields();
-       }
-=======
+       } 
+       */
     private void opslaanBagage(ActionEvent event) {
         if (checkText() == false) {
             denyLabel.setText("You did not fill in all textfields!");
@@ -210,8 +210,7 @@ public class RegistreerVermistController implements Initializable {
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
             JDBCMethods.createtBagageDatabase(bagage);
-        }
->>>>>>> b73fe3898bac148942b5de3c461c328c4f2a9334
+        } 
     }
 
     public void annuleerText() {
