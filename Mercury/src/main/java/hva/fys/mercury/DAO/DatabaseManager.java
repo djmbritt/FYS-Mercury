@@ -1,5 +1,6 @@
 package hva.fys.mercury.DAO;
 
+import hva.fys.mercury.MainApp;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -13,7 +14,7 @@ public class DatabaseManager {
     private static final String DB_DEFAULT_DATABASE = "sys";
     private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
     private static final String DB_DEFAULT_ACCOUNT = "root";
-    private static final String DB_DEFAULT_PASSWORD = "root";
+    private static final String DB_DEFAULT_PASSWORD = MainApp.DATABASE_PASSWORD;
 
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
     private final static String DB_DRIVER_PREFIX = "jdbc:mysql://";
@@ -192,7 +193,7 @@ public class DatabaseManager {
      */
     public void log(String message) {
         if (isVerbose()) {
-            System.out.println("MyJDBC: " + message);
+            System.out.println("DatabaseManager: " + message);
         }
     }
 
@@ -205,7 +206,7 @@ public class DatabaseManager {
      * @param e
      */
     public final void error(Exception e) {
-        String msg = "MyJDBC-" + e.getClass().getName() + ": " + e.getMessage();
+        String msg = "DatabaseManager-" + e.getClass().getName() + ": " + e.getMessage();
 
         // capture the message of the first error of the connection
         if (this.errorMessage == null) {
@@ -224,58 +225,91 @@ public class DatabaseManager {
      *
      * @param dbName name of the sample database.
      */
-    public static void createDatabase(String dbName) {
+     public static void createDatabase(String dbName) {
 
         System.out.println("Creating the " + dbName + " database...");
 
         // use the sys schema for creating another db
         DatabaseManager sysJDBC = new DatabaseManager("sys");
-        sysJDBC.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
+        //original:
+//        sysJDBC.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
+
+        sysJDBC.executeUpdateQuery("DROP DATABASE IF EXISTS " + dbName);
+        sysJDBC.executeUpdateQuery("CREATE DATABASE " + dbName);
+
         sysJDBC.close();
 
         // create or truncate Airport table in the Airline database
         System.out.println("Creating the " + dbName + " Table...");
         DatabaseManager myJDBC = new DatabaseManager(dbName);
 
+        //Luchthaven table
         myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `LuchtHaven`;");
-
-            myJDBC.executeUpdateQuery(
+        myJDBC.executeUpdateQuery(
                 "CREATE TABLE IF NOT EXISTS `LuchtHaven` ("
                 + "`IATA_Code` varchar(3) NOT NULL,"
-                + "`Naam` varchar(45)  DEFAULT NULL,"
+                + "`LuchtHavenNaam` varchar(45)  DEFAULT NULL,"
                 + "`Land` varchar(45)  DEFAULT NULL,"
-                + "`TimeZone` varchar(45)  DEFAULT NULL,"
+                + "`TimeZone` int(2)  DEFAULT NULL,"
+                + "`DaylightSaving` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`IATA_Code`)"
                 + ");"
         );
 
-        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
-
+        //Vluchten
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Vluchten`;");
         myJDBC.executeUpdateQuery(
-                "CREATE TABLE IF NOT EXISTS `Bagage` ("
-                + "`BagageRegistratieNummer` int(11) NOT NULL,"
-                + "`DateFound` varchar(45)  DEFAULT NULL,"
-                + "`TimeFound` varchar(45)  DEFAULT NULL,"
-                + "`BrandMerk` varchar(45)  DEFAULT NULL,"
-                + "`BagageType` varchar(45)  DEFAULT NULL,"
-                + "`BagageLabel` varchar(45)  DEFAULT NULL,"
-                + "`LocatieGevonden` varchar(45)  DEFAULT NULL,"
-                + "`MainColor` varchar(45)  DEFAULT NULL,"
-                + "`SecondColor` varchar(45)  DEFAULT NULL,"
-                + "`Formaat` varchar(45)  DEFAULT NULL,"
-                + "`Gewicht` varchar(45)  DEFAULT NULL,"
-                + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
-                + "`Status` varchar(45)  DEFAULT NULL,"
-                + "`ReizigerID` int(11)  DEFAULT NULL,"
-                + "`IATA_Code` varchar(3)  DEFAULT NULL,"
-                + "PRIMARY KEY (`BagageRegistratieNummer`)"
-                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reigizer(`ReizigerID`)"
+                "CREATE TABLE `Vluchten` ("
+                + "`VluchtenID` int(4) NOT NULL,"
+                + "`Airline` varchar(45) DEFAULT NULL,"
+                + "`VluchtNummer` varchar(45) DEFAULT NULL,"
+                + "`VanLocatie` varchar(45) DEFAULT NULL,"
+                + "`NaarLocatie` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`VluchtenID`)"
                 + ");"
         );
 
-        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
+        //Locaties
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Locaties`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Locaties` ("
+                + "`LocatieID` int(4) NOT NULL,"
+                + "`Engels` varchar(45) DEFAULT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`LocatieID`)"
+                + ");"
+        );
 
+        //BagageType
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `BagageTypes`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `BagageTypes` ("
+                + "`BagageTypeID` int(4) NOT NULL,"
+                + "`Engels` varchar(45) DEFAULT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`BagageTypeID`)"
+                + ");"
+        );
+
+        //Kleuren
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Kleuren`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE `Kleuren` ("
+                + "`RalCode` int(4) NOT NULL,"
+                + "`Engels` varchar(45) DEFAULT NULL,"
+                + "`Nederlands` varchar(45) DEFAULT NULL,"
+                + "`Spaans` varchar(45) DEFAULT NULL,"
+                + "`Turks` varchar(45) DEFAULT NULL,"
+                + "PRIMARY KEY (`RalCode`)"
+                + ");"
+        );
+
+        //Reizigers Table
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Reizigers`;");
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Reizigers` ("
                 + "`ReizigerID` int(11) NOT NULL,"
@@ -284,18 +318,58 @@ public class DatabaseManager {
                 + "`WoonPlaats` varchar(45)  DEFAULT NULL,"
                 + "`Adres` varchar(45)  DEFAULT NULL,"
                 + "`Land` varchar(45)  DEFAULT NULL,"
-                + "`Telefoon` int(45)  DEFAULT NULL,"
+                + "`Telefoon` varchar(45)  DEFAULT NULL,"
                 + "`Email` varchar(45)  DEFAULT NULL,"
                 + "`IATA_Code` varchar(3) DEFAULT NULL,"
                 + "`BagageRegistratieNummer` int(11) DEFAULT NULL,"
-                + "PRIMARY KEY (`ReizigerID`)"
-                //                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`),"
-                //                + "FOREIGN KEY (`BagageRegistratieNummer`) REFERENCES Bagage(`BagageRegistratieNummer`)"
+                + "PRIMARY KEY (`ReizigerID`),"
+                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven (`IATA_Code`)"
                 + ");"
         );
 
-        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Gebruikers`;");
+        //        myJDBC.executeUpdateQuery("INSERT INTO Bagage VALUES('Regitraton nr, 'AYT', 'Date Found', 'Time Found', 'Luggage Type', 'Brand', 'Arrived with flight', 'Luggage tag', 'Location Found', 'Main color', 'Second color', 'Size', 'Weight', 'Passenger name, city', 'Other characteristics')");
+        //Bagage Table
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Bagage`;");
+        myJDBC.executeUpdateQuery(
+                "CREATE TABLE IF NOT EXISTS `Bagage` ("
+                + "`BagageRegistratieNummer` int(11) NOT NULL,"
+                + "`IATA_Code` varchar(3) DEFAULT NULL,"
+                + "`DateFound` varchar(45)  DEFAULT NULL,"
+                + "`TimeFound` varchar(45)  DEFAULT NULL,"
+                + "`BagageType` varchar(45)  DEFAULT NULL,"
+                + "`BrandMerk` varchar(45)  DEFAULT NULL,"
+                + "`ArrivedWithFlight` varchar(45)  DEFAULT NULL,"
+                + "`BagageLabel` varchar(45)  DEFAULT NULL,"
+                + "`LocatieGevonden` varchar(45)  DEFAULT NULL,"
+                + "`MainColor` varchar(45)  DEFAULT NULL,"
+                + "`SecondColor` varchar(45)  DEFAULT NULL,"
+                + "`Grootte` varchar(45)  DEFAULT NULL,"
+                /*
+                 Double check gewicht, mischien beter om int(3) van te maken?       
+                 */
+                + "`Gewicht` varchar(45)  DEFAULT NULL,"
+                + "`Reiziger` varchar(45)  DEFAULT NULL,"
+                + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
+                //                + "`ReizigerID` int(11)  DEFAULT NULL,"
+                //                + "`Status` varchar(45)  DEFAULT NULL,"
+                + "PRIMARY KEY (`BagageRegistratieNummer`),"
+                //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reizigers(`ReizigerID`),"
+                + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`)"
+                /*
+                    Figure out why these foreign keys don't work
+                    My theory at the moment is that you can not set a FK to a none PK entity.
+                 */
+                //                + "FOREIGN KEY (`BagageType`) REFERENCES BagageTypes(`Engels`),"
+                //                + "FOREIGN KEY (`ArrivedWithFlight`) REFERENCES Vluchten(`VluchtNummer`),"
+                //                + "FOREIGN KEY (`LocatieGevonden`) REFERENCES Locatie(`Engels`),"
+                //                + "FOREIGN KEY (`MainColor`) REFERENCES Kleuren(`Engels`),"
+                //                + "FOREIGN KEY (`SecondColor`) REFERENCES Kleuren(`Engels`),"
 
+                + ");"
+        );
+
+        //Gebruiker Table
+        myJDBC.executeUpdateQuery("DROP TABLE IF EXISTS `Gebruikers`;");
         myJDBC.executeUpdateQuery(
                 "CREATE TABLE `Gebruikers` ("
                 + "`EmployeeID` int(11) NOT NULL,"
@@ -320,7 +394,7 @@ public class DatabaseManager {
 
         myJDBC.executeUpdateQuery("SHOW ENGINE INNODB STATUS;");
 
-        // close the connection with the database
+        //close the connection with the database 
         myJDBC.close();
     }
 

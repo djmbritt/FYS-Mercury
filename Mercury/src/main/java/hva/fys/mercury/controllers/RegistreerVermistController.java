@@ -1,10 +1,8 @@
 
 package hva.fys.mercury.controllers;
 
-import com.mysql.jdbc.JDBC42CallableStatement;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.DAO.JDBCMethods;
-import hva.fys.mercury.DAO.MyJDBC;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;

@@ -1,6 +1,7 @@
 package hva.fys.mercury;
 
 import hva.fys.mercury.DAO.DatabaseManager;
+import hva.fys.mercury.DAO.PopulateDB;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
+
+    public final static String DATABASE_NAME = "CorendonTest";
+    public final static String DATABASE_PASSWORD = "admin";
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,8 +29,8 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        DatabaseManager.createDatabase("Corendon");
-        launch(args);
+        DatabaseManager.createDatabase(DATABASE_NAME);
+        PopulateDB.insertExamplesIntoDB();        launch(args);
     }
 
 }

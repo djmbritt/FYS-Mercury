@@ -10,9 +10,9 @@ import javafx.collections.ObservableList;
 
 public class JDBCMethods {
 
-    public static void setBagageDatabase(Bagage bagage) {
+    static DatabaseManager database = new DatabaseManager("Corendon");
 
-        DatabaseManager db = new DatabaseManager("CorendonTest");
+    public static void setBagageDatabase(Bagage bagage) {
 
         String query = String.format(
                 "INSERT INTO Bagage( "
@@ -34,18 +34,17 @@ public class JDBCMethods {
                 bagage.getGewichtInKG(),
                 bagage.getOverigeEigenschappen(),
                 bagage.getStatus()
-//                bagage.getReizigerID(), , `ReizigerID`, `IATA_Code`  , '%d', '%s'
-//                bagage.getIATA_Code()
+        //                bagage.getReizigerID(), , `ReizigerID`, `IATA_Code`  , '%d', '%s'
+        //                bagage.getIATA_Code()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
     public static void getBagageDatabase(ObservableList<Bagage> bagageList) {
         try {
-            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Bagage";
             ResultSet results = database.executeResultSetQuery(query);
@@ -79,8 +78,6 @@ public class JDBCMethods {
 
     public static void setGebruikersDatabase(Gebruiker gebruiker) {
 
-        DatabaseManager db = new DatabaseManager("Corendon");
-
         String query = String.format(
                 "INSERT INTO Gebruiker( "
                 + "`EmployeeID`, `Initials`, `FirstName`, `MiddleName`, `SurName`, `BirthDate`,"
@@ -107,14 +104,13 @@ public class JDBCMethods {
                 gebruiker.getHomeAdress()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
     public static void getGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
         try {
-            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Gebruiker";
             ResultSet results = database.executeResultSetQuery(query);
@@ -149,8 +145,6 @@ public class JDBCMethods {
 
     public static void setReizigerDatabase(Reiziger reiziger) {
 
-        DatabaseManager db = new DatabaseManager("Corendon");
-
         String query = String.format(
                 "INSERT INTO Reiziger( "
                 + "`ReizigerID`, `VoorNaam`, `AchterNaam`, `WoonPlaats`,"
@@ -166,17 +160,16 @@ public class JDBCMethods {
                 reiziger.getLand(),
                 reiziger.getTelefoonnummer(),
                 reiziger.getEmail(),
-                reiziger.getIATA_Code()  
+                reiziger.getIATA_Code()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
     public static void getReizigerDatabase(ObservableList<Reiziger> reizigerList) {
         try {
-            DatabaseManager database = new DatabaseManager("Corendon");
 
             String query = "SELECT * FROM Reiziger";
             ResultSet results = database.executeResultSetQuery(query);
@@ -205,8 +198,6 @@ public class JDBCMethods {
 
     public static void setLuchtHavenDatabase(LuchtHaven luchtHaven) {
 
-        MyJDBC db = new MyJDBC("Corendon");
-
         String query = String.format(
                 "INSERT INTO LuchtHaven( "
                 + "`IATA_Code`, `Naam`, `Land`, `TimeZone`,"
@@ -218,14 +209,13 @@ public class JDBCMethods {
                 luchtHaven.getTimeZone()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
     public static void getLuchtHavenDatabase(ObservableList<LuchtHaven> luchtHavenList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
 
             String query = "SELECT * FROM LuchtHaven";
             ResultSet results = database.executeResultSetQuery(query);

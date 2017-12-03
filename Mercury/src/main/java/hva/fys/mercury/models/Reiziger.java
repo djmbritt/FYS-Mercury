@@ -9,14 +9,14 @@ public class Reiziger {
     private String woonplaats;
     private String postcode;
     private String land;
-    private int telefoonnummer;
+    private String telefoonnummer;
     private String email;
     private String IATA_Code;
 
     public Reiziger() {
     }
 
-    public Reiziger(int reizigerID, String voornaam, String achternaam, String adres, String woonplaats, String postcode, String land, int telefoonnummer, String email, String IATA_Code) {
+    public Reiziger(int reizigerID, String voornaam, String achternaam, String adres, String woonplaats, String postcode, String land, String telefoonnummer, String email, String IATA_Code) {
         this.reizigerID = reizigerID;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -113,14 +113,14 @@ public class Reiziger {
     /**
      * @return the telefoonnummer
      */
-    public int getTelefoonnummer() {
+    public String getTelefoonnummer() {
         return telefoonnummer;
     }
 
     /**
      * @param telefoonnummer the telefoonnummer to set
      */
-    public void setTelefoonnummer(int telefoonnummer) {
+    public void setTelefoonnummer(String telefoonnummer) {
         this.telefoonnummer = telefoonnummer;
     }
 
@@ -152,5 +152,9 @@ public class Reiziger {
 
     public void setIATA_Code(String IATA_Code) {
         this.IATA_Code = IATA_Code;
+    }
+
+    public void setBagageRegistratieNummer(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
