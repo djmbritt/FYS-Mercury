@@ -153,7 +153,6 @@ public class GevondenBagageFormulierController implements Initializable {
             bagage.setGewichtInKG(gewichtG.getText());
 
 //            bagage.setOverigeEigenschappen("IEts over deze bagage");
-//            bagage.setGevondenLocatie("Amsterdam");
 //            bagage.setStatus("iets over status");
 //            bagage.setRegistratieID(12345);
 //            bagage.setIATA_Code("aua");
@@ -161,7 +160,7 @@ public class GevondenBagageFormulierController implements Initializable {
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
 
-            JDBCMethods.createtBagageDatabase(bagage);
+            JDBCMethods.createBagageDatabase(bagage);
         }
     }
 
