@@ -195,7 +195,7 @@ public class JDBCMethods {
                 reiziger.setWoonplaats(results.getString("WoonPlaats"));
                 reiziger.setAdres(results.getString("Adres"));
                 reiziger.setLand(results.getString("Land"));
-                reiziger.setTelefoonnummer(results.getString("Telefoon"));
+                //reiziger.setTelefoonnummer(results.getString("Telefoon"));
                 reiziger.setEmail(results.getString("Email"));
                 reiziger.setIATA_Code(results.getString("IATA_Code"));
                 reiziger.setBagageRegistratieNummer(results.getString("BagageRegistratieNummer"));

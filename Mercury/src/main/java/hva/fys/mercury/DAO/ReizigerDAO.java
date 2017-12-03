@@ -3,26 +3,20 @@ package hva.fys.mercury.DAO;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Reiziger;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.SQLException; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ReizigerDAO {
 
-    private static DatabaseManager dbManager = new DatabaseManager(MainApp.DATABASE_NAME);
+    private static final DatabaseManager dbManager = new DatabaseManager(MainApp.DATABASE_NAME);
     private static final int MINIMUM_EDITED_COLUMN = 1;
-    private static int columnsBewerkt;
-    private static  int reizigerID = 0;
-    
-   private int maakReizigerID(){
-       
-   }
+    private static int columnsBewerkt; 
 
     public static boolean registreerReiziger(Reiziger reiziger) {
         final String INSERT_QUERY = "INSERT INTO Reizigers "
-                + "(ReizigerID, voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
-                + "VALUES (%d ,'%s' , '%s' , '%s' , '%s', '%s' ,%s, '%s' , '%s')";
+                + "( voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
+                + "VALUES ('%s' , '%s' , '%s' , '%s', '%s' ,%s, '%s' , '%s')";
 
         String insertString = String.format(
                 INSERT_QUERY, reiziger.getReizigerID(), reiziger.getVoornaam(), reiziger.getAchternaam(),
