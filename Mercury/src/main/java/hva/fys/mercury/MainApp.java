@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     public final static String DATABASE_NAME = "MercuryTest";
-    public final static String DATABASE_PASSWORD = "admin";
 
     @Override
     public void start(Stage stage) throws Exception {
