@@ -1,10 +1,7 @@
-
 package hva.fys.mercury.controllers;
 
-import com.mysql.jdbc.JDBC42CallableStatement;
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.JDBCMethods;
-import hva.fys.mercury.models.MyJDBC;
+import hva.fys.mercury.DAO.JDBCMethods;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
@@ -19,9 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-
 
 /**
  * FXML Controller class
@@ -29,17 +23,9 @@ import javafx.scene.layout.StackPane;
  * @author Mitchell Wan
  */
 public class RegistreerVermistController implements Initializable {
+
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
-
-//    TextField voornaam = new TextField();
-
-    @FXML
-    private StackPane workspace;
-
-    @FXML
-    private BorderPane content;
-    
 
     @FXML
     TextField voornaam;
@@ -61,108 +47,109 @@ public class RegistreerVermistController implements Initializable {
     public TextField secundaireKleur;
     public TextField formaat;
     public TextField gewicht;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }    
-    
+    }
+
     public boolean checkText() {
         TextField[] text = {
-        voornaam,
-        achternaam,
-        adres,
-        woonplaats,
-        postcode,
-        land,
-        telefoonnummer,
-        email,
-        bagageLabel,
-        vluchtNummer,
-        tijdGevonden,
-        locatieGevonden,
-        bagageType,
-        merk,
-        primaireKleur,
-        secundaireKleur,
-        formaat,
-        gewicht
+            voornaam,
+            achternaam,
+            adres,
+            woonplaats,
+            postcode,
+            land,
+            telefoonnummer,
+            email,
+            bagageLabel,
+            vluchtNummer,
+            tijdGevonden,
+            locatieGevonden,
+            bagageType,
+            merk,
+            primaireKleur,
+            secundaireKleur,
+            formaat,
+            gewicht
         };
-        
+
         for (int i = 0; i < text.length; i++) {
             if (text[i].getText().trim().length() == 0) {
                 return false;
             }
-            
+
         }
         return true;
     }
-    
-        public void disableFields() {
+
+    public void disableFields() {
         TextField[] text = {
-        voornaam,
-        achternaam,
-        adres,
-        woonplaats,
-        postcode,
-        land,
-        telefoonnummer,
-        email,
-        bagageLabel,
-        vluchtNummer,
-        tijdGevonden,
-        locatieGevonden,
-        bagageType,
-        merk,
-        primaireKleur,
-        secundaireKleur,
-        formaat,
-        gewicht          
+            voornaam,
+            achternaam,
+            adres,
+            woonplaats,
+            postcode,
+            land,
+            telefoonnummer,
+            email,
+            bagageLabel,
+            vluchtNummer,
+            tijdGevonden,
+            locatieGevonden,
+            bagageType,
+            merk,
+            primaireKleur,
+            secundaireKleur,
+            formaat,
+            gewicht
         };
         for (int i = 0; i < text.length; i++) {
-            text[i].setDisable(true); 
+            text[i].setDisable(true);
         }
-    datumGevonden.getEditor().setDisable(true);
+        datumGevonden.getEditor().setDisable(true);
     }
-    
-        public void enableFields() {
+
+    public void enableFields() {
         TextField[] text = {
-        voornaam,
-        achternaam,
-        adres,
-        woonplaats,
-        postcode,
-        land,
-        telefoonnummer,
-        email,
-        bagageLabel,
-        vluchtNummer,
-        tijdGevonden,
-        locatieGevonden,
-        bagageType,
-        merk,
-        primaireKleur,
-        secundaireKleur,
-        formaat,
-        gewicht          
+            voornaam,
+            achternaam,
+            adres,
+            woonplaats,
+            postcode,
+            land,
+            telefoonnummer,
+            email,
+            bagageLabel,
+            vluchtNummer,
+            tijdGevonden,
+            locatieGevonden,
+            bagageType,
+            merk,
+            primaireKleur,
+            secundaireKleur,
+            formaat,
+            gewicht
         };
         for (int i = 0; i < text.length; i++) {
-            text[i].setDisable(false); 
+            text[i].setDisable(false);
         }
-       datumGevonden.getEditor().setDisable(false);
-       datumGevonden.getEditor().setText("");
+        datumGevonden.getEditor().setDisable(false);
+        datumGevonden.getEditor().setText("");
     }
     @FXML
     private Button opslaanBTN;
-    
+
     @FXML
     private Label opgeslagenLabel;
-    
+
     @FXML
     private Label denyLabel;
-    
+
     JDBCMethods methodsdb = new JDBCMethods();
-    
+
     @FXML
+<<<<<<< HEAD
     private void opslaanBagage(ActionEvent event) { 
        if (checkText() == false) {
            denyLabel.setText("You did not fill in all textfields!");
@@ -193,44 +180,76 @@ public class RegistreerVermistController implements Initializable {
         JDBCMethods.setBagageDatabase(bagage);
         disableFields();
        }
+=======
+    private void opslaanBagage(ActionEvent event) {
+        if (checkText() == false) {
+            denyLabel.setText("You did not fill in all textfields!");
+        } else {
+            disableFields();
+            reiziger.setVoornaam(voornaam.getText());
+            reiziger.setAchternaam(achternaam.getText());
+            reiziger.setAdres(adres.getText());
+            reiziger.setWoonplaats(woonplaats.getText());
+            reiziger.setPostcode(postcode.getText());
+            reiziger.setLand(land.getText());
+            reiziger.setTelefoonnummer(telefoonnummer.getText());
+            reiziger.setEmail(email.getText());
+            bagage.setBagagelabel(bagageLabel.getText());
+            bagage.setVluchtNummer(vluchtNummer.getText());
+            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+            bagage.setTijdGevonden(tijdGevonden.getText());
+            bagage.setGevondenLocatie(locatieGevonden.getText());
+            bagage.setBagageType(bagageType.getText());
+            bagage.setBagagemerk(merk.getText());
+            bagage.setPrimaireKleur(primaireKleur.getText());
+            bagage.setSecundaireKleur(secundaireKleur.getText());
+            bagage.setFormaat(formaat.getText());
+//           System.out.println(reiziger.getVoornaam());
+            bagage.setGewichtInKG(gewicht.getText());
+            denyLabel.setText("");
+            opgeslagenLabel.setText("Information succesfully saved!");
+            System.out.println("Gegevens zijn opgeslagen!");
+            JDBCMethods.createtBagageDatabase(bagage);
+        }
+>>>>>>> b73fe3898bac148942b5de3c461c328c4f2a9334
     }
-    
+
     public void annuleerText() {
         TextField[] annuleer = {
-        voornaam,
-        achternaam,
-        adres,
-        woonplaats,
-        postcode,
-        land,
-        telefoonnummer,
-        email,
-        bagageLabel,
-        vluchtNummer,
-        tijdGevonden,
-        locatieGevonden,
-        bagageType,
-        merk,
-        primaireKleur,
-        secundaireKleur,
-        formaat,
-        gewicht
+            voornaam,
+            achternaam,
+            adres,
+            woonplaats,
+            postcode,
+            land,
+            telefoonnummer,
+            email,
+            bagageLabel,
+            vluchtNummer,
+            tijdGevonden,
+            locatieGevonden,
+            bagageType,
+            merk,
+            primaireKleur,
+            secundaireKleur,
+            formaat,
+            gewicht
         };
-        
+
         for (int i = 0; i < annuleer.length; i++) {
             annuleer[i].setText("");
         }
     }
-    
+
     @FXML
     private void annuleerBagage(ActionEvent event) {
         denyLabel.setText("");
         opgeslagenLabel.setText("");
-       datumGevonden.getEditor().setDisable(false);
-       datumGevonden.getEditor().setText("");
+        datumGevonden.getEditor().setDisable(false);
+        datumGevonden.getEditor().setText("");
         annuleerText();
     }
-    
+
     @FXML
     private void nieuwFormulier(ActionEvent event) {
         opgeslagenLabel.setText("");
@@ -239,8 +258,8 @@ public class RegistreerVermistController implements Initializable {
         denyLabel.setText("");
         opgeslagenLabel.setText("");
     }
-    
-        private Parent loadFXMLFile(String fxmlFileName) {
+
+    private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
         } catch (IOException ex) {
@@ -249,4 +268,3 @@ public class RegistreerVermistController implements Initializable {
         }
     }
 }
-

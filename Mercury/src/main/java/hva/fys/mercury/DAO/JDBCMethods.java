@@ -1,22 +1,30 @@
-package hva.fys.mercury.models;
+package hva.fys.mercury.DAO;
 
+/*
+*@author: David Britt
+*/
+
+import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.Gebruiker;
+import hva.fys.mercury.models.LuchtHaven;
+import hva.fys.mercury.models.Reiziger;
 import java.sql.ResultSet;
 
 import javafx.collections.ObservableList;
 
 public class JDBCMethods {
 
-    public static void setBagageDatabase(Bagage bagage) {
+    static DatabaseManager database = new DatabaseManager("Corendon");
 
-        MyJDBC db = new MyJDBC("Corendon");
+    public static void createtBagageDatabase(Bagage bagage) {
 
         String query = String.format(
                 "INSERT INTO Bagage( "
                 + "`BagageRegistratieNummer`, `DateFound`, `TimeFound`, `BrandMerk`, `BagageType`, "
                 + "`BagageLabel`, `LocatieGevonden`, `MainColor`, `SecondColor`, `Formaat`, `Gewicht`, `OverigeEigenschappen`, "
-                + "`Status`, `ReizigerID`, `IATA_Code`"
+                + "`Status`"
                 + ") "
-                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s')",
+                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                 bagage.getRegistratieID(),
                 bagage.getDatumGevonden(),
                 bagage.getTijdGevonden(),
@@ -29,19 +37,18 @@ public class JDBCMethods {
                 bagage.getFormaat(),
                 bagage.getGewichtInKG(),
                 bagage.getOverigeEigenschappen(),
-                bagage.getStatus(),
-                bagage.getReizigerID(),
-                bagage.getIATA_Code()
+                bagage.getStatus()
+        //                bagage.getReizigerID(), , `ReizigerID`, `IATA_Code`  , '%d', '%s'
+        //                bagage.getIATA_Code()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
-    public static void getBagageDatabase(ObservableList<Bagage> bagageList) {
+    public static void readBagageDatabase(ObservableList<Bagage> bagageList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
 
             String query = "SELECT * FROM Bagage";
             ResultSet results = database.executeResultSetQuery(query);
@@ -72,10 +79,12 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateBagageDatabase(){}
+    
+    public static void deleteBagageDatabase(){}
 
-    public static void setGebruikersDatabase(Gebruiker gebruiker) {
-
-        MyJDBC db = new MyJDBC("Corendon");
+    public static void createGebruikersDatabase(Gebruiker gebruiker) {
 
         String query = String.format(
                 "INSERT INTO Gebruiker( "
@@ -103,14 +112,13 @@ public class JDBCMethods {
                 gebruiker.getHomeAdress()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
-    public static void getGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
+    public static void readGebruikersDatabase(ObservableList<Gebruiker> gebruikerList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
 
             String query = "SELECT * FROM Gebruiker";
             ResultSet results = database.executeResultSetQuery(query);
@@ -142,18 +150,20 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    static public void updateGebruikerDatabase(){}
+    
+    static public void deleteGebruikerDatabase(){}
 
-    public static void setReizigerDatabase(Reiziger reiziger) {
-
-        MyJDBC db = new MyJDBC("Corendon");
+    public static void createReizigerDatabase(Reiziger reiziger) {
 
         String query = String.format(
                 "INSERT INTO Reiziger( "
                 + "`ReizigerID`, `VoorNaam`, `AchterNaam`, `WoonPlaats`,"
                 + " `Adres`, `Land`, `Telefoon`, `Email`, "
-                + "`IATA_Code`, `BagageRegistratieNummer`"
+                + "`IATA_Code`"
                 + ") "
-                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )",
                 reiziger.getReizigerID(),
                 reiziger.getVoornaam(),
                 reiziger.getAchternaam(),
@@ -162,18 +172,16 @@ public class JDBCMethods {
                 reiziger.getLand(),
                 reiziger.getTelefoonnummer(),
                 reiziger.getEmail(),
-                reiziger.getIATA_Code(),
-                reiziger.getBagageRegistratieNummer()
+                reiziger.getIATA_Code()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
-    public static void getReizigerDatabase(ObservableList<Reiziger> reizigerList) {
+    public static void readReizigerDatabase(ObservableList<Reiziger> reizigerList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
 
             String query = "SELECT * FROM Reiziger";
             ResultSet results = database.executeResultSetQuery(query);
@@ -199,10 +207,11 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateReizigerDatabase(){}
+    public static void deleteReizigerDatabase(){}
 
-    public static void setLuchtHavenDatabase(LuchtHaven luchtHaven) {
-
-        MyJDBC db = new MyJDBC("Corendon");
+    public static void createLuchtHavenDatabase(LuchtHaven luchtHaven) {
 
         String query = String.format(
                 "INSERT INTO LuchtHaven( "
@@ -215,14 +224,13 @@ public class JDBCMethods {
                 luchtHaven.getTimeZone()
         );
 
-        int numberAffected = db.executeUpdateQuery(query);
+        int numberAffected = database.executeUpdateQuery(query);
         System.out.println(numberAffected);
 
     }
 
-    public static void getLuchtHavenDatabase(ObservableList<LuchtHaven> luchtHavenList) {
+    public static void readLuchtHavenDatabase(ObservableList<LuchtHaven> luchtHavenList) {
         try {
-            MyJDBC database = new MyJDBC("Corendon");
 
             String query = "SELECT * FROM LuchtHaven";
             ResultSet results = database.executeResultSetQuery(query);
@@ -242,5 +250,8 @@ public class JDBCMethods {
             System.out.println(e);
         }
     }
+    
+    public static void updateLuchtHavenDatabase(){}
+    public static void deleteLuchtHavenDatabase(){}
 
 }

@@ -62,8 +62,28 @@ public class BagageDetailsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
-        System.out.println(reiziger.getVoornaam());
+        voornaam.setDisable(true);
+        achternaam.setDisable(true);
+        adres.setDisable(true);
+        woonplaats.setDisable(true);
+        postcode.setDisable(true);
+        land.setDisable(true);
+        telefoonnummer.setDisable(true);
+        email.setDisable(true);
+        bagageLabel.setDisable(true);
+        vluchtNummer.setDisable(true);
+//        datumGevonden.setDisable(true);
+        tijdGevonden.setDisable(true);
+        locatieGevonden.setDisable(true);
+        tijdGevonden.setDisable(true);
+        locatieGevonden.setDisable(true);
+        bagageType.setDisable(true);
+        merk.setDisable(true);
+        primaireKleur.setDisable(true);
+        secundaireKleur.setDisable(true);
+        formaat.setDisable(true);
     }
+    
     
     @FXML
     private static Button bewerkBTN;
@@ -72,6 +92,50 @@ public class BagageDetailsController implements Initializable {
     
     @FXML
     private void bewerkDetails(ActionEvent event){
+        voornaam.setDisable(false);
+        achternaam.setDisable(false);
+        adres.setDisable(false);
+        woonplaats.setDisable(false);
+        postcode.setDisable(false);
+        land.setDisable(false);
+        telefoonnummer.setDisable(false);
+        email.setDisable(false);
+        bagageLabel.setDisable(false);
+        vluchtNummer.setDisable(false);
+//        datumGevonden.setDisable(false);
+        tijdGevonden.setDisable(false);
+        locatieGevonden.setDisable(false);
+        tijdGevonden.setDisable(false);
+        locatieGevonden.setDisable(false);
+        bagageType.setDisable(false);
+        merk.setDisable(false);
+        primaireKleur.setDisable(false);
+        secundaireKleur.setDisable(false);
+        formaat.setDisable(false);
+    }
+    
+    @FXML
+    private void bagageDetailsOpslaan(ActionEvent event) {
+        voornaam.setDisable(true);
+        achternaam.setDisable(true);
+        adres.setDisable(true);
+        woonplaats.setDisable(true);
+        postcode.setDisable(true);
+        land.setDisable(true);
+        telefoonnummer.setDisable(true);
+        email.setDisable(true);
+        bagageLabel.setDisable(true);
+        vluchtNummer.setDisable(true);
+//        datumGevonden.setDisable(true);
+        tijdGevonden.setDisable(true);
+        locatieGevonden.setDisable(true);
+        tijdGevonden.setDisable(true);
+        locatieGevonden.setDisable(true);
+        bagageType.setDisable(true);
+        merk.setDisable(true);
+        primaireKleur.setDisable(true);
+        secundaireKleur.setDisable(true);
+        formaat.setDisable(true);
     }
     
     @FXML
