@@ -124,7 +124,6 @@ public class GevondenBagageFormulierController implements Initializable {
        if (checkText() == false) {
            denyLabelG.setText("You did not fill in all textfields!");
        } else {
-        disableFields();
         datumGevondenG.getEditor().setDisable(true);
         bagage.setBagagelabel(bagageLabelG.getText());
         bagage.setVluchtNummer(vluchtNummerG.getText());
@@ -140,7 +139,8 @@ public class GevondenBagageFormulierController implements Initializable {
         denyLabelG.setText("");
         opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
         System.out.println("Gegevens zijn opgeslagen!");
-       JDBCMethods.setBagageDatabase(bagage);
+        JDBCMethods.setBagageDatabase(bagage);
+        disableFields();
        }
     }
         public void annuleerText() {

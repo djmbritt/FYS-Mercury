@@ -167,7 +167,6 @@ public class RegistreerVermistController implements Initializable {
        if (checkText() == false) {
            denyLabel.setText("You did not fill in all textfields!");
        } else {
-        disableFields();
         reiziger.setVoornaam(voornaam.getText());
         reiziger.setAchternaam(achternaam.getText());
         reiziger.setAdres(adres.getText());
@@ -192,6 +191,7 @@ public class RegistreerVermistController implements Initializable {
         opgeslagenLabel.setText("Information succesfully saved!");
         System.out.println("Gegevens zijn opgeslagen!");
         JDBCMethods.setBagageDatabase(bagage);
+        disableFields();
        }
     }
     
