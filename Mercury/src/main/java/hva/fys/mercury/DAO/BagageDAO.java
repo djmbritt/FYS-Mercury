@@ -3,13 +3,15 @@ package hva.fys.mercury.DAO;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Bagage;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
 /*
 * @author: David Britt
-*/
-
-
+ */
 public class BagageDAO {
 
     private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
@@ -40,7 +42,7 @@ public class BagageDAO {
                 bagage.getStatus()
         );
 
-        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
         DB_MANAGER.close();
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
@@ -75,7 +77,7 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static void readAllBagageDB(ObservableList<Bagage> bagageList) {
+    public static void getAllBagage(ObservableList<Bagage> bagageList) {
         try {
 
             System.out.println("Getting all bagage from database");
@@ -103,12 +105,12 @@ public class BagageDAO {
                 bagageList.add(bagage);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
 
-    public static void readBagageDB(ObservableList<Bagage> bagageList, String kolomNaam) {
+    public static void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
         try {
 
             String query = String.format("SELECT %s FROM Bagage;", kolomNaam);
@@ -136,9 +138,55 @@ public class BagageDAO {
                 bagageList.add(bagage);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public static List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
+        List<Bagage> bagageLijst = new ArrayList<>();
+        String query = "SELECT * FROM bagage where";
+        String paramFormat = " %s= '%s' AND";
+
+        int laatsteParameter = zoekParameters.size() - 1;
+        for (int i = 0; i < zoekParameters.size(); i++) {
+            StringProperty parameter = zoekParameters.get(i);
+            if (!(parameter.getValue().equals(""))) {
+                if (i == laatsteParameter) {
+                    paramFormat = " %s= '%s';";
+                }
+
+                query = query + String.format(paramFormat,
+                        zoekParameters.get(i).getName(), zoekParameters.get(i).getValue());
+            }
+        }
+
+        try {
+            ResultSet results = DB_MANAGER.executeResultSetQuery(query);
+            while (results.next()) {
+                Bagage bagage = new Bagage();
+                bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
+                bagage.setDatumGevonden(results.getString("DateFound"));
+                bagage.setTijdGevonden(results.getString("TimeFound"));
+                bagage.setBagagemerk(results.getString("BrandMerk"));
+                bagage.setBagageType(results.getString("BagageType"));
+                bagage.setBagagelabel(results.getString("BagageLabel"));
+                bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
+                bagage.setPrimaireKleur(results.getString("MainColor"));
+                bagage.setSecundaireKleur(results.getString("SecondColor"));
+                bagage.setFormaat(results.getString("Grootte"));
+                bagage.setGewichtInKG(results.getString("Gewicht"));
+                bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
+//                bagage.setStatus(results.getString("Status"));
+                bagage.setReizigerID(results.getString("Reiziger"));
+                bagage.setIATA_Code(results.getString("IATA_Code"));
+
+                bagageLijst.add(bagage);
+            }
+        } catch (SQLException sql) {
+            System.out.println(sql);
+        }
+        return bagageLijst;
     }
 
 }

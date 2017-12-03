@@ -192,7 +192,7 @@ public class RegistreerVermistController implements Initializable {
             reiziger.setWoonplaats(woonplaats.getText());
             reiziger.setPostcode(postcode.getText());
             reiziger.setLand(land.getText());
-            reiziger.setTelefoonnummer( Integer.parseInt(telefoonnummer.getText()));
+            reiziger.setTelefoonnummer( telefoonnummer.getText());
             reiziger.setEmail(email.getText());
             bagage.setBagagelabel(bagageLabel.getText());
             bagage.setVluchtNummer(vluchtNummer.getText());
