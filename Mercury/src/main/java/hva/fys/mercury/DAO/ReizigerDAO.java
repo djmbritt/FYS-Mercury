@@ -1,11 +1,12 @@
 package hva.fys.mercury.DAO;
 
+import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Reiziger;
 import java.util.List;
 
 public class ReizigerDAO {
 
-    private static DatabaseManager dbManager = new DatabaseManager("MercuryTest");
+    private static DatabaseManager dbManager = new DatabaseManager(MainApp.DATABASE_NAME);
     private static final int MINIMUM_EDITED_COLUMN = 1;
     private static int columnsBewerkt;
 

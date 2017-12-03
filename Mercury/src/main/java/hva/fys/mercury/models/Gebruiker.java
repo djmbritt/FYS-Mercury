@@ -24,14 +24,14 @@ public class Gebruiker {
     private String EndDateEmployment;
     private String PersonalEmail;
     private String MobilePhoneNumber;
-    private String HomePhoneNumber;
+    private String PostalCode;
     private String DepartmentEmployment;
     private String HomeAdress;
 
     public Gebruiker() {
     }
 
-    public Gebruiker(int EmployeeID, String Initials, String FirstName, String MiddleName, String SurName, String BirthDate, String StartEmploymentDate, String WorkEmail, String WorkingLocation, String StatusEmployment, String EndDateEmployment, String PersonalEmail, String MobilePhoneNumber, String HomePhoneNumber, String DepartmentEmployment, String HomeAdress) {
+    public Gebruiker(int EmployeeID, String Initials, String FirstName, String MiddleName, String SurName, String BirthDate, String StartEmploymentDate, String WorkEmail, String WorkingLocation, String StatusEmployment, String EndDateEmployment, String PersonalEmail, String MobilePhoneNumber, String PostalCode, String DepartmentEmployment, String HomeAdress) {
         this.EmployeeID = EmployeeID;
         this.Initials = Initials;
         this.FirstName = FirstName;
@@ -45,7 +45,7 @@ public class Gebruiker {
         this.EndDateEmployment = EndDateEmployment;
         this.PersonalEmail = PersonalEmail;
         this.MobilePhoneNumber = MobilePhoneNumber;
-        this.HomePhoneNumber = HomePhoneNumber;
+        this.PostalCode = PostalCode;
         this.DepartmentEmployment = DepartmentEmployment;
         this.HomeAdress = HomeAdress;
     }
@@ -154,12 +154,12 @@ public class Gebruiker {
         this.MobilePhoneNumber = MobilePhoneNumber;
     }
 
-    public String getHomePhoneNumber() {
-        return HomePhoneNumber;
+    public String getPostalCode() {
+        return PostalCode;
     }
 
     public void setHomePhoneNumber(String HomePhoneNumber) {
-        this.HomePhoneNumber = HomePhoneNumber;
+        this.PostalCode = PostalCode;
     }
 
     public String getDepartmentEmployment() {
