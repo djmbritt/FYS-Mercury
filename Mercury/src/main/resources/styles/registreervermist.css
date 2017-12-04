@@ -60,3 +60,10 @@
 .button#newFormBTN:hover{
     -fx-background-color: #76cc42;
 }
+
+.ComboBox{  
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #808080;
+    -fx-border-radius: 10px;
+    
+}

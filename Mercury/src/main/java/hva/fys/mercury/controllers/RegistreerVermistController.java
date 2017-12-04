@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -26,7 +27,7 @@ public class RegistreerVermistController implements Initializable {
 
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
-
+    
     @FXML
     TextField voornaam;
     public TextField achternaam;
@@ -41,15 +42,33 @@ public class RegistreerVermistController implements Initializable {
     public DatePicker datumGevonden;
     public TextField tijdGevonden;
     public TextField locatieGevonden;
-    public TextField bagageType;
+    public ComboBox bagageType;
+    public ComboBox status;
     public TextField merk;
     public TextField primaireKleur;
     public TextField secundaireKleur;
     public TextField formaat;
     public TextField gewicht;
+    public TextField IATA;
+    public TextField overigeEigenschappen;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    status.getItems().addAll(
+    "Vermist",
+    "Gevonden",
+    "Afgehandeld"
+);
+    bagageType.getItems().addAll(
+    "Koffer",
+    "Tas",
+    "Rugzak",
+    "Doos",
+    "Sporttas",
+    "Zakenkoffer",
+    "Kist",
+    "Anders"
+    );
     }
 
     public boolean checkText() {
@@ -66,12 +85,13 @@ public class RegistreerVermistController implements Initializable {
             vluchtNummer,
             tijdGevonden,
             locatieGevonden,
-            bagageType,
+            IATA,
             merk,
             primaireKleur,
             secundaireKleur,
             formaat,
-            gewicht
+            gewicht,
+            overigeEigenschappen
         };
 
         for (int i = 0; i < text.length; i++) {
@@ -97,12 +117,13 @@ public class RegistreerVermistController implements Initializable {
             vluchtNummer,
             tijdGevonden,
             locatieGevonden,
-            bagageType,
+            IATA,
             merk,
             primaireKleur,
             secundaireKleur,
             formaat,
-            gewicht
+            gewicht,
+            overigeEigenschappen
         };
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(true);
@@ -124,12 +145,13 @@ public class RegistreerVermistController implements Initializable {
             vluchtNummer,
             tijdGevonden,
             locatieGevonden,
-            bagageType,
+            IATA,
             merk,
             primaireKleur,
             secundaireKleur,
             formaat,
-            gewicht
+            gewicht,
+            overigeEigenschappen
         };
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(false);
@@ -148,40 +170,7 @@ public class RegistreerVermistController implements Initializable {
 
     JDBCMethods methodsdb = new JDBCMethods();
 
-    @FXML 
-    /*
-    private void opslaanBagage(ActionEvent event) { 
-       if (checkText() == false) {
-           denyLabel.setText("You did not fill in all textfields!");
-       } else {
-        reiziger.setVoornaam(voornaam.getText());
-        reiziger.setAchternaam(achternaam.getText());
-        reiziger.setAdres(adres.getText());
-        reiziger.setWoonplaats(woonplaats.getText());
-        reiziger.setPostcode(postcode.getText());
-        reiziger.setLand(land.getText());
-        reiziger.setTelefoonnummer(telefoonnummer.getText());
-        reiziger.setEmail(email.getText());
-        bagage.setBagagelabel(bagageLabel.getText());
-        bagage.setVluchtNummer(vluchtNummer.getText());
-        bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        bagage.setTijdGevonden(tijdGevonden.getText());
-        bagage.setGevondenLocatie(locatieGevonden.getText());
-        bagage.setBagageType(bagageType.getText());
-        bagage.setBagagemerk(merk.getText());
-        bagage.setPrimaireKleur(primaireKleur.getText());
-        bagage.setSecundaireKleur(secundaireKleur.getText());
-        bagage.setFormaat(formaat.getText());
-//           System.out.println(reiziger.getVoornaam());
-        bagage.setGewichtInKG(gewicht.getText());
-        denyLabel.setText("");
-        opgeslagenLabel.setText("Information succesfully saved!");
-        System.out.println("Gegevens zijn opgeslagen!");
-        JDBCMethods.setBagageDatabase(bagage);
-        disableFields();
-       } 
-       */
-    private void opslaanBagage(ActionEvent event) {
+    public void opslaanBagage(ActionEvent event) {
         if (checkText() == false) {
             denyLabel.setText("You did not fill in all textfields!");
         } else {
@@ -199,13 +188,16 @@ public class RegistreerVermistController implements Initializable {
             bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
             bagage.setTijdGevonden(tijdGevonden.getText());
             bagage.setGevondenLocatie(locatieGevonden.getText());
-            bagage.setBagageType(bagageType.getText());
+            bagage.setBagageType(bagageType.getValue().toString());
             bagage.setBagagemerk(merk.getText());
             bagage.setPrimaireKleur(primaireKleur.getText());
             bagage.setSecundaireKleur(secundaireKleur.getText());
             bagage.setFormaat(formaat.getText());
 //           System.out.println(reiziger.getVoornaam());
             bagage.setGewichtInKG(gewicht.getText());
+            bagage.setIATA_Code(IATA.getText());
+            bagage.setStatus(status.getValue().toString());
+            bagage.setOverigeEigenschappen(overigeEigenschappen.getText());
             denyLabel.setText("");
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
@@ -227,12 +219,13 @@ public class RegistreerVermistController implements Initializable {
             vluchtNummer,
             tijdGevonden,
             locatieGevonden,
-            bagageType,
+            IATA,
             merk,
             primaireKleur,
             secundaireKleur,
             formaat,
-            gewicht
+            gewicht,
+            overigeEigenschappen
         };
 
         for (int i = 0; i < annuleer.length; i++) {
