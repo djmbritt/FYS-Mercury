@@ -41,16 +41,13 @@ public class BagageZoekenController implements Initializable {
     private void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
-//<<<<<<< HEAD
-        
-//          ObservableList<Bagage> observableList = FXCollections.observableList(list);
-//=======
+
         parameters = setParameters(parameters);
         List<Bagage> results = BagageDAO.zoekBagage(parameters);
         for (Bagage stuk : results) {
             System.out.println(stuk.toString());
         }
-//>>>>>>> 22d30ed952ab8ac7362ba37ce08e84e906f8d74e
+
     }
 
     @Override
@@ -71,14 +68,7 @@ public class BagageZoekenController implements Initializable {
 
     }
 
-//<<<<<<< HEAD
-////    private List<StringProperty> getParameters(){
-////        
-////        List<StringProperty> parameters = new ArrayList();
-////        parameters.add(new SimpleStringProperty(merk, name, initialValue))
-////    }
-//    
-//=======
+
     private List<StringProperty> setParameters(List<StringProperty> parameters) {
         parameters.add(new SimpleStringProperty(vluchtnummer, "ArrivedWithFlight", vluchtnummer.getText()));
         System.out.println(vluchtnummer.getText());
@@ -117,7 +107,6 @@ public class BagageZoekenController implements Initializable {
         return parameters;
     }
 
-//>>>>>>> 22d30ed952ab8ac7362ba37ce08e84e906f8d74e
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
