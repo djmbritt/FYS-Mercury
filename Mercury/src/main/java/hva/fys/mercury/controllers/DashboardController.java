@@ -1,5 +1,5 @@
 package hva.fys.mercury.controllers;
-
+ 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -57,6 +57,6 @@ public class DashboardController implements Initializable {
                 );
 
         pieChart.setTitle("All Time");
-        pieChart.setData(pieChartData);
+        pieChart.setData(pieChartData);  
     }
 }

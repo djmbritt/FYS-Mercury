@@ -150,17 +150,15 @@ public class BagageDAO {
 
         int laatsteParameter = zoekParameters.size() - 1;
         for (int i = 0; i < zoekParameters.size(); i++) {
+
+            System.out.println(i + " max= " + laatsteParameter);
             StringProperty parameter = zoekParameters.get(i);
-            if (!(parameter.getValue().equals(""))) {
-                if (i == laatsteParameter) {
-                    paramFormat = " %s= '%s';";
-                }
-
-                query = query + String.format(paramFormat,
-                        zoekParameters.get(i).getName(), zoekParameters.get(i).getValue());
+            if (i == laatsteParameter) {
+                paramFormat = " %s= '%s';";
             }
-        }
+            query = query + String.format(paramFormat, zoekParameters.get(i).getName(), zoekParameters.get(i).getValue());
 
+        }
         try {
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
             while (results.next()) {
@@ -171,10 +169,11 @@ public class BagageDAO {
                 bagage.setBagagemerk(results.getString("BrandMerk"));
                 bagage.setBagageType(results.getString("BagageType"));
                 bagage.setBagagelabel(results.getString("BagageLabel"));
+                bagage.setVluchtNummer(results.getString("ArrivedWithFlight"));
                 bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
                 bagage.setPrimaireKleur(results.getString("MainColor"));
                 bagage.setSecundaireKleur(results.getString("SecondColor"));
-                bagage.setFormaat(results.getString("Grootte"));
+                bagage.setFormaat(results.getString("Formaat"));
                 bagage.setGewichtInKG(results.getString("Gewicht"));
                 bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
 //                bagage.setStatus(results.getString("Status"));
@@ -185,7 +184,7 @@ public class BagageDAO {
             }
         } catch (SQLException sql) {
             System.out.println(sql);
-        }
+        } 
         return bagageLijst;
     }
 
