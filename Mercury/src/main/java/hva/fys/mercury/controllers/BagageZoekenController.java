@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty; 
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,9 +43,11 @@ public class BagageZoekenController implements Initializable {
         List<StringProperty> parameters = new ArrayList();
 
         parameters = setParameters(parameters);
-        List<Bagage> results = BagageDAO.zoekBagage(parameters);
-        for (Bagage stuk : results) {
-            System.out.println(stuk.toString());
+        if (parameters.size() > 0) {
+            List<Bagage> results = BagageDAO.zoekBagage(parameters);
+            for (Bagage stuk : results) {
+                System.out.println(stuk.toString());
+            }
         }
 
     }
@@ -67,7 +69,6 @@ public class BagageZoekenController implements Initializable {
         secundaireKleur.getSelectionModel().selectFirst();
 
     }
-
 
     private List<StringProperty> setParameters(List<StringProperty> parameters) {
         parameters.add(new SimpleStringProperty(vluchtnummer, "ArrivedWithFlight", vluchtnummer.getText()));
