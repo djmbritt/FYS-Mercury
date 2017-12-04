@@ -3,6 +3,7 @@ package hva.fys.mercury.DAO;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Gebruiker;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
 
@@ -124,7 +125,8 @@ public class GebruikerDAO {
         return gebruiker;
     }
 
-    public static void readAllGebruikerDB(ObservableList<Gebruiker> gebruikerList) {
+    public static List<Gebruiker> readAllGebruikerDB() {
+        List<Gebruiker> gebruikerList = new ArrayList();
         try {
 
             System.out.println("Getting all bagage from database");
@@ -159,6 +161,7 @@ public class GebruikerDAO {
             DB_MANAGER.close();
             System.out.println(e);
         }
+        return gebruikerList;
     }
 
     public static void readQueryGebruikerDB(ObservableList<Gebruiker> gebruikerList, List<String> sqlStatementsList) {

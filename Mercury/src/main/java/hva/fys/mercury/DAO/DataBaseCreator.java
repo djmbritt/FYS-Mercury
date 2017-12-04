@@ -134,7 +134,7 @@ public class DataBaseCreator {
                 + "`Reiziger` varchar(45)  DEFAULT NULL,"
                 + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
                 //                + "`ReizigerID` int(11)  DEFAULT NULL,"
-                //{Gevonden, Verloren, Verwerkt}
+                //{Gevonden, Verloren, Afgehandeld}
                 + "`Status` varchar(45)  DEFAULT NULL," 
                 + "PRIMARY KEY (`BagageRegistratieNummer`),"
                 //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reizigers(`ReizigerID`),"
@@ -173,6 +173,7 @@ public class DataBaseCreator {
                 + "`DepartmentEmployment` varchar(45)  DEFAULT NULL,"
                 + "`HomeAdress` varchar(45)  DEFAULT NULL,"
                 + "`PostalCode` varchar(45)  DEFAULT NULL,"
+//                + "`wachtwoord` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`EmployeeID`)"
                 + ");"
         );

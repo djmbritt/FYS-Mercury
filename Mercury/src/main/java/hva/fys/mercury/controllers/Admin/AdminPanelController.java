@@ -107,7 +107,6 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     public void initialize(URL url, ResourceBundle rb) {
 
         gebruikerTableView.setItems(this.gebruikerList);
-
         gebruikerTableView.refresh();
 
     }
