@@ -88,6 +88,42 @@ public class GebruikerDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
+    public static Gebruiker getGebruikerDB(int registratieNummer) {
+        Gebruiker gebruiker = new Gebruiker();
+        try {
+
+            System.out.println("Getting all bagage from database");
+            String query = String.format("SELECT * FROM Gebruiker WHERE %d;", registratieNummer);
+            ResultSet results = DB_MANAGER.executeResultSetQuery(query);
+
+            while (results.next()) {
+
+                gebruiker.setEmployeeID(results.getInt("EmployeeID"));
+                gebruiker.setInitials(results.getString("Initials"));
+                gebruiker.setFirstName(results.getString("FirstName"));
+                gebruiker.setMiddleName(results.getString("MiddleName"));
+                gebruiker.setSurName(results.getString("SurName"));
+                gebruiker.setBirthDate(results.getString("BirthDate"));
+                gebruiker.setStartEmploymentDate(results.getString("StartEmploymentDate"));
+                gebruiker.setWorkEmail(results.getString("WorkEmail"));
+                gebruiker.setWorkingLocation(results.getString("WorkingLocation"));
+                gebruiker.setStatusEmployment(results.getString("StatusEmployment"));
+                gebruiker.setEndDateEmployment(results.getString("EndDateEmployment"));
+                gebruiker.setPersonalEmail(results.getString("PersonalEmail"));
+                gebruiker.setMobilePhoneNumber(results.getString("MobilePhoneNumber"));
+                gebruiker.setHomeAdress(results.getString("HomePhoneNumber"));
+                gebruiker.setDepartmentEmployment(results.getString("DepartmentEmployment"));
+                gebruiker.setHomeAdress(results.getString("HomeAdress"));
+                gebruiker.setPostalCode(results.getString("PostalCode"));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        DB_MANAGER.close();
+        return gebruiker;
+    }
+
     public static void readAllGebruikerDB(ObservableList<Gebruiker> gebruikerList) {
         try {
 
@@ -120,6 +156,7 @@ public class GebruikerDAO {
             }
 
         } catch (Exception e) {
+            DB_MANAGER.close();
             System.out.println(e);
         }
     }
