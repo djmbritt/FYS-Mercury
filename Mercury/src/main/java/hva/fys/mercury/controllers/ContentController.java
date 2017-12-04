@@ -71,7 +71,7 @@ public class ContentController implements Initializable {
 
     @FXML
     private void openBagageZoeken(ActionEvent event) {
-           System.out.println("bagage geopend ");
+           System.out.println("zoeken geopend ");
         AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
@@ -125,8 +125,8 @@ public class ContentController implements Initializable {
     
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) { 
+        
     }
 
     private Parent loadFXMLFile(String fxmlFileName) {
