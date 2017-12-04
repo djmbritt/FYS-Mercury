@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ContentController implements Initializable {
 
@@ -104,6 +106,12 @@ public class ContentController implements Initializable {
         System.out.println(workspace);
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
+        
+//        .setOnCloseRequest(new EventHandler<WindowEvent>() {
+//          public void handle(WindowEvent we) {
+//              System.out.println("Stage is closing");
+//          }
+//      });
     }
 
     @FXML

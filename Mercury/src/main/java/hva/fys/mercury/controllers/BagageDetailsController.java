@@ -5,10 +5,14 @@
  */
 package hva.fys.mercury.controllers;
  
+import hva.fys.mercury.DAO.BagageDAO;
+import hva.fys.mercury.DAO.JDBCMethods;
+import hva.fys.mercury.DAO.ReizigerDAO;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -39,6 +43,10 @@ public class BagageDetailsController implements Initializable {
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
     
+    JDBCMethods methodsdb = new JDBCMethods();
+    
+    private final int REIZIGERID = 52345;
+    
     @FXML
     public TextField voornaam;
     public TextField achternaam;
@@ -59,9 +67,13 @@ public class BagageDetailsController implements Initializable {
     public TextField secundaireKleur;
     public TextField formaat;
        
+    static int i;
 
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
+        
         voornaam.setDisable(true);
         achternaam.setDisable(true);
         adres.setDisable(true);
@@ -82,13 +94,37 @@ public class BagageDetailsController implements Initializable {
         primaireKleur.setDisable(true);
         secundaireKleur.setDisable(true);
         formaat.setDisable(true);
+        
+        Reiziger rgr =  ReizigerDAO.getReiziger(REIZIGERID);
+//        Bagage bag = BagageDAO.getBagage();
+        
+        voornaam.setText(rgr.getVoornaam());
+        achternaam.setText(rgr.getAchternaam());
+        adres.setText(rgr.getAdres());
+        woonplaats.setText(rgr.getWoonplaats());
+        postcode.setText(rgr.getPostcode());
+        land.setText(rgr.getLand());
+        telefoonnummer.setText(rgr.getTelefoonnummer());
+        email.setText(rgr.getEmail());
+//        ReizigerDAO.reiziger.clear();
+//        bagageLabel.setText(rgr2.getBagagelabel());
+//        vluchtNummer.setText(this.bagage.getVluchtNummer());
+//        datumGevonden.setText(this.bagage.getDatumGevonden());
+//        tijdGevonden.setText(this.bagage.getTijdGevonden());
+//        locatieGevonden.setText(this.bagage.getGevondenLocatie());
+//        bagageType.setText(this.bagage.getBagageType());
+//        merk.setText(this.bagage.getBagagemerk());
+//        primaireKleur.setText(this.bagage.getPrimaireKleur());
+//        secundaireKleur.setText(this.bagage.getSecundaireKleur());
+//        formaat.setText(this.bagage.getFormaat());
     }
     
     
     @FXML
     private static Button bewerkBTN;
     public static Button veranderLocatieBTN;
-    public static Button annuleerBTN;
+    public static Button opslaanBTN;
+    public static Button terugBTN;
     
     @FXML
     private void bewerkDetails(ActionEvent event){
@@ -136,12 +172,51 @@ public class BagageDetailsController implements Initializable {
         primaireKleur.setDisable(true);
         secundaireKleur.setDisable(true);
         formaat.setDisable(true);
+        
+        reiziger.setReizigerID(REIZIGERID);
+            reiziger.setVoornaam(voornaam.getText());
+            reiziger.setAchternaam(achternaam.getText());
+            reiziger.setAdres(adres.getText());
+            reiziger.setWoonplaats(woonplaats.getText());
+            reiziger.setPostcode(postcode.getText());
+            reiziger.setLand(land.getText());
+            reiziger.setTelefoonnummer( telefoonnummer.getText());
+            reiziger.setEmail(email.getText());
+            bagage.setBagagelabel(bagageLabel.getText());
+            bagage.setVluchtNummer(vluchtNummer.getText());
+//            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+            bagage.setTijdGevonden(tijdGevonden.getText());
+            bagage.setGevondenLocatie(locatieGevonden.getText());
+            bagage.setBagageType(bagageType.getText());
+            bagage.setBagagemerk(merk.getText());
+            bagage.setPrimaireKleur(primaireKleur.getText());
+            bagage.setSecundaireKleur(secundaireKleur.getText());
+            bagage.setFormaat(formaat.getText());
+//           System.out.println(reiziger.getVoornaam());
+//            bagage.setGewichtInKG(gewicht.getText());
+//            denyLabel.setText("");
+//            opgeslagenLabel.setText("Information succesfully saved!");
+            System.out.println("Gegevens zijn opgeslagen!");
+            ReizigerDAO.bewerkReiziger(reiziger);
     }
     
     @FXML
     void veranderLocatie(ActionEvent event) {
         veranderLocatieController.veranderLocatiePopup();
 }
+    
+    @FXML
+    void bagageDetailsTerug(ActionEvent event) {
+        voornaam.clear();
+        achternaam.clear();
+        adres.clear();
+        woonplaats.clear();
+        postcode.clear();
+        land.clear();
+        telefoonnummer.clear();
+        email.clear();
+    }
+    
     }
     
 //    @FXML

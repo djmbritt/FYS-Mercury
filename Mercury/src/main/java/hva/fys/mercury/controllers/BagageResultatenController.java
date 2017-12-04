@@ -5,6 +5,7 @@
  */
 package hva.fys.mercury.controllers;
  
+import hva.fys.mercury.DAO.BagageDAO;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -26,7 +27,6 @@ public class BagageResultatenController implements Initializable {
     private TableView table;
        
     @Override
-    public void initialize(URL url, ResourceBundle rb) {  
-        
+    public void initialize(URL url, ResourceBundle rb) {   
     }
 }
