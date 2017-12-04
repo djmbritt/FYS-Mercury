@@ -110,14 +110,20 @@ public class BagageDAO {
         }
     }
 
-    public static void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
-        try {
-
-            String query = String.format("SELECT %s FROM Bagage;", kolomNaam);
-            ResultSet results = DB_MANAGER.executeResultSetQuery(query);
+    public static Bagage getBagage(int kolomNaam) {
+//final String SELECT_QUERY = "SELECT * FROM Reizigers where ReizigerID =%d ";
+//        String selectString = String.format(SELECT_QUERY, id); 
+//        Reiziger reiziger = new Reiziger();
+//        try {
+//            try (ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString)) {
+//                while(rsReiziger.next()){
+            final String SELECT_QUERY = "SELECT * FROM Bagage where BagageRegistratieNummer =%d";
+            String SelectString = String.format(SELECT_QUERY, kolomNaam);
+            Bagage bagage = new Bagage();
+            try (ResultSet results = DB_MANAGER.executeResultSetQuery(SelectString)) {
 
             while (results.next()) {
-                Bagage bagage = new Bagage();
+                
 
                 bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
                 bagage.setDatumGevonden(results.getString("DateFound"));
@@ -128,19 +134,32 @@ public class BagageDAO {
                 bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
                 bagage.setPrimaireKleur(results.getString("MainColor"));
                 bagage.setSecundaireKleur(results.getString("SecondColor"));
-                bagage.setFormaat(results.getString("Grootte"));
+                bagage.setFormaat(results.getString("Formaat"));
                 bagage.setGewichtInKG(results.getString("Gewicht"));
                 bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
-//                bagage.setStatus(results.getString("Status"));
+                bagage.setStatus(results.getString("Status"));
                 bagage.setReizigerID(results.getString("Reiziger"));
                 bagage.setIATA_Code(results.getString("IATA_Code"));
-
-                bagageList.add(bagage);
+                bagage.setVluchtNummer(results.getString("ArrivedWithFlight"));
             }
 
         } catch (SQLException e) {
             System.out.println(e);
+            
         }
+        return bagage;
+    }
+    
+    public static boolean bewerkBagage(Bagage bagage) {
+        final String UPDATE_QUERY = "UPDATE Bagage "
+                + "SET TimeFound='%s', BrandMerk='%s', "
+                + "BagageType='%s', BagageLabel='%s', LocatieGevonden='%s', MainColor='%s', SecondColor= '%s' , Formaat= '%s', Gewicht= '%s', OverigeEigenschappen= '%s', Status= '%s', IATA_Code= '%s', ArrivedWithFlight= '%s' "
+                + "WHERE BagageRegistratieNummer=%d;";
+
+        String updateString = String.format(UPDATE_QUERY, bagage.getTijdGevonden(), bagage.getBagagemerk(), bagage.getBagageType(), bagage.getBagagelabel(), bagage.getGevondenLocatie(), bagage.getPrimaireKleur(), bagage.getSecundaireKleur(), bagage.getFormaat(), bagage.getGewichtInKG(), bagage.getOverigeEigenschappen(), bagage.getStatus(), bagage.getIATA_Code(), bagage.getVluchtNummer(), bagage.getRegistratieID());
+
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString); 
+        return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
     public static List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {

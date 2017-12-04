@@ -193,7 +193,6 @@ public class RegistreerVermistController implements Initializable {
             bagage.setPrimaireKleur(primaireKleur.getText());
             bagage.setSecundaireKleur(secundaireKleur.getText());
             bagage.setFormaat(formaat.getText());
-//           System.out.println(reiziger.getVoornaam());
             bagage.setGewichtInKG(gewicht.getText());
             bagage.setIATA_Code(IATA.getText());
             bagage.setStatus(status.getValue().toString());

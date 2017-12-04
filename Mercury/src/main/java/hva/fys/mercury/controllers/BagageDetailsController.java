@@ -6,6 +6,7 @@
 package hva.fys.mercury.controllers;
  
 import hva.fys.mercury.DAO.BagageDAO;
+import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.DAO.JDBCMethods;
 import hva.fys.mercury.DAO.ReizigerDAO;
 import hva.fys.mercury.models.Bagage;
@@ -24,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -46,6 +48,7 @@ public class BagageDetailsController implements Initializable {
     JDBCMethods methodsdb = new JDBCMethods();
     
     private final int REIZIGERID = 52345;
+    private final int BAGAGEID = 201622309;
     
     @FXML
     public TextField voornaam;
@@ -58,14 +61,18 @@ public class BagageDetailsController implements Initializable {
     public TextField email;
     public TextField bagageLabel;
     public TextField vluchtNummer;
-    public TextField datumGevonden;
+    public DatePicker datumGevonden;
     public TextField tijdGevonden;
     public TextField locatieGevonden;
-    public TextField bagageType;
+    public ComboBox bagageType;
+    public ComboBox status;
     public TextField merk;
     public TextField primaireKleur;
     public TextField secundaireKleur;
     public TextField formaat;
+    public TextField gewicht;
+    public TextField IATA;
+    public TextField overigeEigenschappen;
        
     static int i;
 
@@ -95,8 +102,24 @@ public class BagageDetailsController implements Initializable {
         secundaireKleur.setDisable(true);
         formaat.setDisable(true);
         
+        status.getItems().addAll(
+    "Vermist",
+    "Gevonden",
+    "Afgehandeld"
+);
+    bagageType.getItems().addAll(
+    "Koffer",
+    "Tas",
+    "Rugzak",
+    "Doos",
+    "Sporttas",
+    "Zakenkoffer",
+    "Kist",
+    "Anders"
+    );
+
         Reiziger rgr =  ReizigerDAO.getReiziger(REIZIGERID);
-//        Bagage bag = BagageDAO.getBagage();
+        Bagage bag = BagageDAO.getBagage(BAGAGEID);
         
         voornaam.setText(rgr.getVoornaam());
         achternaam.setText(rgr.getAchternaam());
@@ -106,17 +129,24 @@ public class BagageDetailsController implements Initializable {
         land.setText(rgr.getLand());
         telefoonnummer.setText(rgr.getTelefoonnummer());
         email.setText(rgr.getEmail());
-//        ReizigerDAO.reiziger.clear();
-//        bagageLabel.setText(rgr2.getBagagelabel());
-//        vluchtNummer.setText(this.bagage.getVluchtNummer());
-//        datumGevonden.setText(this.bagage.getDatumGevonden());
-//        tijdGevonden.setText(this.bagage.getTijdGevonden());
-//        locatieGevonden.setText(this.bagage.getGevondenLocatie());
-//        bagageType.setText(this.bagage.getBagageType());
-//        merk.setText(this.bagage.getBagagemerk());
-//        primaireKleur.setText(this.bagage.getPrimaireKleur());
-//        secundaireKleur.setText(this.bagage.getSecundaireKleur());
-//        formaat.setText(this.bagage.getFormaat());
+//        final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+//final String input = bag.getDatumGevonden();
+//final LocalDate localDate = LocalDate.parse(input);
+//        datumGevonden.setValue(localDate);
+        bagageLabel.setText(bag.getBagagelabel());
+        vluchtNummer.setText(bag.getVluchtNummer());
+        tijdGevonden.setText(bag.getTijdGevonden());
+        locatieGevonden.setText(bag.getGevondenLocatie());
+        bagageType.setValue(bag.getBagageType());
+        merk.setText(bag.getBagagemerk());
+        primaireKleur.setText(bag.getPrimaireKleur());
+        secundaireKleur.setText(bag.getSecundaireKleur());
+        formaat.setText(bag.getFormaat());
+        gewicht.setText(bag.getGewichtInKG());
+        IATA.setText(bag.getIATA_Code());
+        status.setValue(bag.getStatus());
+        overigeEigenschappen.setText(bag.getOverigeEigenschappen());
+
     }
     
     
@@ -174,6 +204,8 @@ public class BagageDetailsController implements Initializable {
         formaat.setDisable(true);
         
         reiziger.setReizigerID(REIZIGERID);
+        bagage.setRegistratieID(BAGAGEID);
+        
             reiziger.setVoornaam(voornaam.getText());
             reiziger.setAchternaam(achternaam.getText());
             reiziger.setAdres(adres.getText());
@@ -182,23 +214,26 @@ public class BagageDetailsController implements Initializable {
             reiziger.setLand(land.getText());
             reiziger.setTelefoonnummer( telefoonnummer.getText());
             reiziger.setEmail(email.getText());
+            reiziger.setIATA_Code(IATA.getText());
             bagage.setBagagelabel(bagageLabel.getText());
             bagage.setVluchtNummer(vluchtNummer.getText());
 //            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
             bagage.setTijdGevonden(tijdGevonden.getText());
             bagage.setGevondenLocatie(locatieGevonden.getText());
-            bagage.setBagageType(bagageType.getText());
+            bagage.setBagageType(bagageType.getValue().toString());
             bagage.setBagagemerk(merk.getText());
             bagage.setPrimaireKleur(primaireKleur.getText());
             bagage.setSecundaireKleur(secundaireKleur.getText());
             bagage.setFormaat(formaat.getText());
-//           System.out.println(reiziger.getVoornaam());
-//            bagage.setGewichtInKG(gewicht.getText());
-//            denyLabel.setText("");
-//            opgeslagenLabel.setText("Information succesfully saved!");
+            bagage.setGewichtInKG(gewicht.getText());
+            bagage.setIATA_Code(IATA.getText());
+            bagage.setStatus(status.getValue().toString());
+            bagage.setOverigeEigenschappen(overigeEigenschappen.getText());
             System.out.println("Gegevens zijn opgeslagen!");
             ReizigerDAO.bewerkReiziger(reiziger);
-    }
+            BagageDAO.bewerkBagage(bagage);
+        }
+    
     
     @FXML
     void veranderLocatie(ActionEvent event) {

@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.property.StringProperty; 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,24 +35,23 @@ public class BagageZoekenController implements Initializable {
     @FXML
     private ComboBox primaireKleur;
     @FXML
-    private ComboBox secundaireKleur;
- 
-
-    @FXML
-
-    private void zoekAction(ActionEvent event) { 
+    private ComboBox secundaireKleur;  
+        
+    private void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
-        parameters = setParameters(parameters); 
-         List<Bagage> results = BagageDAO.zoekBagage(parameters);
+
+        parameters = setParameters(parameters);
+        List<Bagage> results = BagageDAO.zoekBagage(parameters);
         for (Bagage stuk : results) {
             System.out.println(stuk.toString());
-        }   
+        }
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         bagageType.getItems().addAll("", "Bag",
                 "Case",
                 "Box");
@@ -89,7 +86,6 @@ public class BagageZoekenController implements Initializable {
         parameters.add(new SimpleStringProperty(secundaireKleur, "SecondColor", secundaireKleur.getValue().toString()));
         System.out.println(secundaireKleur.getValue().toString());
         return checkIfFieldEmpty(parameters);
-        
     }
 
     private List<StringProperty> checkIfFieldEmpty(List<StringProperty> parameters) {
@@ -108,7 +104,6 @@ public class BagageZoekenController implements Initializable {
 
         return parameters;
     }
-
 
     private Parent loadFXMLFile(String fxmlFileName) {
         try {

@@ -12,10 +12,10 @@ public class DatabaseManager {
 
     private static final String DB_DEFAULT_DATABASE = "sys";
     private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
+    
     private static final String DB_DEFAULT_ACCOUNT = "root";
     
     private static final String DB_DEFAULT_PASSWORD = "SQLww";
-
 
 
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
