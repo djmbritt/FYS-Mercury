@@ -127,33 +127,7 @@ public class GevondenBagageFormulierController implements Initializable {
     private Label opgeslagenLabelG;
     @FXML
     private Label denyLabelG;
-/*
-    @FXML
-    private void opslaanBagageG(ActionEvent event) {
-        
-        if (checkText() == false) {
-            denyLabelG.setText("You did not fill in all textfields!");
-        } else {
-            datumGevondenG.getEditor().setDisable(true);
-            bagage.setBagagelabel(bagageLabelG.getText());
-            bagage.setVluchtNummer(vluchtNummerG.getText());
-            bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-            bagage.setTijdGevonden(tijdGevondenG.getText());
-            bagage.setGevondenLocatie(locatieGevondenG.getText());
-            bagage.setBagageType(bagageTypeG.getText());
-            bagage.setBagagemerk(merkG.getText());
-            bagage.setPrimaireKleur(primaireKleurG.getText());
-            bagage.setSecundaireKleur(secundaireKleurG.getText());
-            bagage.setFormaat(formaatG.getText());
-            bagage.setGewichtInKG(gewichtG.getText());
-            denyLabelG.setText("");
-            opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
-            System.out.println("Gegevens zijn opgeslagen!");
-            JDBCMethods.setBagageDatabase(bagage);
-            disableFields();
-        }
-    }
-*/
+
     @FXML
     private void opslaanBagageG(ActionEvent event) {
         if (checkText() == false) {
