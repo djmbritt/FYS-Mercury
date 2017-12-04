@@ -1,5 +1,6 @@
 package hva.fys.mercury.controllers;
 
+import hva.fys.mercury.DAO.BagageDAO;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.DAO.JDBCMethods;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,15 +31,33 @@ public class GevondenBagageFormulierController implements Initializable {
     public DatePicker datumGevondenG;
     public TextField tijdGevondenG;
     public TextField locatieGevondenG;
-    public TextField bagageTypeG;
     public TextField merkG;
     public TextField primaireKleurG;
     public TextField secundaireKleurG;
     public TextField formaatG;
     public TextField gewichtG;
-
+    public ComboBox statusG;
+    public TextField overigeEigenschappenG;
+    public ComboBox bagageTypeG;
+    public TextField IATAG;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    statusG.getItems().addAll(
+    "Vermist",
+    "Gevonden",
+    "Afgehandeld"
+);
+    bagageTypeG.getItems().addAll(
+    "Koffer",
+    "Tas",
+    "Rugzak",
+    "Doos",
+    "Sporttas",
+    "Zakenkoffer",
+    "Kist",
+    "Anders"
+    );
     }
 
     public boolean checkText() {
@@ -46,12 +66,13 @@ public class GevondenBagageFormulierController implements Initializable {
             vluchtNummerG,
             tijdGevondenG,
             locatieGevondenG,
-            bagageTypeG,
             merkG,
             primaireKleurG,
             secundaireKleurG,
             formaatG,
-            gewichtG
+            gewichtG,
+            overigeEigenschappenG,
+            IATAG
         };
         for (int i = 0; i < text.length; i++) {
             if (text[i].getText().trim().length() == 0) {
@@ -67,12 +88,13 @@ public class GevondenBagageFormulierController implements Initializable {
             vluchtNummerG,
             tijdGevondenG,
             locatieGevondenG,
-            bagageTypeG,
             merkG,
             primaireKleurG,
             secundaireKleurG,
             formaatG,
-            gewichtG
+            gewichtG,
+            overigeEigenschappenG,
+            IATAG
         };
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(true);
@@ -86,12 +108,13 @@ public class GevondenBagageFormulierController implements Initializable {
             vluchtNummerG,
             tijdGevondenG,
             locatieGevondenG,
-            bagageTypeG,
             merkG,
             primaireKleurG,
             secundaireKleurG,
             formaatG,
-            gewichtG
+            gewichtG,
+            overigeEigenschappenG,
+            IATAG
         };
         for (int i = 0; i < text.length; i++) {
             text[i].setDisable(false);
@@ -144,22 +167,20 @@ public class GevondenBagageFormulierController implements Initializable {
             bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
             bagage.setTijdGevonden(tijdGevondenG.getText());
             bagage.setGevondenLocatie(locatieGevondenG.getText());
-            bagage.setBagageType(bagageTypeG.getText());
+            bagage.setBagageType(bagageTypeG.getValue().toString());
             bagage.setBagagemerk(merkG.getText());
             bagage.setPrimaireKleur(primaireKleurG.getText());
             bagage.setSecundaireKleur(secundaireKleurG.getText());
             bagage.setFormaat(formaatG.getText());
             bagage.setGewichtInKG(gewichtG.getText());
-
-//            bagage.setOverigeEigenschappen("IEts over deze bagage");
-//            bagage.setStatus("iets over status");
-//            bagage.setRegistratieID(12345);
-//            bagage.setIATA_Code("aua");
+            bagage.setOverigeEigenschappen(overigeEigenschappenG.getText());
+            bagage.setStatus(statusG.getValue().toString());
+            bagage.setIATA_Code(IATAG.getText());
             denyLabelG.setText("");
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
 
-            JDBCMethods.createBagageDatabase(bagage);
+            BagageDAO.registreerBagage(bagage);
         }
     }
 
@@ -169,12 +190,13 @@ public class GevondenBagageFormulierController implements Initializable {
             vluchtNummerG,
             tijdGevondenG,
             locatieGevondenG,
-            bagageTypeG,
             merkG,
             primaireKleurG,
             secundaireKleurG,
             formaatG,
-            gewichtG
+            gewichtG,
+            overigeEigenschappenG,
+            IATAG
         };
 
         for (int i = 0; i < annuleer.length; i++) {

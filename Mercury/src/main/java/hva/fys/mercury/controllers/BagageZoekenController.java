@@ -34,9 +34,7 @@ public class BagageZoekenController implements Initializable {
 
     @FXML
     private void zoekAction(ActionEvent event) {
-        List<StringProperty> parameters = new ArrayList();
-        
-          ObservableList<Bagage> observableList = FXCollections.observableList(list);
+
     }
     
     @Override
@@ -45,11 +43,6 @@ public class BagageZoekenController implements Initializable {
 
     }
 
-    private List<StringProperty> getParameters(){
-        
-        List<StringProperty> parameters = new ArrayList();
-        parameters.add(new SimpleStringProperty(merk, name, initialValue))
-    }
     
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
