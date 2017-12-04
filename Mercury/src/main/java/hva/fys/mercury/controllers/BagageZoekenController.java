@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.property.StringProperty; 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,26 +36,21 @@ public class BagageZoekenController implements Initializable {
     private ComboBox primaireKleur;
     @FXML
     private ComboBox secundaireKleur;
- 
 
     @FXML
-<<<<<<< HEAD
-    private void zoekAction(ActionEvent event) { 
+    private void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
-        parameters = setParameters(parameters); 
-         List<Bagage> results = BagageDAO.zoekBagage(parameters);
+        parameters = setParameters(parameters);
+        List<Bagage> results = BagageDAO.zoekBagage(parameters);
         for (Bagage stuk : results) {
             System.out.println(stuk.toString());
-        }   
-=======
-    private void zoekAction(ActionEvent event) {
-
->>>>>>> b5842a700175652fb70e261b84cf0cb372e5462e
+        }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         bagageType.getItems().addAll("", "Bag",
                 "Case",
                 "Box");
@@ -73,7 +66,6 @@ public class BagageZoekenController implements Initializable {
 
     }
 
-<<<<<<< HEAD
     private List<StringProperty> setParameters(List<StringProperty> parameters) {
         parameters.add(new SimpleStringProperty(vluchtnummer, "ArrivedWithFlight", vluchtnummer.getText()));
         System.out.println(vluchtnummer.getText());
@@ -92,7 +84,7 @@ public class BagageZoekenController implements Initializable {
         parameters.add(new SimpleStringProperty(secundaireKleur, "SecondColor", secundaireKleur.getValue().toString()));
         System.out.println(secundaireKleur.getValue().toString());
         return checkIfFieldEmpty(parameters);
-        
+
     }
 
     private List<StringProperty> checkIfFieldEmpty(List<StringProperty> parameters) {
@@ -112,9 +104,6 @@ public class BagageZoekenController implements Initializable {
         return parameters;
     }
 
-=======
-    
->>>>>>> b5842a700175652fb70e261b84cf0cb372e5462e
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
