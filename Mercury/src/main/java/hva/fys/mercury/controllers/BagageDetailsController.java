@@ -82,6 +82,26 @@ public class BagageDetailsController implements Initializable {
         primaireKleur.setDisable(true);
         secundaireKleur.setDisable(true);
         formaat.setDisable(true);
+        
+        voornaam.setText(reiziger.getVoornaam());
+        achternaam.setText(reiziger.getAchternaam());
+        adres.setText(reiziger.getAdres());
+        woonplaats.setText(reiziger.getWoonplaats());
+        postcode.setText(reiziger.getPostcode());
+        land.setText(reiziger.getLand());
+        datumGevonden.setText(bagage.getDatumGevonden());
+        telefoonnummer.setText(reiziger.getTelefoonnummer());
+        email.setText(reiziger.getEmail());
+        bagageLabel.setText(bagage.getBagagelabel());
+        vluchtNummer.setText(bagage.getVluchtNummer());
+        datumGevonden.setText(bagage.getDatumGevonden());
+        tijdGevonden.setText(bagage.getTijdGevonden());
+        locatieGevonden.setText(bagage.getGevondenLocatie());
+        bagageType.setText(bagage.getBagageType());
+        merk.setText(bagage.getBagagemerk());
+        primaireKleur.setText(bagage.getPrimaireKleur());
+        secundaireKleur.setText(bagage.getSecundaireKleur());
+        formaat.setText(bagage.getFormaat());
     }
     
     
