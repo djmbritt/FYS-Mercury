@@ -4,18 +4,11 @@
  * and open the template in the editor.
  */
 package hva.fys.mercury.controllers;
- 
-import hva.fys.mercury.DAO.BagageDAO;
+  
 import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-
+import java.util.ResourceBundle; 
+import javafx.fxml.Initializable; 
+import javafx.scene.control.TableView; 
 /**
  * FXML Controller class
  *

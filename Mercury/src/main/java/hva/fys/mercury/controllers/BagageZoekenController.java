@@ -38,7 +38,7 @@ public class BagageZoekenController implements Initializable {
     private ComboBox secundaireKleur;
 
     @FXML
-    private void zoekAction(ActionEvent event) {
+    public void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
 
@@ -51,6 +51,8 @@ public class BagageZoekenController implements Initializable {
         }
 
     }
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb

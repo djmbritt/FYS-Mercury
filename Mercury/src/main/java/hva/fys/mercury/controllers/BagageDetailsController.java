@@ -111,7 +111,7 @@ public class BagageDetailsController implements Initializable {
     public static Button annuleerBTN;
     
     @FXML
-    private void bewerkDetails(ActionEvent event){
+    public void bewerkDetails(ActionEvent event){
         voornaam.setDisable(false);
         achternaam.setDisable(false);
         adres.setDisable(false);
@@ -135,7 +135,7 @@ public class BagageDetailsController implements Initializable {
     }
     
     @FXML
-    private void bagageDetailsOpslaan(ActionEvent event) {
+    public void bagageDetailsOpslaan(ActionEvent event) {
         voornaam.setDisable(true);
         achternaam.setDisable(true);
         adres.setDisable(true);
@@ -159,7 +159,7 @@ public class BagageDetailsController implements Initializable {
     }
     
     @FXML
-    void veranderLocatie(ActionEvent event) {
+    public void veranderLocatie(ActionEvent event) {
         veranderLocatieController.veranderLocatiePopup();
 }
     }
