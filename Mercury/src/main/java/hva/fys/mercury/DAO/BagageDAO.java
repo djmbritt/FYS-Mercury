@@ -189,8 +189,11 @@ public class BagageDAO {
     }
 
     public static int getStatusBagageSize(String statusString) {
-       String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status=%s", statusString);
+       String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", statusString);
        return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
     }
-
+    public static int getAllStatusBagageSize() {
+       String query = String.format("SELECT COUNT(Status) FROM Bagage");
+       return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
+    }
 }

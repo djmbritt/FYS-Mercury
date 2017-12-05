@@ -39,7 +39,7 @@
                         </GridPane>
                      </top>
                      <center>
-                        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <TableView id="bagageTable" fx:id="bagageTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
                             <TableColumn prefWidth="95.00000762939453" text="Registratie nr" />
                             <TableColumn prefWidth="108.33334350585938" text="Datum gevonden" />
