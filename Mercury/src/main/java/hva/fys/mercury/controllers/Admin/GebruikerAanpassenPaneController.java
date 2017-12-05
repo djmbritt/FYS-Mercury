@@ -18,28 +18,44 @@ import javafx.scene.control.TextField;
  *
  * @author djmbritt
  */
-public class GebruikerAanpassenController implements Initializable {
+public class GebruikerAanpassenPaneController implements Initializable {
 
     /*
     Zet je textfield voor je gebruikeraanpassen.fxml text fields hier beneden
      */
     @FXML
     private TextField EmployeeID;
+    @FXML
     private TextField Initials;
+    @FXML
     private TextField FirstName;
+    @FXML
     private TextField MiddleName;
+    @FXML
     private TextField SurName;
+    @FXML
     private TextField BirthDate;
+    @FXML
     private TextField StartEmploymentDate;
+    @FXML
     private TextField WorkEmail;
+    @FXML
     private TextField WorkingLocation;
+    @FXML
     private TextField StatusEmployment;
+    @FXML
     private TextField EndDateEmployment;
+    @FXML
     private TextField PersonalEmail;
+    @FXML
     private TextField MobilePhoneNumber;
+    @FXML
     private TextField HomePhoneNumber;
+    @FXML
     private TextField DepartmentEmployment;
+    @FXML
     private TextField HomeAdress;
+    @FXML
     private TextField PostalCode;
 
     /**
@@ -53,15 +69,17 @@ public class GebruikerAanpassenController implements Initializable {
     private ParentControllerContext parentController;
     private Gebruiker gebruiker;
 
-    public void setParentContext(ParentControllerContext pC, Gebruiker fl) {
+    public void setParentContext(ParentControllerContext pC, Gebruiker gbrkr) {
+        System.out.println("this.parentcontroller: " + pC.toString());
+        System.out.println("this.founLuggage: " + gbrkr.toString());
         this.parentController = pC;
-        this.gebruiker = fl;
-        this.initFields(fl);
+        this.gebruiker = gbrkr;
+        this.initFields(gbrkr);
         pC.displayStatusMessage("Editing found luggage");
     }
 
-    private void initFields(Gebruiker fl) {
-        this.gebruiker = fl;
+    private void initFields(Gebruiker gbrkr) {
+        this.gebruiker = gbrkr;
     }
 
     @FXML

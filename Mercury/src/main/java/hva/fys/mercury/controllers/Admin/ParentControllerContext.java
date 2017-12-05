@@ -10,11 +10,11 @@ package hva.fys.mercury.controllers.Admin;
  * @author djmbritt
  */
 public interface ParentControllerContext {
-    
+
     public void notifyCloseChild();
-    
+
     public void notifyChildHasUpdated();
-    
+
     public void displayStatusMessage(String message);
-    
+
 }

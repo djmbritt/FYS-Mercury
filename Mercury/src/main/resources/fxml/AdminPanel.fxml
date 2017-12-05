@@ -11,9 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="859.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.Admin.AdminPanelController">
+<AnchorPane id="AnchorPane" prefHeight="859.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/8.0.141" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.Admin.AdminPanelController">
     <children>
-        <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="859.0" prefWidth="1193.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="859.0" prefWidth="1193.0" 
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <Label text="Admin Panel" BorderPane.alignment="CENTER">
                     <font>
@@ -28,7 +30,7 @@
                         <Button fx:id="addItem" mnemonicParsing="false" onAction="#handleAddItemAction" prefHeight="26.0" prefWidth="102.0" text="Add" />
                         <Button mnemonicParsing="false" onAction="#handleDeleteItemAction" prefHeight="26.0" prefWidth="104.0" text="Delete" />
                         <Button mnemonicParsing="false" onAction="#handleChangeItemAction" text="Change" />
-                        <Button mnemonicParsing="false" onAction="#handleChangeItemAction" text="Exit" />
+                        <!--<Button mnemonicParsing="false" onAction="#handleChangeItemAction" text="Exit" />-->
                     </children>
                 </VBox>
             </left>
@@ -56,7 +58,7 @@
                                 <TableColumn fx:id="PostalCode" prefWidth="75.0" text="PostalCode" />
                             </columns>
                         </TableView>
-                        <fx:include fx:id="GebruikerAanpassen" source="GebruikerAanpassen.fxml" visible="false" />
+                        <fx:include fx:id="gebruikerAanpassenPane" source="GebruikerAanpassenPane.fxml" visible="false" />
                     </children>
                 </StackPane>
             </center>
