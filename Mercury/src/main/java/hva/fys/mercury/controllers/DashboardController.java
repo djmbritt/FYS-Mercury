@@ -1,7 +1,15 @@
 package hva.fys.mercury.controllers;
  
+import hva.fys.mercury.DAO.DatabaseManager;
+import hva.fys.mercury.MainApp;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Struct;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +21,8 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
 public class DashboardController implements Initializable {
-
+    
+    private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
     @FXML
     private PieChart pieChart;
 
@@ -48,12 +57,14 @@ public class DashboardController implements Initializable {
         
         lineChart.getData().addAll(gevonden, verloren);
     }
-
+    
+   
+    
     private void initializePieChart() {
         ObservableList<PieChart.Data> pieChartData
                 = FXCollections.observableArrayList(
-                        new PieChart.Data("Gevonden", 100),
-                        new PieChart.Data("Verloren", 200)
+                        new PieChart.Data("Gevonden", listGevonden.size()),
+                        new PieChart.Data("Verloren", listVerloren.size())
                 );
 
         pieChart.setTitle("All Time");
