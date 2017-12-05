@@ -16,8 +16,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
-public class BagageZoekenController implements Initializable {
+public class BagageZoekenController implements Initializable, ParentControllerContext {
 
     @FXML
     private TextField vluchtnummer;
@@ -38,6 +40,12 @@ public class BagageZoekenController implements Initializable {
     private ComboBox secundaireKleur;
 
     @FXML
+    private AnchorPane resultatenPane;
+
+    @FXML
+    private GridPane zoekParam;
+
+    @FXML
     public void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
@@ -51,8 +59,6 @@ public class BagageZoekenController implements Initializable {
         }
 
     }
-    
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb
@@ -117,5 +123,30 @@ public class BagageZoekenController implements Initializable {
             System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
             return null;
         }
+    }
+
+    private void showSearchForm() {
+        resultatenPane.setVisible(false);
+        zoekParam.setVisible(true);
+    }
+
+    private void showResults() {
+        resultatenPane.setVisible(true);
+        zoekParam.setVisible(false);
+    }
+
+    @Override
+    public void notifyCloseChild() {
+        showSearchForm();
+    }
+
+    @Override
+    public void notifyChildHasUpdated() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void displayStatusMessage(String message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

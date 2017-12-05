@@ -51,7 +51,7 @@
                <center>
                   <StackPane BorderPane.alignment="CENTER">
                      <children>
-                        <GridPane>
+                        <GridPane fx:id="zoekParam">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="0.0" prefWidth="0.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1427.0" minWidth="10.0" prefWidth="1427.0" />
