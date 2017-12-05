@@ -113,7 +113,7 @@
                               </GridPane> 
                            </children>
                         </GridPane> 
-                         <fx:include fx:id="resultatenPane" source="bagageResultaten.fxml" visible="false" />
+                         <fx:include fx:id="bagageResultaten" source="bagageResultaten.fxml" visible="false" />
                      </children>
                   </StackPane>  
                </center>

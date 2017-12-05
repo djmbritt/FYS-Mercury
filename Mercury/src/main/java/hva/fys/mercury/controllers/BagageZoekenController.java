@@ -40,10 +40,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     private ComboBox secundaireKleur;
 
     @FXML
-    private AnchorPane resultatenPane;
-
+    private AnchorPane bagageResultaten; 
     @FXML
     private GridPane zoekParam;
+    @FXML
+    private BagageResultatenController bagageResultatenController;
 
     @FXML
     public void zoekAction(ActionEvent event) {
@@ -55,7 +56,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
             List<Bagage> results = BagageDAO.zoekBagage(parameters);
             for (Bagage stuk : results) {
                 System.out.println(stuk.toString());
-            }
+            } 
+            bagageResultatenController.refreshTable();
+            bagageResultatenController.fillTable(results);
+            showResults();
+
         }
 
     }
@@ -126,12 +131,12 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     }
 
     private void showSearchForm() {
-        resultatenPane.setVisible(false);
+        bagageResultaten.setVisible(false);
         zoekParam.setVisible(true);
     }
 
     private void showResults() {
-        resultatenPane.setVisible(true);
+        bagageResultaten.setVisible(true);
         zoekParam.setVisible(false);
     }
 
