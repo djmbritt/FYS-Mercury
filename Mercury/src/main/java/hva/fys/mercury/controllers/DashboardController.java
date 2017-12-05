@@ -47,37 +47,47 @@ public class DashboardController implements Initializable {
     private Label chartLabel;
     
     @FXML
-    private TableView bagageTableView;
-    
+    private TableView bagageTable;
+
     @FXML
-    private ObservableList<Bagage> bagageList = FXCollections.observableArrayList();
+    private Label resultaten;
+    private final ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
+
+    private ParentControllerContext parentController;
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        BagageDAO.getAllBagage(this.bagageList);
-        
-        bagageTableView.setItems(this.bagageList);
-        bagageTableView.refresh();
         initializeLineChart();
         initializePieChart();
         initializeTable();
-        initializePercentage();
-    }
-    public void initializeTable() {
-        // associate the data collection with the table view.
-        bagageTableView.setItems(this.bagageList);
-        
-        for (int cnr = 0; cnr < bagageTableView.getColumns().size(); cnr++) {
-            TableColumn tc = (TableColumn) bagageTableView.getColumns().get(cnr);
+        this.fillTable(bagageLijst);
+    }            
+
+    public void fillTable(List<Bagage> list) {
+        bagageLijst.addAll(bagageLijst);
+        bagageTable.setItems(bagageLijst);
+        for (int cnr = 0; cnr < bagageTable.getColumns().size(); cnr++) {
+            TableColumn tc = (TableColumn) bagageTable.getColumns().get(cnr);
             String propertyName = tc.getId();
-            
+
             if (propertyName != null && !propertyName.isEmpty()) {
                 tc.setCellValueFactory(new PropertyValueFactory<>(propertyName));
                 System.out.println("Attached collumn " + propertyName + "in tableview to matching attribute.");
             }
-            
         }
+        String resultFormat = "%d Gevonden resultaten.";
+        resultaten.setText(String.format(resultFormat, bagageLijst.size()));
     }
+
+    public void refreshTable() {
+        bagageTable.refresh();
+    }
+    
+    private void initializeTable() {
+         BagageDAO.getRecentBagage(bagageLijst);
+    }
+    
     private void initializeLineChart() { 
         XYChart.Series gevonden = new XYChart.Series();
         gevonden.setName("Gevonden");
@@ -107,10 +117,6 @@ public class DashboardController implements Initializable {
         pieChart.setTitle("All Time");
         pieChart.setData(pieChartData);
     }
-    
-    private void initializePercentage() {
-        Percentage = BagageDAO.getStatusBagageSize("Verloren") / BagageDAO.getAllStatusBagageSize() * 100;
-        chartLabel.setText(Percentage + "% van alle bagage is gevonden");
-    }
+   
 
 }

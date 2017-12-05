@@ -109,7 +109,38 @@ public class BagageDAO {
             System.out.println(e);
         }
     }
+    public static void getRecentBagage(ObservableList<Bagage> bagageList) {
+        try {
 
+            System.out.println("Getting all bagage from database");
+            String query = "SELECT * FROM Bagage MAX(DateFound);";
+            ResultSet results = DB_MANAGER.executeResultSetQuery(query);
+
+            while (results.next()) {
+                Bagage bagage = new Bagage();
+                bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
+                bagage.setDatumGevonden(results.getString("DateFound"));
+                bagage.setTijdGevonden(results.getString("TimeFound"));
+                bagage.setBagagemerk(results.getString("BrandMerk"));
+                bagage.setBagageType(results.getString("BagageType"));
+                bagage.setBagagelabel(results.getString("BagageLabel"));
+                bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
+                bagage.setPrimaireKleur(results.getString("MainColor"));
+                bagage.setSecundaireKleur(results.getString("SecondColor"));
+                bagage.setFormaat(results.getString("Grootte"));
+                bagage.setGewichtInKG(results.getString("Gewicht"));
+                bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
+                bagage.setStatus(results.getString("Status"));
+                bagage.setReizigerID(results.getString("Reiziger"));
+                bagage.setIATA_Code(results.getString("IATA_Code"));
+
+                bagageList.add(bagage);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
     public static void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
         try {
 
