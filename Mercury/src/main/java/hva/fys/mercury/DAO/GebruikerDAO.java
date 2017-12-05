@@ -130,9 +130,10 @@ public class GebruikerDAO {
         try {
 
             System.out.println("Getting all bagage from database");
-            String query = "SELECT * FROM Gebruiker;";
+            String query = "SELECT * FROM Gebruikers;";
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
-
+            System.out.println("Got bagage from database.");
+            
             while (results.next()) {
                 Gebruiker gebruiker = new Gebruiker();
 

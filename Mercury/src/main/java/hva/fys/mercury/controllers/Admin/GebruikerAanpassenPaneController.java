@@ -5,12 +5,14 @@
  */
 package hva.fys.mercury.controllers.Admin;
 
+import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -63,7 +65,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     private ParentControllerContext parentController;
@@ -79,7 +81,23 @@ public class GebruikerAanpassenPaneController implements Initializable {
     }
 
     private void initFields(Gebruiker gbrkr) {
-        this.gebruiker = gbrkr;
+        EmployeeID.setText(Integer.toString(gbrkr.getEmployeeID()));
+        Initials.setText(gbrkr.getInitials());
+        FirstName.setText(gbrkr.getFirstName());
+        MiddleName.setText(gbrkr.getMiddleName());
+        SurName.setText(gbrkr.getSurName());
+        BirthDate.setText(gbrkr.getBirthDate());
+        StartEmploymentDate.setText(gbrkr.getStartEmploymentDate());
+        WorkEmail.setText(gbrkr.getWorkEmail());
+        WorkingLocation.setText(gbrkr.getWorkingLocation());
+        StatusEmployment.setText(gbrkr.getStatusEmployment());
+        EndDateEmployment.setText(gbrkr.getEndDateEmployment());
+        PersonalEmail.setText(gbrkr.getPersonalEmail());
+        MobilePhoneNumber.setText(gbrkr.getMobilePhoneNumber());
+//        HomePhoneNumber.setText(gbrkr.getHomePhoneNumber());
+        DepartmentEmployment.setText(gbrkr.getDepartmentEmployment());
+        HomeAdress.setText(gbrkr.getHomeAdress());
+        PostalCode.setText(gbrkr.getPostalCode());
     }
 
     @FXML
@@ -114,9 +132,19 @@ public class GebruikerAanpassenPaneController implements Initializable {
         this.gebruiker.setHomeAdress(HomeAdress.getText());
         this.gebruiker.setPostalCode(PostalCode.getText());
 
-        this.parentController.displayStatusMessage("Saving new information");
-        this.parentController.notifyChildHasUpdated();
-        this.parentController.notifyCloseChild();
+        try {
+//            GebruikerDAO.updateGebruiker(this.gebruiker);
+            GebruikerDAO.registreerGebruiker(this.gebruiker);
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setContentText("Saved to Database 😁");
+            confirmation.showAndWait();
+            this.parentController.displayStatusMessage("Saving new information");
+            this.parentController.notifyChildHasUpdated();
+            this.parentController.notifyCloseChild();
+
+        } catch (Exception e) {
+            System.err.print("Error saving to database: " + e);
+        }
 
     }
 
