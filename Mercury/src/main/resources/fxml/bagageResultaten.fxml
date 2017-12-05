@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1652.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1652.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageResultatenController">
    <children>
       <BorderPane layoutX="47.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" styleClass="Content" stylesheets="@../styles/bagagezoeken.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -35,17 +34,17 @@
             </GridPane>
          </top>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                   <TableColumn fx:id="datumGevonden" prefWidth="195.3333740234375" text="Datum gevonden" />
                   <TableColumn fx:id="bagageType" prefWidth="134.0" text="BagageType" />
-                  <TableColumn fx:id="merk" prefWidth="131.0" text="Merk" />
+                  <TableColumn fx:id="bagagemerk" prefWidth="131.0" text="Merk" />
                   <TableColumn fx:id="vluchtNummer" prefWidth="139.0" text="Vluchtnummer" />
-                  <TableColumn fx:id="label" prefWidth="158.66668701171875" text="BagageLabel" />
-                  <TableColumn fx:id="locatie" prefWidth="201.0" text="Locatie gevonden" />
-                  <TableColumn fx:id="hoofdKleur" prefWidth="158.66668701171875" text="HoofdKleur" />
-                  <TableColumn fx:id="secondKleur" prefWidth="201.0" text="secundaire kleur" />
-                  <TableColumn fx:id="gewicht" prefWidth="133.6666259765625" text="gewicht" />
+                  <TableColumn fx:id="bagagelabel" prefWidth="158.66668701171875" text="BagageLabel" />
+                  <TableColumn fx:id="gevondenLocatie" prefWidth="201.0" text="Locatie gevonden" />
+                  <TableColumn fx:id="primaireKleur" prefWidth="158.66668701171875" text="HoofdKleur" />
+                  <TableColumn fx:id="secundaireKleur" prefWidth="201.0" text="secundaire kleur" />
+                  <TableColumn fx:id="gewichtInKG" prefWidth="133.6666259765625" text="gewicht" />
                   <TableColumn fx:id="status" minWidth="0.0" prefWidth="197.3333740234375" text="status" />
               </columns>
             </TableView>
