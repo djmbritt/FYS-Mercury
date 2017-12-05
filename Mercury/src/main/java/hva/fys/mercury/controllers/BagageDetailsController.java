@@ -9,8 +9,14 @@ import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,46 +68,57 @@ public class BagageDetailsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
-        voornaam.setDisable(true);
-        achternaam.setDisable(true);
-        adres.setDisable(true);
-        woonplaats.setDisable(true);
-        postcode.setDisable(true);
-        land.setDisable(true);
-        telefoonnummer.setDisable(true);
-        email.setDisable(true);
-        bagageLabel.setDisable(true);
-        vluchtNummer.setDisable(true);
+        try {
+            voornaam.setDisable(true);
+            achternaam.setDisable(true);
+            adres.setDisable(true);
+            woonplaats.setDisable(true);
+            postcode.setDisable(true);
+            land.setDisable(true);
+            telefoonnummer.setDisable(true);
+            email.setDisable(true);
+            bagageLabel.setDisable(true);
+            vluchtNummer.setDisable(true);
 //        datumGevonden.setDisable(true);
-        tijdGevonden.setDisable(true);
-        locatieGevonden.setDisable(true);
-        tijdGevonden.setDisable(true);
-        locatieGevonden.setDisable(true);
-        bagageType.setDisable(true);
-        merk.setDisable(true);
-        primaireKleur.setDisable(true);
-        secundaireKleur.setDisable(true);
-        formaat.setDisable(true);
-        
-        voornaam.setText(reiziger.getVoornaam());
-        achternaam.setText(reiziger.getAchternaam());
-        adres.setText(reiziger.getAdres());
-        woonplaats.setText(reiziger.getWoonplaats());
-        postcode.setText(reiziger.getPostcode());
-        land.setText(reiziger.getLand());
-        datumGevonden.setText(bagage.getDatumGevonden());
-        telefoonnummer.setText(reiziger.getTelefoonnummer());
-        email.setText(reiziger.getEmail());
-        bagageLabel.setText(bagage.getBagagelabel());
-        vluchtNummer.setText(bagage.getVluchtNummer());
-        datumGevonden.setText(bagage.getDatumGevonden());
-        tijdGevonden.setText(bagage.getTijdGevonden());
-        locatieGevonden.setText(bagage.getGevondenLocatie());
-        bagageType.setText(bagage.getBagageType());
-        merk.setText(bagage.getBagagemerk());
-        primaireKleur.setText(bagage.getPrimaireKleur());
-        secundaireKleur.setText(bagage.getSecundaireKleur());
-        formaat.setText(bagage.getFormaat());
+            tijdGevonden.setDisable(true);
+            locatieGevonden.setDisable(true);
+            tijdGevonden.setDisable(true);
+            locatieGevonden.setDisable(true);
+            bagageType.setDisable(true);
+            merk.setDisable(true);
+            primaireKleur.setDisable(true);
+            secundaireKleur.setDisable(true);
+            formaat.setDisable(true);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+            String dateStr = bagage.getDatumGevonden();
+
+            Date date = dateFormat.parse(dateStr);
+            System.out.println(date);
+            System.out.println(dateFormat.format(date));
+
+            date = dateFormat.parse(dateStr);
+            voornaam.setText(reiziger.getVoornaam());
+            achternaam.setText(reiziger.getAchternaam());
+            adres.setText(reiziger.getAdres());
+            woonplaats.setText(reiziger.getWoonplaats());
+            postcode.setText(reiziger.getPostcode());
+            land.setText(reiziger.getLand());
+            datumGevonden.setText(dateFormat.format(date));
+            telefoonnummer.setText(reiziger.getTelefoonnummer());
+            email.setText(reiziger.getEmail());
+            bagageLabel.setText(bagage.getBagagelabel());
+            vluchtNummer.setText(bagage.getVluchtNummer());
+            datumGevonden.setText(bagage.getDatumGevonden());
+            tijdGevonden.setText(bagage.getTijdGevonden());
+            locatieGevonden.setText(bagage.getGevondenLocatie());
+            bagageType.setText(bagage.getBagageType());
+            merk.setText(bagage.getBagagemerk());
+            primaireKleur.setText(bagage.getPrimaireKleur());
+            secundaireKleur.setText(bagage.getSecundaireKleur());
+            formaat.setText(bagage.getFormaat());
+        } catch (ParseException ex) {
+            Logger.getLogger(BagageDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
