@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 package hva.fys.mercury.controllers;
- 
+
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger; 
+import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML; 
-import javafx.fxml.Initializable; 
-import javafx.scene.control.Button; 
-import javafx.scene.control.TextField; 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -26,11 +26,10 @@ import javafx.scene.control.TextField;
  * @author Eigenaar
  */
 public class BagageDetailsController implements Initializable {
-    
-    
+
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
-    
+ 
     @FXML
     public TextField voornaam;
     public TextField achternaam;
@@ -50,10 +49,9 @@ public class BagageDetailsController implements Initializable {
     public TextField primaireKleur;
     public TextField secundaireKleur;
     public TextField formaat;
-       
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {  
+    public void initialize(URL url, ResourceBundle rb) {
         try {
             voornaam.setDisable(true);
             achternaam.setDisable(true);
@@ -80,7 +78,6 @@ public class BagageDetailsController implements Initializable {
 
             Date date = dateFormat.parse(dateStr);
 
-
             date = dateFormat.parse(dateStr);
             voornaam.setText(reiziger.getVoornaam());
             achternaam.setText(reiziger.getAchternaam());
@@ -105,15 +102,14 @@ public class BagageDetailsController implements Initializable {
             Logger.getLogger(BagageDetailsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     @FXML
     private static Button bewerkBTN;
     public static Button veranderLocatieBTN;
     public static Button annuleerBTN;
-    
+
     @FXML
-    public void bewerkDetails(ActionEvent event){
+    public void bewerkDetails(ActionEvent event) {
         voornaam.setDisable(false);
         achternaam.setDisable(false);
         adres.setDisable(false);
@@ -135,7 +131,7 @@ public class BagageDetailsController implements Initializable {
         secundaireKleur.setDisable(false);
         formaat.setDisable(false);
     }
-    
+
     @FXML
     public void bagageDetailsOpslaan(ActionEvent event) {
         voornaam.setDisable(true);
@@ -159,13 +155,14 @@ public class BagageDetailsController implements Initializable {
         secundaireKleur.setDisable(true);
         formaat.setDisable(true);
     }
-    
+
+  
     @FXML
     public void veranderLocatie(ActionEvent event) {
         veranderLocatieController.veranderLocatiePopup();
-}
     }
-    
+}
+
 //    @FXML
 //    private void laadDetails(ActionEvent event) {
 //        voornaam.setText(reiziger.getVoornaam());

@@ -40,7 +40,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     private ComboBox secundaireKleur;
 
     @FXML
-    private AnchorPane bagageResultaten; 
+    private AnchorPane bagageResultaten;  
     @FXML
     private GridPane zoekParam;
     @FXML
@@ -56,7 +56,8 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
             List<Bagage> results = BagageDAO.zoekBagage(parameters);
              
             bagageResultatenController.refreshTable();
-            bagageResultatenController.fillTable(results);
+            bagageResultatenController.fillTable(results); 
+            bagageResultatenController.setParentContext(this);
             showResults();
 
         }

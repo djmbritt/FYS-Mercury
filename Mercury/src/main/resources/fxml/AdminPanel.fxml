@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -13,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="859.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.Admin.AdminPanelController">
     <children>
-        <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="859.0" prefWidth="1193.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="859.0" prefWidth="1193.0" stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <Label text="Admin Panel" BorderPane.alignment="CENTER">
                     <font>
@@ -22,20 +23,24 @@
                 </Label>
             </top>
             <left>
-                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="addItem" mnemonicParsing="false" onAction="#handleAddItemAction" prefHeight="26.0" prefWidth="102.0" text="Add" />
-                        <Button mnemonicParsing="false" onAction="#handleDeleteItemAction" prefHeight="26.0" prefWidth="104.0" text="Delete" />
-                        <Button mnemonicParsing="false" onAction="#handleChangeItemAction" text="Change" />
-                        <!--<Button mnemonicParsing="false" onAction="#handleChangeItemAction" text="Exit" />-->
-                    </children>
+                <VBox alignment="TOP_CENTER" prefHeight="818.0" prefWidth="166.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="163.0" fitWidth="139.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/corendon_icon.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAddItemAction" prefHeight="136.0" prefWidth="262.0" text="Add" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDeleteItemAction" prefHeight="136.0" prefWidth="262.0" text="Delete" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChangeItemAction" prefHeight="136.0" prefWidth="262.0" text="Change" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChangeItemAction" prefHeight="136.0" prefWidth="262.0" text="Logout" />
+               </children>
                 </VBox>
             </left>
             <center>
                 <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <TableView fx:id="gebruikerTableView" editable="true" prefHeight="200.0" prefWidth="200.0">
+                        <TableView fx:id="gebruikerTableView" editable="true" prefHeight="200.0" prefWidth="200.0" styleClass="-sidebar" stylesheets="@../styles/content.css">
                             <columns>
                                 <TableColumn fx:id="EmployeeID" editable="false" prefWidth="96.0" text="EmployeeID" />
                                 <TableColumn fx:id="Initials" editable="false" prefWidth="82.0" text="Initials" />
