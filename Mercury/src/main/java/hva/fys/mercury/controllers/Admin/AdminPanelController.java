@@ -1,6 +1,7 @@
 package hva.fys.mercury.controllers.Admin;
 
-import hva.fys.mercury.controllers.ParentControllerContext;
+import hva.fys.mercury.DAO.DatabaseManager;
+import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
 import java.util.Optional;
@@ -20,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class AdminPanelController implements Initializable, ParentControllerContext {
     
+    DatabaseManager dbManager = new DatabaseManager("MercuryTest");
+    
     @FXML
     private TableView gebruikerTableView;
     
@@ -29,7 +32,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     @FXML
     private GebruikerAanpassenPaneController gebruikerAanpassenPaneController;
     
-    private final ObservableList<Gebruiker> gebruikerList = FXCollections.observableArrayList();
+    private ObservableList<Gebruiker> gebruikerList = FXCollections.observableArrayList();
 
     //Parent controller methods
     private void showTableView() {
@@ -108,8 +111,12 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("AdminPanelController.Initialize()");
+        
+        this.gebruikerList = (ObservableList<Gebruiker>) GebruikerDAO.readAllGebruikerDB();
+        
         gebruikerTableView.setItems(this.gebruikerList);
         gebruikerTableView.refresh();
+        
         
     }
     

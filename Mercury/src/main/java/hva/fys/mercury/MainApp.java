@@ -3,7 +3,10 @@ package hva.fys.mercury;
 import hva.fys.mercury.DAO.PopulateDB;
 import hva.fys.mercury.DAO.DataBaseCreator;
 import hva.fys.mercury.DAO.BagageDAO;
+import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.models.Gebruiker;
+import java.util.List;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -41,13 +44,16 @@ public class MainApp extends Application {
         bagage.setStatus("Gevonden");
         BagageDAO.updateBagage(bagage);
         */
-        /*
+        
         Gebruiker gebruiker = new Gebruiker();
         gebruiker.setEmployeeID(649780213);
         GebruikerDAO.registreerGebruiker(gebruiker);
-        gebruiker.setFirstName("David Britt");
-        GebruikerDAO.updateGebruiker(gebruiker);
-        */
+        System.out.println("ReadAllGebruiker");
+        List<Gebruiker> printList = GebruikerDAO.readAllGebruikerDB();
+        
+        for (Gebruiker gebruiker1 : printList) {
+            System.out.println(gebruiker1);
+        }
         
         launch(args);
     }
