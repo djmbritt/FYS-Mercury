@@ -1,5 +1,6 @@
 package hva.fys.mercury.controllers;
  
+import hva.fys.mercury.DAO.BagageDAO;
 import hva.fys.mercury.DAO.DatabaseManager;
 import hva.fys.mercury.MainApp;
 import java.net.URL;
@@ -61,13 +62,13 @@ public class DashboardController implements Initializable {
    
     
     private void initializePieChart() {
-        ObservableList<PieChart.Data> pieChartData
-                = FXCollections.observableArrayList(
-                        new PieChart.Data("Gevonden", listGevonden.size()),
-                        new PieChart.Data("Verloren", listVerloren.size())
-                );
+//        ObservableList<PieChart.Data> pieChartData
+//                = FXCollections.observableArrayList(
+//                        new PieChart.Data("Gevonden", BagageDAO.getStatusBagageSize("Gevonden")),
+//                        new PieChart.Data("Verloren", BagageDAO.getStatusBagageSize("Verloren"))
+//                );
 
         pieChart.setTitle("All Time");
-        pieChart.setData(pieChartData);  
+//        pieChart.setData(pieChartData);  
     }
 }
