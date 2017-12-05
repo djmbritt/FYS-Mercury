@@ -133,19 +133,14 @@ public class GebruikerAanpassenPaneController implements Initializable {
         this.gebruiker.setHomeAdress(HomeAdress.getText());
         this.gebruiker.setPostalCode(PostalCode.getText());
 
-        try {
-//            GebruikerDAO.updateGebruiker(this.gebruiker);
-            GebruikerDAO.registreerGebruiker(this.gebruiker);
-            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-            confirmation.setContentText("Saved to Database 😁");
-            confirmation.showAndWait();
-            this.parentController.displayStatusMessage("Saving new information");
-            this.parentController.notifyChildHasUpdated();
-            this.parentController.notifyCloseChild();
+        GebruikerDAO.registreerGebruiker(this.gebruiker);
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setContentText("Saved to Database 😁");
+        confirmation.showAndWait();
 
-        } catch (Exception e) {
-            System.err.print("Error saving to database: " + e);
-        }
+        this.parentController.displayStatusMessage("Saving new information");
+        this.parentController.notifyChildHasUpdated();
+        this.parentController.notifyCloseChild();
 
     }
 

@@ -59,7 +59,8 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
     @FXML
     public void handleAddItemAction() {
-        addItemToFoundLuggageList();
+        gebruikerAanpassenPaneController.setParentContext(this, addItemToGebruikerList());
+        showFoundLuggagePane();
     }
 
     @FXML
@@ -78,6 +79,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 gebruikerList.removeAll(selectedItem);
+                GebruikerDAO.deleteGebruikerDB(selectedItem);
             } else {
                 System.out.println("Item not deleted.");
             }
@@ -109,6 +111,12 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         }
     }
 
+    @FXML
+    public void handleExitAction() {
+        //figure out kico mi ta bai haci aki nan.
+        //Persona mester por log out.
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("AdminPanelController.Initialize()");
@@ -135,9 +143,10 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         }
     }
 
-    public void addItemToFoundLuggageList() {
+    public Gebruiker addItemToGebruikerList() {
         //add dummy list 
-        gebruikerList.add(new Gebruiker());
+        Gebruiker gebruiker = new Gebruiker();
+        gebruikerList.add(gebruiker);
 
         // associate the data collection with the table view.
         gebruikerTableView.setItems(this.gebruikerList);
@@ -152,6 +161,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
             }
 
         }
+        return gebruiker;
     }
 
     public void showFoundLuggagePane() {
