@@ -6,33 +6,19 @@
 package hva.fys.mercury.controllers;
  
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
-import java.io.IOException;
+import hva.fys.mercury.models.Reiziger; 
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat; 
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.logging.Logger; 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.fxml.FXML; 
+import javafx.fxml.Initializable; 
+import javafx.scene.control.Button; 
+import javafx.scene.control.TextField; 
 
 /**
  * FXML Controller class
@@ -93,8 +79,7 @@ public class BagageDetailsController implements Initializable {
             String dateStr = bagage.getDatumGevonden();
 
             Date date = dateFormat.parse(dateStr);
-            System.out.println(date);
-            System.out.println(dateFormat.format(date));
+
 
             date = dateFormat.parse(dateStr);
             voornaam.setText(reiziger.getVoornaam());
