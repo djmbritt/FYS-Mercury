@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -23,6 +24,8 @@ public class BagageResultatenController implements Initializable {
     @FXML
     private TableView table;
 
+    @FXML 
+    private Label resultaten; 
     private final ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
 
     @Override
@@ -42,6 +45,8 @@ public class BagageResultatenController implements Initializable {
                 System.out.println("Attached collumn " + propertyName + "in tableview to matching attribute.");
             } 
         }
+        String resultFormat = "%d Gevonden resultaten.";
+        resultaten.setText(String.format(resultFormat, bagageLijst.size()));
     }
     
     public void refreshTable(){

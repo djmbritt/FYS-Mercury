@@ -54,9 +54,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         parameters = setParameters(parameters);
         if (parameters.size() > 0) {
             List<Bagage> results = BagageDAO.zoekBagage(parameters);
-            for (Bagage stuk : results) {
-                System.out.println(stuk.toString());
-            } 
+             
             bagageResultatenController.refreshTable();
             bagageResultatenController.fillTable(results);
             showResults();
