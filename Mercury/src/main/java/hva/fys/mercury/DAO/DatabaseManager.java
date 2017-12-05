@@ -15,6 +15,7 @@ public class DatabaseManager {
     private static final String DB_DEFAULT_ACCOUNT = "root"; 
     private static final String DB_DEFAULT_PASSWORD = "admin"; 
 //    private static final String DB_DEFAULT_PASSWORD = "kunming2000"; 
+//    private static final String DB_DEFAULT_PASSWORD = "root"; 
 
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
     private final static String DB_DRIVER_PREFIX = "jdbc:mysql://";
