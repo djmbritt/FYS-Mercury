@@ -14,20 +14,24 @@ import javafx.collections.ObservableList;
  */
 public class BagageDAO {
 
-    private final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
+    private final DatabaseManager DB_MANAGER;
     private final int MINIMUM_EDITED_COLUMN = 1;
     private int columnsBewerkt;
 
+    public BagageDAO() {
+        this.DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
+    }
+
     public boolean registreerBagage(Bagage bagage) {
 
-        final String INSERT_QUERY
-                = "INSERT INTO Bagage( `BagageRegistratieNummer`, `DateFound`, `TimeFound`, `BrandMerk`, `BagageType`, `BagageLabel`, "
-                + "`LocatieGevonden`, `MainColor`, `SecondColor`, `Formaat`, `Gewicht`, `OverigeEigenschappen`, `Status`) "
-                + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+        final String INSERT_QUERY = "INSERT INTO bagage ( DateFound, TimeFound, BagageType, BrandMerk, "
+                + " BagageLabel, LocatieGevonden, MainColor, SecondColor, Formaat, Gewicht, OverigeEigenschappen, Status ) "
+                + "values ( '%s', '%s','%s', '%s', '%s', '%s', "
+                + "'%s', '%s', '%s', '%s', '%s', '%s' "
+                + " );";
 
         String insertString = String.format(
                 INSERT_QUERY,
-                bagage.getRegistratieID(),
                 bagage.getDatumGevonden(),
                 bagage.getTijdGevonden(),
                 bagage.getBagagemerk(),
@@ -44,6 +48,7 @@ public class BagageDAO {
 
         columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
         DB_MANAGER.close();
+        System.out.println("bewerkte collumns: " + columnsBewerkt);
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
@@ -226,5 +231,4 @@ public class BagageDAO {
         return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
     }
 
-   
 }

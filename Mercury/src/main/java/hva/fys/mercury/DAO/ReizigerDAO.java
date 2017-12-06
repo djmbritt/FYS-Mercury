@@ -24,7 +24,8 @@ public class ReizigerDAO {
                 reiziger.getEmail(), reiziger.getIATA_Code()
         );
 
-        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString); 
+        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
+        System.out.println(columnsBewerkt);
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 

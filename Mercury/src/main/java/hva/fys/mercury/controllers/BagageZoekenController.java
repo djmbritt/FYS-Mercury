@@ -37,27 +37,28 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @FXML
     private ComboBox primaireKleur;
     @FXML
-    private ComboBox secundaireKleur;  
-    
+    private ComboBox secundaireKleur;
+
     @FXML
-    private AnchorPane bagageResultaten;  
+    private AnchorPane bagageResultaten;
     @FXML
     private GridPane zoekParam;
     @FXML
     private BagageResultatenController bagageResultatenController;
 
-    private BagageDAO dbBagage;
     @FXML
     public void zoekAction(ActionEvent event) {
+
+        BagageDAO dbBagage = new BagageDAO();
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
 
         parameters = setParameters(parameters);
         if (parameters.size() > 0) {
             List<Bagage> results = dbBagage.zoekBagage(parameters);
-             
+
             bagageResultatenController.refreshTable();
-            bagageResultatenController.fillTable(results); 
+            bagageResultatenController.fillTable(results);
             bagageResultatenController.setParentContext(this);
             showResults();
 
@@ -65,10 +66,8 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
     }
 
-
     public void initialize(URL url, ResourceBundle rb
-    ) {
-        dbBagage = new BagageDAO();
+    ) { 
         bagageType.getItems().addAll("", "Bag",
                 "Case",
                 "Box");

@@ -1,5 +1,6 @@
 package hva.fys.mercury.controllers;
 
+import hva.fys.mercury.DAO.BagageDAO;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.DAO.JDBCMethods;
 import hva.fys.mercury.models.Reiziger;
@@ -27,7 +28,6 @@ public class RegistreerVermistController implements Initializable {
 
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
-    
     @FXML
     TextField voornaam;
     public TextField achternaam;
@@ -54,21 +54,21 @@ public class RegistreerVermistController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    status.getItems().addAll(
-    "Vermist",
-    "Gevonden",
-    "Afgehandeld"
-);
-    bagageType.getItems().addAll(
-    "Koffer",
-    "Tas",
-    "Rugzak",
-    "Doos",
-    "Sporttas",
-    "Zakenkoffer",
-    "Kist",
-    "Anders"
-    );
+        status.getItems().addAll(
+                "Vermist",
+                "Gevonden",
+                "Afgehandeld"
+        );
+        bagageType.getItems().addAll(
+                "Koffer",
+                "Tas",
+                "Rugzak",
+                "Doos",
+                "Sporttas",
+                "Zakenkoffer",
+                "Kist",
+                "Anders"
+        );
     }
 
     public boolean checkText() {
@@ -168,9 +168,8 @@ public class RegistreerVermistController implements Initializable {
     @FXML
     private Label denyLabel;
 
-    JDBCMethods methodsdb = new JDBCMethods();
-
     public void opslaanBagage(ActionEvent event) {
+        BagageDAO dbBagage = new BagageDAO();
         if (checkText() == false) {
             denyLabel.setText("You did not fill in all textfields!");
         } else {
@@ -181,7 +180,7 @@ public class RegistreerVermistController implements Initializable {
             reiziger.setWoonplaats(woonplaats.getText());
             reiziger.setPostcode(postcode.getText());
             reiziger.setLand(land.getText());
-            reiziger.setTelefoonnummer( telefoonnummer.getText());
+            reiziger.setTelefoonnummer(telefoonnummer.getText());
             reiziger.setEmail(email.getText());
             bagage.setBagagelabel(bagageLabel.getText());
             bagage.setVluchtNummer(vluchtNummer.getText());
@@ -198,10 +197,11 @@ public class RegistreerVermistController implements Initializable {
             bagage.setStatus(status.getValue().toString());
             bagage.setOverigeEigenschappen(overigeEigenschappen.getText());
             denyLabel.setText("");
+            dbBagage.registreerBagage(bagage);
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
-            JDBCMethods.createBagageDatabase(bagage);
-        } 
+
+        }
     }
 
     public void annuleerText() {

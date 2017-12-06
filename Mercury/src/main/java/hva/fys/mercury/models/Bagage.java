@@ -17,8 +17,7 @@ public class Bagage {
     private String reizigerID;
     private String IATA_Code;
     private String overigeEigenschappen;
-    private String status;
-    private static int counter = 1000000000;
+    private String status; 
 
     public Bagage() { 
     }
