@@ -13,110 +13,111 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
-   <children>
-      <BorderPane stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <left>
-            <GridPane alignment="CENTER" prefHeight="990.0" prefWidth="262.0" styleClass="-sidebar" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.99998474121094" minWidth="10.0" prefWidth="306.99998474121094" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="359.3333435058594" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="718.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="895.0" minHeight="10.0" prefHeight="719.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="758.0000152587891" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ImageView fitHeight="163.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
-                     <image>
-                        <Image url="@../images/corendon_icon.png" />
-                     </image>
-                     <GridPane.margin>
-                        <Insets top="10.0" />
-                     </GridPane.margin>
-                  </ImageView>
-                  <VBox prefHeight="724.0" prefWidth="335.0" spacing="5.0" GridPane.rowIndex="2">
-                     <children>
-                        <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openDashboard" prefHeight="136.0" prefWidth="262.0" text="Dashboard">
-                           <graphic>
-                              <ImageView fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/dashboard%20icon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="136.0" prefWidth="277.0" text="Zoeken">
-                           <graphic>
-                              <ImageView id="searchBTN" fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
-                                 <image>
-                                    <Image url="@../images/searchzIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="managerBTN" fx:id="managerBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openManagerOverzicht" prefHeight="136.0" prefWidth="277.0" styleClass="-sidebar" text="Manager">
-                           <graphic>
-                              <ImageView id="searchBTN" fitHeight="116.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
-                                 <image>
-                                    <Image url="@../images/managerIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="Bagage" textAlignment="CENTER">
-                           <content>
-                              <VBox prefHeight="64.0" prefWidth="252.0">
-                                 <padding>
-                                    <Insets right="6.0" top="6.0" />
-                                 </padding>
-                                 <children>
-                                    <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
-                                    <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
-                                 </children>
-                              </VBox>
-                           </content>
-                           <graphic>
-                              <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/formIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </TitledPane>
-                        <Button fx:id="testBagageDetailsBTN" mnemonicParsing="false" onAction="#testBagageDetails" text="Button" />
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </VBox>
-                  <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logoutAction" prefHeight="136.0" prefWidth="277.0" text="Uitloggen" GridPane.rowIndex="3">
-                     <graphic>
-                        <ImageView id="logoutBTN" fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
-                           <image>
-                              <Image url="@../images/logout%20icon.png" />
-                           </image>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
+    <children>
+        <BorderPane stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <GridPane alignment="CENTER" prefHeight="990.0" prefWidth="262.0" styleClass="-sidebar" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.99998474121094" minWidth="10.0" prefWidth="306.99998474121094" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="359.3333435058594" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="718.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="895.0" minHeight="10.0" prefHeight="719.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="758.0000152587891" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="163.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+                            <image>
+                                <Image url="@../images/corendon_icon.png" />
+                            </image>
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin>
                         </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </GridPane>
-         </left>
-         <center>
-            <GridPane style="-fx-background-color: a9a9a9;" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="848.333251953125" minWidth="0.0" prefWidth="4.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1718.0" minWidth="10.0" prefWidth="1714.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <StackPane fx:id="workspace" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: WHITE;" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-         </center>
-      </BorderPane>
-   </children>
+                        <VBox prefHeight="724.0" prefWidth="335.0" spacing="5.0" GridPane.rowIndex="2">
+                            <children>
+                                <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openDashboard" prefHeight="136.0" prefWidth="262.0" text="Dashboard">
+                                    <graphic>
+                                        <ImageView fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/dashboard%20icon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="136.0" prefWidth="277.0" text="Zoeken">
+                                    <graphic>
+                                        <ImageView id="searchBTN" fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                                            <image>
+                                                <Image url="@../images/searchzIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button id="managerBTN" fx:id="managerBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openManagerOverzicht" prefHeight="136.0" prefWidth="277.0" styleClass="-sidebar" text="Manager">
+                                    <graphic>
+                                        <ImageView id="searchBTN" fitHeight="116.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                                            <image>
+                                                <Image url="@../images/managerIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="Bagage" textAlignment="CENTER">
+                                    <content>
+                                        <VBox prefHeight="64.0" prefWidth="252.0">
+                                            <padding>
+                                                <Insets right="6.0" top="6.0" />
+                                            </padding>
+                                            <children>
+                                                <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
+                                                <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                    <graphic>
+                                        <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/formIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </TitledPane>
+                                <Button fx:id="testBagageDetailsBTN" mnemonicParsing="false" onAction="#testBagageDetails" text="Button" />
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" />
+                            </padding>
+                        </VBox>
+                        <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logoutAction" prefHeight="136.0" prefWidth="277.0" text="Uitloggen" GridPane.rowIndex="3">
+                            <graphic>
+                                <ImageView id="logoutBTN" fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                                    <image>
+                                        <Image url="@../images/logout%20icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </GridPane>
+            </left>
+            <center>
+                <GridPane style="-fx-background-color: a9a9a9;" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1718.0" minWidth="10.0" prefWidth="1714.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <StackPane fx:id="workspace" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: WHITE;" GridPane.columnIndex="1" />
+                   
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
 </AnchorPane>

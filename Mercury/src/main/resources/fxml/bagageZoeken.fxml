@@ -25,8 +25,9 @@
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints maxHeight="55.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
                                 <Label styleClass="Title" text="Zoeken" GridPane.rowIndex="1">
@@ -51,7 +52,7 @@
                     <center>
                         <StackPane BorderPane.alignment="CENTER">
                             <children>
-                                <GridPane fx:id="zoekParam">
+                                <GridPane fx:id="zoekParam" styleClass="Content">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="0.0" prefWidth="0.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1427.0" minWidth="10.0" prefWidth="1427.0" />
