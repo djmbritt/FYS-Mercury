@@ -1,4 +1,4 @@
-package hva.fys.mercury.controllers.Admin;
+package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.DAO.DatabaseManager;

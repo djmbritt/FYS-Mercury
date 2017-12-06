@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hva.fys.mercury.controllers.Admin;
+package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.controllers.ParentControllerContext;
@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -27,7 +28,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
     Zet je textfield voor je gebruikeraanpassen.fxml text fields hier beneden
      */
     @FXML
-    private TextField EmployeeID;
+    private Label EmployeeID;
     @FXML
     private TextField Initials;
     @FXML
