@@ -5,13 +5,15 @@
  */
 package hva.fys.mercury.models;
 
+import hva.fys.mercury.DAO.GebruikerDAO;
+
 /**
  *
  * @author GG
  */
 public class Gebruiker {
 
-    private  int EmployeeID;
+    private int EmployeeID;
     private String Initials;
     private String FirstName;
     private String MiddleName;
@@ -27,12 +29,14 @@ public class Gebruiker {
     private String PostalCode;
     private String DepartmentEmployment;
     private String HomeAdress;
-    private static int counter = 0;
 
     public Gebruiker() {
-        EmployeeID = 0000 + counter++;
     }
 
+    public Gebruiker(int EmployeeID){
+        this.EmployeeID = EmployeeID;
+    }
+    
     public Gebruiker(int EmployeeID, String Initials, String FirstName, String MiddleName, String SurName, String BirthDate, String StartEmploymentDate, String WorkEmail, String WorkingLocation, String StatusEmployment, String EndDateEmployment, String PersonalEmail, String MobilePhoneNumber, String PostalCode, String DepartmentEmployment, String HomeAdress) {
         this.EmployeeID = EmployeeID;
         this.Initials = Initials;

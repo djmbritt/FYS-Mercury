@@ -5,6 +5,9 @@ import hva.fys.mercury.DAO.DatabaseManager;
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -23,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class AdminPanelController implements Initializable, ParentControllerContext {
 
-    DatabaseManager dbManager = new DatabaseManager("MercuryTest");
+    GebruikerDAO gebruikerDAO = new GebruikerDAO();
 
     @FXML
     private TableView gebruikerTableView;
@@ -79,7 +82,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 gebruikerList.removeAll(selectedItem);
-                GebruikerDAO.deleteGebruikerDB(selectedItem);
+                gebruikerDAO.deleteGebruikerDB(selectedItem);
             } else {
                 System.out.println("Item not deleted.");
             }
@@ -121,7 +124,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("AdminPanelController.Initialize()");
 
-        fillTable(GebruikerDAO.readAllGebruikerDB());
+        fillTable(gebruikerDAO.readAllGebruikerDB());
         gebruikerTableView.refresh();
 
     }
@@ -143,9 +146,10 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         }
     }
 
-    public Gebruiker addItemToGebruikerList() {
-        //add dummy list 
-        Gebruiker gebruiker = new Gebruiker();
+    public Gebruiker addItemToGebruikerList() { 
+        String newID = "" + Calendar.YEAR + Calendar.MONTH + Calendar.DAY_OF_MONTH + gebruikerDAO.totaalGebruikers();
+        System.out.println("newid: " + newID);
+        Gebruiker gebruiker = new Gebruiker(Integer.parseInt(newID));
         gebruikerList.add(gebruiker);
 
         // associate the data collection with the table view.

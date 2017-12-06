@@ -154,7 +154,7 @@ public class RegistreerGebruikerController implements Initializable {
             opgeslagenLabelM.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
             
-            GebruikerDAO.registreerGebruiker(gebruiker);
+//            GebruikerDAO.registreerGebruiker(gebruiker);
         }
     }
 

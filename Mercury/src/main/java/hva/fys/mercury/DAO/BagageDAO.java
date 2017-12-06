@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
 /*
-* @author: David Britt
+* @author: David Britt / Jose Niemel
  */
 public class BagageDAO {
 

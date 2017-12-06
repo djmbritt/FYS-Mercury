@@ -5,16 +5,29 @@
  */
 package hva.fys.mercury.controllers;
 
+import hva.fys.mercury.DAO.DatabaseManager;
 import hva.fys.mercury.DAO.GebruikerDAO;
+import hva.fys.mercury.MainApp;
 import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -38,17 +51,17 @@ public class GebruikerAanpassenPaneController implements Initializable {
     @FXML
     private TextField SurName;
     @FXML
-    private TextField BirthDate;
+    private DatePicker BirthDate;
     @FXML
-    private TextField StartEmploymentDate;
+    private DatePicker StartEmploymentDate;
     @FXML
     private TextField WorkEmail;
     @FXML
-    private TextField WorkingLocation;
+    private ChoiceBox<String> WorkingLocation;
     @FXML
-    private TextField StatusEmployment;
+    private ChoiceBox<String> StatusEmployment;
     @FXML
-    private TextField EndDateEmployment;
+    private DatePicker EndDateEmployment;
     @FXML
     private TextField PersonalEmail;
     @FXML
@@ -61,12 +74,25 @@ public class GebruikerAanpassenPaneController implements Initializable {
     private TextField HomeAdress;
     @FXML
     private TextField PostalCode;
+    @FXML
+    private PasswordField WachtWoord;
+    @FXML
+    private PasswordField WachtWoordVerificatie;
+
+    GebruikerDAO gebruikerDAO = new GebruikerDAO();
+
+    ObservableList<String> statusList = FXCollections.<String>observableArrayList("Werkenzaam", "Ontslagen", "Met Verlof", "Vakantie", "Afgewezen", "Gesoliciteerd");
+    
+    //Fornow.
+    ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList("Amsterdam", "Istanbul", "Malaga", "Ankara");
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        WorkingLocation.getItems().addAll(werkLocatieList);
+//        StatusEmployment.getItems().addAll(statusList);
 
     }
 
@@ -83,17 +109,21 @@ public class GebruikerAanpassenPaneController implements Initializable {
     }
 
     private void initFields(Gebruiker gbrkr) {
+
         EmployeeID.setText(Integer.toString(gbrkr.getEmployeeID()));
         Initials.setText(gbrkr.getInitials());
         FirstName.setText(gbrkr.getFirstName());
         MiddleName.setText(gbrkr.getMiddleName());
         SurName.setText(gbrkr.getSurName());
-        BirthDate.setText(gbrkr.getBirthDate());
-        StartEmploymentDate.setText(gbrkr.getStartEmploymentDate());
         WorkEmail.setText(gbrkr.getWorkEmail());
-        WorkingLocation.setText(gbrkr.getWorkingLocation());
-        StatusEmployment.setText(gbrkr.getStatusEmployment());
-        EndDateEmployment.setText(gbrkr.getEndDateEmployment());
+
+//        BirthDate.setValue(gbrkr.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
+//        StartEmploymentDate.setText(gbrkr.getStartEmploymentDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
+//        EndDateEmployment.setValue(gbrkr.getEndDateEmployment().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
+
+        WorkingLocation.setValue(gbrkr.getWorkingLocation());
+        StatusEmployment.setValue(gbrkr.getStatusEmployment());
+
         PersonalEmail.setText(gbrkr.getPersonalEmail());
         MobilePhoneNumber.setText(gbrkr.getMobilePhoneNumber());
 //        HomePhoneNumber.setText(gbrkr.getHomePhoneNumber());
@@ -116,17 +146,19 @@ public class GebruikerAanpassenPaneController implements Initializable {
     public void handleSaveAction(ActionEvent event) {
         System.out.println("Saving....");
 
+//                    bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+
         this.gebruiker.setEmployeeID(Integer.parseInt(EmployeeID.getText()));
         this.gebruiker.setInitials(Initials.getText());
         this.gebruiker.setFirstName(FirstName.getText());
         this.gebruiker.setMiddleName(MiddleName.getText());
         this.gebruiker.setSurName(SurName.getText());
-        this.gebruiker.setBirthDate(BirthDate.getText());
-        this.gebruiker.setStartEmploymentDate(StartEmploymentDate.getText());
+        this.gebruiker.setBirthDate(BirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        this.gebruiker.setStartEmploymentDate(StartEmploymentDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         this.gebruiker.setWorkEmail(WorkEmail.getText());
-        this.gebruiker.setWorkingLocation(WorkingLocation.getText());
-        this.gebruiker.setStatusEmployment(StatusEmployment.getText());
-        this.gebruiker.setEndDateEmployment(EndDateEmployment.getText());
+        this.gebruiker.setWorkingLocation(WorkingLocation.getValue().toString());
+        this.gebruiker.setStatusEmployment(StatusEmployment.getValue().toString());
+        this.gebruiker.setEndDateEmployment(EndDateEmployment.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         this.gebruiker.setPersonalEmail(PersonalEmail.getText());
         this.gebruiker.setMobilePhoneNumber(MobilePhoneNumber.getText());
 //        this.gebruiker.setHomePhoneNumber(HomePhoneNumber.getText());
@@ -134,10 +166,21 @@ public class GebruikerAanpassenPaneController implements Initializable {
         this.gebruiker.setHomeAdress(HomeAdress.getText());
         this.gebruiker.setPostalCode(PostalCode.getText());
 
-        GebruikerDAO.registreerGebruiker(this.gebruiker);
+        DatabaseManager db = new DatabaseManager(MainApp.DATABASE_NAME);
+        String reUpGebruikerQuery = String.format("SELECT EmployeeID FROM Gebruikers WHERE EmployeeID='%d'", this.gebruiker.getEmployeeID());
+        String registreerOfUpdateGebruiker = db.executeStringQuery(reUpGebruikerQuery);
+
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmation.setContentText("Saved to Database 😁");
-        confirmation.showAndWait();
+        if (registreerOfUpdateGebruiker != null) {
+            gebruikerDAO.updateGebruiker(this.gebruiker);
+            confirmation.setContentText("Updated Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
+            confirmation.showAndWait();
+
+        } else {
+            gebruikerDAO.registreerGebruiker(this.gebruiker);
+            confirmation.setContentText("Saved new Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
+            confirmation.showAndWait();
+        }
 
         this.parentController.displayStatusMessage("Saving new information");
         this.parentController.notifyChildHasUpdated();
@@ -148,18 +191,19 @@ public class GebruikerAanpassenPaneController implements Initializable {
     @FXML
     public void handleResetAction(ActionEvent event) {
 
-        //zonder this???
+//                    bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         EmployeeID.setText(Integer.toString(this.gebruiker.getEmployeeID()));
         Initials.setText(this.gebruiker.getInitials());
         FirstName.setText(this.gebruiker.getFirstName());
         MiddleName.setText(this.gebruiker.getMiddleName());
         SurName.setText(this.gebruiker.getSurName());
-        BirthDate.setText(this.gebruiker.getBirthDate());
-        StartEmploymentDate.setText(this.gebruiker.getStartEmploymentDate());
+//        BirthDate.setValue(this.gebruiker.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
+//        BirthDate.setValue(new SimpleDateFormat("dd-MM-yyyy"));
+//        StartEmploymentDate.setText(this.gebruiker.getStartEmploymentDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
         WorkEmail.setText(this.gebruiker.getWorkEmail());
-        WorkingLocation.setText(this.gebruiker.getWorkingLocation());
-        StatusEmployment.setText(this.gebruiker.getStatusEmployment());
-        EndDateEmployment.setText(this.gebruiker.getEndDateEmployment());
+        WorkingLocation.setValue(this.gebruiker.getWorkingLocation());
+        StatusEmployment.setValue(this.gebruiker.getStatusEmployment());
+//        EndDateEmployment.setText(this.gebruiker.getEndDateEmployment().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
         PersonalEmail.setText(this.gebruiker.getPersonalEmail());
         MobilePhoneNumber.setText(this.gebruiker.getMobilePhoneNumber());
 //        HomePhoneNumber.setText(this.gebruiker.getHomePhoneNumber());
@@ -178,12 +222,12 @@ public class GebruikerAanpassenPaneController implements Initializable {
         FirstName.setText(null);
         MiddleName.setText(null);
         SurName.setText(null);
-        BirthDate.setText(null);
-        StartEmploymentDate.setText(null);
+        BirthDate.setValue(null);
+        StartEmploymentDate.setValue(null);
         WorkEmail.setText(null);
-        WorkingLocation.setText(null);
-        StatusEmployment.setText(null);
-        EndDateEmployment.setText(null);
+        WorkingLocation.setValue(null);
+        StatusEmployment.setValue(null);
+        EndDateEmployment.setValue(null);
         PersonalEmail.setText(null);
         MobilePhoneNumber.setText(null);
         HomePhoneNumber.setText(null);
