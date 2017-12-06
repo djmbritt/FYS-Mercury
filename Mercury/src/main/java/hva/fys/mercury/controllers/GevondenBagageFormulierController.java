@@ -40,24 +40,27 @@ public class GevondenBagageFormulierController implements Initializable {
     public TextField overigeEigenschappenG;
     public ComboBox bagageTypeG;
     public TextField IATAG;
-    
+
+    private BagageDAO dbBagage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    statusG.getItems().addAll(
-    "Vermist",
-    "Gevonden",
-    "Afgehandeld"
-);
-    bagageTypeG.getItems().addAll(
-    "Koffer",
-    "Tas",
-    "Rugzak",
-    "Doos",
-    "Sporttas",
-    "Zakenkoffer",
-    "Kist",
-    "Anders"
-    );
+        dbBagage = new BagageDAO();
+        statusG.getItems().addAll(
+                "Vermist",
+                "Gevonden",
+                "Afgehandeld"
+        );
+        bagageTypeG.getItems().addAll(
+                "Koffer",
+                "Tas",
+                "Rugzak",
+                "Doos",
+                "Sporttas",
+                "Zakenkoffer",
+                "Kist",
+                "Anders"
+        );
     }
 
     public boolean checkText() {
@@ -154,7 +157,7 @@ public class GevondenBagageFormulierController implements Initializable {
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
 
-            BagageDAO.registreerBagage(bagage);
+            dbBagage.registreerBagage(bagage);
         }
     }
 

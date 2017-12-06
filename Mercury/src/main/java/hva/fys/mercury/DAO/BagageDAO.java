@@ -14,11 +14,11 @@ import javafx.collections.ObservableList;
  */
 public class BagageDAO {
 
-    private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
-    private static final int MINIMUM_EDITED_COLUMN = 1;
-    private static int columnsBewerkt;
+    private final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
+    private final int MINIMUM_EDITED_COLUMN = 1;
+    private int columnsBewerkt;
 
-    public static boolean registreerBagage(Bagage bagage) {
+    public boolean registreerBagage(Bagage bagage) {
 
         final String INSERT_QUERY
                 = "INSERT INTO Bagage( `BagageRegistratieNummer`, `DateFound`, `TimeFound`, `BrandMerk`, `BagageType`, `BagageLabel`, "
@@ -47,7 +47,7 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static boolean updateBagage(Bagage bagage) {
+    public boolean updateBagage(Bagage bagage) {
         final String UPDATE_QUERY
                 = "UPDATE Bagage "
                 + "SET DateFound='%s', TimeFound='%s', BrandMerk='%s', BagageType='%s', BagageLabel='%s', "
@@ -77,7 +77,7 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static void getAllBagage(ObservableList<Bagage> bagageList) {
+    public void getAllBagage(ObservableList<Bagage> bagageList) {
         try {
 
             System.out.println("Getting all bagage from database");
@@ -109,7 +109,8 @@ public class BagageDAO {
             System.out.println(e);
         }
     }
-    public static void getRecentBagage(ObservableList<Bagage> bagageList) {
+
+    public void getRecentBagage(ObservableList<Bagage> bagageList) {
         try {
 
             System.out.println("Getting all bagage from database");
@@ -141,7 +142,8 @@ public class BagageDAO {
             System.out.println(e);
         }
     }
-    public static void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
+
+    public void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
         try {
 
             String query = String.format("SELECT %s FROM Bagage;", kolomNaam);
@@ -174,7 +176,7 @@ public class BagageDAO {
         }
     }
 
-    public static List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
+    public List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
         List<Bagage> bagageLijst = new ArrayList<>();
         String query = "SELECT * FROM bagage where";
         String paramFormat = " %s= '%s' AND";
@@ -219,12 +221,10 @@ public class BagageDAO {
         return bagageLijst;
     }
 
-    public static int getStatusBagageSize(String statusString) {
-       String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", statusString);
-       return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
+    public int getStatusBagageSize(String statusString) {
+        String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", statusString);
+        return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
     }
-    public static int getAllStatusBagageSize() {
-       String query = String.format("SELECT COUNT(Status) FROM Bagage");
-       return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
-    }
+
+   
 }

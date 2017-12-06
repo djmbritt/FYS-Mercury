@@ -38,29 +38,9 @@ public class DashboardController implements Initializable {
     TableView mostRecentTable;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        fillChart();
+    public void initialize(URL url, ResourceBundle rb) { 
         initializeLineChart();
         initializePieChart();
-    }
-
-    private void fillChart() {
-        mostRecentTable.refresh();
-        List<Bagage> lijst = BagageDAO.getMeestRecenteVerloren(); 
-        ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
-        bagageLijst.addAll(lijst);
-        mostRecentTable.setItems(bagageLijst);
-
-        for (int cnr = 0; cnr < mostRecentTable.getColumns().size(); cnr++) {
-            TableColumn tc = (TableColumn) mostRecentTable.getColumns().get(cnr);
-            String propertyName = tc.getId();
-
-            if (propertyName != null && !propertyName.isEmpty()) {
-                tc.setCellValueFactory(new PropertyValueFactory<>(propertyName));
-                System.out.println("Attached collumn " + propertyName + "in tableview to matching attribute.");
-            }
-        }
-        
     }
 
     private void initializeLineChart() {

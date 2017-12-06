@@ -31,7 +31,7 @@
                     </rowConstraints>
                     <children>
                         <Label fx:id="resultaten" alignment="CENTER" prefHeight="40.0" prefWidth="321.0" styleClass="Result" text="Gevonden resultaten: " GridPane.rowIndex="3" />
-                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#terug" text="Terug" GridPane.rowIndex="1">
+                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#terug" styleClass="backButton" text="Terug" GridPane.rowIndex="1">
                             <graphic>
                                 <ImageView fitHeight="45.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

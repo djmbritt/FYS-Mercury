@@ -46,6 +46,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @FXML
     private BagageResultatenController bagageResultatenController;
 
+    private BagageDAO dbBagage;
     @FXML
     public void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
@@ -53,7 +54,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
         parameters = setParameters(parameters);
         if (parameters.size() > 0) {
-            List<Bagage> results = BagageDAO.zoekBagage(parameters);
+            List<Bagage> results = dbBagage.zoekBagage(parameters);
              
             bagageResultatenController.refreshTable();
             bagageResultatenController.fillTable(results); 
@@ -67,6 +68,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {
+        dbBagage = new BagageDAO();
         bagageType.getItems().addAll("", "Bag",
                 "Case",
                 "Box");

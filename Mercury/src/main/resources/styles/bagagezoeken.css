@@ -41,7 +41,7 @@
     -fx-background-color: #fdfdfd;
     -fx-border-color: #808080;
     -fx-border-radius: 10px;
-    
+
 }
 
 .button#searchBtn{
@@ -54,3 +54,10 @@
 .button#searchBtn:hover{
     -fx-background-color: #76cc42;
 } 
+
+.backButton{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent; 
+    -fx-border-radius: 5px;
+    -fx-background-color: #fdfdfd;
+}

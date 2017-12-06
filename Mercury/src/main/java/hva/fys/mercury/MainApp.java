@@ -1,6 +1,8 @@
 package hva.fys.mercury;
 
+import hva.fys.mercury.DAO.DataBaseCreator;
 import hva.fys.mercury.DAO.DatabaseManager;
+import hva.fys.mercury.DAO.PopulateDB;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -27,11 +29,10 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-//        DataBaseCreator.createDatabase(DATABASE_NAME);
-//        PopulateDB.insertExamplesIntoDB();
+        DataBaseCreator.createDatabase(DATABASE_NAME);
+         PopulateDB.insertExamplesIntoDB();
         DatabaseManager db = new DatabaseManager(DATABASE_NAME);
-        System.out.println(db.executeStringQuery("SELECT EmployeeID FROM Gebruikers WHERE FirstName='Pedro'"));
-//        launch(args);
+        launch(args);
     }
 
 }
