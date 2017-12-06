@@ -27,7 +27,7 @@
                                 <RowConstraints maxHeight="55.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
                                 <Label styleClass="Title" text="Zoeken" GridPane.rowIndex="1">
@@ -114,12 +114,13 @@
                                         </GridPane> 
                                     </children>
                                 </GridPane> 
-                                <fx:include fx:id="bagageResultaten" source="bagageResultaten.fxml" visible="false" />
+                                <fx:include fx:id="bagageResultaten" source="bagageResultaten.fxml" visible="false" /> 
                             </children>
                         </StackPane>  
                     </center>
                 </BorderPane>
             </content>
-        </ScrollPane>
+        </ScrollPane> 
+        <fx:include fx:id="bagageDetails" source="bagageDetails.fxml" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" /> 
     </children>
 </AnchorPane>

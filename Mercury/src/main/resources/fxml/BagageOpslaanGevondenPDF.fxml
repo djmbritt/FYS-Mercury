@@ -28,78 +28,12 @@
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Pane prefHeight="23.0" prefWidth="350.0" />
-                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="350.0" text="Reiziger Informatie">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="23.0" prefWidth="350.0" />
-                        <GridPane prefHeight="947.0" prefWidth="350.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Pane prefHeight="12.0" prefWidth="175.0" style="-fx-background-color: GRAY;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Voornaam:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Achternaam:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Adres:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Woonplaats:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Postcode:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Land:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Telefoonnummer:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" text="Email:" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                 <children>
-                                    <Pane prefHeight="12.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="voornaamLabel" fx:id="voornaamLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="achternaamLabel" fx:id="achternaamLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="adresLabel" fx:id="adresLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="woonplaatsLabel" fx:id="woonplaatsLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="postcodeLabel" fx:id="postcodeLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="landLabel" fx:id="landLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="telefoonLabel" fx:id="telefoonLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label id="emailLabel" fx:id="emailLabel" prefHeight="24.0" prefWidth="175.0" />
-                                    <Pane prefHeight="6.0" prefWidth="175.0" style="-fx-background-color: gray;" />
-                                    <Label prefHeight="24.0" prefWidth="175.0" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <Label alignment="CENTER" prefHeight="19.0" prefWidth="350.0" text="Bagage Informatie">
                            <font>
