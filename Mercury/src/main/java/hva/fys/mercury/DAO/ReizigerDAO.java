@@ -65,7 +65,7 @@ public class ReizigerDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ReizigerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        DB_MANAGER.close();
+//        DB_MANAGER.close();
         return reiziger;
     }
 

@@ -37,8 +37,8 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @FXML
     private ComboBox primaireKleur;
     @FXML
-    private ComboBox secundaireKleur;
-
+    private ComboBox secundaireKleur;  
+    
     @FXML
     private AnchorPane bagageResultaten;  
     @FXML
@@ -65,7 +65,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
     }
 
-    @Override
+
     public void initialize(URL url, ResourceBundle rb
     ) {
         dbBagage = new BagageDAO();
@@ -102,7 +102,6 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         parameters.add(new SimpleStringProperty(secundaireKleur, "SecondColor", secundaireKleur.getValue().toString()));
         System.out.println(secundaireKleur.getValue().toString());
         return checkIfFieldEmpty(parameters);
-
     }
 
     private List<StringProperty> checkIfFieldEmpty(List<StringProperty> parameters) {

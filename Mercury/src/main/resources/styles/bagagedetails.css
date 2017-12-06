@@ -1,0 +1,57 @@
+ 
+.opslaanBox{
+    -fx-background-color: #ffffff; 
+    -fx-border-color: #f7f8f7;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: BOLD ;
+    -fx-text-fill: #d81e05; 
+}
+
+.button#opslaanBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#opslaanBTN:hover{
+    -fx-background-color: #76cc42;
+}
+
+.button#terugBTN{
+    -fx-background-color: #d81e05; 
+    -fx-border-color: #d81e05;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#terugBTN:hover{
+    -fx-background-color: #f92306;
+}
+
+.button#veranderLocatieBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#veranderLocatieBTN:hover{
+    -fx-background-color: #76cc42;
+}
+
+.button#bewerkBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#bewerkBTN:hover{
+    -fx-background-color: #76cc42;
+}
+
+.Opslaantextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}
