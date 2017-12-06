@@ -115,7 +115,8 @@ public class BagageDAO {
         }
     }
 
-    public void getRecentBagage(ObservableList<Bagage> bagageList) {
+    public List<Bagage> getRecentBagage() {
+        List<Bagage> bagageList = new ArrayList();
         try {
 
             System.out.println("Getting all bagage from database");
@@ -146,16 +147,18 @@ public class BagageDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
+        return bagageList;
     }
 
-    public void getBagage(ObservableList<Bagage> bagageList, String kolomNaam) {
+    public Bagage getBagage(int BagageNummer) {
+        Bagage bagage = new Bagage();
+
         try {
 
-            String query = String.format("SELECT %s FROM Bagage;", kolomNaam);
+            String query = String.format("SELECT * FROM Bagage WHERE BagageRegistratieNummer='%d';", BagageNummer);
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
 
             while (results.next()) {
-                Bagage bagage = new Bagage();
 
                 bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
                 bagage.setDatumGevonden(results.getString("DateFound"));
@@ -169,16 +172,15 @@ public class BagageDAO {
                 bagage.setFormaat(results.getString("Grootte"));
                 bagage.setGewichtInKG(results.getString("Gewicht"));
                 bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
-//                bagage.setStatus(results.getString("Status"));
+                bagage.setStatus(results.getString("Status"));
                 bagage.setReizigerID(results.getString("Reiziger"));
                 bagage.setIATA_Code(results.getString("IATA_Code"));
-
-                bagageList.add(bagage);
             }
 
         } catch (SQLException e) {
             System.out.println(e);
         }
+        return bagage;
     }
 
     public List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
