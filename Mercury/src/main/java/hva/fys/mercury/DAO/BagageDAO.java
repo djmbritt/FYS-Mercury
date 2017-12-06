@@ -126,7 +126,7 @@ public class BagageDAO {
                 
 
                 bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
-                bagage.setDatumGevonden(results.getString("DateFound"));
+                bagage.setDatumGevonden(results.getString("DateFound")); 
                 bagage.setTijdGevonden(results.getString("TimeFound"));
                 bagage.setBagagemerk(results.getString("BrandMerk"));
                 bagage.setBagageType(results.getString("BagageType"));
@@ -152,11 +152,22 @@ public class BagageDAO {
     
     public static boolean bewerkBagage(Bagage bagage) {
         final String UPDATE_QUERY = "UPDATE Bagage "
-                + "SET TimeFound='%s', BrandMerk='%s', "
-                + "BagageType='%s', BagageLabel='%s', LocatieGevonden='%s', MainColor='%s', SecondColor= '%s' , Formaat= '%s', Gewicht= '%s', OverigeEigenschappen= '%s', Status= '%s', IATA_Code= '%s', ArrivedWithFlight= '%s' "
+                + "SET DateFound='%s', TimeFound='%s', BrandMerk='%s', "
+                + "BagageType='%s', BagageLabel='%s', LocatieGevonden='%s', MainColor='%s', SecondColor= '%s' , Formaat= '%s', Gewicht= '%s', OverigeEigenschappen= '%s', Status= '%s', ArrivedWithFlight= '%s' "
                 + "WHERE BagageRegistratieNummer=%d;";
 
-        String updateString = String.format(UPDATE_QUERY, bagage.getTijdGevonden(), bagage.getBagagemerk(), bagage.getBagageType(), bagage.getBagagelabel(), bagage.getGevondenLocatie(), bagage.getPrimaireKleur(), bagage.getSecundaireKleur(), bagage.getFormaat(), bagage.getGewichtInKG(), bagage.getOverigeEigenschappen(), bagage.getStatus(), bagage.getIATA_Code(), bagage.getVluchtNummer(), bagage.getRegistratieID());
+        String updateString = String.format(UPDATE_QUERY, bagage.getDatumGevonden(), bagage.getTijdGevonden(), bagage.getBagagemerk(), bagage.getBagageType(), bagage.getBagagelabel(), bagage.getGevondenLocatie(), bagage.getPrimaireKleur(), bagage.getSecundaireKleur(), bagage.getFormaat(), bagage.getGewichtInKG(), bagage.getOverigeEigenschappen(), bagage.getStatus(), bagage.getVluchtNummer(), bagage.getRegistratieID());
+
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString); 
+        return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
+    }
+    
+    public static boolean bewerkLocatie(Bagage bagage) {
+        final String UPDATE_QUERY = "UPDATE Bagage "
+                + "SET IATA_Code= '%s'"
+                + "WHERE BagageRegistratieNummer=%d;";
+
+        String updateString = String.format(UPDATE_QUERY, bagage.getIATA_Code(), bagage.getRegistratieID());
 
         columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString); 
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);

@@ -50,3 +50,8 @@
 .button#bewerkBTN:hover{
     -fx-background-color: #76cc42;
 }
+
+.Opslaantextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}
