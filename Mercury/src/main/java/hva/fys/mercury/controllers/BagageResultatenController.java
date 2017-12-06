@@ -29,6 +29,7 @@ public class BagageResultatenController implements Initializable {
 
     @FXML
     private static int clickedCounter = 0;
+    
     private ParentControllerContext parentController;
 
     @Override
@@ -75,6 +76,7 @@ public class BagageResultatenController implements Initializable {
         if (clickedCounter == 2) {
             Bagage bagage = (Bagage) table.getSelectionModel().getSelectedItem();
             System.out.println(bagage.toString());
+            parentController.notifyChildHasUpdated();
             clickedCounter = 0;
         }
 

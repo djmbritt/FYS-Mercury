@@ -1,8 +1,7 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.BagageDAO;
-import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.DAO.JDBCMethods;
+import hva.fys.mercury.models.Bagage; 
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
