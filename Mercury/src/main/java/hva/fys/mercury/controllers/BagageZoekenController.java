@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty; 
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +16,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
-public class BagageZoekenController implements Initializable {
+public class BagageZoekenController implements Initializable, ParentControllerContext {
 
     @FXML
     private TextField vluchtnummer;
@@ -36,15 +38,28 @@ public class BagageZoekenController implements Initializable {
     private ComboBox primaireKleur;
     @FXML
     private ComboBox secundaireKleur;  
-        
-    private void zoekAction(ActionEvent event) {
+    
+    @FXML
+    private AnchorPane bagageResultaten;  
+    @FXML
+    private GridPane zoekParam;
+    @FXML
+    private BagageResultatenController bagageResultatenController;
+
+    @FXML
+    public void zoekAction(ActionEvent event) {
         System.out.println("zoeken ");
         List<StringProperty> parameters = new ArrayList();
 
         parameters = setParameters(parameters);
-        List<Bagage> results = BagageDAO.zoekBagage(parameters);
-        for (Bagage stuk : results) {
-            System.out.println(stuk.toString());
+        if (parameters.size() > 0) {
+            List<Bagage> results = BagageDAO.zoekBagage(parameters);
+             
+            bagageResultatenController.refreshTable();
+            bagageResultatenController.fillTable(results); 
+            bagageResultatenController.setParentContext(this);
+            showResults();
+
         }
 
     }
@@ -66,7 +81,6 @@ public class BagageZoekenController implements Initializable {
         secundaireKleur.getSelectionModel().selectFirst();
 
     }
-
 
     private List<StringProperty> setParameters(List<StringProperty> parameters) {
         parameters.add(new SimpleStringProperty(vluchtnummer, "ArrivedWithFlight", vluchtnummer.getText()));
@@ -112,5 +126,30 @@ public class BagageZoekenController implements Initializable {
             System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
             return null;
         }
+    }
+
+    private void showSearchForm() {
+        bagageResultaten.setVisible(false);
+        zoekParam.setVisible(true);
+    }
+
+    private void showResults() {
+        bagageResultaten.setVisible(true);
+        zoekParam.setVisible(false);
+    }
+
+    @Override
+    public void notifyCloseChild() {
+        showSearchForm();
+    }
+
+    @Override
+    public void notifyChildHasUpdated() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void displayStatusMessage(String message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

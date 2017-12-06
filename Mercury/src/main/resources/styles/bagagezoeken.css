@@ -20,11 +20,19 @@
 
 .Title{ 
     -fx-font-family: "Open Sans";
-    -fx-font-size: 48px; 
+    -fx-font-size: 40px; 
     -fx-font-weight: BOLDER ;
     -fx-font-style: normal; 
     -fx-text-fill: #db1f0a;
 }
+
+.Result{ 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 24px;  
+    -fx-font-style: normal; 
+    -fx-text-fill: #808080;
+}
+
 .TextField{
     -fx-focus-color: #d81e05;
     -fx-faint-focus-color: transparent;

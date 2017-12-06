@@ -10,8 +10,7 @@ import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.DAO.JDBCMethods;
 import hva.fys.mercury.DAO.ReizigerDAO;
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
-import java.io.IOException;
+import hva.fys.mercury.models.Reiziger; 
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,6 +39,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import java.text.SimpleDateFormat; 
+import java.util.Date;
+import java.util.ResourceBundle;
+import java.util.logging.Logger; 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML; 
+import javafx.fxml.Initializable; 
+import javafx.scene.control.Button; 
+import javafx.scene.control.TextField; 
 
 /**
  * FXML Controller class
@@ -55,7 +63,7 @@ public class BagageDetailsController implements Initializable {
     JDBCMethods methodsdb = new JDBCMethods();
     
     private final int REIZIGERID = 52345;
-    private final int BAGAGEID = 201622309;
+    private int BAGAGEID = 201622309;
     
     @FXML
     private TextField voornaam;
@@ -216,44 +224,38 @@ public class BagageDetailsController implements Initializable {
     }
     
     public void enableFields() {
-        voornaam.setDisable(false);
-        achternaam.setDisable(false);
-        adres.setDisable(false);
-        woonplaats.setDisable(false);
         postcode.setDisable(false);
-        land.setDisable(false);
-        telefoonnummer.setDisable(false);
-        email.setDisable(false);
-        IATARgr.setDisable(false);
-        bagageLabel.setDisable(false);
-        vluchtNummer.setDisable(false);
-        datumGevonden.setDisable(false);
-        tijdGevonden.setDisable(false);
-        locatieGevonden.setDisable(false);
-        tijdGevonden.setDisable(false);
-        locatieGevonden.setDisable(false);
-        bagageType.setDisable(false);
-        merk.setDisable(false);
-        primaireKleur.setDisable(false);
-        secundaireKleur.setDisable(false);
-        formaat.setDisable(false);
-        gewicht.setDisable(false);
-        overigeEigenschappen.setDisable(false);
-        status.setDisable(false);
-    }
+            voornaam.setDisable(true);
+            achternaam.setDisable(true);
+            adres.setDisable(true);
+            woonplaats.setDisable(true);
+            postcode.setDisable(true);
+            land.setDisable(true);
+            telefoonnummer.setDisable(true);
+            email.setDisable(true);
+            bagageLabel.setDisable(true);
+            vluchtNummer.setDisable(true);
+//        datumGevonden.setDisable(true);
+            tijdGevonden.setDisable(true);
+            locatieGevonden.setDisable(true);
+            tijdGevonden.setDisable(true);
+            locatieGevonden.setDisable(true);
+            bagageType.setDisable(true);
+            merk.setDisable(true);
+            primaireKleur.setDisable(true);
+            secundaireKleur.setDisable(true);
+            formaat.setDisable(true);
+        } 
+    
     
     @FXML
     private static Button bewerkBTN;
-    @FXML
-    private static Button veranderLocatieBTN;
-    @FXML
-    private static Button opslaanBTN;
-    @FXML
-    private static Button terugBTN;
+    public static Button veranderLocatieBTN;
+    public static Button annuleerBTN;
     
     @FXML
     public void bewerkDetails(ActionEvent event){
-        enableFields();
+       
     }
 
 //    public ComboBox status;
@@ -295,7 +297,7 @@ public class BagageDetailsController implements Initializable {
     
     
     @FXML
-    void veranderLocatie(ActionEvent event) {
+    public void veranderLocatie(ActionEvent event) {
         veranderLocatieController.veranderLocatiePopup();
 }
     

@@ -5,12 +5,15 @@
  */
 package hva.fys.mercury.controllers.Admin;
 
+import hva.fys.mercury.DAO.GebruikerDAO;
+import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -18,28 +21,44 @@ import javafx.scene.control.TextField;
  *
  * @author djmbritt
  */
-public class GebruikerAanpassenController implements Initializable {
+public class GebruikerAanpassenPaneController implements Initializable {
 
     /*
     Zet je textfield voor je gebruikeraanpassen.fxml text fields hier beneden
      */
     @FXML
     private TextField EmployeeID;
+    @FXML
     private TextField Initials;
+    @FXML
     private TextField FirstName;
+    @FXML
     private TextField MiddleName;
+    @FXML
     private TextField SurName;
+    @FXML
     private TextField BirthDate;
+    @FXML
     private TextField StartEmploymentDate;
+    @FXML
     private TextField WorkEmail;
+    @FXML
     private TextField WorkingLocation;
+    @FXML
     private TextField StatusEmployment;
+    @FXML
     private TextField EndDateEmployment;
+    @FXML
     private TextField PersonalEmail;
+    @FXML
     private TextField MobilePhoneNumber;
+    @FXML
     private TextField HomePhoneNumber;
+    @FXML
     private TextField DepartmentEmployment;
+    @FXML
     private TextField HomeAdress;
+    @FXML
     private TextField PostalCode;
 
     /**
@@ -47,21 +66,39 @@ public class GebruikerAanpassenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     private ParentControllerContext parentController;
     private Gebruiker gebruiker;
 
-    public void setParentContext(ParentControllerContext pC, Gebruiker fl) {
+    public void setParentContext(ParentControllerContext pC, Gebruiker gbrkr) {
+        System.out.println("this.parentcontroller: " + pC.toString());
+        System.out.println("this.founLuggage: " + gbrkr.toString());
         this.parentController = pC;
-        this.gebruiker = fl;
-        this.initFields(fl);
+        this.gebruiker = gbrkr;
+        this.initFields(gbrkr);
         pC.displayStatusMessage("Editing found luggage");
     }
 
-    private void initFields(Gebruiker fl) {
-        this.gebruiker = fl;
+    private void initFields(Gebruiker gbrkr) {
+        EmployeeID.setText(Integer.toString(gbrkr.getEmployeeID()));
+        Initials.setText(gbrkr.getInitials());
+        FirstName.setText(gbrkr.getFirstName());
+        MiddleName.setText(gbrkr.getMiddleName());
+        SurName.setText(gbrkr.getSurName());
+        BirthDate.setText(gbrkr.getBirthDate());
+        StartEmploymentDate.setText(gbrkr.getStartEmploymentDate());
+        WorkEmail.setText(gbrkr.getWorkEmail());
+        WorkingLocation.setText(gbrkr.getWorkingLocation());
+        StatusEmployment.setText(gbrkr.getStatusEmployment());
+        EndDateEmployment.setText(gbrkr.getEndDateEmployment());
+        PersonalEmail.setText(gbrkr.getPersonalEmail());
+        MobilePhoneNumber.setText(gbrkr.getMobilePhoneNumber());
+//        HomePhoneNumber.setText(gbrkr.getHomePhoneNumber());
+        DepartmentEmployment.setText(gbrkr.getDepartmentEmployment());
+        HomeAdress.setText(gbrkr.getHomeAdress());
+        PostalCode.setText(gbrkr.getPostalCode());
     }
 
     @FXML
@@ -95,6 +132,11 @@ public class GebruikerAanpassenController implements Initializable {
         this.gebruiker.setDepartmentEmployment(DepartmentEmployment.getText());
         this.gebruiker.setHomeAdress(HomeAdress.getText());
         this.gebruiker.setPostalCode(PostalCode.getText());
+
+        GebruikerDAO.registreerGebruiker(this.gebruiker);
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setContentText("Saved to Database 😁");
+        confirmation.showAndWait();
 
         this.parentController.displayStatusMessage("Saving new information");
         this.parentController.notifyChildHasUpdated();
