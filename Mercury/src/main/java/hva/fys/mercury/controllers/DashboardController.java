@@ -14,6 +14,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,7 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class DashboardController implements Initializable {
 
     @FXML
-    Button refresh;
+    private Button refresh;
     @FXML
     private PieChart pieChart;
 

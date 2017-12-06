@@ -12,7 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="859.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.Admin.AdminPanelController">
+<AnchorPane id="AnchorPane" prefHeight="859.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/8.0.141" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.AdminPanelController">
     <children>
         <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="859.0" prefWidth="1193.0" stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
