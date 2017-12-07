@@ -3,17 +3,21 @@ package hva.fys.mercury.DAO;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Reiziger;
 import java.sql.ResultSet;
-import java.sql.SQLException; 
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ReizigerDAO {
 
-    private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
-    private static final int MINIMUM_EDITED_COLUMN = 1;
-    private static int columnsBewerkt; 
+    private final DatabaseManager DB_MANAGER;
+    private final int MINIMUM_EDITED_COLUMN = 1;
+    private static int columnsBewerkt;
 
-    public static boolean registreerReiziger(Reiziger reiziger) {
+    public ReizigerDAO() {
+        DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
+    }
+
+    public boolean registreerReiziger(Reiziger reiziger) {
         final String INSERT_QUERY = "INSERT INTO Reizigers "
                 + "( voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
                 + "VALUES ('%s' , '%s' , '%s' , '%s', '%s' ,%s, '%s' , '%s')";
@@ -29,7 +33,7 @@ public class ReizigerDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static boolean bewerkReiziger(Reiziger reiziger) {
+    public boolean bewerkReiziger(Reiziger reiziger) {
         final String UPDATE_QUERY = "UPDATE Reizigers "
                 + "SET voornaam='%s', achternaam='%s', woonplaats='%s', "
                 + "adres='%s', land='%s', telefoon='%s', Email='%s', IATA_Code= '%s' "
@@ -39,17 +43,19 @@ public class ReizigerDAO {
                 reiziger.getWoonplaats(), reiziger.getAdres(), reiziger.getLand(), reiziger.getTelefoonnummer(),
                 reiziger.getEmail(), reiziger.getIATA_Code(), reiziger.getReizigerID());
 
-        columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString); 
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString);
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-    public static Reiziger getReiziger(int id) {
-        final String SELECT_QUERY = "SELECT * FROM Reizigers where ReizigerID =%d ";
-        String selectString = String.format(SELECT_QUERY, id); 
+    public Reiziger getReiziger(String id) {
+        String[] reizigerID = id.split(", ");
+        final String SELECT_QUERY = "SELECT * FROM Reizigers where achternaam ='%s' AND woonplaats='%s'";
+        String selectString = String.format(SELECT_QUERY, reizigerID[0], reizigerID[1]);
+        System.out.println(selectString);
         Reiziger reiziger = new Reiziger();
         try {
             try (ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString)) {
-                while(rsReiziger.next()){
+                while (rsReiziger.next()) {
                     reiziger.setReizigerID(rsReiziger.getInt("ReizigerID"));
                     reiziger.setVoornaam(rsReiziger.getString("voornaam"));
                     reiziger.setAchternaam(rsReiziger.getString("achternaam"));
@@ -59,8 +65,7 @@ public class ReizigerDAO {
                     reiziger.setTelefoonnummer(rsReiziger.getString("telefoon"));
                     reiziger.setEmail(rsReiziger.getString("email"));
                     reiziger.setIATA_Code(rsReiziger.getString("IATA_CODE"));
-                    
-                    
+
                 }
             }
         } catch (SQLException ex) {

@@ -46,13 +46,15 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     private ComboBox secundaireKleur;
 
     @FXML
-    private AnchorPane bagageDetails;
+    private AnchorPane bagageInformatie;
     @FXML
     private AnchorPane bagageResultaten;
     @FXML
     private GridPane zoekParam;
     @FXML
     private BagageResultatenController bagageResultatenController;
+    @FXML
+    private BagageInformatieController bagageInformatieController;
 
     @FXML
     public void zoekAction(ActionEvent event) {
@@ -178,9 +180,10 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     }
 
     private void showBagageDetails() {
+
         bagageResultaten.setVisible(false);
         zoekParam.setVisible(false);
-        bagageDetails.setVisible(true);
+        bagageInformatie.setVisible(true);
     }
 
     @Override
@@ -190,11 +193,21 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
     @Override
     public void notifyChildHasUpdated() {
-        showBagageDetails();
+        showResults();
     }
 
     @Override
     public void displayStatusMessage(String message) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void transferObject(Object ob) {
+        Bagage bag = (Bagage) ob;
+        System.out.println("In transferOpbject= " + bag);
+        System.out.println("BagageInformatieController= " + bagageInformatieController);
+        bagageInformatieController.setFields(bag);
+        showBagageDetails();
+    }
+
 }

@@ -85,7 +85,7 @@
                                         </ImageView>
                                     </graphic>
                                 </TitledPane>
-                                <Button fx:id="testBagageDetailsBTN" mnemonicParsing="false" onAction="#testBagageDetails" text="Button" />
+                               
                             </children>
                             <padding>
                                 <Insets bottom="5.0" />

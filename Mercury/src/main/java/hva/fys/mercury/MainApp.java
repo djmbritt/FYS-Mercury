@@ -30,8 +30,8 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-//        DataBaseCreator.createDatabase(DATABASE_NAME);
-//        PopulateDB.insertExamplesIntoDB();
+        DataBaseCreator.createDatabase(DATABASE_NAME);
+        PopulateDB.insertExamplesIntoDB();
 
         launch(args);
     }

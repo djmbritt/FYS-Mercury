@@ -121,6 +121,6 @@
                 </BorderPane>
             </content>
         </ScrollPane> 
-        <fx:include fx:id="bagageDetails" source="bagageDetails.fxml" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" /> 
+        <fx:include fx:id="bagageInformatie" source="BagageInformatie.fxml" visible="false"/> 
     </children>
 </AnchorPane>
