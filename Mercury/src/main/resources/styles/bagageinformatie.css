@@ -41,25 +41,25 @@
 }
 
 .button#terugBTN{
-    -fx-background-color: #d81e05; 
-    -fx-border-color: #d81e05;
+    -fx-background-color: #848484; 
+    -fx-border-color: #848484;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
 .button#terugBTN:hover{
-    -fx-background-color: #f92306;
+    -fx-background-color: #D8D8D8;
 }
 
 .button#veranderLocatieBTN{
-    -fx-background-color: #6db93f; 
-    -fx-border-color: #6db93f;
+    -fx-background-color: #01A9DB; 
+    -fx-border-color: #01A9DB;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
 .button#veranderLocatieBTN:hover{
-    -fx-background-color: #76cc42;
+    -fx-background-color: #00BFFF;
 }
 
 .button#bewerkBTN{

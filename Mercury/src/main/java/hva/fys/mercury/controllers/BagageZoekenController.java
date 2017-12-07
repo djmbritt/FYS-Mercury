@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -46,6 +47,8 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     private ComboBox secundaireKleur;
 
     @FXML
+    Label errorLabel;
+    @FXML
     private AnchorPane bagageInformatie;
     @FXML
     private AnchorPane bagageResultaten;
@@ -70,8 +73,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
             bagageResultatenController.refreshTable();
             bagageResultatenController.fillTable(results);
             bagageResultatenController.setParentContext(this);
+bagageInformatieController.setParentContext(this);
+            errorLabel.setVisible(false);
             showResults();
-
+        } else {
+            errorLabel.setVisible(true);
         }
 
     }
@@ -171,12 +177,14 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
     private void showSearchForm() {
         bagageResultaten.setVisible(false);
-        zoekParam.setVisible(true);
+        zoekParam.setVisible(true); 
+        bagageInformatie.setVisible(false);
     }
 
     private void showResults() {
         bagageResultaten.setVisible(true);
-        zoekParam.setVisible(false);
+        zoekParam.setVisible(false); 
+        bagageInformatie.setVisible(false);
     }
 
     private void showBagageDetails() {

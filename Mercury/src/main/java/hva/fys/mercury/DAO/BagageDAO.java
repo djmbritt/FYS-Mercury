@@ -120,7 +120,7 @@ public class BagageDAO {
         try {
 
             System.out.println("Getting all bagage from database");
-            String query = "SELECT * FROM Bagage MAX(DateFound);";
+            String query = "SELECT * FROM Bagage ORDER BY BagageRegistratieNummer  LIMIT 30;";
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
 
             while (results.next()) {
@@ -134,7 +134,7 @@ public class BagageDAO {
                 bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
                 bagage.setPrimaireKleur(results.getString("MainColor"));
                 bagage.setSecundaireKleur(results.getString("SecondColor"));
-                bagage.setFormaat(results.getString("Grootte"));
+                bagage.setFormaat(results.getString("Formaat"));
                 bagage.setGewichtInKG(results.getString("Gewicht"));
                 bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
                 bagage.setStatus(results.getString("Status"));
@@ -230,7 +230,9 @@ public class BagageDAO {
 
     public int getStatusBagageSize(String statusString) {
         String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", statusString);
-        return Integer.parseInt(DB_MANAGER.executeStringQuery(query));
+        int i = Integer.parseInt(DB_MANAGER.executeStringQuery(query));
+        System.out.println("i");
+        return i;
     }
 
 }
