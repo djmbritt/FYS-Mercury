@@ -24,23 +24,38 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
     Bagage bag = new Bagage();
     
     @FXML
-    private Label bagageLabel;
-    private Label bagageTypeLabel;
-    private Label datumLabel;
-    private Label tijdLabel;
-    private Label vluchtLabel;
-    private Label locatieLabel;
-    private Label primaireLabel;
-    private Label secundaireLabel;
-    private Label formaatLabel;
-    private Label gewichtLabel;
-    private Label iataLabel;
-    private Label statusLabel;
-    private Label overigeLabel;
+    public Label bagageLabel;
+    @FXML
+    public Label bagageTypeLabel;
+    @FXML
+    public Label datumLabel;
+    @FXML
+    public Label tijdLabel;
+    @FXML
+    public Label vluchtLabel;
+    @FXML
+    public Label locatieLabel;
+    @FXML
+    public Label primaireLabel;
+    @FXML
+    public Label secundaireLabel;
+    @FXML
+    public Label formaatLabel;
+    @FXML
+    public Label gewichtLabel;
+    @FXML
+    public Label iataLabel;
+    @FXML
+    public Label statusLabel;
+    @FXML
+    public Label overigeLabel;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+    }    
+        public void fillLabelsG() {
         bagageLabel.setText(bag.getBagagelabel());
         bagageTypeLabel.setText(bag.getBagageType());
         datumLabel.setText(bag.getDatumGevonden());
@@ -54,7 +69,6 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
         iataLabel.setText(bag.getIATA_Code());
         statusLabel.setText(bag.getStatus());
         overigeLabel.setText(bag.getOverigeEigenschappen());
-    }    
-    
+}
 }
 
