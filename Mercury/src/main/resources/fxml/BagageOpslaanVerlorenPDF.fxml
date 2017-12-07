@@ -170,7 +170,6 @@
                         <HBox prefHeight="3.0" prefWidth="408.0" styleClass="split" stylesheets="@../styles/bagageopslaanverlorenpdf.css" />
                         <Label id="overigeLabel" fx:id="overigeLabel" prefHeight="17.0" prefWidth="523.0" />
                         <HBox prefHeight="3.0" prefWidth="408.0" styleClass="split" stylesheets="@../styles/bagageopslaanverlorenpdf.css" />
-                        <Pane prefHeight="307.0" prefWidth="292.0" />
                      </children>
                   </VBox>
                </children>
