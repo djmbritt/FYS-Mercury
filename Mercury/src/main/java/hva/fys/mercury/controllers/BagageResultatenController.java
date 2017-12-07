@@ -38,6 +38,7 @@ public class BagageResultatenController implements Initializable {
     }
 
     public void fillTable(List<Bagage> list) {
+        
         ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
         bagageLijst.addAll(list);
         table.setItems(bagageLijst);
