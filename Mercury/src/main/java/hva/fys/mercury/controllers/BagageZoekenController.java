@@ -73,7 +73,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
             bagageResultatenController.refreshTable();
             bagageResultatenController.fillTable(results);
             bagageResultatenController.setParentContext(this);
-bagageInformatieController.setParentContext(this);
+            bagageInformatieController.setParentContext(this);
             errorLabel.setVisible(false);
             showResults();
         } else {

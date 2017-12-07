@@ -17,6 +17,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -50,7 +52,18 @@ public class RegistreerVermistController implements Initializable {
     public TextField gewicht;
     public TextField IATA;
     public TextField overigeEigenschappen;
-
+    
+    @FXML
+    private AnchorPane BagagePDF;
+    
+    @FXML
+    private GridPane BagageOpslaan;
+    
+    @FXML
+    private BagageOpslaanVerlorenPDFController bagageOpslaanVerlorenPDFController;
+    
+    private ParentControllerContext parentController;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         status.getItems().addAll(
@@ -199,7 +212,8 @@ public class RegistreerVermistController implements Initializable {
             dbBagage.registreerBagage(bagage);
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
-
+            bagageOpslaanVerlorenPDFController.fillLabels();
+            showPDF();
         }
     }
 
@@ -238,6 +252,7 @@ public class RegistreerVermistController implements Initializable {
         datumGevonden.getEditor().setDisable(false);
         datumGevonden.getEditor().setText("");
         annuleerText();
+        showFormulier();
     }
 
     @FXML
@@ -247,8 +262,18 @@ public class RegistreerVermistController implements Initializable {
         enableFields();
         denyLabel.setText("");
         opgeslagenLabel.setText("");
+        showFormulier();
+        
     }
-
+    
+        private void showPDF() {
+        BagagePDF.setVisible(true);
+        BagageOpslaan.setVisible(false); 
+    }
+        private void showFormulier() {
+        BagagePDF.setVisible(false);
+        BagageOpslaan.setVisible(true); 
+    }
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
@@ -258,3 +283,5 @@ public class RegistreerVermistController implements Initializable {
         }
     }
 }
+
+    

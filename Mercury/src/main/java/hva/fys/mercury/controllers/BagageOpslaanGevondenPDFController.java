@@ -7,7 +7,6 @@ package hva.fys.mercury.controllers;
  */
 
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -24,31 +23,31 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
     Bagage bag = new Bagage();
     
     @FXML
-    public Label bagageLabel;
+    private Label bagageLabel;
     @FXML
-    public Label bagageTypeLabel;
+    private Label bagageTypeLabel;
     @FXML
-    public Label datumLabel;
+    private Label datumLabel;
     @FXML
-    public Label tijdLabel;
+    private Label tijdLabel;
     @FXML
-    public Label vluchtLabel;
+    private Label vluchtLabel;
     @FXML
-    public Label locatieLabel;
+    private Label locatieLabel;
     @FXML
-    public Label primaireLabel;
+    private Label primaireLabel;
     @FXML
-    public Label secundaireLabel;
+    private Label secundaireLabel;
     @FXML
-    public Label formaatLabel;
+    private Label formaatLabel;
     @FXML
-    public Label gewichtLabel;
+    private Label gewichtLabel;
     @FXML
-    public Label iataLabel;
+    private Label iataLabel;
     @FXML
-    public Label statusLabel;
+    private Label statusLabel;
     @FXML
-    public Label overigeLabel;
+    private Label overigeLabel;
     
     
     @Override

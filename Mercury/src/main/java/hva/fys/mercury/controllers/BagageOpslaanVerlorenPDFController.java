@@ -6,13 +6,17 @@ package hva.fys.mercury.controllers;
  * and open the template in the editor.
  */
 
+import hva.fys.mercury.DAO.ReizigerDAO;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -25,47 +29,55 @@ public class BagageOpslaanVerlorenPDFController implements Initializable {
     Bagage bag = new Bagage();
     
     @FXML
-    public Label voornaamLabel;
+    private Label voornaamLabel;
     @FXML
-    public Label achternaamLabel;
+    private Label achternaamLabel;
     @FXML
-    public Label adresLabel;
+    private Label adresLabel;
     @FXML
-    public Label woonplaatsLabel;
+    private Label woonplaatsLabel;
     @FXML
-    public Label postcodeLabel;
+    private Label postcodeLabel;
     @FXML
-    public Label landLabel;
+    private Label landLabel;
     @FXML
-    public Label telefoonLabel;
+    private Label telefoonLabel;
     @FXML
-    public Label emailLabel;
+    private Label emailLabel;
     @FXML
-    public Label bagageLabel;
+    private Label bagageLabel;
     @FXML
-    public Label bagageTypeLabel;
+    private Label bagageTypeLabel;
     @FXML
-    public Label datumLabel;
+    private Label datumLabel;
     @FXML
-    public Label tijdLabel;
+    private Label tijdLabel;
     @FXML
-    public Label vluchtLabel;
+    private Label vluchtLabel;
     @FXML
-    public Label locatieLabel;
+    private Label locatieLabel;
     @FXML
-    public Label primaireLabel;
+    private Label primaireLabel;
     @FXML
-    public Label secundaireLabel;
+    private Label secundaireLabel;
     @FXML
-    public Label formaatLabel;
+    private Label formaatLabel;
     @FXML
-    public Label gewichtLabel;
+    private Label gewichtLabel;
     @FXML
-    public Label iataLabel;
+    private Label iataLabel;
     @FXML
-    public Label statusLabel;
+    private Label statusLabel;
     @FXML
-    public Label overigeLabel;
+    private Label overigeLabel;
+    
+    @FXML
+    private AnchorPane BagagePDF;
+    
+    private ParentControllerContext parentController;
+    
+    private Bagage bagage;
+    private Reiziger reizigers;
     
     
     @Override
@@ -74,17 +86,10 @@ public class BagageOpslaanVerlorenPDFController implements Initializable {
     }    
     
     
-    public void fillLabelsV() {
-        voornaamLabel.setText(reiziger.getVoornaam());
-        achternaamLabel.setText(reiziger.getAchternaam());
-        adresLabel.setText(reiziger.getAdres());
-        woonplaatsLabel.setText(reiziger.getWoonplaats());
-        postcodeLabel.setText(reiziger.getPostcode());
-        landLabel.setText(reiziger.getLand());
-        telefoonLabel.setText(reiziger.getTelefoonnummer());
-        emailLabel.setText(reiziger.getEmail());
+    public void fillLabels() {
         bagageLabel.setText(bag.getBagagelabel());
         bagageTypeLabel.setText(bag.getBagageType());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMM-yyyy", Locale.ENGLISH);
         datumLabel.setText(bag.getDatumGevonden());
         tijdLabel.setText(bag.getTijdGevonden());
         vluchtLabel.setText(bag.getVluchtNummer());
@@ -96,7 +101,13 @@ public class BagageOpslaanVerlorenPDFController implements Initializable {
         iataLabel.setText(bag.getIATA_Code());
         statusLabel.setText(bag.getStatus());
         overigeLabel.setText(bag.getOverigeEigenschappen());
-}
-    
-    
+        voornaamLabel.setText(reiziger.getVoornaam());
+        achternaamLabel.setText(reiziger.getAchternaam());
+        adresLabel.setText(reiziger.getAdres());
+        woonplaatsLabel.setText(reiziger.getWoonplaats());
+        postcodeLabel.setText(reiziger.getPostcode());
+        landLabel.setText(reiziger.getLand());
+        telefoonLabel.setText(reiziger.getTelefoonnummer());
+        emailLabel.setText(reiziger.getEmail());
+        }
 }

@@ -16,6 +16,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -42,6 +44,12 @@ public class GevondenBagageFormulierController implements Initializable {
 
     private BagageDAO dbBagage;
 
+        @FXML
+    private AnchorPane BagagePDFG;
+    
+    @FXML
+    private GridPane BagageOpslaanG;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dbBagage = new BagageDAO();
@@ -155,7 +163,7 @@ public class GevondenBagageFormulierController implements Initializable {
             denyLabelG.setText("");
             opgeslagenLabelG.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
-
+            showPDF();
             dbBagage.registreerBagage(bagage);
         }
     }
@@ -187,7 +195,7 @@ public class GevondenBagageFormulierController implements Initializable {
         datumGevondenG.getEditor().setDisable(false);
         datumGevondenG.getEditor().setText("");
         annuleerText();
-
+        showFormulier();
     }
 
     @FXML
@@ -198,6 +206,15 @@ public class GevondenBagageFormulierController implements Initializable {
         datumGevondenG.getEditor().setText("");
         annuleerText();
         enableFields();
+        showFormulier();
+    }
+        private void showPDF() {
+        BagagePDFG.setVisible(true);
+        BagageOpslaanG.setVisible(false); 
+    }
+        private void showFormulier() {
+        BagagePDFG.setVisible(false);
+        BagageOpslaanG.setVisible(true); 
     }
 
     private Parent loadFXMLFile(String fxmlFileName) {
