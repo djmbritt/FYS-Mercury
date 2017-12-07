@@ -42,6 +42,7 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         fillTable();
         initializePieChart();
+        initializeLineChart();
     }
 
     private void initializeLineChart() {
@@ -53,7 +54,7 @@ public class DashboardController implements Initializable {
         gevonden.getData().add(new XYChart.Data("4", 44));
 
         XYChart.Series verloren = new XYChart.Series();
-        verloren.setName("verloren");
+        verloren.setName("Verloren");
         verloren.getData().add(new XYChart.Data("1", 11));
         verloren.getData().add(new XYChart.Data("2", 22));
         verloren.getData().add(new XYChart.Data("3", 33));
@@ -85,6 +86,7 @@ public class DashboardController implements Initializable {
         BagageDAO dao = new BagageDAO();
         List<Bagage> dbBagageLijst = dao.getRecentBagage();
         ObservableList<Bagage> meestRecenteBagage = FXCollections.observableArrayList();
+        
         meestRecenteBagage.addAll(dbBagageLijst);
         System.out.println("ObservableList size =" + meestRecenteBagage.size());
         mostRecentTable.setItems(meestRecenteBagage);
