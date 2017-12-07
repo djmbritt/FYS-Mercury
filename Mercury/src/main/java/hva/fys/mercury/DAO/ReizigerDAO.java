@@ -53,25 +53,22 @@ public class ReizigerDAO {
         String selectString = String.format(SELECT_QUERY, reizigerID[0], reizigerID[1]);
         System.out.println(selectString);
         Reiziger reiziger = new Reiziger();
-        try {
-            try (ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString)) {
-                while (rsReiziger.next()) {
-                    reiziger.setReizigerID(rsReiziger.getInt("ReizigerID"));
-                    reiziger.setVoornaam(rsReiziger.getString("voornaam"));
-                    reiziger.setAchternaam(rsReiziger.getString("achternaam"));
-                    reiziger.setWoonplaats(rsReiziger.getString("woonplaats"));
-                    reiziger.setAdres(rsReiziger.getString("adres"));
-                    reiziger.setLand(rsReiziger.getString("land"));
-                    reiziger.setTelefoonnummer(rsReiziger.getString("telefoon"));
-                    reiziger.setEmail(rsReiziger.getString("email"));
-                    reiziger.setIATA_Code(rsReiziger.getString("IATA_CODE"));
-
-                }
+        try (ResultSet rsReiziger = DB_MANAGER.executeResultSetQuery(selectString)) {
+            while (rsReiziger.next()) {
+                reiziger.setReizigerID(rsReiziger.getInt("ReizigerID"));
+                reiziger.setVoornaam(rsReiziger.getString("voornaam"));
+                reiziger.setAchternaam(rsReiziger.getString("achternaam"));
+                reiziger.setWoonplaats(rsReiziger.getString("woonplaats"));
+                reiziger.setAdres(rsReiziger.getString("adres"));
+                reiziger.setLand(rsReiziger.getString("land"));
+                reiziger.setTelefoonnummer(rsReiziger.getString("telefoon"));
+                reiziger.setEmail(rsReiziger.getString("email"));
+                reiziger.setIATA_Code(rsReiziger.getString("IATA_CODE"));
             }
+            DB_MANAGER.close();
         } catch (SQLException ex) {
             Logger.getLogger(ReizigerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        DB_MANAGER.close();
         return reiziger;
     }
 

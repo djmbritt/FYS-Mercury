@@ -5,6 +5,8 @@ import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,6 +32,7 @@ public class BagageInformatieController implements Initializable {
     private TextField telefoonnummer;
     @FXML
     private TextField email;
+
     //bagage
     @FXML
     private TextField bagageLabel;
@@ -48,9 +51,9 @@ public class BagageInformatieController implements Initializable {
     @FXML
     private TextField merk;
     @FXML
-    private TextField primaireKleur;
+    private ComboBox primaireKleur;
     @FXML
-    private TextField secundaireKleur;
+    private ComboBox secundaireKleur;
     @FXML
     private TextField formaat;
     @FXML
@@ -65,10 +68,12 @@ public class BagageInformatieController implements Initializable {
         // TODO
     }
 
-    public void setFields(Bagage bagage) { 
+    public void setFields(Bagage bagage) {
         ReizigerDAO daoReiziger = new ReizigerDAO();
         Reiziger reiziger = daoReiziger.getReiziger(bagage.getReizigerID());
         System.out.println("Reiiger info= " + reiziger.toString());
+        BagageInfoFields(bagage);
+        reizigerInfoFields(reiziger);
 
     }
 
@@ -76,9 +81,31 @@ public class BagageInformatieController implements Initializable {
 
         bagageLabel.setText(bagage.getBagagelabel());
         vluchtNummer.setText(bagage.getVluchtNummer());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMM-yyyy", Locale.ENGLISH);
+        String dateString = bagage.getDatumGevonden(); 
+        datumGevonden.setValue(LocalDate.parse(dateString, formatter));
+        tijdGevonden.setText(bagage.getTijdGevonden());
+        locatieGevonden.setText(bagage.getGevondenLocatie());
+        //  bagageType
+        // status
+        merk.setText(bagage.getBagagemerk());
+        // primaireKleur
+        // secundaireKleur
+        formaat.setText(bagage.getFormaat());
+        gewicht.setText(bagage.getGewichtInKG());
+        //  IATA
+        overigeEigenschappen.setText(bagage.getOverigeEigenschappen());
+
     }
 
     public void reizigerInfoFields(Reiziger reiziger) {
-
+        voornaam.setText(reiziger.getVoornaam());
+        achternaam.setText(reiziger.getAchternaam());
+        adres.setText(reiziger.getAdres());
+        woonplaats.setText(reiziger.getWoonplaats());
+        postcode.setText(reiziger.getPostcode());
+        land.setText(reiziger.getLand());
+        telefoonnummer.setText(reiziger.getTelefoonnummer());
+        email.setText(reiziger.getEmail());
     }
 }
