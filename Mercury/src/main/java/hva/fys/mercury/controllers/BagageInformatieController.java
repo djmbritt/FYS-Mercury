@@ -136,7 +136,7 @@ public class BagageInformatieController implements Initializable {
         bagage.setFormaat(formaat.getText());
         bagage.setGewichtInKG(gewicht.getText());
         bagage.setIATA_Code(iATA.getText());
-        if (!status.getValue().toString().equals("")) {
+        if (!(status.getValue()== null)) {
             bagage.setStatus(status.getValue().toString());
         }
         bagage.setOverigeEigenschappen(overigeEigenschappen.getText());
