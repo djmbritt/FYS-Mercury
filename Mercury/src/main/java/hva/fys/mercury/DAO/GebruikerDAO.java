@@ -5,6 +5,7 @@ import hva.fys.mercury.models.Gebruiker;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /*
@@ -12,11 +13,15 @@ import javafx.collections.ObservableList;
  */
 public class GebruikerDAO {
 
-    private static final DatabaseManager DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
-    private static final int MINIMUM_EDITED_COLUMN = 1;
-    private static int columnsBewerkt;
+    private final DatabaseManager DB_MANAGER;
+    private final int MINIMUM_EDITED_COLUMN = 1;
+    private int columnsBewerkt;
 
-    public static boolean registreerGebruiker(Gebruiker gebruiker) {
+    public GebruikerDAO() {
+        this.DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
+    }
+
+    public boolean registreerGebruiker(Gebruiker gebruiker) {
 
         final String INSERT_QUERY
                 = "INSERT INTO Gebruikers (`EmployeeID`, `Initials`, `FirstName`, `MiddleName`, `SurName`, "
@@ -53,7 +58,7 @@ public class GebruikerDAO {
         //Waarom columsBewerkt gedefinieerd helemaal boven in en niet de methode zelf?
     }
 
-    public static boolean updateGebruiker(Gebruiker gebruiker) {
+    public boolean updateGebruiker(Gebruiker gebruiker) {
 
         final String UPDATE_QUERY
                 = "UPDATE Gebruikers SET "
@@ -95,7 +100,7 @@ public class GebruikerDAO {
 ////        DB_MANAGER.
 //        
 //    }
-    public static Gebruiker getGebruikerDB(int registratieNummer) {
+    public Gebruiker getGebruikerDB(int registratieNummer) {
         Gebruiker gebruiker = new Gebruiker();
         try {
 
@@ -136,7 +141,7 @@ public class GebruikerDAO {
         return null;
     }
 
-    public static List<Gebruiker> readAllGebruikerDB() {
+    public List<Gebruiker> readAllGebruikerDB() {
         List<Gebruiker> gebruikerList = new ArrayList();
         try {
 
@@ -176,7 +181,17 @@ public class GebruikerDAO {
         return gebruikerList;
     }
 
-    public static List<Gebruiker> readQueryGebruikerDB(List<String> sqlStatementsList) {
+    public int totaalGebruikers() {
+        int totaal = 0;
+        try {
+            String query = "SELECT Count(*) FROM Gebruikers;";
+            totaal = Integer.parseInt(DB_MANAGER.executeStringQuery(query));
+        } catch (Exception e) {
+        }
+        return totaal;
+    }
+
+    public List<Gebruiker> readQueryGebruikerDB(List<String> sqlStatementsList) {
         List<Gebruiker> gebruikerList = new ArrayList();
         String sqlStatement;
         if (sqlStatementsList.isEmpty()) {
@@ -220,13 +235,39 @@ public class GebruikerDAO {
         return gebruikerList;
     }
 
-    public static void deleteGebruikerDB(Gebruiker gebruiker) {
+    public void deleteGebruikerDB(Gebruiker gebruiker) {
         String query = String.format("DELETE FROM Gebruikers WHERE EmployeeID='%d';", gebruiker.getEmployeeID());
         try {
             DB_MANAGER.executeUpdateQuery(query);
         } catch (Exception e) {
             System.err.println(e);
         }
+    }
+
+    public List<String> getLuchtHavenList() {
+        List<String> luchtHavenList = new ArrayList();
+
+        try {
+            String query = "SELECT * FROM LuchtHaven;";
+            ResultSet luchthavenSet = DB_MANAGER.executeResultSetQuery(query);
+            while (luchthavenSet.next()) {
+                luchtHavenList.add(luchthavenSet.getString("IATA_Code"));
+            }
+        } catch (Exception e) {
+            System.err.println("getLuchtHavenError: " + e);
+        }
+        return luchtHavenList;
+    }
+
+    public String getPassword(String userEmail) {
+        String resultString = "";
+        try {
+            String query = String.format("SELECT wachtwoord FROM Gebruikers WHERE WorkEmail='%s'", userEmail);
+            resultString = DB_MANAGER.executeStringQuery(query);
+        } catch (Exception e) {
+            System.err.println("getPasswordError: " + e);
+        }
+        return resultString;
     }
 
 }

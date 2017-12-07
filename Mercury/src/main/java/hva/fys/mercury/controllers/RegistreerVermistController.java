@@ -1,8 +1,7 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.BagageDAO;
-import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.DAO.JDBCMethods;
+import hva.fys.mercury.models.Bagage; 
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
@@ -184,7 +183,7 @@ public class RegistreerVermistController implements Initializable {
             reiziger.setEmail(email.getText());
             bagage.setBagagelabel(bagageLabel.getText());
             bagage.setVluchtNummer(vluchtNummer.getText());
-            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
+            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("d-MMM-yyyy")));
             bagage.setTijdGevonden(tijdGevonden.getText());
             bagage.setGevondenLocatie(locatieGevonden.getText());
             bagage.setBagageType(bagageType.getValue().toString());

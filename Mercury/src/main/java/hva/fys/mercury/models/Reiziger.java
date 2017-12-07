@@ -157,4 +157,11 @@ public class Reiziger {
     public void setBagageRegistratieNummer(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String toString() {
+        return "Reiziger{" + "reizigerID=" + reizigerID + ", voornaam=" + voornaam + ", achternaam=" + achternaam + ", adres=" + adres + ", woonplaats=" + woonplaats + ", postcode=" + postcode + ", land=" + land + ", telefoonnummer=" + telefoonnummer + ", email=" + email + ", IATA_Code=" + IATA_Code + '}';
+    }
+    
+    
 }

@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable; 
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -23,9 +23,7 @@ public class ContentController implements Initializable {
 
     @FXML
     private BorderPane content;
- 
 
-    
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
         System.out.println("registreer bagage geopend ");
@@ -92,23 +90,6 @@ public class ContentController implements Initializable {
     }
 
     @FXML
-    private void testBagageDetails(ActionEvent event) {
-        System.out.println("Bagage details geopend ");
-        Parent pane = loadFXMLFile("/fxml/bagageDetails.fxml");
-//https://stackoverflow.com/questions/21966441/gettext-method-returning-null-even-though-a-value-is-entered-by-user
-        System.out.println(pane);
-        System.out.println(workspace);
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-        
-//        .setOnCloseRequest(new EventHandler<WindowEvent>() {
-//          public void handle(WindowEvent we) {
-//              System.out.println("Stage is closing");
-//          }
-//      });
-    }
-
-    @FXML
     private void logoutAction(ActionEvent event) {
         System.out.println("Logging out");
 
@@ -126,11 +107,9 @@ public class ContentController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) { 
-        
-    }
+    public void initialize(URL url, ResourceBundle rb) {
 
-     
+    }
 
     private Parent loadFXMLFile(String fxmlFileName) {
         try {

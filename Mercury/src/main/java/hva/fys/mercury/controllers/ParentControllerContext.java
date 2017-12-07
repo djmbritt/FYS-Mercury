@@ -17,4 +17,5 @@ public interface ParentControllerContext {
 
     public void displayStatusMessage(String message);
 
+    public void transferObject(Object o);
 }

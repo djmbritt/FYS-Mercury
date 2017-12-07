@@ -17,9 +17,9 @@ public class Bagage {
     private String reizigerID;
     private String IATA_Code;
     private String overigeEigenschappen;
-    private String status; 
+    private String status;
 
-    public Bagage() { 
+    public Bagage() {
     }
 
     public Bagage(int registratieID, String datumGevonden, String tijdGevonden, String bagageType, String bagagemerk, String vluchtNummer, String bagagelabel, String gevondenLocatie, String primaireKleur, String secundaireKleur, String formaat, String gewichtInKG, String reizigerID, String IATA_Code, String overigeEigenschappen, String status) {
@@ -167,11 +167,11 @@ public class Bagage {
 
     public void setStatus(String status) {
         this.status = status;
-    } 
+    }
 
     @Override
     public String toString() {
         return "Bagage{" + "registratieID=" + registratieID + ", datumGevonden=" + datumGevonden + ", tijdGevonden=" + tijdGevonden + ", bagageType=" + bagageType + ", bagagemerk=" + bagagemerk + ", vluchtNummer=" + vluchtNummer + ", bagagelabel=" + bagagelabel + ", gevondenLocatie=" + gevondenLocatie + ", primaireKleur=" + primaireKleur + ", secundaireKleur=" + secundaireKleur + ", formaat=" + formaat + ", gewichtInKG=" + gewichtInKG + ", reizigerID=" + reizigerID + ", IATA_Code=" + IATA_Code + ", overigeEigenschappen=" + overigeEigenschappen + ", status=" + status + '}';
     }
-    
+
 }

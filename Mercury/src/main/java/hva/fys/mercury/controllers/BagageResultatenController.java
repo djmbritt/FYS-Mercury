@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory; 
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class BagageResultatenController implements Initializable {
 
@@ -29,6 +29,7 @@ public class BagageResultatenController implements Initializable {
 
     @FXML
     private static int clickedCounter = 0;
+
     private ParentControllerContext parentController;
 
     @Override
@@ -37,6 +38,7 @@ public class BagageResultatenController implements Initializable {
     }
 
     public void fillTable(List<Bagage> list) {
+        
         ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
         bagageLijst.addAll(list);
         table.setItems(bagageLijst);
@@ -70,14 +72,16 @@ public class BagageResultatenController implements Initializable {
     }
 
     @FXML
-    public void openBagageDetails() {
+    public Bagage openBagageDetails() {
         clickedCounter++;
         if (clickedCounter == 2) {
             Bagage bagage = (Bagage) table.getSelectionModel().getSelectedItem();
-            System.out.println(bagage.toString());
+            System.out.println(bagage.toString()); 
+           parentController.transferObject(bagage);
             clickedCounter = 0;
+            return bagage;
         }
-
+        return null;
     }
 
 }

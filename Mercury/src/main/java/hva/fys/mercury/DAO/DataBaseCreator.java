@@ -173,7 +173,7 @@ public class DataBaseCreator {
                 + "`DepartmentEmployment` varchar(45)  DEFAULT NULL,"
                 + "`HomeAdress` varchar(45)  DEFAULT NULL,"
                 + "`PostalCode` varchar(45)  DEFAULT NULL,"
-//                + "`wachtwoord` varchar(45)  DEFAULT NULL,"
+                + "`Wachtwoord` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`EmployeeID`)"
                 + ");"
         );

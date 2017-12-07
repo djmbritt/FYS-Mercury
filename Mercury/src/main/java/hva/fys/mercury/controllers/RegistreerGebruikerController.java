@@ -6,9 +6,7 @@ package hva.fys.mercury.controllers;
  * and open the template in the editor.
  */
 
-import hva.fys.mercury.DAO.GebruikerDAO;
-import hva.fys.mercury.DAO.JDBCMethods;
-import hva.fys.mercury.models.Bagage;
+import hva.fys.mercury.DAO.GebruikerDAO; 
 import hva.fys.mercury.models.Gebruiker;
 import java.io.IOException;
 import java.net.URL;
@@ -154,7 +152,7 @@ public class RegistreerGebruikerController implements Initializable {
             opgeslagenLabelM.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
             
-            GebruikerDAO.registreerGebruiker(gebruiker);
+//            GebruikerDAO.registreerGebruiker(gebruiker);
         }
     }
 
