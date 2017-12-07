@@ -1,13 +1,10 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.controllers.ParentControllerContext;
-import hva.fys.mercury.DAO.DatabaseManager;
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -37,7 +34,15 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     @FXML
     private GebruikerAanpassenPaneController gebruikerAanpassenPaneController;
 
+    private ParentControllerContext parentController;
+
     private ObservableList<Gebruiker> gebruikerList = FXCollections.observableArrayList();
+
+    public void setParentContext(ParentControllerContext pC) {
+        System.out.println("this.parentcontroller: " + pC.toString());
+        this.parentController = pC;
+        pC.displayStatusMessage("Handling Admin Panel");
+    }
 
     //Parent controller methods
     private void showTableView() {
@@ -45,9 +50,14 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         this.gebruikerTableView.setVisible(true);
     }
 
+    public void showFoundLuggagePane() {
+        this.gebruikerTableView.setVisible(false);
+        this.gebruikerAanpassenPane.setVisible(true);
+    }
+
     @Override
     public void notifyCloseChild() {
-        gebruikerList.remove(gebruikerList.size()-1);
+        gebruikerList.remove(gebruikerList.size() - 1);
         showTableView();
     }
 
@@ -89,7 +99,6 @@ public class AdminPanelController implements Initializable, ParentControllerCont
             }
         }
     }
-    
 
     @FXML
     public void handleChangeItemAction() {
@@ -117,8 +126,8 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
     @FXML
     public void handleExitAction() {
-        //figure out kico mi ta bai haci aki nan.
-        //Persona mester por log out.
+        System.out.println("Logging out");
+        this.parentController.notifyCloseChild();
     }
 
     @Override
@@ -147,7 +156,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         }
     }
 
-    public Gebruiker addItemToGebruikerList() { 
+    public Gebruiker addItemToGebruikerList() {
         String newID = "" + Calendar.YEAR + Calendar.MONTH + Calendar.DAY_OF_MONTH + gebruikerDAO.totaalGebruikers();
         System.out.println("newid: " + newID);
         Gebruiker gebruiker = new Gebruiker(Integer.parseInt(newID));
@@ -167,11 +176,6 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
         }
         return gebruiker;
-    }
-
-    public void showFoundLuggagePane() {
-        this.gebruikerTableView.setVisible(false);
-        this.gebruikerAanpassenPane.setVisible(true);
     }
 
     @Override

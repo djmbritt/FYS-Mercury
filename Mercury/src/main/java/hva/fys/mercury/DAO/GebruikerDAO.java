@@ -105,7 +105,7 @@ public class GebruikerDAO {
         try {
 
             System.out.println("Getting all Gebruiker from database");
-            String query = String.format("SELECT EmployeeID FROM Gebruikers WHERE='%d';", registratieNummer);
+            String query = String.format("SELECT EmployeeID FROM Gebruikers WHERE EmployeeID='%d';", registratieNummer);
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
 
             if (results.wasNull()) {
@@ -259,13 +259,25 @@ public class GebruikerDAO {
         return luchtHavenList;
     }
 
+    
     public String getPassword(String userEmail) {
-        String resultString = "";
+        String resultString = null; // null?
         try {
-            String query = String.format("SELECT wachtwoord FROM Gebruikers WHERE WorkEmail='%s'", userEmail);
+            String query = String.format("SELECT Wachtwoord FROM Gebruikers WHERE WorkEmail='%s';", userEmail);
             resultString = DB_MANAGER.executeStringQuery(query);
         } catch (Exception e) {
             System.err.println("getPasswordError: " + e);
+        }
+        return resultString;
+    }
+
+    public String getUserRoll(String userEmail) {
+        String query = String.format("SELECT DepartmentEmployment FROM Gebruikers WHERE WorkEmail='%s';", userEmail);
+        String resultString = null;
+        try {
+            resultString = DB_MANAGER.executeStringQuery(query);
+        } catch (Exception e) {
+            System.err.println("getUserRollError: " + e);
         }
         return resultString;
     }

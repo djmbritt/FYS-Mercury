@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,17 +11,22 @@ import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class ContentController implements Initializable {
+
+    private ParentControllerContext parentController;
 
     @FXML
     private StackPane workspace;
 
     @FXML
     private BorderPane content;
+
+    public void setParentContext(ParentControllerContext pC) {
+        System.out.println("this.parentcontroller: " + pC.toString());
+        this.parentController = pC;
+        pC.displayStatusMessage("Logged into Content");
+    }
 
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
@@ -92,18 +96,8 @@ public class ContentController implements Initializable {
     @FXML
     private void logoutAction(ActionEvent event) {
         System.out.println("Logging out");
+        this.parentController.notifyCloseChild();
 
-        /*
-        BorderPane pane = (BorderPane) loadFXMLFile("/fxml/Login.fxml");
-        pane.setPrefHeight(content.getHeight());
-        pane.setPrefWidth(content.getWidth());
-
-        System.out.println(pane);
-        System.out.println(content);
-
-        content.getChildren().clear();
-        content.getChildren().setAll(pane);
-         */
     }
 
     @Override

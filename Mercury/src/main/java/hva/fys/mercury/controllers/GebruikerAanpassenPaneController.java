@@ -75,6 +75,9 @@ public class GebruikerAanpassenPaneController implements Initializable {
     @FXML
     private PasswordField WachtWoordVerificatie;
 
+    private ParentControllerContext parentController;
+    private Gebruiker gebruiker;
+
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
     ObservableList<String> statusList = FXCollections.<String>observableArrayList("Werkenzaam", "Ontslagen", "Met Verlof", "Vakantie", "Afgewezen", "Gesoliciteerd");
     ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList(gebruikerDAO.getLuchtHavenList());
@@ -87,11 +90,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         WorkLocation.getItems().addAll(werkLocatieList);
         StatusEmployment.getItems().addAll(statusList);
-
     }
-
-    private ParentControllerContext parentController;
-    private Gebruiker gebruiker;
 
     public void setParentContext(ParentControllerContext pC, Gebruiker gbrkr) {
         System.out.println("this.parentcontroller: " + pC.toString());
@@ -110,6 +109,8 @@ public class GebruikerAanpassenPaneController implements Initializable {
         MiddleName.setText(gbrkr.getMiddleName());
         SurName.setText(gbrkr.getSurName());
         WorkEmail.setText(gbrkr.getWorkEmail());
+        
+        //Je moet deze veranderen naar een andere waarde.
 
         if (gebruiker.getBirthDate() != null) {
             BirthDate.setValue(LocalDate.parse(gebruiker.getBirthDate(), dateFormatter));
@@ -139,12 +140,9 @@ public class GebruikerAanpassenPaneController implements Initializable {
     @FXML
     public void handleCancelAction(ActionEvent event) {
         System.out.println("Canceling");
-
         this.gebruiker = null;
         this.parentController.displayStatusMessage("Cancelled editing found luggage...");
         this.parentController.notifyCloseChild();
-        
-
     }
 
     @FXML
