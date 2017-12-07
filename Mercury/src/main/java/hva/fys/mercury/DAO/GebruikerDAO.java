@@ -244,9 +244,8 @@ public class GebruikerDAO {
         }
     }
 
-    public ObservableList<String> getLuchtHavenList() {
+    public List<String> getLuchtHavenList() {
         List<String> luchtHavenList = new ArrayList();
-        ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList();
 
         try {
             String query = "SELECT * FROM LuchtHaven;";
@@ -255,9 +254,20 @@ public class GebruikerDAO {
                 luchtHavenList.add(luchthavenSet.getString("IATA_Code"));
             }
         } catch (Exception e) {
-            System.err.println("error: " + e);
+            System.err.println("getLuchtHavenError: " + e);
         }
-        return werkLocatieList;
+        return luchtHavenList;
+    }
+
+    public String getPassword(String userEmail) {
+        String resultString = "";
+        try {
+            String query = String.format("SELECT wachtwoord FROM Gebruikers WHERE WorkEmail='%s'", userEmail);
+            resultString = DB_MANAGER.executeStringQuery(query);
+        } catch (Exception e) {
+            System.err.println("getPasswordError: " + e);
+        }
+        return resultString;
     }
 
 }

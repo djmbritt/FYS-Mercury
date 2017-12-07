@@ -1,8 +1,6 @@
 package hva.fys.mercury;
 
 import hva.fys.mercury.DAO.DataBaseCreator;
-import hva.fys.mercury.DAO.DatabaseManager;
-import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.DAO.PopulateDB;
 import javafx.application.Application;
 

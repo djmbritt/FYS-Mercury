@@ -8,14 +8,11 @@ package hva.fys.mercury.controllers;
 import hva.fys.mercury.DAO.DatabaseManager;
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.MainApp;
-import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +21,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -57,7 +53,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
     @FXML
     private TextField WorkEmail;
     @FXML
-    private ChoiceBox<String> WorkingLocation;
+    private ChoiceBox<String> WorkLocation;
     @FXML
     private ChoiceBox<String> StatusEmployment;
     @FXML
@@ -80,19 +76,17 @@ public class GebruikerAanpassenPaneController implements Initializable {
     private PasswordField WachtWoordVerificatie;
 
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
-
     ObservableList<String> statusList = FXCollections.<String>observableArrayList("Werkenzaam", "Ontslagen", "Met Verlof", "Vakantie", "Afgewezen", "Gesoliciteerd");
-    
-    //Fornow.
-    ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList("Amsterdam", "Istanbul", "Malaga", "Ankara");
+    ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList(gebruikerDAO.getLuchtHavenList());
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        WorkingLocation.getItems().addAll(werkLocatieList);
-//        StatusEmployment.getItems().addAll(statusList);
+        WorkLocation.getItems().addAll(werkLocatieList);
+        StatusEmployment.getItems().addAll(statusList);
 
     }
 
@@ -117,28 +111,39 @@ public class GebruikerAanpassenPaneController implements Initializable {
         SurName.setText(gbrkr.getSurName());
         WorkEmail.setText(gbrkr.getWorkEmail());
 
-//        BirthDate.setValue(gbrkr.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
-//        StartEmploymentDate.setText(gbrkr.getStartEmploymentDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
-//        EndDateEmployment.setValue(gbrkr.getEndDateEmployment().format(DateTimeFormatter.ofPattern("dd-MM-yyyy").toString()));
+        if (gebruiker.getBirthDate() != null) {
+            BirthDate.setValue(LocalDate.parse(gebruiker.getBirthDate(), dateFormatter));
+        }
 
-        WorkingLocation.setValue(gbrkr.getWorkingLocation());
+        if (gebruiker.getStartEmploymentDate() != null) {
+            StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getStartEmploymentDate(), dateFormatter));
+        }
+
+        if (gebruiker.getEndDateEmployment() != null) {
+            StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getEndDateEmployment(), dateFormatter));
+        }
+
+        WorkLocation.setValue(gbrkr.getWorkingLocation());
         StatusEmployment.setValue(gbrkr.getStatusEmployment());
 
         PersonalEmail.setText(gbrkr.getPersonalEmail());
         MobilePhoneNumber.setText(gbrkr.getMobilePhoneNumber());
-//        HomePhoneNumber.setText(gbrkr.getHomePhoneNumber());
         DepartmentEmployment.setText(gbrkr.getDepartmentEmployment());
         HomeAdress.setText(gbrkr.getHomeAdress());
         PostalCode.setText(gbrkr.getPostalCode());
+
+        WachtWoord.setText(gebruiker.getWachtWoord());
+        WachtWoordVerificatie.setText(gebruiker.getWachtWoord());
     }
 
     @FXML
     public void handleCancelAction(ActionEvent event) {
         System.out.println("Canceling");
 
+        this.gebruiker = null;
         this.parentController.displayStatusMessage("Cancelled editing found luggage...");
         this.parentController.notifyCloseChild();
-        this.gebruiker = null;
+        
 
     }
 
@@ -146,67 +151,86 @@ public class GebruikerAanpassenPaneController implements Initializable {
     public void handleSaveAction(ActionEvent event) {
         System.out.println("Saving....");
 
-//                    bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-
         this.gebruiker.setEmployeeID(Integer.parseInt(EmployeeID.getText()));
         this.gebruiker.setInitials(Initials.getText());
         this.gebruiker.setFirstName(FirstName.getText());
         this.gebruiker.setMiddleName(MiddleName.getText());
         this.gebruiker.setSurName(SurName.getText());
-        this.gebruiker.setBirthDate(BirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        this.gebruiker.setStartEmploymentDate(StartEmploymentDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+
+        if (BirthDate.getValue() != null) {
+            this.gebruiker.setBirthDate(BirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        }
+        if (StartEmploymentDate.getValue() != null) {
+            this.gebruiker.setStartEmploymentDate(StartEmploymentDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        }
+        if (EndDateEmployment.getValue() != null) {
+            this.gebruiker.setEndDateEmployment(EndDateEmployment.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        }
+
         this.gebruiker.setWorkEmail(WorkEmail.getText());
-        this.gebruiker.setWorkingLocation(WorkingLocation.getValue().toString());
-        this.gebruiker.setStatusEmployment(StatusEmployment.getValue().toString());
-        this.gebruiker.setEndDateEmployment(EndDateEmployment.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        this.gebruiker.setWorkingLocation(WorkLocation.getValue());
+        this.gebruiker.setStatusEmployment(StatusEmployment.getValue());
         this.gebruiker.setPersonalEmail(PersonalEmail.getText());
         this.gebruiker.setMobilePhoneNumber(MobilePhoneNumber.getText());
-//        this.gebruiker.setHomePhoneNumber(HomePhoneNumber.getText());
         this.gebruiker.setDepartmentEmployment(DepartmentEmployment.getText());
         this.gebruiker.setHomeAdress(HomeAdress.getText());
         this.gebruiker.setPostalCode(PostalCode.getText());
 
-        DatabaseManager db = new DatabaseManager(MainApp.DATABASE_NAME);
-        String reUpGebruikerQuery = String.format("SELECT EmployeeID FROM Gebruikers WHERE EmployeeID='%d'", this.gebruiker.getEmployeeID());
-        String registreerOfUpdateGebruiker = db.executeStringQuery(reUpGebruikerQuery);
+        if (WachtWoord.getText().equals(WachtWoordVerificatie.getText())) {
+            this.gebruiker.setWachtWoord(WachtWoord.getText());
+            DatabaseManager db = new DatabaseManager(MainApp.DATABASE_NAME);
+            String reUpGebruikerQuery = String.format("SELECT EmployeeID FROM Gebruikers WHERE EmployeeID='%d'", this.gebruiker.getEmployeeID());
+            String registreerOfUpdateGebruiker = db.executeStringQuery(reUpGebruikerQuery);
 
-        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        if (registreerOfUpdateGebruiker != null) {
-            gebruikerDAO.updateGebruiker(this.gebruiker);
-            confirmation.setContentText("Updated Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
-            confirmation.showAndWait();
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            if (registreerOfUpdateGebruiker != null) {
+                gebruikerDAO.updateGebruiker(this.gebruiker);
+                confirmation.setContentText("Updated Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
+                confirmation.showAndWait();
 
+            } else {
+                gebruikerDAO.registreerGebruiker(this.gebruiker);
+                confirmation.setContentText("Saved new Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
+                confirmation.showAndWait();
+            }
+
+            this.parentController.displayStatusMessage("Saving new information");
+            this.parentController.notifyChildHasUpdated();
+            this.parentController.notifyCloseChild();
         } else {
-            gebruikerDAO.registreerGebruiker(this.gebruiker);
-            confirmation.setContentText("Saved new Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
-            confirmation.showAndWait();
+            Alert wachtWoordIncorrect = new Alert(Alert.AlertType.ERROR);
+            wachtWoordIncorrect.setContentText("Je wachtwoord komt niet overeen met elkaar.");
+            wachtWoordIncorrect.showAndWait();
         }
-
-        this.parentController.displayStatusMessage("Saving new information");
-        this.parentController.notifyChildHasUpdated();
-        this.parentController.notifyCloseChild();
 
     }
 
     @FXML
     public void handleResetAction(ActionEvent event) {
 
-//                    bagage.setDatumGevonden(datumGevondenG.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         EmployeeID.setText(Integer.toString(this.gebruiker.getEmployeeID()));
         Initials.setText(this.gebruiker.getInitials());
         FirstName.setText(this.gebruiker.getFirstName());
         MiddleName.setText(this.gebruiker.getMiddleName());
         SurName.setText(this.gebruiker.getSurName());
-//        BirthDate.setValue(this.gebruiker.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
-//        BirthDate.setValue(new SimpleDateFormat("dd-MM-yyyy"));
-//        StartEmploymentDate.setText(this.gebruiker.getStartEmploymentDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
+
+        if (gebruiker.getBirthDate() != null) {
+            BirthDate.setValue(LocalDate.parse(gebruiker.getBirthDate(), dateFormatter));
+        }
+
+        if (gebruiker.getStartEmploymentDate() != null) {
+            StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getStartEmploymentDate(), dateFormatter));
+        }
+
+        if (gebruiker.getEndDateEmployment() != null) {
+            StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getEndDateEmployment(), dateFormatter));
+        }
+
         WorkEmail.setText(this.gebruiker.getWorkEmail());
-        WorkingLocation.setValue(this.gebruiker.getWorkingLocation());
+        WorkLocation.setValue(this.gebruiker.getWorkingLocation());
         StatusEmployment.setValue(this.gebruiker.getStatusEmployment());
-//        EndDateEmployment.setText(this.gebruiker.getEndDateEmployment().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"). toString()));
         PersonalEmail.setText(this.gebruiker.getPersonalEmail());
         MobilePhoneNumber.setText(this.gebruiker.getMobilePhoneNumber());
-//        HomePhoneNumber.setText(this.gebruiker.getHomePhoneNumber());
         DepartmentEmployment.setText(this.gebruiker.getDepartmentEmployment());
         HomeAdress.setText(this.gebruiker.getHomeAdress());
         PostalCode.setText(this.gebruiker.getPostalCode());
@@ -225,7 +249,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
         BirthDate.setValue(null);
         StartEmploymentDate.setValue(null);
         WorkEmail.setText(null);
-        WorkingLocation.setValue(null);
+        WorkLocation.setValue(null);
         StatusEmployment.setValue(null);
         EndDateEmployment.setValue(null);
         PersonalEmail.setText(null);
@@ -234,6 +258,8 @@ public class GebruikerAanpassenPaneController implements Initializable {
         DepartmentEmployment.setText(null);
         HomeAdress.setText(null);
         PostalCode.setText(null);
+        WachtWoord.setText(null);
+        WachtWoordVerificatie.setText(null);
 
         this.parentController.displayStatusMessage("Clearing everything");
     }

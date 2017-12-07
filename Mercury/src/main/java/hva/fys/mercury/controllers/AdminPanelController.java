@@ -47,6 +47,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
     @Override
     public void notifyCloseChild() {
+        gebruikerList.remove(gebruikerList.size()-1);
         showTableView();
     }
 
@@ -87,8 +88,8 @@ public class AdminPanelController implements Initializable, ParentControllerCont
                 System.out.println("Item not deleted.");
             }
         }
-
     }
+    
 
     @FXML
     public void handleChangeItemAction() {
