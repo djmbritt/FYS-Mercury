@@ -4,8 +4,13 @@ import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Bagage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
@@ -80,6 +85,23 @@ public class BagageDAO {
         columnsBewerkt = DB_MANAGER.executeUpdateQuery(updateString);
         DB_MANAGER.close();
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
+    }
+
+    public List<LocalDate> getdatesByStatus(String status) {
+        List<LocalDate> dates = new ArrayList();
+        String query = String.format("select datefound from Bagage where status='%s';", status);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMM-yyyy", Locale.ENGLISH);
+        try (ResultSet results = DB_MANAGER.executeResultSetQuery(query)) {
+
+            while (results.next()) {
+                LocalDate date = LocalDate.parse(results.getString("datefound"), formatter);
+                dates.add(date);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BagageDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dates;
     }
 
     public void getAllBagage(ObservableList<Bagage> bagageList) {

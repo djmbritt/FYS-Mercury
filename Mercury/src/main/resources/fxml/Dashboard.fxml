@@ -105,9 +105,6 @@
           <Tab closable="false" text="Verloren bagage statistiek">
                <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <bottom>
-                        <Label id="chartLabel" prefHeight="52.0" prefWidth="826.0" styleClass="chartTab" text="20% van de verloren bagage is gevonden" textAlignment="CENTER" BorderPane.alignment="CENTER" />
-                     </bottom>
                      <center>
                         <PieChart fx:id="pieChart" prefHeight="494.0" prefWidth="657.0" BorderPane.alignment="CENTER" />
                      </center>
@@ -138,6 +135,9 @@
                            </children>
                         </GridPane>
                      </top>
+                     <bottom>
+                        <Label fx:id="chartLabel" styleClass="Title" text="Label" BorderPane.alignment="CENTER" />
+                     </bottom>
                   </BorderPane>
                </content>
             </Tab>

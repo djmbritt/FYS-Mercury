@@ -88,6 +88,7 @@ public class PopulateDB {
     }
 
     public static void insertGebruiker() {
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(23231, 'A. F. G', 'Anouk', 'Klouw', 'Muller', '10-07-1990', '01-01-2015', 'user', 'Amsterdam', 'Working', null, 'user', '0645188667', null, 'Manager', 'Rooi Bosal 49', '4513 BJ', '')");
         myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(123456789, 'A. F. G', 'Anouk', 'Klouw', 'Muller', '10-07-1990', '01-01-2015', 'thisemail@email.com', 'Amsterdam', 'Working', null, 'thatemail@email.com', '0645188667', null, 'Manager', 'Rooi Bosal 49', '4513 BJ', 'wachtwoord')");
         myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(21123432, 'H. F. G', 'Regina', 'Plop', 'Croes', '19-05-1970', '01-01-2015', 'thisemail@email.com', 'Den Haag', 'Working', '', 'thatemail@email.com', '0645188667', '', 'Balie Medewerker', 'Perikweg 3', '4513 BJ', 'wachtwoord')");
         myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(45646545, 'S. J. J', 'Butchi', '', 'Britt', '10-07-1980', '01-01-2015', 'admin@corendon.com', 'Santa Cruz', 'Working', '', 'personal@corendon.com', '0645188667', '', 'Admin', 'Cleynderweg 6', '4513 BJ', 'wachtwoord')");
