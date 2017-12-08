@@ -32,11 +32,12 @@ public class BagageDAO {
     }
 
     /**
-     * slaat nieuwe informatie op in de bagageTabel van de database 
-     * @param bagage                      een bagage model met informatie
-     * @return                            een boolean met de waarde 'true' als de informatie succesvol is
-     *                                    opgeslagen in de database en 'false' als het niet is gelukt om de
-     *                                    informatie op te slaan
+     * slaat nieuwe informatie op in de bagageTabel van de database
+     *
+     * @param bagage een bagage model met informatie
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
      */
     public boolean registreerBagage(Bagage bagage) {
 
@@ -69,14 +70,13 @@ public class BagageDAO {
     }
 
     /**
-     * zorgt ervoor dat bestaande informatie in de database wordt
-     * gewijzigd
+     * zorgt ervoor dat bestaande informatie in de database wordt gewijzigd
      *
-     * @param bagage                    een bagage model met informatie
-     * 
-     * @return                          een boolean met de waarde 'true' als de informatie succesvol is
-     *                                  opgeslagen in de database en 'false' als het niet is gelukt om de
-     *                                  informatie op te slaan
+     * @param bagage een bagage model met informatie
+     *
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
      */
     public boolean updateBagage(Bagage bagage) {
         final String UPDATE_QUERY
@@ -109,9 +109,11 @@ public class BagageDAO {
     }
 
     /**
-     * haalt aan de hand van de ingevoerde status een lijst met data uit de database 
-     * @param status                    status van de bagage (keuze uit: "gevonden" of "verloren"
-     * @return                          een List van LocalDate met daarin de data van de bagagestukken
+     * haalt aan de hand van de ingevoerde status een lijst met data uit de
+     * database
+     *
+     * @param status status van de bagage (keuze uit: "gevonden" of "verloren")
+     * @return een List van LocalDate met daarin de data van de bagagestukken
      */
     public List<LocalDate> getdatesByStatus(String status) {
         List<LocalDate> dates = new ArrayList();
@@ -130,10 +132,12 @@ public class BagageDAO {
         return dates;
     }
 
-     /**
-      * geeft een lijst van de 30 meest recente aangemelde bagagestukken terug
-      * @return                         een List van Bagage met daarom de 30 mmeest recent aangemelde bagagestukken
-      */
+    /**
+     * geeft een lijst van de 30 meest recente aangemelde bagagestukken terug
+     *
+     * @return een List van Bagage met daarom de 30 mmeest recent aangemelde
+     * bagagestukken
+     */
     public List<Bagage> getRecentBagage() {
         List<Bagage> bagageList = new ArrayList();
         try {
@@ -170,9 +174,11 @@ public class BagageDAO {
     }
 
     /**
-     * Haalt ,door middel van het van bagagenummer, bagage informatie in de database;
-     * @param BagageNummer              registratienummer van de bagage
-     * @return                          een Bagage model met daarin de informatie uit de database
+     * Haalt ,door middel van het van bagagenummer, bagage informatie in de
+     * database;
+     *
+     * @param BagageNummer registratienummer van de bagage
+     * @return een Bagage model met daarin de informatie uit de database
      */
     public Bagage getBagage(int BagageNummer) {
         Bagage bagage = new Bagage();
@@ -207,6 +213,14 @@ public class BagageDAO {
         return bagage;
     }
 
+    /**
+     * Zoekt met behulp van parameters informatie in de database en geeft de
+     * zoekresultaten terug in een List van Bagage objecten
+     *
+     * @param zoekParameters een lijst van StringProperty met daarin de
+     * parameters
+     * @return een lijst van bagage met daarin informatie
+     */
     public List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
         List<Bagage> bagageLijst = new ArrayList<>();
         String query = "SELECT * FROM bagage where";
@@ -252,8 +266,16 @@ public class BagageDAO {
         return bagageLijst;
     }
 
-    public int getStatusBagageSize(String statusString) {
-        String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", statusString);
+    /**
+     * Haalt op basis van de ingevoerde status het aantal uit de database (vb:
+     * indien de status 'gevonden' is haalt hij het aantal gevonden
+     * bagagestukken uit de database)
+     *
+     * @param status status van de bagage (keuze uit: "gevonden" of "verloren")
+     * @return een integer met daarin het aantal bagagestukken
+     */
+    public int getStatusBagageSize(String status) {
+        String query = String.format("SELECT COUNT(Status) FROM Bagage WHERE Status='%s'", status);
         int i = Integer.parseInt(DB_MANAGER.executeStringQuery(query));
         System.out.println("i");
         return i;
