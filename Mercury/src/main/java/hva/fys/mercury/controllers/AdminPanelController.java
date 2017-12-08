@@ -1,11 +1,5 @@
 package hva.fys.mercury.controllers;
 
-/**
- * Deze class bestuurd de Admin Panel
- * 
- *
- * @author David Britt
- */
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
@@ -18,17 +12,21 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-
 import javafx.scene.control.ButtonType;
-
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Deze class bestuurt de Admin Panel
+ *
+ *
+ * @author David Britt
+ */
 public class AdminPanelController implements Initializable, ParentControllerContext {
 
-    GebruikerDAO gebruikerDAO = new GebruikerDAO();
+    private GebruikerDAO gebruikerDAO = new GebruikerDAO()  ;
 
     @FXML
     private TableView gebruikerTableView;
@@ -50,15 +48,18 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     }
 
     /**
-     * Deze methode zorgt ervoor dat de Tabel visible wordt en de formulier invisible.
+     * Deze methode zorgt ervoor dat de Tabel visible wordt en de formulier
+     * invisible.
      *
      */
     private void showTableView() {
         this.gebruikerAanpassenPane.setVisible(false);
         this.gebruikerTableView.setVisible(true);
     }
+
     /**
-     * Deze methode zorgt ervoor dat de tabel invisible wordt en de formulier visible.
+     * Deze methode zorgt ervoor dat de tabel invisible wordt en de formulier
+     * visible.
      *
      */
     public void showFoundLuggagePane() {
@@ -85,9 +86,10 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     public void displayStatusMessage(String message) {
 //        statusMessage.setText(message);
     }
-    
+
     /**
-     * Deze methode zorgt ervoor dat de gebruiker bagage kan toevoegen aan de tabel.
+     * Deze methode zorgt ervoor dat de gebruiker bagage kan toevoegen aan de
+     * tabel.
      */
     @FXML
     public void handleAddItemAction() {
@@ -95,8 +97,10 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         gebruikerTableView.refresh();
         showFoundLuggagePane();
     }
+
     /**
-     * Deze methode zorgt ervoor dat de gebruiker bagage kan verwijderen uit de tabel.
+     * Deze methode zorgt ervoor dat de gebruiker bagage kan verwijderen uit de
+     * tabel.
      */
     @FXML
     public void handleDeleteItemAction() {
@@ -120,8 +124,9 @@ public class AdminPanelController implements Initializable, ParentControllerCont
             }
         }
     }
-     /**
-     * Deze methode zorgt ervoor dat de gebruiker een medewerker kan selecteren 
+
+    /**
+     * Deze methode zorgt ervoor dat de gebruiker een medewerker kan selecteren
      * uit de tabel om aanpassingen aan gegevens te doen.
      */
     @FXML
@@ -147,20 +152,23 @@ public class AdminPanelController implements Initializable, ParentControllerCont
             showFoundLuggagePane();
         }
     }
-     /**
+
+    /**
      * Deze methode zorgt ervoor dat de gebruiker uitlogt.
-     * 
+     *
      */
     @FXML
     public void handleExitAction() {
         System.out.println("Logging out");
         this.parentController.notifyCloseChild();
     }
+
     /**
-     * Deze methode zorgt ervoor dat de fillTable methode wordt aangeroepen en 
+     * Deze methode zorgt ervoor dat de fillTable methode wordt aangeroepen en
      * de tabel wordt gerefreshed zodra de pagina wordt geïnitialiseerd.
+     *
      * @param url
-     * @param rb 
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -170,8 +178,10 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         gebruikerTableView.refresh();
 
     }
+
     /**
      * Deze methode zorgt ervoor dat de tabel wordt gevuld.
+     *
      * @param list Lijst met gebruikers
      */
     public void fillTable(List<Gebruiker> list) {
@@ -190,10 +200,13 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
         }
     }
+
     /**
      * Deze methode zorgt ervoor dat nieuwe werknemers toegevoegd worden aan de
      * tabel en de gebruikerList.
-     * @return Dit geeft alle informatie terug die door de gebruiker is ingevoerd.
+     *
+     * @return Dit geeft alle informatie terug die door de gebruiker is
+     * ingevoerd.
      */
     public Gebruiker addItemToGebruikerList() {
         String newID = "" + Calendar.YEAR + Calendar.MONTH + Calendar.DAY_OF_MONTH + gebruikerDAO.totaalGebruikers();
@@ -216,10 +229,12 @@ public class AdminPanelController implements Initializable, ParentControllerCont
         }
         return gebruiker;
     }
+
     /**
      * Dit zorgt ervoor dat informatie van het desbetreffende object wordt
      * verkregen in deze class.
-     * @param o 
+     *
+     * @param o
      */
     @Override
     public void transferObject(Object o) {

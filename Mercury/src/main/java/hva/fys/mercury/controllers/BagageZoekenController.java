@@ -27,7 +27,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 /**
- * 
+ * FXML Controller class die het zoeken beheert
+ *
  * @author José Niemel
  */
 public class BagageZoekenController implements Initializable, ParentControllerContext {
@@ -63,6 +64,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @FXML
     private BagageInformatieController bagageInformatieController;
 
+    /**
+     * opent de resultaten pagina
+     *
+     * @param event
+     */
     @FXML
     public void zoekAction(ActionEvent event) {
 
@@ -93,6 +99,9 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
 
     }
 
+    /**
+     * vult de Combobox met de kleuren met de informatie uit de database
+     */
     private void setKleurBox() {
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> kleuren = new ArrayList();
@@ -114,6 +123,9 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         secundaireKleur.getSelectionModel().selectFirst();
     }
 
+    /**
+     * vult de Combobox met de bagageTypes met de informatie uit de database
+     */
     private void setBagageTypeBox() {
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> types = new ArrayList();
@@ -133,6 +145,12 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         bagageType.getSelectionModel().selectFirst();
     }
 
+    /**
+     * zet alle parameters in een lijst
+     *
+     * @param parameters een lege lijst voor de parameters
+     * @return een lijst met de ingevoerde parameters
+     */
     private List<StringProperty> setParameters(List<StringProperty> parameters) {
         parameters.add(new SimpleStringProperty(vluchtnummer, "ArrivedWithFlight", vluchtnummer.getText()));
         System.out.println(vluchtnummer.getText());
@@ -153,6 +171,12 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         return checkIfFieldEmpty(parameters);
     }
 
+    /**
+     * controleert of de velden leeg zijn
+     *
+     * @param parameters lijst met parameters
+     * @return een lijst waarvan de lege parameters uit de lijst zijn verwijderd
+     */
     private List<StringProperty> checkIfFieldEmpty(List<StringProperty> parameters) {
         System.out.println("Parameters Size: " + parameters.size());
         List<StringProperty> itemsToDelete = new ArrayList();
@@ -170,6 +194,14 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         return parameters;
     }
 
+    /**
+     * Laadt een fxml bestand in een Parent object en geeft dat terug
+     *
+     * @param fxmlFileName naam van het fxml bestand die op het scherm ingeladen
+     * moet worden
+     * @return een Parent object met daarin de informatie van het fxml bestand
+     * indien er geen bestand is geselecteerd geeft het null terug
+     */
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
@@ -179,18 +211,25 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         }
     }
 
+    /**
+     * geeft het zoekformulier weer
+     */
     private void showSearchForm() {
         bagageResultaten.setVisible(false);
-        zoekParam.setVisible(true); 
+        zoekParam.setVisible(true);
         bagageInformatie.setVisible(false);
     }
-
+/**
+     * geeft het resultatenscherm weer
+     */
     private void showResults() {
         bagageResultaten.setVisible(true);
-        zoekParam.setVisible(false); 
+        zoekParam.setVisible(false);
         bagageInformatie.setVisible(false);
     }
-
+/**
+     * geeft het de bagagedetailsscherm weer
+     */
     private void showBagageDetails() {
 
         bagageResultaten.setVisible(false);
@@ -198,11 +237,16 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         bagageInformatie.setVisible(true);
     }
 
+    /**
+     * geeft het zoekformulier weer
+     */
     @Override
     public void notifyCloseChild() {
         showSearchForm();
     }
-
+/**
+     * geeft het resultatenscherm weer
+     */
     @Override
     public void notifyChildHasUpdated() {
         showResults();
@@ -213,6 +257,10 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * geeft een Bagage object door naar het informatiescherm
+     * @param ob  Bagage object met informatie
+     */
     @Override
     public void transferObject(Object ob) {
         Bagage bag = (Bagage) ob;
