@@ -4,6 +4,12 @@ import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.controllers.ParentControllerContext;
 import java.io.IOException;
 import java.net.URL;
+import java.security.CryptoPrimitive;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,11 +22,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 /*
 @author: Jose, David
-*/
-
+ */
 public class LoginController implements Initializable, ParentControllerContext {
 
     @FXML
@@ -54,7 +61,7 @@ public class LoginController implements Initializable, ParentControllerContext {
     //childnodeContentController
     @FXML
     private ContentController contentController;
-    
+
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
 
     public void showAdminPane() {
@@ -82,7 +89,7 @@ public class LoginController implements Initializable, ParentControllerContext {
     }
 
     @FXML
-    private void loginAction(ActionEvent event) {
+    private void loginAction(ActionEvent event) throws InvalidKeyException, NoSuchAlgorithmException {
         System.out.println("Logging IN");
 
 //            pane = (AnchorPane) loadFXMLFile("/fxml/Content.fxml");
@@ -95,24 +102,30 @@ public class LoginController implements Initializable, ParentControllerContext {
 
         String emailLogin = loginTextField.getText();
         String userRoll = gebruikerDAO.getUserRoll(emailLogin);
-        String passwordLogin = gebruikerDAO.getPassword(emailLogin);
+        String passwordLogin = passwordField.getText();
         String passwordDB = gebruikerDAO.getPassword(emailLogin);
 
-        System.out.println("userRoll: " + userRoll);
-        System.out.println("Password: " + passwordDB);
+        System.out.printf("UserRoll: %s\nPasswordDB: %s\nLoginPassword: %s\n", emailLogin, passwordDB, passwordLogin);
+
+        if (userRoll == null) {
+            Alert noUserAlert = new Alert(Alert.AlertType.ERROR);
+            noUserAlert.setContentText("Deze gebruiker bestaat niet.");
+            noUserAlert.showAndWait();
+            return;
+        }
 
         if (passwordLogin.equals(passwordDB)) {
             if (userRoll.equalsIgnoreCase("admin")) {
                 showAdminPane();
                 adminPanelController.setParentContext(this);
-            } else if (!userRoll.equalsIgnoreCase("admin")) {
+            } else {
                 showContent();
                 contentController.setParentContext(this);
-            } else {
-                Alert wrongPassAlert = new Alert(Alert.AlertType.WARNING);
-                wrongPassAlert.setContentText("Wrong password");
             }
         } else {
+            Alert wrongPassAlert = new Alert(Alert.AlertType.WARNING);
+            wrongPassAlert.setContentText("Wrong password");
+            wrongPassAlert.showAndWait();
             System.out.println("Something went wrong");
         }
 

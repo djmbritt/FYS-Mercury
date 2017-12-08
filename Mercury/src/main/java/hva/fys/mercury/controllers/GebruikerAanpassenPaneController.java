@@ -109,9 +109,8 @@ public class GebruikerAanpassenPaneController implements Initializable {
         MiddleName.setText(gbrkr.getMiddleName());
         SurName.setText(gbrkr.getSurName());
         WorkEmail.setText(gbrkr.getWorkEmail());
-        
-        //Je moet deze veranderen naar een andere waarde.
 
+        //Je moet deze veranderen naar een andere waarde.
         if (gebruiker.getBirthDate() != null) {
             BirthDate.setValue(LocalDate.parse(gebruiker.getBirthDate(), dateFormatter));
         }
@@ -185,16 +184,29 @@ public class GebruikerAanpassenPaneController implements Initializable {
                 gebruikerDAO.updateGebruiker(this.gebruiker);
                 confirmation.setContentText("Updated Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
                 confirmation.showAndWait();
+                this.parentController.displayStatusMessage("Saving new information");
+                this.parentController.notifyChildHasUpdated();
+                this.parentController.notifyCloseChild();
 
             } else {
-                gebruikerDAO.registreerGebruiker(this.gebruiker);
-                confirmation.setContentText("Saved new Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
-                confirmation.showAndWait();
+                String stringWorkMail = db.executeStringQuery(String.format("SELECT WorkEmail FROM Gebruikers WHERE WorkEmail='%s';", this.gebruiker.getWorkEmail()));
+
+                if (this.gebruiker.getWorkEmail().equalsIgnoreCase(stringWorkMail)) {
+                    Alert workMailAlertExist = new Alert(Alert.AlertType.ERROR);
+                    workMailAlertExist.setContentText("This workmail is allready being used.");
+                    workMailAlertExist.showAndWait();
+                    return;
+                } else {
+                    gebruikerDAO.registreerGebruiker(this.gebruiker);
+                    confirmation.setContentText("Saved new Gebruiker: " + this.gebruiker.getFirstName() + " to Database 😁");
+                    confirmation.showAndWait();
+                    this.parentController.displayStatusMessage("Saving new information");
+                    this.parentController.notifyChildHasUpdated();
+                    this.parentController.notifyCloseChild();
+
+                }
             }
 
-            this.parentController.displayStatusMessage("Saving new information");
-            this.parentController.notifyChildHasUpdated();
-            this.parentController.notifyCloseChild();
         } else {
             Alert wachtWoordIncorrect = new Alert(Alert.AlertType.ERROR);
             wachtWoordIncorrect.setContentText("Je wachtwoord komt niet overeen met elkaar.");
