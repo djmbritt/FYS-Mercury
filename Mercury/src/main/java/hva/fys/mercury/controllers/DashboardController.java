@@ -22,6 +22,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * FXML Controller class die de dashboard beheert
+ *
+ * @author José Niemel
+ */
 public class DashboardController implements Initializable {
 
     @FXML
@@ -49,6 +54,9 @@ public class DashboardController implements Initializable {
         initializeLineChart();
     }
 
+    /**
+     * Zet informatie van de database in de LineChart
+     */
     private void initializeLineChart() {
         BagageDAO bDAO = new BagageDAO();
         List<LocalDate> gevondenDates = bDAO.getdatesByStatus("gevonden");
@@ -79,6 +87,9 @@ public class DashboardController implements Initializable {
         lineChart.getData().addAll(gevonden, verloren);
     }
 
+    /**
+     * Zet informatie van de database in de Pie
+     */
     private void initializePieChart() {
         BagageDAO dao = new BagageDAO();
         int gevonden = dao.getStatusBagageSize("gevonden");
@@ -95,6 +106,11 @@ public class DashboardController implements Initializable {
 
     }
 
+    /**
+     * Berekent percentage van het aantal verloren bagage
+     * @param verloren aantal verloren bagagestukken
+     * @param gevonden aantal gevonden bagagestukken
+     */
     private void berekenPercentage(int verloren, int gevonden) {
         final int MAXIMUM_PERCENTAGE = 100;
         String format = "%.1f%% van de verloren bagage is gevonden";
@@ -105,11 +121,16 @@ public class DashboardController implements Initializable {
         chartLabel.setText(text);
     }
 
+    /**
+     * vernieuwd de informatie in de meestRecentetabel
+     */
     @FXML
     private void refresh() {
         fillTable();
     }
-
+ /**
+     * Zet informatie van de database in de Tabel
+     */
     private void fillTable() {
         BagageDAO dao = new BagageDAO();
         List<Bagage> dbBagageLijst = dao.getRecentBagage();
