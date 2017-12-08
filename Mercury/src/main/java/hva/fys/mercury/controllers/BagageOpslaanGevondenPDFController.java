@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 /**
  * FXML Controller class
  *
- * @author Eigenaar
+ * @author Mitchell Wan
  */
 public class BagageOpslaanGevondenPDFController implements Initializable {
 
@@ -49,11 +49,20 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
     @FXML
     private Label overigeLabel;
     
-    
+    /**
+     * Deze methode zorgt ervoor dat alles in deze methode wordt uitgevoerd zodra
+     * de pagina wordt opgestart
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }    
+    /**
+     * Deze methode zorgt ervoor dat alle labels worden gevuld met bagage informatie
+     * uit de bagagae model.
+     */
         public void fillLabelsG() {
         bagageLabel.setText(bag.getBagagelabel());
         bagageTypeLabel.setText(bag.getBagageType());
