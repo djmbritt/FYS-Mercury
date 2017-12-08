@@ -218,4 +218,9 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         showBagageDetails();
     }
 
+    @Override
+    public void deleteLastElement() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

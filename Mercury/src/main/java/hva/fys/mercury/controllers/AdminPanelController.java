@@ -3,7 +3,6 @@ package hva.fys.mercury.controllers;
 /**
  * author: David Britt
  */
-import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
 import java.net.URL;
@@ -60,8 +59,12 @@ public class AdminPanelController implements Initializable, ParentControllerCont
 
     @Override
     public void notifyCloseChild() {
-        gebruikerList.remove(gebruikerList.size() - 1);
         showTableView();
+    }
+
+    @Override
+    public void deleteLastElement() {
+        gebruikerList.remove(gebruikerList.size() - 1);
     }
 
     @Override

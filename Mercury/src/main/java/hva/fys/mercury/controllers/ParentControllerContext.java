@@ -16,6 +16,8 @@ public interface ParentControllerContext {
     public void notifyChildHasUpdated();
 
     public void displayStatusMessage(String message);
+    
+    public void deleteLastElement();
 
     public void transferObject(Object o);
 }

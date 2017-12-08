@@ -1,15 +1,10 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
-import hva.fys.mercury.controllers.ParentControllerContext;
 import java.io.IOException;
 import java.net.URL;
-import java.security.CryptoPrimitive;
 import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+
 
 /*
 @author: Jose, David
@@ -92,7 +86,6 @@ public class LoginController implements Initializable, ParentControllerContext {
     private void loginAction(ActionEvent event) throws InvalidKeyException, NoSuchAlgorithmException {
         System.out.println("Logging IN");
 
-//            pane = (AnchorPane) loadFXMLFile("/fxml/Content.fxml");
         if (loginTextField.getText().isEmpty() && passwordField.getText().isEmpty()) {
             Alert emptyAlert = new Alert(Alert.AlertType.WARNING);
             emptyAlert.setContentText("Voer in je jouwGebruikersNaam@corendon.com en wachtwoord AUB.");
@@ -163,6 +156,11 @@ public class LoginController implements Initializable, ParentControllerContext {
 
     @Override
     public void transferObject(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteLastElement() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

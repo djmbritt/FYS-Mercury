@@ -8,14 +8,12 @@ package hva.fys.mercury.controllers;
 import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class

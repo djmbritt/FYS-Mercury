@@ -111,15 +111,15 @@ public class GebruikerAanpassenPaneController implements Initializable {
         WorkEmail.setText(gbrkr.getWorkEmail());
 
         //Je moet deze veranderen naar een andere waarde.
-        if (gebruiker.getBirthDate() != null) {
+        if (gebruiker.getBirthDate() != null && !gebruiker.getBirthDate().isEmpty()) {
             BirthDate.setValue(LocalDate.parse(gebruiker.getBirthDate(), dateFormatter));
         }
 
-        if (gebruiker.getStartEmploymentDate() != null) {
+        if (gebruiker.getStartEmploymentDate() != null && !gebruiker.getStartEmploymentDate().isEmpty()) {
             StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getStartEmploymentDate(), dateFormatter));
         }
 
-        if (gebruiker.getEndDateEmployment() != null) {
+        if (gebruiker.getEndDateEmployment() != null && !gebruiker.getEndDateEmployment().isEmpty()) {
             StartEmploymentDate.setValue(LocalDate.parse(gebruiker.getEndDateEmployment(), dateFormatter));
         }
 
@@ -132,14 +132,15 @@ public class GebruikerAanpassenPaneController implements Initializable {
         HomeAdress.setText(gbrkr.getHomeAdress());
         PostalCode.setText(gbrkr.getPostalCode());
 
-        WachtWoord.setText(gebruiker.getWachtWoord());
-        WachtWoordVerificatie.setText(gebruiker.getWachtWoord());
+        WachtWoord.setText(gebruikerDAO.getPassword(gebruiker.getWorkEmail()));
+        WachtWoordVerificatie.setText(gebruikerDAO.getPassword(gebruiker.getWorkEmail()));
     }
 
     @FXML
     public void handleCancelAction(ActionEvent event) {
         System.out.println("Canceling");
         this.gebruiker = null;
+        this.parentController.deleteLastElement();
         this.parentController.displayStatusMessage("Cancelled editing found luggage...");
         this.parentController.notifyCloseChild();
     }
