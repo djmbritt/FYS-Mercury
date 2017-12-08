@@ -7,7 +7,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>Mercury-Temp-UML</name>
+    <name>Mercury</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,15 +17,7 @@
     <organization> 
         <name>Logistic Blockchain Solutions</name>
     </organization>
-    
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.42</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
+
 
     <build>
         <plugins>
@@ -109,7 +101,7 @@
                         <additionalClasspathElement>${java.home}/lib/jfxrt.jar</additionalClasspathElement>
                     </additionalClasspathElements>
                 </configuration>
-            </plugin> 
+            </plugin>
         </plugins>
     </build>
 

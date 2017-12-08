@@ -22,7 +22,7 @@
    <top>
       <Pane prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: #d81e05;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="14.0" layoutY="4.0" text="Vermist bagage registratie formulier" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="4.0" text="Gevonden bagage registratie formulier" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -188,7 +188,7 @@
               </rowConstraints>
                <children>
                   <Button id="annuleerBTN" fx:id="annuleerBTN" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" stylesheets="@../styles/registreervermist.css" text="Annuleer" GridPane.columnIndex="1" />
-                  <Button id="opslaanBTN" fx:id="opslaanBTN" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" stylesheets="@../styles/registreervermist.css" text="Opslaan" textFill="WHITE" GridPane.columnIndex="3" />
+                  <Button id="opslaanBTN" fx:id="opslaanBTN" mnemonicParsing="false" stylesheets="@../styles/registreervermist.css" text="Opslaan" textFill="WHITE" GridPane.columnIndex="3" />
                </children>
             </GridPane>
          </children>

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="parentNode" minHeight="600.0" minWidth="900.0" styleClass="base" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.RootController">
+<BorderPane fx:id="parentNode" minHeight="600.0" minWidth="900.0" styleClass="base" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.FXMLController">
    <top>
       <GridPane id="mainHeader" alignment="TOP_CENTER" styleClass="header" stylesheets="@../styles/Styles.css">
         <columnConstraints>
@@ -215,9 +215,6 @@
          </top>
          <center>
             <StackPane fx:id="workspace" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </center>
-         <left>
-            <VBox id="gap" prefHeight="514.0" prefWidth="6.0" BorderPane.alignment="CENTER" />
-         </left></BorderPane>
+         </center></BorderPane>
    </center>
 </BorderPane>
