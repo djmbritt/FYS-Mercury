@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * FXMLController Class die de content van de applicatie beheert
+ * @author Yassine Idrissi
+ */
 public class ContentController implements Initializable {
 
     private ParentControllerContext parentController;
