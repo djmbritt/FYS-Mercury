@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hva.fys.mercury.models;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
 
 /**
- *
- * @author GG
+ * Deze model bevat alle gebruiker informatie.
+ * @author David Britt
  */
 public class Gebruiker {
 
