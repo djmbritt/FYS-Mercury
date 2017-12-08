@@ -28,36 +28,36 @@
     -fx-faint-focus-color: transparent;
 }
 
-.button#opslaanBTN{
+.button#opslaanBTNG{
     -fx-background-color: #6db93f; 
     -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#opslaanBTN:hover{
+.button#opslaanBTNG:hover{
     -fx-background-color: #76cc42;
 }
 
-.button#annuleerBTN{
+.button#annuleerBTNG{
     -fx-background-color: #d81e05; 
     -fx-border-color: #d81e05;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#annuleerBTN:hover{
+.button#annuleerBTNG:hover{
     -fx-background-color: #f92306;
 }
 
-.button#newFormBTN{
+.button#newFormBTNG{
     -fx-background-color: #6db93f; 
     -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#newFormBTN:hover{
+.button#newFormBTNG:hover{
     -fx-background-color: #76cc42;
 }
 

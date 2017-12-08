@@ -1,0 +1,79 @@
+.Content{ 
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Open Sans";
+    -fx-font-size:18px; 
+    -fx-font-weight: BOLDER ;
+    -fx-font-style: normal; 
+
+    -fx-text-fill: #f7f7f7;
+}
+
+.Banner{ 
+    -fx-background-color: #ececec;
+}
+
+
+.Title{ 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 40px; 
+    -fx-font-weight: BOLDER ;
+    -fx-font-style: normal; 
+    -fx-text-fill: #db1f0a;
+}
+
+.opslaanBox{
+    -fx-background-color: #ffffff; 
+    -fx-border-color: #f7f8f7;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: BOLD ;
+    -fx-text-fill: #d81e05; 
+}
+
+.button#opslaanBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#opslaanBTN:hover{
+    -fx-background-color: #76cc42;
+}
+
+.button#terugBTN{
+    -fx-background-color: #848484; 
+    -fx-border-color: #848484;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#terugBTN:hover{
+    -fx-background-color: #D8D8D8;
+}
+
+.button#veranderLocatieBTN{
+    -fx-background-color: #01A9DB; 
+    -fx-border-color: #01A9DB;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#veranderLocatieBTN:hover{
+    -fx-background-color: #00BFFF;
+}
+
+.button#bewerkBTN{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#bewerkBTN:hover{
+    -fx-background-color: #76cc42;
+}
+
+.Opslaantextbox{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}

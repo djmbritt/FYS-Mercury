@@ -1,7 +1,63 @@
-/*
- * Empty Stylesheet file.
- */
+.Content{ 
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Open Sans";
+    -fx-font-size:18px; 
+    -fx-font-weight: BOLDER ;
+    -fx-font-style: normal; 
 
-.mainFxmlClass {
+    -fx-text-fill: #f7f7f7;
+}
 
+.Banner{ 
+    -fx-background-color: #ececec;
+}
+
+.searchBox{ 
+    -fx-background-color: #fdfdfd;
+    -fx-border-color:#db1f0a;
+    -fx-border-radius: 10px;
+}
+
+.Title{ 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 40px; 
+    -fx-font-weight: BOLDER ;
+    -fx-font-style: normal; 
+    -fx-text-fill: #db1f0a;
+}
+
+.Result{ 
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 24px;  
+    -fx-font-style: normal; 
+    -fx-text-fill: #808080;
+}
+
+.TextField{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent;
+}
+.ComboBox{  
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #808080;
+    -fx-border-radius: 10px;
+
+}
+
+.button#searchBtn{
+    -fx-background-color: #6db93f; 
+    -fx-border-color: #6db93f;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #ffffff;
+}
+
+.button#searchBtn:hover{
+    -fx-background-color: #76cc42;
+} 
+
+.backButton{
+    -fx-focus-color: #d81e05;
+    -fx-faint-focus-color: transparent; 
+    -fx-border-radius: 5px;
+    -fx-background-color: #fdfdfd;
 }
