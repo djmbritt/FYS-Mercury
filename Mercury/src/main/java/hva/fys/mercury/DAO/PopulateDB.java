@@ -209,35 +209,35 @@ public class PopulateDB {
 
     public static void insertLuchthaven() {
         myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('AMS', 'Amsterdam', 'The Netherlands', 1, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('AYT', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('IST', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BJV', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('DLM', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ADB', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('GZP', 'Amsterdam', 'Turkey', 3, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ECN', 'Amsterdam', 'Cyprus (North)', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('RAK', 'Amsterdam', 'Morocco', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('HER', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('KGS', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('RHO', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ZTH', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('CFU', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('MJT', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('OHD', 'Amsterdam', 'Macedonia', 1, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('SMI', 'Amsterdam', 'Greece', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('LPA', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('TFO', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('PMI', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('AGP', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('FUE', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('FAO', 'Amsterdam', 'Portugal', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ACE', 'Amsterdam', 'Spain', 0, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('HRG', 'Amsterdam', 'Egypt', 2, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('NBE', 'Amsterdam', 'Tunesië', 1, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('DXB', 'Amsterdam', 'United Arab Emirates', 4, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BOJ', 'Amsterdam', 'Bulgaria', 2, 'TRUE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BJL', 'Amsterdam', 'Gambia', 0, 'FALSE')");
-        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('CTA', 'Amsterdam', 'Italy', 1, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('AYT', 'Antalya', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('IST', 'Istanbul', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BJV', 'Bodrum', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('DLM', 'Dalaman', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ADB', 'Izmir', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('GZP', 'Gazipasa-Alanya', 'Turkey', 3, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ECN', 'Nicosia-Ercan', 'Cyprus (North)', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('RAK', 'Marrakech', 'Morocco', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('HER', 'Crete (Heraklion)', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('KGS', 'Kos', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('RHO', 'Rodes', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ZTH', 'Zakynthos', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('CFU', 'Corfu', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('MJT', 'Mytilene', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('OHD', 'Ohrid', 'Macedonia', 1, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('SMI', 'Samos', 'Greece', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('LPA', 'Gran Canaria', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('TFO', 'Tenerife', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('PMI', 'Palma de Mallorca', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('AGP', 'Malaga', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('FUE', 'Fuerteventura', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('FAO', 'Faro', 'Portugal', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('ACE', 'Lanzarote', 'Spain', 0, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('HRG', 'Hurghada', 'Egypt', 2, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('NBE', 'Enfidha', 'Tunesië', 1, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('DXB', 'Dubai', 'United Arab Emirates', 4, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BOJ', 'Burgas', 'Bulgaria', 2, 'TRUE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('BJL', 'Banjul', 'Gambia', 0, 'FALSE')");
+        myJDBC.executeUpdateQuery("INSERT INTO LuchtHaven VALUES('CTA', 'Sicily (Catania)', 'Italy', 1, 'TRUE')");
     }
 
 }
