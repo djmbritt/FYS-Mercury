@@ -27,9 +27,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- * FXML Controller class
+ * FXML Controller class beheert het scherm voor het aanpasssen van de gebruiker
  *
- * @author djmbritt
+ * @author David Britt
  */
 public class GebruikerAanpassenPaneController implements Initializable {
 
@@ -85,13 +85,15 @@ public class GebruikerAanpassenPaneController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         WorkLocation.getItems().addAll(werkLocatieList);
         StatusEmployment.getItems().addAll(statusList);
     }
-
+ 
     public void setParentContext(ParentControllerContext pC, Gebruiker gbrkr) {
         System.out.println("this.parentcontroller: " + pC.toString());
         System.out.println("this.founLuggage: " + gbrkr.toString());
@@ -101,6 +103,10 @@ public class GebruikerAanpassenPaneController implements Initializable {
         pC.displayStatusMessage("Editing found luggage");
     }
 
+    /**
+     * vul alle velden in met de informatie van de geselecteerde gebruiker
+     * @param gbrkr Gebruiker model met daarin informatie over de gebruiker     
+     */
     private void initFields(Gebruiker gbrkr) {
 
         EmployeeID.setText(Integer.toString(gbrkr.getEmployeeID()));
@@ -136,6 +142,10 @@ public class GebruikerAanpassenPaneController implements Initializable {
         WachtWoordVerificatie.setText(gebruikerDAO.getPassword(gebruiker.getWorkEmail()));
     }
 
+    /**
+     * annuleert het bewerken van de Gebruiker
+     * @param event 
+     */
     @FXML
     public void handleCancelAction(ActionEvent event) {
         System.out.println("Canceling");
@@ -145,6 +155,10 @@ public class GebruikerAanpassenPaneController implements Initializable {
         this.parentController.notifyCloseChild();
     }
 
+    /**
+     * slaat informatie van de gebruiker op en verstuurt dat naar de database
+     * @param event 
+     */
     @FXML
     public void handleSaveAction(ActionEvent event) {
         System.out.println("Saving....");
@@ -216,6 +230,10 @@ public class GebruikerAanpassenPaneController implements Initializable {
 
     }
 
+    /**
+     * maakt alle aanpassingen ongedaan
+     * @param event 
+     */
     @FXML
     public void handleResetAction(ActionEvent event) {
 
@@ -249,6 +267,10 @@ public class GebruikerAanpassenPaneController implements Initializable {
         this.parentController.displayStatusMessage("resseting information");
     }
 
+    /**
+     * maakt velden leeg
+     * @param event 
+     */
     @FXML
     public void handleClearAction(ActionEvent event) {
 

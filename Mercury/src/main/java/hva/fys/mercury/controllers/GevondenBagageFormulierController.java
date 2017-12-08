@@ -1,7 +1,7 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.BagageDAO;
-import hva.fys.mercury.models.Bagage; 
+import hva.fys.mercury.models.Bagage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +22,7 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author Eigenaar
+ * @author Mitchell Wan
  */
 public class GevondenBagageFormulierController implements Initializable {
 
@@ -42,14 +42,21 @@ public class GevondenBagageFormulierController implements Initializable {
     public ComboBox bagageTypeG;
     public TextField IATAG;
 
+    @FXML
+    private Button opslaanBTNG;
+    @FXML
+    private Label opgeslagenLabelG;
+    @FXML
+    private Label denyLabelG;
+
     private BagageDAO dbBagage;
 
-        @FXML
+    @FXML
     private AnchorPane BagagePDFG;
-    
+
     @FXML
     private GridPane BagageOpslaanG;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dbBagage = new BagageDAO();
@@ -70,6 +77,13 @@ public class GevondenBagageFormulierController implements Initializable {
         );
     }
 
+    /**
+     * controleert of alle TextFields zijn ingevuld en geeft een boolean waarde
+     * terug
+     *
+     * @return een boolean met waarde 'true' als ze zijn ingevuld en de waarde
+     * 'false' als ze niet zijn ingevuld
+     */
     public boolean checkText() {
         TextField[] text = {
             bagageLabelG,
@@ -92,6 +106,9 @@ public class GevondenBagageFormulierController implements Initializable {
         return true;
     }
 
+    /**
+     * maakt alle TextFields onbruikbaar
+     */
     public void disableFields() {
         TextField[] text = {
             bagageLabelG,
@@ -112,6 +129,9 @@ public class GevondenBagageFormulierController implements Initializable {
         }
     }
 
+    /**
+     * maakt alle TextFields bruikbaar
+     */
     public void enableFields() {
         TextField[] text = {
             bagageLabelG,
@@ -131,13 +151,12 @@ public class GevondenBagageFormulierController implements Initializable {
         }
     }
 
-    @FXML
-    private Button opslaanBTNG;
-    @FXML
-    private Label opgeslagenLabelG;
-    @FXML
-    private Label denyLabelG;
-
+    /**
+     * Slaat alle informatie die in de textfields is opgeslagen op en verstuurt
+     * de informatie naar de database
+     *
+     * @param event
+     */
     @FXML
     private void opslaanBagageG(ActionEvent event) {
         if (checkText() == false) {
@@ -168,6 +187,9 @@ public class GevondenBagageFormulierController implements Initializable {
         }
     }
 
+    /**
+     * maak alle TextFields leeg
+     */
     public void annuleerText() {
         TextField[] annuleer = {
             bagageLabelG,
@@ -188,6 +210,11 @@ public class GevondenBagageFormulierController implements Initializable {
         }
     }
 
+    /**
+     * maakt alle TextFields, DatePickers en Labels leeg en onbruikbaar
+     *
+     * @param event
+     */
     @FXML
     private void annuleerBagageG(ActionEvent event) {
         denyLabelG.setText("");
@@ -198,6 +225,11 @@ public class GevondenBagageFormulierController implements Initializable {
         showFormulier();
     }
 
+    /**
+     * zorgt ervoor dat alle velden en labels gereset worden.
+     *
+     * @param event
+     */
     @FXML
     private void nieuwFormulierG(ActionEvent event) {
         denyLabelG.setText("");
@@ -208,21 +240,20 @@ public class GevondenBagageFormulierController implements Initializable {
         enableFields();
         showFormulier();
     }
-        private void showPDF() {
+
+    /**
+     * geeft het pdf formulier weer
+     */
+    private void showPDF() {
         BagagePDFG.setVisible(true);
-        BagageOpslaanG.setVisible(false); 
-    }
-        private void showFormulier() {
-        BagagePDFG.setVisible(false);
-        BagageOpslaanG.setVisible(true); 
+        BagageOpslaanG.setVisible(false);
     }
 
-    private Parent loadFXMLFile(String fxmlFileName) {
-        try {
-            return FXMLLoader.load(getClass().getResource(fxmlFileName));
-        } catch (IOException ex) {
-            System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
-            return null;
-        }
+    /**
+     * geeft het registratie formulier weer
+     */
+    private void showFormulier() {
+        BagagePDFG.setVisible(false);
+        BagageOpslaanG.setVisible(true);
     }
 }

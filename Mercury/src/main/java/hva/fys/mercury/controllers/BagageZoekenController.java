@@ -26,6 +26,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+/**
+ * 
+ * @author José Niemel
+ */
 public class BagageZoekenController implements Initializable, ParentControllerContext {
 
     @FXML
