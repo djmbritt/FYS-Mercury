@@ -14,7 +14,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageOpslaanVerlorenPDFController">
+<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageOpslaanVerlorenPDFController">
     <stylesheets>
         <URL value="@/styles/bagageopslaanverlorenpdf.css" />
     </stylesheets>

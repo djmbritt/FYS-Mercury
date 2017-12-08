@@ -88,10 +88,15 @@ public class PopulateDB {
     }
 
     public static void insertGebruiker() {
-        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(123456789, 'A. F. G', 'Anouk', 'Klouw', 'Muller', '10-07-1990', '01-01-2015', 'thisemail@email.com', 'Amsterdam', 'Working', null, 'thatemail@email.com', '0645188667', null, 'Manager', 'Rooi Bosal 49', '4513 BJ', 'wachtwoord')");
-        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(21123432, 'H. F. G', 'Regina', 'Plop', 'Croes', '19-05-1970', '01-01-2015', 'thisemail@email.com', 'Den Haag', 'Working', '', 'thatemail@email.com', '0645188667', '', 'Balie Medewerker', 'Perikweg 3', '4513 BJ', 'wachtwoord')");
-        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(45646545, 'S. J. J', 'Butchi', '', 'Britt', '10-07-1980', '01-01-2015', 'admin@corendon.com', 'Santa Cruz', 'Working', '', 'personal@corendon.com', '0645188667', '', 'Admin', 'Cleynderweg 6', '4513 BJ', 'wachtwoord')");
-        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853445, 'Q. G. D', 'Barbara', 'Diest', 'Delaquest', '10-05-1996', '01-01-2015', 'thisemail@email.com', 'Urataka', 'Working', '', 'thatemail@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(123456789, 'A. F. G', 'Anouk', 'Klouw', 'Muller', '10-07-1990', '01-01-2015', 'amuller', 'Amsterdam', 'Working', null, 'that1email@email.com', '0645188667', null, 'Manager', 'Rooi Bosal 49', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(21123432, 'H. F. G', 'Regina', 'Plop', 'Croes', '19-05-1970', '01-01-2015', 'rcroes', 'Den Haag', 'Working', '', 'that2email@email.com', '0645188667', '', 'Balie Medewerker', 'Perikweg 3', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(45646534, 'S. J. J', 'Butchi', '', 'Britt', '10-07-1980', '01-01-2015', 'bbritt', 'Santa Cruz', 'Working', '', 'personal@corendon.com', '0645188667', '', 'Admin', 'Cleynderweg 6', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853445, 'Q. G. D', 'Barbara', 'Diest', 'Delaquest', '10-05-1996', '01-01-2015', 'bdelaquest', 'Urataka', 'Working', '', 'that3email@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853446, 'Q. G. D', 'David', 'Zee', 'Britt', '10-05-1996', '01-01-2015', 'dbritt', 'Urataka', 'Working', '', 'that3email@email.com', '0645188667', '', 'admin', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853447, 'Q. G. D', 'Jose', 'Baasman', 'Niemel', '10-05-1996', '01-01-2015', 'jniemel', 'Urataka', 'Working', '', 'that4email@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853448, 'Q. G. D', 'Mitchel', 'Racer', 'Wan', '10-05-1996', '01-01-2015', 'mwan', 'Urataka', 'Working', '', 'that5email@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853449, 'Q. G. D', 'Yassine', 'Hasselt', 'Idrisi', '10-05-1996', '01-01-2015', 'yidrisi', 'Urataka', 'Working', '', 'that6email@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
+        myJDBC.executeUpdateQuery("INSERT INTO Gebruikers VALUES(67853442, 'Q. G. D', 'Daniel', 'Steen', 'Den Toom', '10-05-1996', '01-01-2015', 'ddentoom', 'Urataka', 'Working', '', 'that7email@email.com', '0645188667', '', 'Balie Medewerker', 'Cas Ariba 14', '4513 BJ', 'wachtwoord')");
     }
 
     public static void insertBagageTypes() {
