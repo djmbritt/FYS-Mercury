@@ -18,9 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
-
-/*
-@author: Jose, David
+/**
+ * FXML Controller class die de login pagina beheert
+ *
+ * @author José Niemel
+ * @author David Britt
  */
 public class LoginController implements Initializable, ParentControllerContext {
 
@@ -58,6 +60,9 @@ public class LoginController implements Initializable, ParentControllerContext {
 
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
 
+    /**
+     * geeft het scherm voor de Administrator weer
+     */
     public void showAdminPane() {
         System.out.println("loading Admin Pane");
         System.out.println("loginAnchor: " + this.loginAnchor);
@@ -66,6 +71,9 @@ public class LoginController implements Initializable, ParentControllerContext {
         this.adminPanel.setVisible(true);
     }
 
+    /**
+     * geeft het Loginscherm weer
+     */
     public void showLoginPane() {
         if (this.adminPanel.visibleProperty().getValue()) {
             this.adminPanel.setVisible(false);
@@ -76,12 +84,20 @@ public class LoginController implements Initializable, ParentControllerContext {
         this.parentNode.setVisible(true);
     }
 
-    //Parent controller methods
+    /**
+     * geeft het Hoofdscherm voor de reguliere gebruikers weer
+     */
     private void showContent() {
         this.parentNode.setVisible(false);
         this.content.setVisible(true);
     }
 
+    /**
+     * Gaat na of de ingevoerde informatie overeenkomt met de informatie in de database.
+     * @param event
+     * @throws InvalidKeyException
+     * @throws NoSuchAlgorithmException
+     */
     @FXML
     private void loginAction(ActionEvent event) throws InvalidKeyException, NoSuchAlgorithmException {
         System.out.println("Logging IN");
@@ -129,6 +145,9 @@ public class LoginController implements Initializable, ParentControllerContext {
 
     }
 
+    /**
+     * geeft de loginPagina weer
+     */
     @Override
     public void notifyCloseChild() {
         System.out.println("Closing child pane: childpane");
@@ -140,6 +159,11 @@ public class LoginController implements Initializable, ParentControllerContext {
 //        statusMessage.setText(message);
     }
 
+    /**
+     * Laadt een fxml bestand in een Parent object en geeft dat terug
+     * @param fxmlFileName naam van het fxml bestand die op het scherm ingeladen moet worden
+     * @return  een Parent object met daarin de informatie van het fxml bestand indien er geen bestand is geselecteerd geeft het null terug
+     */
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
