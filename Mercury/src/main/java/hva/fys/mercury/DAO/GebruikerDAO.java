@@ -153,7 +153,7 @@ public class GebruikerDAO {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
         DB_MANAGER.close();
