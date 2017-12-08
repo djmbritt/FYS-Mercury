@@ -13,9 +13,9 @@ public class DatabaseManager {
     private static final String DB_DEFAULT_DATABASE = "sys";
     private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
     private static final String DB_DEFAULT_ACCOUNT = "root";
-//   private static final String DB_DEFAULT_PASSWORD = "root";
-//    private static final String DB_DEFAULT_PASSWORD = "kunming2000"; 
-     private static final String DB_DEFAULT_PASSWORD = "admin"; 
+//    private static final String DB_DEFAULT_PASSWORD = "root";
+    // private static final String DB_DEFAULT_PASSWORD = "kunming2000"; 
+        private static final String DB_DEFAULT_PASSWORD = "admin"; 
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
     private final static String DB_DRIVER_PREFIX = "jdbc:mysql://";
     private final static String DB_DRIVER_PARAMETERS = "?useSSL=false";
@@ -119,8 +119,9 @@ public class DatabaseManager {
 
     /**
      * *
-     * Executes an SQL query that yields a ResultSet with the outcome of the query. This outcome may
-     * be a single row with a single column in case of a scalar outcome.
+     * Executes an SQL query that yields a ResultSet with the outcome of the
+     * query. This outcome may be a single row with a single column in case of a
+     * scalar outcome.
      *
      * @param sql the full sql text of the query.
      * @return a ResultSet object that can iterate along all rows
@@ -198,9 +199,9 @@ public class DatabaseManager {
 
     /**
      * *
-     * echoes an exception and its stack trace on the system console. remembers the message of the
-     * first error that occurs for later reference. closes the connection such that no further
-     * operations are possible.
+     * echoes an exception and its stack trace on the system console. remembers
+     * the message of the first error that occurs for later reference. closes
+     * the connection such that no further operations are possible.
      *
      * @param e
      */
