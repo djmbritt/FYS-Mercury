@@ -1,7 +1,7 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.BagageDAO;
-import hva.fys.mercury.models.Bagage; 
+import hva.fys.mercury.models.Bagage;
 import hva.fys.mercury.models.Reiziger;
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +17,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -25,62 +24,84 @@ import javafx.scene.layout.GridPane;
  *
  * @author Mitchell Wan
  */
-public class RegistreerVermistController implements Initializable {
+public class RegistreerVermistController implements Initializable, ParentControllerContext {
 
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
     @FXML
-    TextField voornaam;
-    public TextField achternaam;
-    public TextField adres;
-    public TextField woonplaats;
-    public TextField postcode;
-    public TextField land;
-    public TextField telefoonnummer;
-    public TextField email;
-    public TextField bagageLabel;
-    public TextField vluchtNummer;
-    public DatePicker datumGevonden;
-    public TextField tijdGevonden;
-    public TextField locatieGevonden;
-    public ComboBox bagageType;
-    public ComboBox status;
-    public TextField merk;
-    public TextField primaireKleur;
-    public TextField secundaireKleur;
-    public TextField formaat;
-    public TextField gewicht;
-    public TextField IATA;
-    public TextField overigeEigenschappen;
-    
+    public TextField voornaam;
     @FXML
-    private AnchorPane BagagePDF;
-    
+    public TextField achternaam;
+    @FXML
+    public TextField adres;
+    @FXML
+    public TextField woonplaats;
+    @FXML
+    public TextField postcode;
+    @FXML
+    public TextField land;
+    @FXML
+    public TextField telefoonnummer;
+    @FXML
+    public TextField email;
+    @FXML
+    public TextField bagageLabel;
+    @FXML
+    public TextField vluchtNummer;
+    @FXML
+    public DatePicker datumGevonden;
+    @FXML
+    public TextField tijdGevonden;
+    @FXML
+    public TextField locatieGevonden;
+    @FXML
+    public ComboBox bagageType;
+    @FXML
+    public ComboBox status;
+    @FXML
+    public TextField merk;
+    @FXML
+    public TextField primaireKleur;
+    @FXML
+    public TextField secundaireKleur;
+    @FXML
+    public TextField formaat;
+    @FXML
+    public TextField gewicht;
+    @FXML
+    public TextField IATA;
+    @FXML
+    public TextField overigeEigenschappen;
+
     @FXML
     private GridPane BagageOpslaan;
-    
+
+    @FXML
+    private GridPane bagageOpslaanVerlorenPDF;
+
     @FXML
     private BagageOpslaanVerlorenPDFController bagageOpslaanVerlorenPDFController;
-    
+
     private ParentControllerContext parentController;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        status.getItems().addAll(
-                "Vermist",
-                "Gevonden",
-                "Afgehandeld"
-        );
-        bagageType.getItems().addAll(
-                "Koffer",
-                "Tas",
-                "Rugzak",
-                "Doos",
-                "Sporttas",
-                "Zakenkoffer",
-                "Kist",
-                "Anders"
-        );
+//        System.out.println("Starting registreer Verloren Bagage");
+//        status.getItems().addAll(
+//                "Vermist",
+//                "Gevonden",
+//                "Afgehandeld"
+//        );
+//        bagageType.getItems().addAll(
+//                "Koffer",
+//                "Tas",
+//                "Rugzak",
+//                "Doos",
+//                "Sporttas",
+//                "Zakenkoffer",
+//                "Kist",
+//                "Anders"
+//        );
     }
 
     public boolean checkText() {
@@ -196,7 +217,7 @@ public class RegistreerVermistController implements Initializable {
             reiziger.setEmail(email.getText());
             bagage.setBagagelabel(bagageLabel.getText());
             bagage.setVluchtNummer(vluchtNummer.getText());
-            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("d-MMM-yyyy")));
+            bagage.setDatumGevonden(datumGevonden.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
             bagage.setTijdGevonden(tijdGevonden.getText());
             bagage.setGevondenLocatie(locatieGevonden.getText());
             bagage.setBagageType(bagageType.getValue().toString());
@@ -212,8 +233,9 @@ public class RegistreerVermistController implements Initializable {
             dbBagage.registreerBagage(bagage);
             opgeslagenLabel.setText("Information succesfully saved!");
             System.out.println("Gegevens zijn opgeslagen!");
-            bagageOpslaanVerlorenPDFController.fillLabels();
-            showPDF();
+//            bagageOpslaanVerlorenPDFController.fillLabels
+//            bagageOpslaanVerlorenPDFController.setParentContext(this, bagage, reiziger);
+//            showPDF();
         }
     }
 
@@ -263,17 +285,19 @@ public class RegistreerVermistController implements Initializable {
         denyLabel.setText("");
         opgeslagenLabel.setText("");
         showFormulier();
-        
+
     }
-    
-        private void showPDF() {
-        BagagePDF.setVisible(true);
-        BagageOpslaan.setVisible(false); 
+
+    private void showPDF() {
+        this.bagageOpslaanVerlorenPDF.setVisible(true);
+        this.BagageOpslaan.setVisible(false);
     }
-        private void showFormulier() {
-        BagagePDF.setVisible(false);
-        BagageOpslaan.setVisible(true); 
+
+    private void showFormulier() {
+        this.bagageOpslaanVerlorenPDF.setVisible(false);
+        this.BagageOpslaan.setVisible(true);
     }
+
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
@@ -282,6 +306,25 @@ public class RegistreerVermistController implements Initializable {
             return null;
         }
     }
-}
 
-    
+    @Override
+    public void notifyCloseChild() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void notifyChildHasUpdated() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void displayStatusMessage(String message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void transferObject(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}
