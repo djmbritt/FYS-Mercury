@@ -2,16 +2,13 @@ package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.BagageDAO;
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
-import java.io.IOException;
+import hva.fys.mercury.models.Reiziger; 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.fxml.FXML; 
+import javafx.fxml.Initializable; 
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -20,11 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 /**
- * FXML Controller class
+ * FXML Controller class die de vermiste bagage registreert
  *
  * @author Mitchell Wan
  */
-public class RegistreerVermistController implements Initializable, ParentControllerContext {
+public class RegistreerVermistController implements Initializable  {
 
     Bagage bagage = new Bagage();
     Reiziger reiziger = new Reiziger();
@@ -82,28 +79,28 @@ public class RegistreerVermistController implements Initializable, ParentControl
     @FXML
     private BagageOpslaanVerlorenPDFController bagageOpslaanVerlorenPDFController;
 
+    @FXML
+    private Button opslaanBTN;
+
+    @FXML
+    private Label opgeslagenLabel;
+
+    @FXML
+    private Label denyLabel;
+
     private ParentControllerContext parentController;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        System.out.println("Starting registreer Verloren Bagage");
-//        status.getItems().addAll(
-//                "Vermist",
-//                "Gevonden",
-//                "Afgehandeld"
-//        );
-//        bagageType.getItems().addAll(
-//                "Koffer",
-//                "Tas",
-//                "Rugzak",
-//                "Doos",
-//                "Sporttas",
-//                "Zakenkoffer",
-//                "Kist",
-//                "Anders"
-//        );
     }
 
+    /**
+     * controleert of alle TextFields zijn ingevuld en geeft een boolean waarde
+     * terug
+     *
+     * @return een boolean met waarde 'true' als ze zijn ingevuld en de waarde
+     * 'false' als ze niet zijn ingevuld
+     */
     public boolean checkText() {
         TextField[] text = {
             voornaam,
@@ -136,6 +133,9 @@ public class RegistreerVermistController implements Initializable, ParentControl
         return true;
     }
 
+    /**
+     * maakt alle TextFields onbruikbaar
+     */
     public void disableFields() {
         TextField[] text = {
             voornaam,
@@ -164,6 +164,9 @@ public class RegistreerVermistController implements Initializable, ParentControl
         datumGevonden.getEditor().setDisable(true);
     }
 
+    /**
+     * maakt alle TextFields bruikbaar
+     */
     public void enableFields() {
         TextField[] text = {
             voornaam,
@@ -192,15 +195,13 @@ public class RegistreerVermistController implements Initializable, ParentControl
         datumGevonden.getEditor().setDisable(false);
         datumGevonden.getEditor().setText("");
     }
-    @FXML
-    private Button opslaanBTN;
 
-    @FXML
-    private Label opgeslagenLabel;
-
-    @FXML
-    private Label denyLabel;
-
+    /**
+     * Slaat alle informatie die in de textfields is opgeslagen op en verstuurt
+     * de informatie naar de database
+     *
+     * @param event
+     */
     public void opslaanBagage(ActionEvent event) {
         BagageDAO dbBagage = new BagageDAO();
         if (checkText() == false) {
@@ -239,6 +240,9 @@ public class RegistreerVermistController implements Initializable, ParentControl
         }
     }
 
+    /**
+     * maak alle TextFields leeg
+     */
     public void annuleerText() {
         TextField[] annuleer = {
             voornaam,
@@ -267,6 +271,11 @@ public class RegistreerVermistController implements Initializable, ParentControl
         }
     }
 
+    /**
+     * maakt alle TextFields, DatePickers en Labels leeg en onbruikbaar
+     *
+     * @param event
+     */
     @FXML
     private void annuleerBagage(ActionEvent event) {
         denyLabel.setText("");
@@ -277,6 +286,11 @@ public class RegistreerVermistController implements Initializable, ParentControl
         showFormulier();
     }
 
+    /**
+     * zorgt ervoor dat alle velden en labels gereset worden.
+     *
+     * @param event
+     */
     @FXML
     private void nieuwFormulier(ActionEvent event) {
         opgeslagenLabel.setText("");
@@ -288,48 +302,19 @@ public class RegistreerVermistController implements Initializable, ParentControl
 
     }
 
+    /**
+     * geeft het pdf formulier weer
+     */
     private void showPDF() {
         this.bagageOpslaanVerlorenPDF.setVisible(true);
         this.BagageOpslaan.setVisible(false);
     }
 
+    /**
+     * geeft het registratie formulier weer
+     */
     private void showFormulier() {
         this.bagageOpslaanVerlorenPDF.setVisible(false);
         this.BagageOpslaan.setVisible(true);
-    }
-
-    private Parent loadFXMLFile(String fxmlFileName) {
-        try {
-            return FXMLLoader.load(getClass().getResource(fxmlFileName));
-        } catch (IOException ex) {
-            System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
-            return null;
-        }
-    }
-
-    @Override
-    public void notifyCloseChild() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void notifyChildHasUpdated() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void displayStatusMessage(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void transferObject(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteLastElement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    } 
 }
