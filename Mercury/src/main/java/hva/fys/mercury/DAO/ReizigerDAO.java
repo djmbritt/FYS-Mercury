@@ -7,6 +7,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * De class zorgt ervoor dat er informatie uit de reizigers tabel uit de
+ * database wordt gehaald.
+ *
+ * @author José Niemel
+ */
 public class ReizigerDAO {
 
     private final DatabaseManager DB_MANAGER;
@@ -28,7 +34,7 @@ public class ReizigerDAO {
                 reiziger.getEmail(), reiziger.getIATA_Code()
         );
 
-        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
         System.out.println(columnsBewerkt);
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }

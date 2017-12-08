@@ -3,13 +3,14 @@ package hva.fys.mercury.DAO;
 import hva.fys.mercury.MainApp;
 import hva.fys.mercury.models.Gebruiker;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /*
-* @author: David Britt
+ * De class zorgt ervoor dat er informatie uit de Gebruikers tabel uit de database
+ * wordt gehaald
+ * @author: David Britt 
  */
 public class GebruikerDAO {
 
@@ -21,6 +22,14 @@ public class GebruikerDAO {
         this.DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
     }
 
+    /**
+     * slaat nieuwe informatie op in de database
+     *
+     * @param gebruiker een gebruiker model met informatie
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
+     */
     public boolean registreerGebruiker(Gebruiker gebruiker) {
 
         final String INSERT_QUERY
@@ -51,13 +60,22 @@ public class GebruikerDAO {
                 gebruiker.getPostalCode()
         );
 
-        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
         DB_MANAGER.close();
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
         //Ik snap niet wat de bedoeling is van hierboven?
         //Waarom columsBewerkt gedefinieerd helemaal boven in en niet de methode zelf?
     }
 
+    /**
+     * zorgt ervoor dat bestaande informatie in de database wordt gewijzigd
+     *
+     * @param gebruiker een gebruiker model met informatie
+     *
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
+     */
     public boolean updateGebruiker(Gebruiker gebruiker) {
 
         final String UPDATE_QUERY
@@ -94,12 +112,13 @@ public class GebruikerDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
-//    public static Boolean gebruikerExistDB(int registratieNummer){
-//        String query = String.format("SELECT EmployeeID FROM Gebruikers WHERE", registratieNummer);
-//        
-////        DB_MANAGER.
-//        
-//    }
+    /**
+     * Haalt ,door middel van het van registratieNummer, gebruiker informatie in
+     * de database;
+     *
+     * @param registratieNummer registratienummer van de gebruiker
+     * @return een gebruiker model met daarin de informatie uit de database
+     */
     public Gebruiker getGebruikerDB(int registratieNummer) {
         Gebruiker gebruiker = new Gebruiker();
         try {
@@ -141,6 +160,13 @@ public class GebruikerDAO {
         return null;
     }
 
+    /**
+     * haalt alle informatie uit de gebruikers tabel van de database en geeft
+     * die informatie terug in een List van Gebruiker
+     *
+     * @return een List van Gebruiker met daarin alle informatie van de
+     * gebruikers tabel
+     */
     public List<Gebruiker> readAllGebruikerDB() {
         List<Gebruiker> gebruikerList = new ArrayList();
         try {
@@ -174,19 +200,25 @@ public class GebruikerDAO {
                 gebruikerList.add(gebruiker);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             DB_MANAGER.close();
             System.out.println(e);
         }
         return gebruikerList;
     }
 
+    /**
+     * telt het aantal gebruikers in de database en geet het aantal gebruikers
+     * terug
+     *
+     * @return aantal gebruikers in de database
+     */
     public int totaalGebruikers() {
         int totaal = 0;
         try {
             String query = "SELECT Count(*) FROM Gebruikers;";
             totaal = Integer.parseInt(DB_MANAGER.executeStringQuery(query));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
         }
         return totaal;
     }
@@ -235,6 +267,11 @@ public class GebruikerDAO {
         return gebruikerList;
     }
 
+    /**
+     * verwijdert gebruiker uit de database
+     *
+     * @param gebruiker gebruiker die uit de database verwijderd moet worden
+     */
     public void deleteGebruikerDB(Gebruiker gebruiker) {
         String query = String.format("DELETE FROM Gebruikers WHERE EmployeeID='%d';", gebruiker.getEmployeeID());
         try {
@@ -244,6 +281,11 @@ public class GebruikerDAO {
         }
     }
 
+    /**
+     * haalt een lijst met de iataCode van alle luchthavens uit database
+     *
+     * @return een List van String met daarin de IATA codes van alle luchthavens
+     */
     public List<String> getLuchtHavenList() {
         List<String> luchtHavenList = new ArrayList();
 
@@ -253,15 +295,21 @@ public class GebruikerDAO {
             while (luchthavenSet.next()) {
                 luchtHavenList.add(luchthavenSet.getString("IATA_Code"));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.err.println("getLuchtHavenError: " + e);
         }
         return luchtHavenList;
     }
 
-    
+    /**
+     * haalt, op basis van het ingevoerde email adres, het wachtwoord van de
+     * gebruiker uit de database
+     *
+     * @param userEmail email adres van de gebruiker
+     * @return een string met daarin het wachtwoord van de gebruiker
+     */
     public String getPassword(String userEmail) {
-        String resultString = null; // null?
+        String resultString = null;
         try {
             String query = String.format("SELECT Wachtwoord FROM Gebruikers WHERE WorkEmail='%s';", userEmail);
             resultString = DB_MANAGER.executeStringQuery(query);
@@ -271,6 +319,13 @@ public class GebruikerDAO {
         return resultString;
     }
 
+    /**
+     * haalt, op basis van het ingevoerde email adres, de gebruikersrol van de
+     * gebruiker uit de database
+     *
+     * @param userEmail email adres van de gebruiker
+     * @return een string met daarin de rol van de gebruiker
+     */
     public String getUserRoll(String userEmail) {
         String query = String.format("SELECT DepartmentEmployment FROM Gebruikers WHERE WorkEmail='%s';", userEmail);
         String resultString = null;

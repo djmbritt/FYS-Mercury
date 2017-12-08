@@ -2,13 +2,19 @@ package hva.fys.mercury.DAO;
 
 /**
  * *
- * builds a sample database with sample content
+ * bouwt een test Database
  *
  * @author: David Britt
  *
  */
 public class DataBaseCreator {
 
+    /**
+     * maakt een nieuw database aan en indien de database al bestaat wordt die
+     * verwijderd en vervangen door een nieuwe
+     *
+     * @param dbName naam van de database die gecreëerd moet worden
+     */
     public static void createDatabase(String dbName) {
 
         System.out.println("Creating the " + dbName + " database...");
@@ -135,7 +141,7 @@ public class DataBaseCreator {
                 + "`OverigeEigenschappen` varchar(45)  DEFAULT NULL,"
                 //                + "`ReizigerID` int(11)  DEFAULT NULL,"
                 //{Gevonden, Verloren, Afgehandeld}
-                + "`Status` varchar(45)  DEFAULT NULL," 
+                + "`Status` varchar(45)  DEFAULT NULL,"
                 + "PRIMARY KEY (`BagageRegistratieNummer`),"
                 //                + "FOREIGN KEY (`ReizigerID`) REFERENCES Reizigers(`ReizigerID`),"
                 + "FOREIGN KEY (`IATA_Code`) REFERENCES LuchtHaven(`IATA_Code`)"

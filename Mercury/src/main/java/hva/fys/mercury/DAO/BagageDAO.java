@@ -11,12 +11,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
+import javafx.beans.property.StringProperty; 
 
 /**
  * De class zorgt ervoor dat er informatie uit de bagage tabel uit de database
- * wordt gehaald en stuurt die informatie in een Bagage model naar de view.
+ * wordt gehaald.
  *
  * @author David Britt
  * @author José Niemel
