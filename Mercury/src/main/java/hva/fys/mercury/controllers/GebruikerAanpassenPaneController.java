@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author djmbritt
+ * @author David Britt
  */
 public class GebruikerAanpassenPaneController implements Initializable {
 

@@ -28,6 +28,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+/**
+ * 
+ * @author José Niemel
+ */
 public class BagageInformatieController implements Initializable {
 
     @FXML

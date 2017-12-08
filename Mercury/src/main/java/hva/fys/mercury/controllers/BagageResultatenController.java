@@ -19,6 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ *
+ * @author José Niemel
+ */
 public class BagageResultatenController implements Initializable {
 
     @FXML
