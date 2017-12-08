@@ -14,8 +14,12 @@ import java.util.logging.Logger;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
-/*
-* @author: David Britt / Jose Niemel
+/**
+ * De class zorgt ervoor dat er informatie uit de bagage tabel uit de database
+ * wordt gehaald en stuurt die informatie in een Bagage model naar de view.
+ *
+ * @author David Britt
+ * @author José Niemel
  */
 public class BagageDAO {
 
@@ -27,6 +31,13 @@ public class BagageDAO {
         this.DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
     }
 
+    /**
+     * slaat nieuwe informatie op in de bagageTabel van de database 
+     * @param bagage                      een bagage model met informatie
+     * @return                            een boolean met de waarde 'true' als de informatie succesvol is
+     *                                    opgeslagen in de database en 'false' als het niet is gelukt om de
+     *                                    informatie op te slaan
+     */
     public boolean registreerBagage(Bagage bagage) {
 
         final String INSERT_QUERY = "INSERT INTO bagage ( DateFound, TimeFound, BagageType, BrandMerk, "
@@ -57,6 +68,16 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
+    /**
+     * zorgt ervoor dat bestaande informatie in de database wordt
+     * gewijzigd
+     *
+     * @param bagage                    een bagage model met informatie
+     * 
+     * @return                          een boolean met de waarde 'true' als de informatie succesvol is
+     *                                  opgeslagen in de database en 'false' als het niet is gelukt om de
+     *                                  informatie op te slaan
+     */
     public boolean updateBagage(Bagage bagage) {
         final String UPDATE_QUERY
                 = "UPDATE Bagage "
@@ -87,6 +108,11 @@ public class BagageDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
+    /**
+     * haalt aan de hand van de ingevoerde status een lijst met data uit de database 
+     * @param status                    status van de bagage (keuze uit: "gevonden" of "verloren"
+     * @return                          een List van LocalDate met daarin de data van de bagagestukken
+     */
     public List<LocalDate> getdatesByStatus(String status) {
         List<LocalDate> dates = new ArrayList();
         String query = String.format("select datefound from Bagage where status='%s';", status);
@@ -104,39 +130,10 @@ public class BagageDAO {
         return dates;
     }
 
-    public void getAllBagage(ObservableList<Bagage> bagageList) {
-        try {
-
-            System.out.println("Getting all bagage from database");
-            String query = "SELECT * FROM Bagage;";
-            ResultSet results = DB_MANAGER.executeResultSetQuery(query);
-
-            while (results.next()) {
-                Bagage bagage = new Bagage();
-                bagage.setRegistratieID(results.getInt("BagageRegistratieNummer"));
-                bagage.setDatumGevonden(results.getString("DateFound"));
-                bagage.setTijdGevonden(results.getString("TimeFound"));
-                bagage.setBagagemerk(results.getString("BrandMerk"));
-                bagage.setBagageType(results.getString("BagageType"));
-                bagage.setBagagelabel(results.getString("BagageLabel"));
-                bagage.setGevondenLocatie(results.getString("LocatieGevonden"));
-                bagage.setPrimaireKleur(results.getString("MainColor"));
-                bagage.setSecundaireKleur(results.getString("SecondColor"));
-                bagage.setFormaat(results.getString("Grootte"));
-                bagage.setGewichtInKG(results.getString("Gewicht"));
-                bagage.setOverigeEigenschappen(results.getString("OverigeEigenschappen"));
-                bagage.setStatus(results.getString("Status"));
-                bagage.setReizigerID(results.getString("Reiziger"));
-                bagage.setIATA_Code(results.getString("IATA_Code"));
-
-                bagageList.add(bagage);
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
+     /**
+      * geeft een lijst van de 30 meest recente aangemelde bagagestukken terug
+      * @return                         een List van Bagage met daarom de 30 mmeest recent aangemelde bagagestukken
+      */
     public List<Bagage> getRecentBagage() {
         List<Bagage> bagageList = new ArrayList();
         try {
@@ -172,6 +169,11 @@ public class BagageDAO {
         return bagageList;
     }
 
+    /**
+     * Haalt ,door middel van het van bagagenummer, bagage informatie in de database;
+     * @param BagageNummer              registratienummer van de bagage
+     * @return                          een Bagage model met daarin de informatie uit de database
+     */
     public Bagage getBagage(int BagageNummer) {
         Bagage bagage = new Bagage();
 
