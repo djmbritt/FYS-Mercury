@@ -55,16 +55,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                </Button>
-<!--                                <Button id="managerBTN" fx:id="managerBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openManagerOverzicht" prefHeight="136.0" prefWidth="277.0" styleClass="-sidebar" text="Manager">
-                                    <graphic>
-                                        <ImageView id="searchBTN" fitHeight="116.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
-                                            <image>
-                                                <Image url="@../images/managerIcon.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>-->
+                                </Button> 
                                 <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="Bagage" textAlignment="CENTER">
                                     <content>
                                         <VBox prefHeight="64.0" prefWidth="252.0">

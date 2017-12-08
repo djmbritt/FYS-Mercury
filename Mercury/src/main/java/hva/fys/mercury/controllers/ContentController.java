@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 
 /**
  * FXMLController Class die de content van de applicatie beheert
+ *
  * @author Yassine Idrissi
  */
 public class ContentController implements Initializable {
@@ -26,12 +27,23 @@ public class ContentController implements Initializable {
     @FXML
     private BorderPane content;
 
+    /**
+     * geeft de parentController een waarde zodat de child taken binnen de
+     * parent uit kan voeren
+     *
+     * @param pC
+     */
     public void setParentContext(ParentControllerContext pC) {
         System.out.println("this.parentcontroller: " + pC.toString());
         this.parentController = pC;
         pC.displayStatusMessage("Logged into Content");
     }
 
+    /**
+     * Opent het gevonden registratie formulier
+     *
+     * @param event
+     */
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) {
         System.out.println("registreer bagage geopend ");
@@ -43,6 +55,11 @@ public class ContentController implements Initializable {
         workspace.getChildren().setAll(pane);
     }
 
+    /**
+     * Opent het verloren registratie formulier
+     *
+     * @param event
+     */
     @FXML
     private void openRegistreerVerlorenbagage(ActionEvent event) {
         System.out.println("verloren bagage geopend ");
@@ -56,6 +73,11 @@ public class ContentController implements Initializable {
 
     }
 
+    /**
+     * Opent het dashboard Scherm
+     *
+     * @param event
+     */
     @FXML
     private void openDashboard(ActionEvent event) {
         System.out.println("dashboard geopend ");
@@ -72,6 +94,11 @@ public class ContentController implements Initializable {
 
     }
 
+    /**
+     * Opent het scherm voor bagage zoeken
+     *
+     * @param event
+     */
     @FXML
     private void openBagageZoeken(ActionEvent event) {
         System.out.println("zoeken geopend ");
@@ -87,17 +114,11 @@ public class ContentController implements Initializable {
 
     }
 
-    @FXML
-    private void openManagerOverzicht(ActionEvent event) {
-        System.out.println("manager  geopend ");
-        Parent pane = loadFXMLFile("/fxml/managerOverzicht.fxml");
-
-        System.out.println(pane);
-        System.out.println(workspace);
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-    }
-
+    /**
+     * Brengt gebruiker terug naar het login scherm
+     *
+     * @param event
+     */
     @FXML
     private void logoutAction(ActionEvent event) {
         System.out.println("Logging out");
@@ -115,6 +136,14 @@ public class ContentController implements Initializable {
         pane.setPrefWidth(workspace.getWidth());
     }
 
+    /**
+     * Laadt een fxml bestand in een Parent object en geeft dat terug
+     *
+     * @param fxmlFileName naam van het fxml bestand die op het scherm ingeladen
+     * moet worden
+     * @return een Parent object met daarin de informatie van het fxml bestand
+     * indien er geen bestand is geselecteerd geeft het null terug
+     */
     private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
