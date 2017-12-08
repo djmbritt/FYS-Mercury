@@ -109,11 +109,6 @@ public class ContentController implements Initializable {
         workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());
         pane.setPrefWidth(workspace.getWidth());
-
-        System.out.println("worksspace size");
-        System.out.println("height=" + workspace.getHeight());
-        System.out.println("width =" + workspace.getWidth());
-        System.out.println("parent size");
     }
 
     private Parent loadFXMLFile(String fxmlFileName) {
