@@ -1,5 +1,8 @@
 package hva.fys.mercury.controllers;
 
+/**
+ * author: David Britt
+ */
 import hva.fys.mercury.controllers.ParentControllerContext;
 import hva.fys.mercury.DAO.GebruikerDAO;
 import hva.fys.mercury.models.Gebruiker;
@@ -74,6 +77,7 @@ public class AdminPanelController implements Initializable, ParentControllerCont
     @FXML
     public void handleAddItemAction() {
         gebruikerAanpassenPaneController.setParentContext(this, addItemToGebruikerList());
+        gebruikerTableView.refresh();
         showFoundLuggagePane();
     }
 
