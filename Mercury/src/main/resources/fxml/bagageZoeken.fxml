@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="947.0" prefWidth="1652.0" styleClass="Content" stylesheets="@../styles/bagagezoeken.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageZoekenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="947.0" prefWidth="1652.0" styleClass="Content" stylesheets="@../styles/bagagezoeken.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageZoekenController">
     <children>
         <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
@@ -90,23 +90,24 @@
                                                 <RowConstraints maxHeight="242.33331298828125" minHeight="10.0" prefHeight="104.33331298828125" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="Vluchtnummer:" textAlignment="RIGHT" GridPane.rowIndex="1" />
-                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="303.0" text="Merk:" GridPane.rowIndex="3" />
-                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="Locatie gevonden:" GridPane.rowIndex="5" />
+                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="%zoeken.1" textAlignment="RIGHT" GridPane.rowIndex="1" />
+                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="303.0" text="%zoeken.2" GridPane.rowIndex="3" />
+                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="%zoeken.3" GridPane.rowIndex="5" />
                                                 <TextField fx:id="vluchtnummer" prefHeight="39.0" prefWidth="316.0" styleClass="TextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                                 <TextField fx:id="merk" prefHeight="48.0" prefWidth="383.0" styleClass="TextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                                 <TextField fx:id="locatie_gevonden" styleClass="TextField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                                <Button id="searchBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zoekAction" text="Zoeken" GridPane.columnIndex="6" GridPane.rowIndex="10" />
-                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="Formaat: " GridPane.rowIndex="7" />
+                                                <Button id="searchBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zoekAction" text="%zoeken.9" GridPane.columnIndex="6" GridPane.rowIndex="10" />
+                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="%zoeken.4" GridPane.rowIndex="7" />
                                                 <TextField fx:id="formaat" styleClass="TextField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="Bagage Type:" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="Primaire kleur:" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="Secundaire kleur:" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="Bagagelabel-nummer:" GridPane.rowIndex="9" />
+                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="%zoeken.6" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="%zoeken.7" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="37.0" prefWidth="288.0" text="%zoeken.8" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                                <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="299.0" text="%zoeken.5" GridPane.rowIndex="9" />
                                                 <TextField fx:id="labelNummer" styleClass="TextField" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                                                 <ComboBox fx:id="bagageType" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                                                 <ComboBox fx:id="primaireKleur" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="6" GridPane.rowIndex="3" />
                                                 <ComboBox fx:id="secundaireKleur" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                                                <Label fx:id="errorLabel" prefHeight="27.0" prefWidth="310.0" text="Er zijn geen velden ingevuld." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                                             </children>
                                             <padding>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -121,6 +122,6 @@
                 </BorderPane>
             </content>
         </ScrollPane> 
-        <fx:include fx:id="bagageInformatie" source="BagageInformatie.fxml" visible="false"/> 
+        <fx:include fx:id="bagageInformatie" source="BagageInformatie.fxml" visible="false" /> 
     </children>
 </AnchorPane>

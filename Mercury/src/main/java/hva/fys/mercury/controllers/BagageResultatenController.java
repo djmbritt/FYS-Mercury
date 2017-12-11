@@ -18,7 +18,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+/**
+ *
+ * @author José Niemel
+ */
 public class BagageResultatenController implements Initializable {
 
     @FXML
@@ -37,7 +40,7 @@ public class BagageResultatenController implements Initializable {
 
     }
 
-    public void fillTable(List<Bagage> list) {
+    public void fillTable(List<Bagage> list) { 
         ObservableList<Bagage> bagageLijst = FXCollections.observableArrayList();
         bagageLijst.addAll(list);
         table.setItems(bagageLijst);

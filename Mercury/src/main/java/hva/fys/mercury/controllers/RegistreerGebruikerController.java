@@ -1,34 +1,23 @@
 package hva.fys.mercury.controllers;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-import hva.fys.mercury.DAO.GebruikerDAO; 
 import hva.fys.mercury.models.Gebruiker;
-import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
- * FXML Controller class
+ * FXML Controller class die de gebruikers registreert
  *
- * @author Eigenaar
+ * @author Yassine Idrissi
  */
 public class RegistreerGebruikerController implements Initializable {
-
 
     @FXML
     public TextField initialenM;
@@ -46,11 +35,24 @@ public class RegistreerGebruikerController implements Initializable {
     public TextField postcodeM;
     public TextField adresM;
     public TextField departementM;
+    @FXML
+    private Button opslaanBTNM;
+    @FXML
+    private Label opgeslagenLabelM;
+    @FXML
+    private Label denyLabelM;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * controleert of alle TextFields zijn ingevuld en geeft een boolean waarde
+     * terug
+     *
+     * @return een boolean met waarde 'true' als ze zijn ingevuld en de waarde
+     * 'false' als ze niet zijn ingevuld
+     */
     public boolean checkText() {
         TextField[] text = {
             initialenM,
@@ -74,6 +76,9 @@ public class RegistreerGebruikerController implements Initializable {
         return true;
     }
 
+    /**
+     * maakt alle TextFields onbruikbaar
+     */
     public void disableFields() {
         TextField[] text = {
             initialenM,
@@ -95,6 +100,9 @@ public class RegistreerGebruikerController implements Initializable {
         }
     }
 
+    /**
+     * maakt alle TextFields bruikbaar
+     */
     public void enableFields() {
         TextField[] text = {
             initialenM,
@@ -115,13 +123,12 @@ public class RegistreerGebruikerController implements Initializable {
         }
     }
 
-    @FXML
-    private Button opslaanBTNM;
-    @FXML
-    private Label opgeslagenLabelM;
-    @FXML
-    private Label denyLabelM;
-
+    /**
+     * Slaat alle informatie die in de textfields is opgeslagen op en verstuurt
+     * de informatie naar de database
+     *
+     * @param event
+     */
     @FXML
     private void opslaanMedewerkerM(ActionEvent event) {
         if (checkText() == false) {
@@ -151,11 +158,14 @@ public class RegistreerGebruikerController implements Initializable {
             denyLabelM.setText("");
             opgeslagenLabelM.setText("Gegevens succesvol opgeslagen!");
             System.out.println("Gegevens zijn opgeslagen!");
-            
+
 //            GebruikerDAO.registreerGebruiker(gebruiker);
         }
     }
 
+    /**
+     * maak alle TextFields leeg
+     */
     public void annuleerText() {
         TextField[] annuleer = {
             initialenM,
@@ -177,6 +187,11 @@ public class RegistreerGebruikerController implements Initializable {
         }
     }
 
+    /**
+     * maakt alle TextFields, DatePickers en Labels leeg en onbruikbaar
+     *
+     * @param event
+     */
     @FXML
     private void annuleerMedewerkerM(ActionEvent event) {
         denyLabelM.setText("");
@@ -191,6 +206,11 @@ public class RegistreerGebruikerController implements Initializable {
 
     }
 
+    /**
+     * zorgt ervoor dat alle velden en labels gereset worden.
+     *
+     * @param event
+     */
     @FXML
     private void nieuwFormulierM(ActionEvent event) {
         denyLabelM.setText("");
@@ -205,12 +225,4 @@ public class RegistreerGebruikerController implements Initializable {
         enableFields();
     }
 
-    private Parent loadFXMLFile(String fxmlFileName) {
-        try {
-            return FXMLLoader.load(getClass().getResource(fxmlFileName));
-        } catch (IOException ex) {
-            System.out.printf("\n%s: %s\n", ex.getClass().getName(), ex.getMessage());
-            return null;
-        }
-    }
 }

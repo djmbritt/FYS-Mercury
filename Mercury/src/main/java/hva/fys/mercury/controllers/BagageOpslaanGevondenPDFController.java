@@ -7,7 +7,6 @@ package hva.fys.mercury.controllers;
  */
 
 import hva.fys.mercury.models.Bagage;
-import hva.fys.mercury.models.Reiziger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,7 +16,7 @@ import javafx.scene.control.Label;
 /**
  * FXML Controller class
  *
- * @author Eigenaar
+ * @author Mitchell Wan
  */
 public class BagageOpslaanGevondenPDFController implements Initializable {
 
@@ -25,22 +24,46 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
     
     @FXML
     private Label bagageLabel;
+    @FXML
     private Label bagageTypeLabel;
+    @FXML
     private Label datumLabel;
+    @FXML
     private Label tijdLabel;
+    @FXML
     private Label vluchtLabel;
+    @FXML
     private Label locatieLabel;
+    @FXML
     private Label primaireLabel;
+    @FXML
     private Label secundaireLabel;
+    @FXML
     private Label formaatLabel;
+    @FXML
     private Label gewichtLabel;
+    @FXML
     private Label iataLabel;
+    @FXML
     private Label statusLabel;
+    @FXML
     private Label overigeLabel;
     
-    
+    /**
+     * Deze methode zorgt ervoor dat alles in deze methode wordt uitgevoerd zodra
+     * de pagina wordt opgestart
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+    }    
+    /**
+     * Deze methode zorgt ervoor dat alle labels worden gevuld met bagage informatie
+     * uit de bagagae model.
+     */
+        public void fillLabelsG() {
         bagageLabel.setText(bag.getBagagelabel());
         bagageTypeLabel.setText(bag.getBagageType());
         datumLabel.setText(bag.getDatumGevonden());
@@ -54,7 +77,6 @@ public class BagageOpslaanGevondenPDFController implements Initializable {
         iataLabel.setText(bag.getIATA_Code());
         statusLabel.setText(bag.getStatus());
         overigeLabel.setText(bag.getOverigeEigenschappen());
-    }    
-    
+}
 }
 

@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hva.fys.mercury.models;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
 
 /**
- *
- * @author GG
+ * Deze model bevat alle gebruiker informatie.
+ * @author David Britt
  */
 public class Gebruiker {
 
@@ -29,14 +25,15 @@ public class Gebruiker {
     private String PostalCode;
     private String DepartmentEmployment;
     private String HomeAdress;
+    private String WachtWoord;
 
     public Gebruiker() {
     }
 
-    public Gebruiker(int EmployeeID){
+    public Gebruiker(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
-    
+
     public Gebruiker(int EmployeeID, String Initials, String FirstName, String MiddleName, String SurName, String BirthDate, String StartEmploymentDate, String WorkEmail, String WorkingLocation, String StatusEmployment, String EndDateEmployment, String PersonalEmail, String MobilePhoneNumber, String PostalCode, String DepartmentEmployment, String HomeAdress) {
         this.EmployeeID = EmployeeID;
         this.Initials = Initials;
@@ -182,6 +179,14 @@ public class Gebruiker {
 
     public void setHomeAdress(String HomeAdress) {
         this.HomeAdress = HomeAdress;
+    }
+
+    public String getWachtWoord() {
+        return WachtWoord;
+    }
+
+    public void setWachtWoord(String WachtWoord) {
+        this.WachtWoord = WachtWoord;
     }
 
 }

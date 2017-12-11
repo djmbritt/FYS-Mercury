@@ -43,4 +43,9 @@
     -fx-font-weight: BOLD ;
     -fx-font-style: normal;  
 }
-
+.button#refreshBTN{ 
+    -fx-background-color: #01A9DB;
+}
+.button#refreshBTN:hover{
+    -fx-background-color: #00BFFF;
+}

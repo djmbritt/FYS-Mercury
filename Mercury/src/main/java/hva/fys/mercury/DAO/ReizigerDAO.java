@@ -7,6 +7,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * De class zorgt ervoor dat er informatie uit de reizigers tabel uit de
+ * database wordt gehaald.
+ *
+ * @author José Niemel
+ */
 public class ReizigerDAO {
 
     private final DatabaseManager DB_MANAGER;
@@ -17,6 +23,14 @@ public class ReizigerDAO {
         DB_MANAGER = new DatabaseManager(MainApp.DATABASE_NAME);
     }
 
+    /**
+     * slaat nieuwe informatie op in de reizigers Tabel van de database
+     *
+     * @param reiziger een reiziger model met informatie
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
+     */
     public boolean registreerReiziger(Reiziger reiziger) {
         final String INSERT_QUERY = "INSERT INTO Reizigers "
                 + "( voornaam, achternaam, woonplaats, adres, land, telefoon, email, iata_code) "
@@ -28,11 +42,20 @@ public class ReizigerDAO {
                 reiziger.getEmail(), reiziger.getIATA_Code()
         );
 
-        int columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
+        columnsBewerkt = DB_MANAGER.executeUpdateQuery(insertString);
         System.out.println(columnsBewerkt);
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
+    /**
+     * zorgt ervoor dat bestaande informatie in de database wordt gewijzigd
+     *
+     * @param reiziger een reiziger model met informatie
+     *
+     * @return een boolean met de waarde 'true' als de informatie succesvol is
+     * opgeslagen in de database en 'false' als het niet is gelukt om de
+     * informatie op te slaan
+     */
     public boolean bewerkReiziger(Reiziger reiziger) {
         final String UPDATE_QUERY = "UPDATE Reizigers "
                 + "SET voornaam='%s', achternaam='%s', woonplaats='%s', "
@@ -47,6 +70,13 @@ public class ReizigerDAO {
         return (columnsBewerkt >= MINIMUM_EDITED_COLUMN);
     }
 
+    /**
+     * Haalt ,door middel van het van de achternaam en de woonplaats, reiziger informatie in de
+     * database;
+     *
+     * @param id een string met daarin de achternaam en de woonplaats van de reiziger
+     * @return een Reiziger model met daarin de informatie uit de database
+     */
     public Reiziger getReiziger(String id) {
         String[] reizigerID = id.split(", ");
         final String SELECT_QUERY = "SELECT * FROM Reizigers where achternaam ='%s' AND woonplaats='%s'";
