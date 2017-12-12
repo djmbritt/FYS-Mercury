@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.AdminPanelController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.AdminPanelController">
     <children>
         <BorderPane layoutX="220.0" layoutY="140.0" stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -32,10 +32,10 @@
                         <Image url="@../images/corendon_icon.png" />
                      </image>
                   </ImageView>
-                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAddItemAction" prefHeight="136.0" prefWidth="262.0" text="Add" />
-                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDeleteItemAction" prefHeight="136.0" prefWidth="262.0" text="Delete" />
-                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChangeItemAction" prefHeight="136.0" prefWidth="262.0" text="Change" />
-                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleExitAction" prefHeight="136.0" prefWidth="262.0" text="Logout" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAddItemAction" prefHeight="136.0" prefWidth="262.0" text="%admin.1" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDeleteItemAction" prefHeight="136.0" prefWidth="262.0" text="%admin.2" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChangeItemAction" prefHeight="136.0" prefWidth="262.0" text="%admin.3" />
+                  <Button id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleExitAction" prefHeight="136.0" prefWidth="262.0" text="%admin.4" />
                </children>
                 </VBox>
             </left>

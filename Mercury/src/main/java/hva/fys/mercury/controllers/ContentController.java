@@ -20,7 +20,7 @@ import javafx.scene.layout.StackPane;
  */
 public class ContentController implements Initializable {
 
-    static Locale locale;
+    public static Locale locale;
     private ParentControllerContext parentController;
 
     @FXML
@@ -49,7 +49,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) throws IOException {
         System.out.println("registreer bagage geopend ");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", new Locale("nl", "NL"));
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GevondenBagageFormulier.fxml"), bundle);
         Parent pane = loader.load();
 
@@ -65,9 +65,11 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openRegistreerVerlorenbagage(ActionEvent event) {
+    private void openRegistreerVerlorenbagage(ActionEvent event) throws IOException {
         System.out.println("verloren bagage geopend ");
-        Parent pane = loadFXMLFile("/fxml/VerlorenBagageFormulier.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VerlorenBagageFormulier.fxml"), bundle);
+        Parent pane = loader.load();
 //        Parent pane = loadFXMLFile("/fxml/BagageOpslaanVerlorenPDF.fxml");
 
         System.out.println(pane);
@@ -83,9 +85,11 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openDashboard(ActionEvent event) {
+    private void openDashboard(ActionEvent event) throws IOException {
         System.out.println("dashboard geopend ");
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
+        AnchorPane pane = loader.load();
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());

@@ -68,6 +68,7 @@ public class LoginController implements Initializable, ParentControllerContext {
         System.out.println("loading Admin Pane");
         System.out.println("loginAnchor: " + this.loginAnchor);
         System.out.println("adminPanel: " + this.adminPanel);
+        
         this.parentNode.setVisible(false);
         this.adminPanel.setVisible(true);
     }

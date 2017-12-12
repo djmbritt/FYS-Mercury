@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
  
@@ -22,8 +23,11 @@ public class MainApp extends Application {
      
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
+    public void start(Stage stage) throws Exception { 
+        ContentController.locale = new Locale("en", "US");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", ContentController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
+        Parent root = loader.load();
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
 //        Parent root = loader.load();
         Scene scene = new Scene(root);
