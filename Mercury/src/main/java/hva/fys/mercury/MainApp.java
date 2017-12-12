@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.application.Application; 
 import javafx.event.ActionEvent;
+import javafx.application.Application; 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +21,7 @@ public class MainApp extends Application {
 
     public final static String DATABASE_NAME = "MercuryTest";
 
-     
-    
+
     @Override
     public void start(Stage stage) throws Exception { 
         ContentController.locale = new Locale("en", "US");

@@ -21,6 +21,7 @@ import javafx.scene.layout.StackPane;
 public class ContentController implements Initializable {
 
     public static Locale locale;
+
     private ParentControllerContext parentController;
 
     @FXML
@@ -70,6 +71,8 @@ public class ContentController implements Initializable {
         ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VerlorenBagageFormulier.fxml"), bundle);
         Parent pane = loader.load();
+
+//        Parent pane = loadFXMLFile("/fxml/VerlorenBagageFormulier.fxml");
 //        Parent pane = loadFXMLFile("/fxml/BagageOpslaanVerlorenPDF.fxml");
 
         System.out.println(pane);

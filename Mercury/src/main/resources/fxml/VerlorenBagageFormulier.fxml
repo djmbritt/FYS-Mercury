@@ -16,7 +16,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.RegistreerVermistController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/8.0.141" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.RegistreerVermistController">
     <children>
         <ScrollPane>
             <content>
@@ -25,6 +27,7 @@
                         <StackPane BorderPane.alignment="CENTER">
                             <children>
                                 <GridPane fx:id="BagageOpslaan">
+
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,11 +38,13 @@
                                     </rowConstraints>
                                     <children>
                                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="550.0" stylesheets="@../styles/registreervermist.css" text="%verloren.26">
+
                                             <font>
                                                 <Font size="22.0" />
                                             </font>
                                         </Label>
                                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="560.0" text="%verloren.27" GridPane.columnIndex="1">
+
                                             <font>
                                                 <Font size="22.0" />
                                             </font>
@@ -73,6 +78,7 @@
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.2" GridPane.rowIndex="1" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.3" GridPane.rowIndex="2" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.4" GridPane.rowIndex="3" />
+
                                                         <TextField id="voornaam" fx:id="voornaam" prefHeight="27.0" prefWidth="140.0" styleClass="Opslaantextbox" GridPane.columnIndex="1" />
                                                         <TextField id="achternaam" fx:id="achternaam" styleClass="Opslaantextbox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                         <TextField id="adres" fx:id="adres" styleClass="Opslaantextbox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -85,6 +91,7 @@
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.6" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.7" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.8" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
                                                     </children>
                                                 </GridPane>
                                                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -162,6 +169,7 @@
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.14" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.21" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.22" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
                                                         <TextField id="IATA" fx:id="IATA" styleClass="Opslaantextbox" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                                                         <TextField id="overigeEigenschappen" fx:id="overigeEigenschappen" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                                                         <ComboBox id="bagageType" fx:id="bagageType" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="2" GridPane.rowIndex="6" />
@@ -191,6 +199,7 @@
                                     </rowConstraints>
                                     <children>
                                         <Button id="newFormBTN" fx:id="newFormBTN" mnemonicParsing="false" onAction="#nieuwFormulier" prefHeight="24.0" prefWidth="124.0" stylesheets="@../styles/registreervermist.css" text="%verloren.23" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
                                     </children>
                                 </GridPane>
                                 <Pane prefHeight="200.0" prefWidth="200.0" />
@@ -207,6 +216,7 @@
                                     </rowConstraints>
                                     <children>
                                         <Button id="annuleerBTN" fx:id="annuleerBTN" mnemonicParsing="false" onAction="#annuleerBagage" prefHeight="27.0" prefWidth="89.0" stylesheets="@../styles/registreervermist.css" text="%verloren.24" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
                                     </children>
                                 </GridPane>
                                 <GridPane prefHeight="58.0" prefWidth="200.0">
@@ -222,6 +232,7 @@
                                     </rowConstraints>
                                     <children>
                                         <Button id="opslaanBTN" fx:id="opslaanBTN" mnemonicParsing="false" onAction="#opslaanBagage" prefHeight="27.0" prefWidth="99.0" stylesheets="@../styles/registreervermist.css" text="%verloren.25" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
                                     </children>
                                 </GridPane>
                                 <!--<fx:include fx:id="bagageOpslaanVerlorenPDF" source="BagageOpslaanVerlorenPDF.fxml" visible="false" />--> 
