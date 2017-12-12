@@ -1,6 +1,8 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
+import hva.fys.mercury.MainApp;
+import static hva.fys.mercury.MainApp.stage1;
 import java.io.IOException;
 import java.net.URL;
 import java.security.InvalidKeyException;
@@ -12,9 +14,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -143,14 +147,33 @@ public class LoginController implements Initializable, ParentControllerContext {
     }
     
     @FXML
-    private void naarNl(ActionEvent event) {
+    private void naarNl(ActionEvent event) throws IOException {
         ContentController.locale = new Locale("nl", "NL");
+        MainApp.stage1.close();
+        restartStage();
     }
     
     @FXML
-    private void naarEn(ActionEvent event) {
+    private void naarEn(ActionEvent event) throws IOException {
         ContentController.locale = new Locale("en", "US");
-
+        MainApp.stage1.close();
+        restartStage();
+    }
+    
+    private void restartStage() throws IOException {
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", ContentController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
+        Parent root = loader.load();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+//        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        stage1.setTitle("Mercury");
+        stage1.getIcons().add(new Image("/images/corendon_icon.png"));
+        stage1.setMaximized(false);
+        //  stage.setResizable(false);
+        stage1.setScene(scene);
+        stage1.show();
     }
 
     @Override
