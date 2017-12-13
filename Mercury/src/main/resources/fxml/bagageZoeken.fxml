@@ -30,7 +30,7 @@
                                 <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label styleClass="Title" text="Zoeken" GridPane.rowIndex="1">
+                                <Label styleClass="Title" text="%zoeken.9" GridPane.rowIndex="1">
                                     <padding>
                                         <Insets left="30.0" />
                                     </padding>

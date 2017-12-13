@@ -139,7 +139,7 @@ public class ContentController implements Initializable {
     private void logoutAction(ActionEvent event) {
         System.out.println("Logging out");
         this.parentController.notifyCloseChild();
-
+        
     }
 
     @Override
