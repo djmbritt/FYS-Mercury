@@ -46,23 +46,23 @@
                     <children>
                         <TableView fx:id="gebruikerTableView" editable="true" styleClass="-sidebar" stylesheets="@../styles/content.css">
                             <columns>
-                                <TableColumn fx:id="EmployeeID" editable="false" prefWidth="96.0" text="%admin.5" />
-                                <TableColumn fx:id="Initials" editable="false" prefWidth="82.0" text="%admin.6" />
-                                <TableColumn fx:id="FirstName" editable="false" minWidth="1.0" prefWidth="87.0" text="%admin.7" />
-                                <TableColumn fx:id="MiddleName" editable="false" prefWidth="83.0" text="%admin.8" />
-                                <TableColumn fx:id="SurName" editable="false" prefWidth="86.0" text="%admin.9" />
-                                <TableColumn fx:id="BirthDate" prefWidth="75.0" text="%admin.10" />
-                                <TableColumn fx:id="StartEmploymentDate" prefWidth="75.0" text="%admin.11" />
-                                <TableColumn fx:id="WorkEmail" prefWidth="75.0" text="%admin.12" />
-                                <TableColumn fx:id="WorkingLocation" prefWidth="75.0" text="%admin.13" />
-                                <TableColumn fx:id="StatusEmployment" prefWidth="75.0" text="%admin.14" />
-                                <TableColumn fx:id="EndDateEmployment" prefWidth="75.0" text="%admin.15" />
-                                <TableColumn fx:id="PersonalEmail" prefWidth="75.0" text="%admin.16" />
-                                <TableColumn fx:id="MobilePhoneNumber" prefWidth="75.0" text="%admin.17" />
-                                <TableColumn fx:id="HomePhoneNumber" prefWidth="75.0" text="%admin.18" />
-                                <TableColumn fx:id="DepartmentEmployment" prefWidth="75.0" text="%admin.19" />
-                                <TableColumn fx:id="HomeAdress" prefWidth="75.0" text="%admin.20" />
-                                <TableColumn fx:id="PostalCode" prefWidth="75.0" text="%admin.21" />
+                                <TableColumn fx:id="EmployeeID" editable="false" prefWidth="96.0" text="EmployeeID" />
+                                <TableColumn fx:id="Initials" editable="false" prefWidth="82.0" text="Initials" />
+                                <TableColumn fx:id="FirstName" editable="false" minWidth="1.0" prefWidth="87.0" text="First Name" />
+                                <TableColumn fx:id="MiddleName" editable="false" prefWidth="83.0" text="MiddleName" />
+                                <TableColumn fx:id="SurName" editable="false" prefWidth="86.0" text="SurName" />
+                                <TableColumn fx:id="BirthDate" prefWidth="75.0" text="BirthDate" />
+                                <TableColumn fx:id="StartEmploymentDate" prefWidth="75.0" text="StartEmploymentDate" />
+                                <TableColumn fx:id="WorkEmail" prefWidth="75.0" text="GebruikersNaam" />
+                                <TableColumn fx:id="WorkingLocation" prefWidth="75.0" text="WorkingLocation" />
+                                <TableColumn fx:id="StatusEmployment" prefWidth="75.0" text="StatusEmployment" />
+                                <TableColumn fx:id="EndDateEmployment" prefWidth="75.0" text="EndDateEmployment" />
+                                <TableColumn fx:id="PersonalEmail" prefWidth="75.0" text="PersonalEmail" />
+                                <TableColumn fx:id="MobilePhoneNumber" prefWidth="75.0" text="MobilePhoneNumber" />
+                                <TableColumn fx:id="HomePhoneNumber" prefWidth="75.0" text="HomePhoneNumber" />
+                                <TableColumn fx:id="DepartmentEmployment" prefWidth="75.0" text="DepartmentEmployment" />
+                                <TableColumn fx:id="HomeAdress" prefWidth="75.0" text="HomeAdress" />
+                                <TableColumn fx:id="PostalCode" prefWidth="75.0" text="PostalCode" />
                             </columns>
                         </TableView>
                         <fx:include fx:id="gebruikerAanpassenPane" source="GebruikerAanpassenPane.fxml" visible="false" />

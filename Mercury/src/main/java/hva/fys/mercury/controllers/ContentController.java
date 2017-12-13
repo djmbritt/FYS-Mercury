@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -144,18 +142,12 @@ public class ContentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            System.out.println("dashboard geopend ");
-            ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
-            AnchorPane pane = loader.load();
-            workspace.getChildren().clear();
-            workspace.getChildren().setAll(pane);
-            pane.setPrefHeight(workspace.getHeight());
-            pane.setPrefWidth(workspace.getWidth());
-        } catch (IOException ex) {
-            Logger.getLogger(ContentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("dashboard geopend ");
+        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
+        workspace.getChildren().clear();
+        workspace.getChildren().setAll(pane);
+        pane.setPrefHeight(workspace.getHeight());
+        pane.setPrefWidth(workspace.getWidth());
     }
 
     /**

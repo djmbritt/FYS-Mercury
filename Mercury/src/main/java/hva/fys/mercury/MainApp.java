@@ -20,13 +20,10 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     public final static String DATABASE_NAME = "MercuryTest";
-    
-    public static Stage stage1;
 
 
     @Override
     public void start(Stage stage) throws Exception { 
-        stage1 = stage;
         ContentController.locale = new Locale("en", "US");
         ResourceBundle bundle = ResourceBundle.getBundle("UIResources", ContentController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
@@ -35,12 +32,12 @@ public class MainApp extends Application {
 //        Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        stage1.setTitle("Mercury");
-        stage1.getIcons().add(new Image("/images/corendon_icon.png"));
-        stage1.setMaximized(false);
+        stage.setTitle("Mercury");
+        stage.getIcons().add(new Image("/images/corendon_icon.png"));
+        stage.setMaximized(false);
         //  stage.setResizable(false);
-        stage1.setScene(scene);
-        stage1.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
