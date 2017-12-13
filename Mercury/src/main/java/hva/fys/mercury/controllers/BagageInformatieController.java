@@ -198,7 +198,7 @@ public class BagageInformatieController implements Initializable {
     private List<String> getLocationsFromDB() {
         List<String> locaties = new ArrayList<>();
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
-        String query = "Select LuchtHavenNaam From luchtHaven";
+        String query = "Select LuchtHavenNaam From LuchtHaven";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {
@@ -291,7 +291,7 @@ public class BagageInformatieController implements Initializable {
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> kleuren = new ArrayList();
         kleuren.add("");
-        String query = "Select * From kleuren";
+        String query = "Select * From Kleuren";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {
@@ -312,7 +312,7 @@ public class BagageInformatieController implements Initializable {
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> types = new ArrayList();
         types.add("");
-        String query = "Select * From bagagetypes";
+        String query = "Select * From BagageTypes";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {

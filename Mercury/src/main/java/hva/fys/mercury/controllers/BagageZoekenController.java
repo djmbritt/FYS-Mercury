@@ -108,7 +108,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> kleuren = new ArrayList();
         kleuren.add("");
-        String query = "Select * From kleuren";
+        String query = "Select * From Kleuren";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {
@@ -132,7 +132,7 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> types = new ArrayList();
         types.add("");
-        String query = "Select * From bagagetypes";
+        String query = "Select * From BagageTypes";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {

@@ -40,7 +40,7 @@ public class BagageDAO {
      */
     public boolean registreerBagage(Bagage bagage) {
 
-        final String INSERT_QUERY = "INSERT INTO bagage ( DateFound, TimeFound, BagageType, BrandMerk, "
+        final String INSERT_QUERY = "INSERT INTO Bagage ( DateFound, TimeFound, BagageType, BrandMerk, "
                 + " BagageLabel, LocatieGevonden, MainColor, SecondColor, Formaat, Gewicht, OverigeEigenschappen, Status ) "
                 + "values ( '%s', '%s','%s', '%s', '%s', '%s', "
                 + "'%s', '%s', '%s', '%s', '%s', '%s' "
@@ -141,7 +141,7 @@ public class BagageDAO {
         List<Bagage> bagageList = new ArrayList();
         try {
 
-            System.out.println("Getting all bagage from database");
+            System.out.println("Getting all Bagage from database");
             String query = "SELECT * FROM Bagage ORDER BY BagageRegistratieNummer  LIMIT 30;";
             ResultSet results = DB_MANAGER.executeResultSetQuery(query);
 
@@ -222,7 +222,7 @@ public class BagageDAO {
      */
     public List<Bagage> zoekBagage(List<StringProperty> zoekParameters) {
         List<Bagage> bagageLijst = new ArrayList<>();
-        String query = "SELECT * FROM bagage where";
+        String query = "SELECT * FROM Bagage where";
         String paramFormat = " %s= '%s' AND";
 
         int laatsteParameter = zoekParameters.size() - 1;
