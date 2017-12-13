@@ -63,8 +63,8 @@
                                                 <Insets right="6.0" top="6.0" />
                                             </padding>
                                             <children>
-                                                <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
-                                                <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
+                                                <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="%dashboard.15" textAlignment="CENTER" />
+                                                <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="%dashboard.16" textAlignment="CENTER" />
                                             </children>
                                         </VBox>
                                     </content>

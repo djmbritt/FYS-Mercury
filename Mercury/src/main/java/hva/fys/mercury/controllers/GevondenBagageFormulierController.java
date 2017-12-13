@@ -57,23 +57,25 @@ public class GevondenBagageFormulierController implements Initializable {
     @FXML
     private GridPane BagageOpslaanG;
 
+    ResourceBundle RsBundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dbBagage = new BagageDAO();
         statusG.getItems().addAll(
-                "Vermist",
-                "Gevonden",
-                "Afgehandeld"
+                RsBundle.getString("gevonden.5"),
+                RsBundle.getString("gevonden.6"),
+                RsBundle.getString("gevonden.7")
         );
         bagageTypeG.getItems().addAll(
-                "Koffer",
-                "Tas",
-                "Rugzak",
-                "Doos",
-                "Sporttas",
-                "Zakenkoffer",
-                "Kist",
-                "Anders"
+                RsBundle.getString("gevonden.8"),
+                RsBundle.getString("gevonden.9"),
+                RsBundle.getString("gevonden.10"),
+                RsBundle.getString("gevonden.11"),
+                RsBundle.getString("gevonden.12"),
+                RsBundle.getString("gevonden.13"),
+                RsBundle.getString("gevonden.14"),
+                RsBundle.getString("gevonden.15")
         );
     }
 

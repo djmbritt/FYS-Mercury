@@ -47,6 +47,8 @@ public class DashboardController implements Initializable {
     @FXML
     Label chartLabel;
 
+    ResourceBundle RsBundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fillTable();
@@ -64,7 +66,7 @@ public class DashboardController implements Initializable {
         int amountPerDay = 1;
         int previous;
         XYChart.Series gevonden = new XYChart.Series();
-        gevonden.setName("Gevonden");
+        gevonden.setName(RsBundle.getString("dashboard.15"));
         for (int i = 0; i < gevondenDates.size(); i++) {
             previous = i - 1;
             if ((gevondenDates.get(i).equals(previous))) {
@@ -74,7 +76,7 @@ public class DashboardController implements Initializable {
             amountPerDay++;
         }
         XYChart.Series verloren = new XYChart.Series();
-        verloren.setName("Verloren");
+        verloren.setName(RsBundle.getString("dashboard.16"));
         for (int i = 0; i < verlorenDates.size(); i++) {
             previous = i - 1;
             if ((verlorenDates.get(i).equals(previous))) {
@@ -96,8 +98,8 @@ public class DashboardController implements Initializable {
         int verloren = dao.getStatusBagageSize("verloren");
         ObservableList<PieChart.Data> pieChartData
                 = FXCollections.observableArrayList(
-                        new PieChart.Data("Gevonden", gevonden),
-                        new PieChart.Data("Verloren", verloren)
+                        new PieChart.Data(RsBundle.getString("dashboard.15"), gevonden),
+                        new PieChart.Data(RsBundle.getString("dashboard.16"), verloren)
                 );
         pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("All Time");
@@ -113,7 +115,7 @@ public class DashboardController implements Initializable {
      */
     private void berekenPercentage(int verloren, int gevonden) {
         final int MAXIMUM_PERCENTAGE = 100;
-        String format = "%.1f%% van de verloren bagage is gevonden";
+        String format = RsBundle.getString("dashboard.17");
         double totaal = verloren + gevonden;
         double percentage = gevonden / totaal * MAXIMUM_PERCENTAGE;
         String text = String.format(format, percentage);

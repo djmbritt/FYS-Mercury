@@ -33,6 +33,7 @@ import javafx.scene.control.TextField;
  */
 public class GebruikerAanpassenPaneController implements Initializable {
 
+    ResourceBundle RsBundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
     /*
     Zet je textfield voor je gebruikeraanpassen.fxml text fields hier beneden
      */
@@ -79,7 +80,7 @@ public class GebruikerAanpassenPaneController implements Initializable {
     private Gebruiker gebruiker;
 
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
-    ObservableList<String> statusList = FXCollections.<String>observableArrayList("Werkenzaam", "Ontslagen", "Met Verlof", "Vakantie", "Afgewezen", "Gesoliciteerd");
+    ObservableList<String> statusList = FXCollections.<String>observableArrayList(RsBundle.getString("admin.22"), RsBundle.getString("admin.23"), RsBundle.getString("admin.24"), RsBundle.getString("admin.25"), RsBundle.getString("admin.26"), RsBundle.getString("admin.27"));
     ObservableList<String> werkLocatieList = FXCollections.<String>observableArrayList(gebruikerDAO.getLuchtHavenList());
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 

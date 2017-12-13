@@ -4,7 +4,6 @@ import hva.fys.mercury.DAO.DataBaseCreator;
 import hva.fys.mercury.DAO.PopulateDB;
 import hva.fys.mercury.controllers.ContentController;
 import hva.fys.mercury.controllers.LoginController;
-import hva.fys.mercury.controllers.languageHandler;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.application.Application; 
