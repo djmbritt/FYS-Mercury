@@ -3,6 +3,7 @@ package hva.fys.mercury;
 import hva.fys.mercury.DAO.DataBaseCreator;
 import hva.fys.mercury.DAO.PopulateDB;
 import hva.fys.mercury.controllers.ContentController;
+import hva.fys.mercury.controllers.LoginController;
 import hva.fys.mercury.controllers.languageHandler;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -27,8 +28,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception { 
         stage1 = stage;
-        ContentController.locale = new Locale("en", "US");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", ContentController.locale);
+        LoginController.locale = new Locale("en", "US");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
         Parent root = loader.load();
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));

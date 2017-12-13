@@ -22,7 +22,7 @@ import javafx.scene.layout.StackPane;
  */
 public class ContentController implements Initializable {
 
-    public static Locale locale;
+//    public static Locale locale;
 
     private ParentControllerContext parentController;
 
@@ -52,7 +52,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openRegistreerGevondenbagage(ActionEvent event) throws IOException {
         System.out.println("registreer bagage geopend ");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GevondenBagageFormulier.fxml"), bundle);
         Parent pane = loader.load();
 
@@ -70,7 +70,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openRegistreerVerlorenbagage(ActionEvent event) throws IOException {
         System.out.println("verloren bagage geopend ");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VerlorenBagageFormulier.fxml"), bundle);
         Parent pane = loader.load();
 
@@ -92,7 +92,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openDashboard(ActionEvent event) throws IOException {
         System.out.println("dashboard geopend ");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
         AnchorPane pane = loader.load();
         workspace.getChildren().clear();
@@ -115,7 +115,7 @@ public class ContentController implements Initializable {
     @FXML
     private void openBagageZoeken(ActionEvent event) throws IOException {
         System.out.println("zoeken geopend ");
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bagageZoeken.fxml"), bundle);
         AnchorPane pane = loader.load();
         
@@ -146,7 +146,7 @@ public class ContentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             System.out.println("dashboard geopend ");
-            ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+            ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
             AnchorPane pane = loader.load();
             workspace.getChildren().clear();

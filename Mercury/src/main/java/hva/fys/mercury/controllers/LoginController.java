@@ -62,7 +62,9 @@ public class LoginController implements Initializable, ParentControllerContext {
     //childnodeContentController
     @FXML
     private ContentController contentController;
-
+    
+    public static Locale locale;
+    
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
 
     /**
@@ -148,20 +150,20 @@ public class LoginController implements Initializable, ParentControllerContext {
     
     @FXML
     private void naarNl(ActionEvent event) throws IOException {
-        ContentController.locale = new Locale("nl", "NL");
         MainApp.stage1.close();
+        this.locale = new Locale("nl", "NL");
         restartStage();
     }
     
     @FXML
     private void naarEn(ActionEvent event) throws IOException {
-        ContentController.locale = new Locale("en", "US");
         MainApp.stage1.close();
+        this.locale = new Locale("en", "US");
         restartStage();
     }
     
     private void restartStage() throws IOException {
-        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", ContentController.locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", this.locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
         Parent root = loader.load();
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
@@ -178,7 +180,7 @@ public class LoginController implements Initializable, ParentControllerContext {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    ContentController.locale = new Locale("en", "US");
+//    this.locale = new Locale("en", "US");
     }
 
     /**
