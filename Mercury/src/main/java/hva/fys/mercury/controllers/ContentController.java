@@ -2,7 +2,10 @@ package hva.fys.mercury.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +21,8 @@ import javafx.scene.layout.StackPane;
  * @author Yassine Idrissi
  */
 public class ContentController implements Initializable {
+
+//    public static Locale locale;
 
     private ParentControllerContext parentController;
 
@@ -45,9 +50,11 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openRegistreerGevondenbagage(ActionEvent event) {
+    private void openRegistreerGevondenbagage(ActionEvent event) throws IOException {
         System.out.println("registreer bagage geopend ");
-        Parent pane = loadFXMLFile("/fxml/GevondenBagageFormulier.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GevondenBagageFormulier.fxml"), bundle);
+        Parent pane = loader.load();
 
         System.out.println(pane);
         System.out.println(workspace);
@@ -61,9 +68,13 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openRegistreerVerlorenbagage(ActionEvent event) {
+    private void openRegistreerVerlorenbagage(ActionEvent event) throws IOException {
         System.out.println("verloren bagage geopend ");
-        Parent pane = loadFXMLFile("/fxml/VerlorenBagageFormulier.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VerlorenBagageFormulier.fxml"), bundle);
+        Parent pane = loader.load();
+
+//        Parent pane = loadFXMLFile("/fxml/VerlorenBagageFormulier.fxml");
 //        Parent pane = loadFXMLFile("/fxml/BagageOpslaanVerlorenPDF.fxml");
 
         System.out.println(pane);
@@ -79,9 +90,11 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openDashboard(ActionEvent event) {
+    private void openDashboard(ActionEvent event) throws IOException {
         System.out.println("dashboard geopend ");
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
+        AnchorPane pane = loader.load();
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());
@@ -100,9 +113,12 @@ public class ContentController implements Initializable {
      * @param event
      */
     @FXML
-    private void openBagageZoeken(ActionEvent event) {
+    private void openBagageZoeken(ActionEvent event) throws IOException {
         System.out.println("zoeken geopend ");
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/bagageZoeken.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bagageZoeken.fxml"), bundle);
+        AnchorPane pane = loader.load();
+        
         workspace.getChildren().clear();
         workspace.getChildren().setAll(pane);
         pane.setPrefHeight(workspace.getHeight());
@@ -123,17 +139,23 @@ public class ContentController implements Initializable {
     private void logoutAction(ActionEvent event) {
         System.out.println("Logging out");
         this.parentController.notifyCloseChild();
-
+        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("dashboard geopend ");
-        AnchorPane pane = (AnchorPane) loadFXMLFile("/fxml/Dashboard.fxml");
-        workspace.getChildren().clear();
-        workspace.getChildren().setAll(pane);
-        pane.setPrefHeight(workspace.getHeight());
-        pane.setPrefWidth(workspace.getWidth());
+        try {
+            System.out.println("dashboard geopend ");
+            ResourceBundle bundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"), bundle);
+            AnchorPane pane = loader.load();
+            workspace.getChildren().clear();
+            workspace.getChildren().setAll(pane);
+            pane.setPrefHeight(workspace.getHeight());
+            pane.setPrefWidth(workspace.getWidth());
+        } catch (IOException ex) {
+            Logger.getLogger(ContentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

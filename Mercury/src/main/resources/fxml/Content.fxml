@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="990.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.ContentController">
     <children>
         <BorderPane stylesheets="@../styles/content.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
@@ -38,7 +38,7 @@
                         </ImageView>
                         <VBox prefHeight="724.0" prefWidth="335.0" spacing="5.0" GridPane.rowIndex="2">
                             <children>
-                                <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openDashboard" prefHeight="136.0" prefWidth="262.0" text="Dashboard">
+                                <Button id="dashboardBTN" fx:id="dashboardBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openDashboard" prefHeight="136.0" prefWidth="262.0" text="%content.1">
                                     <graphic>
                                         <ImageView fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -47,7 +47,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="136.0" prefWidth="277.0" text="Zoeken">
+                                <Button id="dashboardBTN" fx:id="searchBTN" contentDisplay="TOP" mnemonicParsing="false" onAction="#openBagageZoeken" prefHeight="136.0" prefWidth="277.0" text="%content.2">
                                     <graphic>
                                         <ImageView id="searchBTN" fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                                             <image>
@@ -56,15 +56,15 @@
                                         </ImageView>
                                     </graphic>
                                 </Button> 
-                                <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="Bagage" textAlignment="CENTER">
+                                <TitledPane id="newFormBTN" alignment="CENTER" expanded="false" prefHeight="17.0" prefWidth="262.0" styleClass="button" text="%content.3" textAlignment="CENTER">
                                     <content>
                                         <VBox prefHeight="64.0" prefWidth="252.0">
                                             <padding>
                                                 <Insets right="6.0" top="6.0" />
                                             </padding>
                                             <children>
-                                                <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="Gevonden" textAlignment="CENTER" />
-                                                <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="Vermiste" textAlignment="CENTER" />
+                                                <Button id="newFormITEM" fx:id="foundFormBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openRegistreerGevondenbagage" prefHeight="44.0" prefWidth="309.0" text="%dashboard.15" textAlignment="CENTER" />
+                                                <Button id="newFormITEM" fx:id="lostFormBTN" alignment="CENTER" mnemonicParsing="false" onAction="#openRegistreerVerlorenbagage" prefHeight="44.0" prefWidth="309.0" text="%dashboard.16" textAlignment="CENTER" />
                                             </children>
                                         </VBox>
                                     </content>
@@ -82,7 +82,7 @@
                                 <Insets bottom="5.0" />
                             </padding>
                         </VBox>
-                        <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logoutAction" prefHeight="136.0" prefWidth="277.0" text="Uitloggen" GridPane.rowIndex="3">
+                        <Button id="logoutBTN" fx:id="logoutBTN" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logoutAction" prefHeight="136.0" prefWidth="277.0" text="%content.4" GridPane.rowIndex="3">
                             <graphic>
                                 <ImageView id="logoutBTN" fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                                     <image>

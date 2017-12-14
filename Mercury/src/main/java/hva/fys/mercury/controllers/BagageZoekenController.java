@@ -64,6 +64,8 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
     @FXML
     private BagageInformatieController bagageInformatieController;
 
+    ResourceBundle RsBundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+    
     /**
      * opent de resultaten pagina
      *
@@ -106,11 +108,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> kleuren = new ArrayList();
         kleuren.add("");
-        String query = "Select * From kleuren";
+        String query = "Select * From Kleuren";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {
-                kleuren.add(rs.getString("Engels"));
+                kleuren.add(rs.getString(RsBundle.getString("zoeken.10")));
             }
 
             dbman.close();
@@ -130,11 +132,11 @@ public class BagageZoekenController implements Initializable, ParentControllerCo
         DatabaseManager dbman = new DatabaseManager(MainApp.DATABASE_NAME);
         List<String> types = new ArrayList();
         types.add("");
-        String query = "Select * From bagagetypes";
+        String query = "Select * From BagageTypes";
         try {
             ResultSet rs = dbman.executeResultSetQuery(query);
             while (rs.next()) {
-                types.add(rs.getString("Engels"));
+                types.add(rs.getString(RsBundle.getString("zoeken.10")));
             }
 
             dbman.close();

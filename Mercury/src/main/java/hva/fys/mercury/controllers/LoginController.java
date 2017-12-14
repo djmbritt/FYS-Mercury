@@ -1,19 +1,24 @@
 package hva.fys.mercury.controllers;
 
 import hva.fys.mercury.DAO.GebruikerDAO;
+import hva.fys.mercury.MainApp;
+import static hva.fys.mercury.MainApp.stage1;
 import java.io.IOException;
 import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -57,7 +62,9 @@ public class LoginController implements Initializable, ParentControllerContext {
     //childnodeContentController
     @FXML
     private ContentController contentController;
-
+    
+    public static Locale locale;
+    
     GebruikerDAO gebruikerDAO = new GebruikerDAO();
 
     /**
@@ -67,6 +74,7 @@ public class LoginController implements Initializable, ParentControllerContext {
         System.out.println("loading Admin Pane");
         System.out.println("loginAnchor: " + this.loginAnchor);
         System.out.println("adminPanel: " + this.adminPanel);
+
         this.parentNode.setVisible(false);
         this.adminPanel.setVisible(true);
     }
@@ -139,10 +147,40 @@ public class LoginController implements Initializable, ParentControllerContext {
         }
 
     }
+    
+    @FXML
+    private void naarNl(ActionEvent event) throws IOException {
+        MainApp.stage1.close();
+        this.locale = new Locale("nl", "NL");
+        restartStage();
+    }
+    
+    @FXML
+    private void naarEn(ActionEvent event) throws IOException {
+        MainApp.stage1.close();
+        this.locale = new Locale("en", "US");
+        restartStage();
+    }
+    
+    private void restartStage() throws IOException {
+        ResourceBundle bundle = ResourceBundle.getBundle("UIResources", this.locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"), bundle);
+        Parent root = loader.load();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+//        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        stage1.setTitle("Mercury");
+        stage1.getIcons().add(new Image("/images/corendon_icon.png"));
+        stage1.setMaximized(false);
+        //  stage.setResizable(false);
+        stage1.setScene(scene);
+        stage1.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+//    this.locale = new Locale("en", "US");
     }
 
     /**

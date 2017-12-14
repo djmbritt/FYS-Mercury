@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="947.0" prefWidth="1652.0" stylesheets="@../styles/bagageinformatie.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageInformatieController">
+<AnchorPane id="AnchorPane" prefHeight="947.0" prefWidth="1652.0" stylesheets="@../styles/bagageinformatie.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hva.fys.mercury.controllers.BagageInformatieController">
     <BorderPane prefHeight="659.0" prefWidth="1098.0" styleClass="Content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <center>
             <GridPane BorderPane.alignment="CENTER">
@@ -27,12 +27,12 @@
                     <RowConstraints maxHeight="624.0" minHeight="10.0" prefHeight="559.0" vgrow="SOMETIMES" />
                 </rowConstraints>
                 <children>
-                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="550.0" text="Reiziger Informatie">
+                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="550.0" text="%informatie.5">
                         <font>
                             <Font size="22.0" />
                         </font>
                     </Label>
-                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="560.0" text="Bagage Informatie" GridPane.columnIndex="1">
+                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="560.0" text="%informatie.1" GridPane.columnIndex="1">
                         <font>
                             <Font size="22.0" />
                         </font>
@@ -62,10 +62,10 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Voornaam:" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Achternaam:" GridPane.rowIndex="1" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Adres:" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Woonplaats:" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.2" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.3" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="%verloren.4" GridPane.rowIndex="3" />
                                     <TextField id="voornaam" fx:id="voornaam" prefHeight="27.0" prefWidth="140.0" styleClass="Opslaantextbox" GridPane.columnIndex="1" />
                                     <TextField id="achternaam" fx:id="achternaam" styleClass="Opslaantextbox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField id="adres" fx:id="adres" styleClass="Opslaantextbox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -74,10 +74,10 @@
                                     <TextField id="land" fx:id="land" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                                     <TextField id="telefoonnummer" fx:id="telefoonnummer" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                                     <TextField id="email" fx:id="email" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="Postcode:" GridPane.columnIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="Land:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="Telefoonnummer:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="Email:" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.5" GridPane.columnIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.6" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.7" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="117.0" text="%verloren.8" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                 </children>
                             </GridPane>
                             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -137,22 +137,22 @@
                                     <TextField id="locatieGevonden" fx:id="locatieGevonden" styleClass="Opslaantextbox" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                                     <TextField id="merk" fx:id="merk" styleClass="Opslaantextbox" GridPane.columnIndex="4" />
                                     <TextField id="formaat" fx:id="formaat" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Bagage Label:" GridPane.columnIndex="1" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Vluchtnummer:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Datum Gevonden:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Tijd Gevonden:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Locatie Gevonden:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Bagage Type:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Merk:" GridPane.columnIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Primaire Kleur:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Secundaire Kleur:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Formaat(cm):" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Gewicht(kg):" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.9" GridPane.columnIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.11" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.12" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.13" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.15" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.16" GridPane.columnIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.17" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.18" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.19" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.20" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                                     <DatePicker id="datumGevonden" fx:id="datumGevonden" styleClass="Opslaantextbox" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                     <TextField id="gewicht" fx:id="gewicht" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="IATA Code:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="Status:" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                    <Label prefHeight="17.0" prefWidth="153.0" text="Overige Eigenschappen:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="%verloren.14" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="%verloren.21" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                    <Label prefHeight="17.0" prefWidth="153.0" text="%verloren.22" GridPane.columnIndex="3" GridPane.rowIndex="6" />
                                     <TextField id="IATA" fx:id="iATA" styleClass="Opslaantextbox" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                                     <TextField id="overigeEigenschappen" fx:id="overigeEigenschappen" styleClass="Opslaantextbox" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                                     <ComboBox id="bagageType" fx:id="bagageType" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="2" GridPane.rowIndex="6" />
@@ -188,7 +188,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                     </GridPane>
-                    <Label alignment="CENTER_RIGHT" prefHeight="71.0" prefWidth="376.0" styleClass="Title" text="Bagage Informatie" GridPane.rowIndex="1" />
+                    <Label alignment="CENTER_RIGHT" prefHeight="71.0" prefWidth="376.0" styleClass="Title" text="%informatie.1" GridPane.rowIndex="1" />
                 </children>
             </GridPane>
         </top>
@@ -209,9 +209,9 @@
                         <children>
                             <HBox fx:id="buttonBox" prefHeight="39.0" prefWidth="405.0" spacing="5.0">
                                 <children>
-                                    <Button id="terugBTN" mnemonicParsing="false" onAction="#terug" text="Annuleer" />
-                                    <Button id="bewerkBTN" fx:id="bewerkKnop" mnemonicParsing="false" onAction="#edit" text="Bewerken" />
-                                    <Button id="veranderLocatieBTN" mnemonicParsing="false" onAction="#locationChange" text="Verander Locatie" />
+                                    <Button id="terugBTN" mnemonicParsing="false" onAction="#terug" text="%informatie.2" />
+                                    <Button id="bewerkBTN" fx:id="bewerkKnop" mnemonicParsing="false" onAction="#edit" text="%informatie.3" />
+                                    <Button id="veranderLocatieBTN" mnemonicParsing="false" onAction="#locationChange" text="%informatie.4" />
                                 </children>
                             </HBox>
                             <HBox fx:id="editButtonBar" prefHeight="100.0" prefWidth="200.0" spacing="5.0" visible="false">

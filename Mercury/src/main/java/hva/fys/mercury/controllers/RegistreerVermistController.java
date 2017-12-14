@@ -90,8 +90,25 @@ public class RegistreerVermistController implements Initializable  {
 
     private ParentControllerContext parentController;
 
+    ResourceBundle RsBundle = ResourceBundle.getBundle("UIResources", LoginController.locale);
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        status.getItems().addAll(
+                RsBundle.getString("gevonden.5"),
+                RsBundle.getString("gevonden.6"),
+                RsBundle.getString("gevonden.7")
+        );
+        bagageType.getItems().addAll(
+                RsBundle.getString("gevonden.8"),
+                RsBundle.getString("gevonden.9"),
+                RsBundle.getString("gevonden.10"),
+                RsBundle.getString("gevonden.11"),
+                RsBundle.getString("gevonden.12"),
+                RsBundle.getString("gevonden.13"),
+                RsBundle.getString("gevonden.14"),
+                RsBundle.getString("gevonden.15")
+        );
     }
 
     /**
