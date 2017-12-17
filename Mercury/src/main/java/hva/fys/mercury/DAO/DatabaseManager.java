@@ -1,5 +1,6 @@
 package hva.fys.mercury.DAO;
 
+import hva.fys.mercury.MainApp;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -10,10 +11,12 @@ import java.util.Enumeration;
 
 public class DatabaseManager {
 
-    private static final String DB_DEFAULT_DATABASE = "sys";
+//    private static final String DB_DEFAULT_DATABASE = "sys";
+    private static final String DB_DEFAULT_DATABASE = MainApp.DATABASE_NAME;
     private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
     private static final String DB_DEFAULT_ACCOUNT = "root";
-    private static final String DB_DEFAULT_PASSWORD = "admin";
+    private static final String DB_DEFAULT_PASSWORD = MainApp.DATABASE_PASSWORD;
+//    private static final String DB_DEFAULT_PASSWORD = "admin";
 //    private static final String DB_DEFAULT_PASSWORD = "root";
     // private static final String DB_DEFAULT_PASSWORD = "kunming2000"; 
 //         private static final String DB_DEFAULT_PASSWORD = "SQLww"; 
