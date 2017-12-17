@@ -1,3 +1,7 @@
+/*
+ * Empty Stylesheet file.
+ */
+
  
 .header{
     -fx-background-color: #d81e05; 
@@ -28,42 +32,35 @@
     -fx-faint-focus-color: transparent;
 }
 
-.button#opslaanBTN{
+.button#opslaanBTNM{
     -fx-background-color: #6db93f; 
     -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#opslaanBTN:hover{
+.button#opslaanBTNM:hover{
     -fx-background-color: #76cc42;
 }
 
-.button#annuleerBTN{
+.button#annuleerBTNM{
     -fx-background-color: #d81e05; 
     -fx-border-color: #d81e05;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#annuleerBTN:hover{
+.button#annuleerBTNM:hover{
     -fx-background-color: #f92306;
 }
 
-.button#newFormBTN{
+.button#newFormBTNM{
     -fx-background-color: #6db93f; 
     -fx-border-color: #6db93f;
     -fx-border-radius: 5px;
     -fx-text-fill: #ffffff;
 }
 
-.button#newFormBTN:hover{
+.button#newFormBTNM:hover{
     -fx-background-color: #76cc42;
-}
-
-.ComboBox{  
-    -fx-background-color: #fdfdfd;
-    -fx-border-color: #808080;
-    -fx-border-radius: 10px;
-    
 }
